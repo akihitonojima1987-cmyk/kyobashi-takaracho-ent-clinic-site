@@ -3,70 +3,688 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex, nofollow" />
-<title>準備中 | 岩佐耳鼻咽喉科</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
+<meta name="description" content="岩佐耳鼻咽喉科の検査費用・お支払い方法のご案内。健康保険3割負担の場合の目安料金、自費検査・文書作成費用などを掲載しています。" />
+<link rel="canonical" href="https://kyobashi-ent.com/fees.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="岩佐耳鼻咽喉科" />
+<meta property="og:url" content="https://kyobashi-ent.com/fees.html" />
+<meta property="og:title" content="費用について | 岩佐耳鼻咽喉科" />
+<meta property="og:description" content="岩佐耳鼻咽喉科の検査費用・お支払い方法のご案内。健康保険3割負担の場合の目安料金、自費検査・文書作成費用などを掲載しています。" />
+<meta property="og:image" content="https://kyobashi-ent.com/og-image.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="費用について | 岩佐耳鼻咽喉科" />
+<meta name="twitter:description" content="岩佐耳鼻咽喉科の検査費用・お支払い方法のご案内。健康保険3割負担の場合の目安料金、自費検査・文書作成費用などを掲載しています。" />
+<title>費用について | 岩佐耳鼻咽喉科</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet" />
 <style>
+  :root {
+    --color-primary: #1f5f8b;
+    --color-primary-light: #4a8bb8;
+    --color-accent: #e9f2f8;
+    --color-text: #2b2b2b;
+    --color-text-light: #6b6b6b;
+    --color-bg: #ffffff;
+    --color-bg-soft: #f7f9fb;
+    --color-border: #e5e9ed;
+    --max-width: 1200px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { min-height: 100vh; }
-  body {
-    font-family: "Noto Sans JP", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, #f4f7fa 0%, #ffffff 100%);
-    color: #2d2d2d;
-    padding: 24px;
-    line-height: 1.8;
+  html { scroll-behavior: smooth; }
+  body { font-family: "Noto Sans JP", sans-serif; font-weight: 400; color: var(--color-text); line-height: 1.8; background: var(--color-bg); -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; transition: opacity var(--transition); }
+  a:hover { opacity: 0.7; }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  .header { position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid var(--color-border); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+  .logo { font-size: 18px; font-weight: 500; letter-spacing: 0.05em; color: var(--color-primary); }
+  .logo span { display: block; font-size: 11px; letter-spacing: 0.2em; color: var(--color-text-light); font-weight: 400; margin-top: 2px; }
+  .nav { display: flex; align-items: center; gap: 32px; }
+  .nav-list { display: flex; list-style: none; gap: 28px; }
+  .nav-list a { font-size: 14px; font-weight: 500; letter-spacing: 0.05em; position: relative; }
+  .nav-list a.active { color: var(--color-primary); }
+  .nav-list a::after { content: ""; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--color-primary); transition: width var(--transition); }
+  .nav-list a:hover::after, .nav-list a.active::after { width: 100%; }
+  .nav-list .has-submenu { position: relative; }
+  .nav-list .submenu-toggle::before { content: "▾"; font-size: 10px; margin-left: 6px; opacity: 0.55; display: inline-block; vertical-align: middle; transition: transform 0.2s; float: right; margin-top: 1px; }
+  .has-submenu:hover .submenu-toggle::before { transform: rotate(-180deg); opacity: 1; }
+  .submenu { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: #fff; list-style: none; padding: 10px 0; min-width: 200px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border: 1px solid var(--color-border); border-radius: 4px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease, top 0.2s ease; z-index: 101; }
+  .submenu::before { content: ""; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #fff; }
+  .has-submenu:hover .submenu, .has-submenu:focus-within .submenu { opacity: 1; visibility: visible; top: 100%; }
+  .submenu li { display: block; }
+  .submenu a { display: block; padding: 10px 20px; font-size: 13px; font-weight: 400; white-space: nowrap; letter-spacing: 0.05em; color: var(--color-text); }
+  .submenu a::after { display: none !important; }
+  .submenu a:hover { background: #f4f7fa; color: var(--color-primary); }
+  .submenu a.active { color: var(--color-primary); font-weight: 500; }
+  .nav-tel { display: flex; align-items: center; gap: 6px; padding: 10px 20px; background: var(--color-primary); color: #fff; border-radius: 30px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; }
+  .nav-tel:hover { background: var(--color-primary-light); opacity: 1; }
+  .menu-btn { display: none; width: 32px; height: 32px; background: none; border: none; cursor: pointer; position: relative; }
+  .menu-btn span { display: block; width: 24px; height: 1px; background: var(--color-text); position: absolute; left: 4px; transition: var(--transition); }
+  .menu-btn span:nth-child(1) { top: 10px; }
+  .menu-btn span:nth-child(2) { top: 16px; }
+  .menu-btn span:nth-child(3) { top: 22px; }
+  .menu-btn.active span:nth-child(1) { top: 16px; transform: rotate(45deg); }
+  .menu-btn.active span:nth-child(2) { opacity: 0; }
+  .menu-btn.active span:nth-child(3) { top: 16px; transform: rotate(-45deg); }
+
+  /* Page Hero */
+  .page-hero { min-height: 520px; padding: 120px 0 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e9f2f8 0%, #f7f9fb 100%); position: relative; overflow: hidden; }
+  .page-hero::before { content: ""; position: absolute; top: -20%; right: -10%; width: 50%; height: 80%; background: radial-gradient(circle, rgba(74, 139, 184, 0.12) 0%, transparent 60%); border-radius: 50%; }
+  .page-hero::after { content: ""; position: absolute; bottom: -30%; left: -10%; width: 50%; height: 80%; background: radial-gradient(circle, rgba(31, 95, 139, 0.08) 0%, transparent 60%); border-radius: 50%; }
+  .page-hero-inner { text-align: center; position: relative; z-index: 1; }
+  .page-hero-label { font-family: "Cormorant Garamond", serif; font-size: 14px; letter-spacing: 0.3em; color: var(--color-primary); margin-bottom: 16px; text-transform: uppercase; }
+  .page-hero-title { font-size: clamp(28px, 4vw, 42px); font-weight: 500; letter-spacing: 0.1em; color: var(--color-text); }
+  .page-hero-tagline { font-size: clamp(40px, 7vw, 72px); font-weight: 500; letter-spacing: 0.15em; color: var(--color-primary); margin: 32px 0 20px; line-height: 1.2; font-family: "Noto Sans JP", sans-serif; }
+  .page-hero-lead { font-size: 15px; color: var(--color-text-light); max-width: 620px; margin: 0 auto; line-height: 2; }
+
+  /* Breadcrumb */
+  .breadcrumb { padding: 20px 0; font-size: 13px; color: var(--color-text-light); background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
+  .breadcrumb a { color: var(--color-primary); }
+  .breadcrumb span { margin: 0 8px; opacity: 0.5; }
+
+  /* Section common */
+  section { padding: 80px 0; }
+  .section-head { text-align: center; margin-bottom: 56px; }
+  .section-label { font-family: "Cormorant Garamond", serif; font-size: 14px; letter-spacing: 0.3em; color: var(--color-primary); margin-bottom: 12px; text-transform: uppercase; }
+  .section-title { font-size: clamp(24px, 3.5vw, 34px); font-weight: 500; letter-spacing: 0.1em; line-height: 1.5; }
+  .section-title-bar { width: 40px; height: 1px; background: var(--color-primary); margin: 24px auto 0; }
+
+  /* Payment Methods */
+  .payment { background: var(--color-bg); }
+  .payment-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto 32px; }
+  .payment-card { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 24px 16px; text-align: center; transition: var(--transition); }
+  .payment-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(31,95,139,0.08); }
+  .payment-icon { width: 48px; height: 48px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; color: var(--color-primary); background: var(--color-accent); border-radius: 50%; }
+  .payment-card h3 { font-size: 14px; font-weight: 500; letter-spacing: 0.05em; margin-bottom: 6px; color: var(--color-primary); }
+  .payment-card p { font-size: 11px; color: var(--color-text-light); line-height: 1.7; }
+  .payment-note { max-width: 760px; margin: 0 auto; padding: 20px 28px; background: var(--color-accent); border-left: 3px solid var(--color-primary); border-radius: 4px; font-size: 14px; color: var(--color-text); line-height: 1.9; }
+
+  /* Insurance Notice */
+  .insurance { background: var(--color-bg-soft); }
+  .insurance-inner { max-width: 880px; margin: 0 auto; }
+  .insurance-card { background: #fff; padding: 40px 36px; border-radius: 8px; border: 1px solid var(--color-border); }
+  .insurance-card h3 { font-size: 18px; font-weight: 500; color: var(--color-primary); margin-bottom: 16px; letter-spacing: 0.05em; }
+  .insurance-card p { font-size: 14px; color: var(--color-text); line-height: 2; margin-bottom: 12px; }
+  .insurance-card .formula { padding: 18px 24px; background: var(--color-bg-soft); border-radius: 4px; margin: 18px 0; font-size: 14px; color: var(--color-text); border-left: 3px solid var(--color-primary-light); letter-spacing: 0.05em; }
+  .insurance-card .formula strong { color: var(--color-primary); font-weight: 500; }
+  .insurance-card .small { font-size: 13px; color: var(--color-text-light); }
+
+  /* Symptom Estimate Table */
+  .symptom { background: var(--color-bg); }
+  .symptom-table-wrap { max-width: 1040px; margin: 0 auto; overflow-x: auto; background: #fff; border: 1px solid var(--color-border); border-radius: 8px; }
+  .symptom-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  .symptom-table th, .symptom-table td { padding: 16px 20px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+  .symptom-table thead th { background: var(--color-primary); color: #fff; font-weight: 500; letter-spacing: 0.05em; font-size: 13px; text-align: center; }
+  .symptom-table tbody td.center { text-align: center; }
+  .symptom-table tbody tr:nth-child(even) { background: var(--color-bg-soft); }
+  .symptom-table tbody tr:last-child td { border-bottom: none; }
+  .symptom-table .symptom-name { font-weight: 500; color: var(--color-primary); }
+  .symptom-table .price { font-family: "Cormorant Garamond", serif; font-size: 18px; font-weight: 500; color: var(--color-primary); }
+
+  /* Fee Categories */
+  .fees { background: var(--color-bg-soft); }
+  .fees-intro { max-width: 760px; margin: 0 auto 48px; text-align: center; font-size: 14px; color: var(--color-text-light); line-height: 2; }
+  .fee-category { max-width: 880px; margin: 0 auto 32px; background: #fff; border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; }
+  .fee-category-head { padding: 16px 28px; background: var(--color-primary); color: #fff; font-size: 16px; font-weight: 500; letter-spacing: 0.1em; display: flex; align-items: center; gap: 12px; }
+  .fee-category-head .icon { display: inline-flex; width: 24px; height: 24px; }
+  .fee-table { width: 100%; border-collapse: collapse; }
+  .fee-table tr { border-bottom: 1px solid var(--color-border); }
+  .fee-table tr:last-child { border-bottom: none; }
+  .fee-table td { padding: 14px 28px; font-size: 14px; line-height: 1.7; }
+  .fee-table td:first-child { color: var(--color-text); }
+  .fee-table td:last-child { text-align: right; font-family: "Cormorant Garamond", serif; font-size: 16px; color: var(--color-primary); font-weight: 500; white-space: nowrap; min-width: 130px; }
+  .fee-table tr:nth-child(even) { background: var(--color-bg-soft); }
+  .fee-table .note { font-size: 12px; color: var(--color-text-light); display: block; margin-top: 4px; }
+
+  /* Self-pay (Documents etc.) */
+  .selfpay { background: var(--color-bg); }
+  .selfpay-intro { max-width: 760px; margin: 0 auto 40px; text-align: center; font-size: 14px; color: var(--color-text-light); line-height: 2; }
+
+  /* Notice */
+  .notice { background: var(--color-bg-soft); padding: 64px 0; }
+  .notice-card { max-width: 880px; margin: 0 auto; background: #fff; padding: 32px 36px; border-radius: 8px; border: 1px solid var(--color-border); border-top: 3px solid var(--color-primary); }
+  .notice-card h3 { font-size: 16px; font-weight: 500; color: var(--color-primary); margin-bottom: 16px; letter-spacing: 0.05em; }
+  .notice-card ul { list-style: none; }
+  .notice-card ul li { position: relative; padding-left: 18px; margin-bottom: 8px; font-size: 13px; color: var(--color-text-light); line-height: 1.95; }
+  .notice-card ul li::before { content: "※"; position: absolute; left: 0; color: var(--color-primary-light); }
+
+  /* Contact */
+  .contact { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%); color: #fff; text-align: center; padding: 80px 0; }
+  .contact h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 500; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .contact p { font-size: 14px; opacity: 0.9; margin-bottom: 32px; line-height: 2; }
+  .contact-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 720px; margin: 0 auto; }
+  .contact-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 32px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); }
+  .contact-card .label { font-family: "Cormorant Garamond", serif; font-size: 12px; letter-spacing: 0.2em; opacity: 0.8; margin-bottom: 12px; text-transform: uppercase; }
+  .contact-card .value { font-family: "Cormorant Garamond", serif; font-size: 28px; font-weight: 500; color: #fff; letter-spacing: 0.05em; display: block; margin-bottom: 8px; }
+  .contact-card .note { font-size: 12px; opacity: 0.8; letter-spacing: 0.05em; }
+
+  /* Footer */
+  .footer { background: #2b2b2b; color: #fff; padding: 64px 0 32px; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .footer-logo { font-size: 18px; font-weight: 500; letter-spacing: 0.05em; margin-bottom: 12px; }
+  .footer-logo span { display: block; font-size: 11px; letter-spacing: 0.2em; opacity: 0.6; font-weight: 400; margin-top: 4px; }
+  .footer-address { font-size: 13px; opacity: 0.7; line-height: 2; }
+  .footer-nav { display: flex; gap: 32px; list-style: none; flex-wrap: wrap; }
+  .footer-nav a { font-size: 13px; opacity: 0.7; letter-spacing: 0.05em; }
+  .footer-nav a:hover { opacity: 1; }
+  .copyright { text-align: center; padding-top: 32px; font-size: 12px; opacity: 0.5; letter-spacing: 0.1em; font-family: "Cormorant Garamond", serif; }
+
+  /* Animations */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* Mobile booking bar */
+  .mobile-book-bar { display: none; }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .payment-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-cards { grid-template-columns: 1fr; }
   }
-  .container {
-    text-align: center;
-    max-width: 560px;
-    padding: 56px 32px;
-    background: #ffffff;
-    border: 1px solid #d0dde6;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  h1 {
-    font-size: 32px;
-    font-weight: 400;
-    color: #1c4f7e;
-    margin-bottom: 28px;
-    letter-spacing: 0.4em;
-  }
-  .divider {
-    width: 56px;
-    height: 1px;
-    background: #b8965a;
-    margin: 0 auto 28px;
-  }
-  p {
-    font-size: 15px;
-    color: #555;
-    line-height: 2.0;
-    letter-spacing: 0.05em;
-  }
-  .clinic-name {
-    font-size: 14px;
-    color: #888;
-    margin-top: 36px;
-    padding-top: 20px;
-    border-top: 1px solid #e5e9ed;
-    letter-spacing: 0.15em;
-    font-weight: 500;
-  }
-  @media (max-width: 480px) {
-    .container { padding: 40px 20px; }
-    h1 { font-size: 24px; letter-spacing: 0.3em; }
+  @media (max-width: 768px) {
+    section { padding: 64px 0; }
+    .nav-list, .nav-tel { display: none; }
+    .menu-btn { display: block; }
+    .nav.open { position: fixed; top: 72px; left: 0; right: 0; background: #fff; border-top: 1px solid var(--color-border); padding: 24px; flex-direction: column; align-items: stretch; }
+    .nav.open .nav-list { display: flex; flex-direction: column; gap: 16px; }
+    .nav.open .submenu { position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none; border: none; padding: 8px 0 0 20px; background: transparent; min-width: 0; }
+    .nav.open .submenu::before { display: none; }
+    .nav.open .submenu a { padding: 8px 0; font-size: 13.5px; }
+    .nav.open .has-submenu { display: block; }
+    .nav.open .nav-tel { display: inline-flex; justify-content: center; margin-top: 16px; }
+    .section-head { margin-bottom: 40px; }
+    .insurance-card { padding: 28px 22px; }
+    .fee-category-head { padding: 14px 20px; font-size: 14px; }
+    .fee-table td { padding: 12px 18px; font-size: 13px; }
+    .fee-table td:last-child { font-size: 14px; min-width: 100px; }
+    /* 症状別概算費用テーブル: モバイルではカード型に変換 */
+    .symptom-table-wrap { overflow-x: visible; background: transparent; border: none; border-radius: 0; }
+    .symptom-table { min-width: 0; display: block; }
+    .symptom-table thead { display: none; }
+    .symptom-table tbody { display: block; }
+    .symptom-table tr { display: block; background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+    .symptom-table tr:nth-child(even) { background: #fff; }
+    .symptom-table td { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--color-border); font-size: 13px; text-align: left; }
+    .symptom-table td.center { text-align: right; }
+    .symptom-table td:last-child { border-bottom: none; }
+    .symptom-table td.symptom-name { display: block; font-size: 15px; font-weight: 500; padding: 0 0 10px; margin-bottom: 4px; border-bottom: 1px solid var(--color-border); }
+    .symptom-table td:nth-of-type(2)::before { content: "算定項目"; }
+    .symptom-table td:nth-of-type(3)::before { content: "点数（目安）"; }
+    .symptom-table td:nth-of-type(4)::before { content: "自己負担額（3割）"; }
+    .symptom-table td:nth-of-type(2)::before,
+    .symptom-table td:nth-of-type(3)::before,
+    .symptom-table td:nth-of-type(4)::before { flex-shrink: 0; color: var(--color-text-light); font-weight: 500; font-size: 12px; min-width: 7em; }
+    .symptom-table .price { font-size: 16px; }
+    .page-hero-tagline { font-size: 38px; letter-spacing: 0.06em; }
+    body { padding-bottom: 64px; }
+    .mobile-book-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 99;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+    }
+    .mobile-book-bar a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 18px 8px; font-size: 14px; font-weight: 500; letter-spacing: 0.05em;
+      color: #fff; text-decoration: none;
+    }
+    .mobile-book-bar a:hover { opacity: 1; }
+    .mobile-book-bar .mb-tel { background: var(--color-primary); }
+    .mobile-book-bar .mb-web { background: var(--color-primary-light); }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "岩佐耳鼻咽喉科",
+  "alternateName": "IWASA ENT CLINIC",
+  "url": "https://kyobashi-ent.com/",
+  "telephone": "+81-3-3567-8733",
+  "image": "https://kyobashi-ent.com/og-image.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "京橋2-12-4 光和ビル2階",
+    "addressLocality": "中央区",
+    "addressRegion": "東京都",
+    "postalCode": "104-0031",
+    "addressCountry": "JP"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 35.6781,
+    "longitude": 139.7706
+  },
+  "medicalSpecialty": "Otolaryngologic",
+  "priceRange": "¥¥",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
+      "opens": "10:00",
+      "closes": "12:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
+      "opens": "15:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Wednesday",
+      "opens": "10:00",
+      "closes": "12:30"
+    }
+  ],
+  "areaServed": ["東京都中央区", "京橋", "宝町", "八丁堀"]
+}
+</script>
 </head>
 <body>
-<main class="container">
-  <h1>準備中</h1>
-  <div class="divider"></div>
-  <p>このサイトは現在準備中です。<br />今しばらくお待ちください。</p>
-  <p class="clinic-name">岩佐耳鼻咽喉科</p>
-</main>
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      岩佐耳鼻咽喉科
+      <span>IWASA ENT CLINIC</span>
+    </a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li class="has-submenu">
+          <a href="index.html#services" class="submenu-toggle">診療案内</a>
+          <ul class="submenu">
+            <li><a href="clinic.html">クリニック紹介</a></li>
+            <li><a href="index.html#info">受付時間</a></li>
+            <li><a href="fees.html" class="active">費用について</a></li>
+            <li><a href="notices.html">書面掲示について</a></li>
+            <li><a href="clinic.html#affiliates">提携医療機関</a></li>
+          </ul>
+        </li>
+        <li><a href="visiting.html">受診される方へ</a></li>
+        <li><a href="index.html#news">お知らせ</a></li>
+        <li><a href="recruit.html">求人情報</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+        <li><a href="index.html#info">アクセス</a></li>
+        <li><a href="clinic-overview.html">クリニック概要</a></li>
+      </ul>
+      <a href="#" onclick="alert('準備中です'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" class="nav-tel" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        WEB予約
+      </a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-label">Fees</p>
+    <h1 class="page-hero-title">費用について</h1>
+    <p class="page-hero-lead">
+      当院では、ワクチンや一部自費検査を除き、ほぼ全て保険診療を行っています。<br />
+      現在はお支払い方法として現金のみ承っております(キャッシュレス決済準備中)。
+    </p>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html">ホーム</a>
+    <span>/</span>
+    費用について
+  </div>
+</div>
+
+<!-- Payment -->
+<section class="payment">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Payment</p>
+      <h2 class="section-title">当院のお会計方法</h2>
+      <div class="section-title-bar"></div>
+    </div>
+
+    <div class="payment-grid fade-in">
+      <div class="payment-card">
+        <div class="payment-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M9 9.5h4.5a2 2 0 010 4H9.5a2 2 0 000 4H15"/></svg>
+        </div>
+        <h3>現金</h3>
+        <p>窓口にてお支払い</p>
+      </div>
+    </div>
+
+    <p class="payment-note fade-in">
+      ※ 現在はお支払い方法として現金のみ承っております。クレジットカード・QRコード決済・交通系ICなどのキャッシュレス決済は現在準備中です。
+    </p>
+  </div>
+</section>
+
+<!-- Insurance Notice -->
+<section class="insurance">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Insurance</p>
+      <h2 class="section-title">保険診療について</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <div class="insurance-inner fade-in">
+      <div class="insurance-card">
+        <h3>当院は健康保険による診療を行っております</h3>
+        <p>
+          当院での診察は、ワクチン接種や一部の自費検査などを除き、ほぼすべて保険診療として行っております。マイナ保険証を必ずお持ちください。
+        </p>
+        <div class="formula">
+          <strong>ご負担金額</strong> ＝ ① 診察料（初診料・再診料） ＋ ② 処置料 ＋ ③ 検査料 ＋ ④ 処方箋料 ＋ ⑤ その他加算
+        </div>
+        <p class="small">
+          ※ お薬を処方された方は、調剤薬局で別途お薬代が必要となります。<br />
+          ※ 以下の表はすべて<strong>3割負担の場合</strong>の目安金額です。所得や年齢により負担割合が異なる場合がございます。<br />
+          ※ 18歳以下で公費対象の方は、自己負担なしでご受診いただけます（自治体により異なります）。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Symptom Estimate Table -->
+<section class="symptom">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Estimate</p>
+      <h2 class="section-title">症状別 概算費用</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <div class="symptom-table-wrap fade-in">
+      <table class="symptom-table">
+        <thead>
+          <tr>
+            <th>症状</th>
+            <th>算定項目</th>
+            <th>点数（目安）</th>
+            <th>自己負担額（目安）<br /><small>※3割負担の場合</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="symptom-name">風邪症状（コロナ検査）</td>
+            <td>初診料 ＋ 付随する加算<br />処方箋料 / COVID抗原</td>
+            <td class="center">800点</td>
+            <td class="price">2,400円</td>
+          </tr>
+          <tr>
+            <td class="symptom-name">アレルギー性鼻炎</td>
+            <td>初診料 / 処方箋料</td>
+            <td class="center">380点</td>
+            <td class="price">1,150円</td>
+          </tr>
+          <tr>
+            <td class="symptom-name">Bスポット治療（初回）</td>
+            <td>初診料 / 処方箋料<br />ネブライザー / 鼻腔ファイバー</td>
+            <td class="center">980点</td>
+            <td class="price">2,940円</td>
+          </tr>
+          <tr>
+            <td class="symptom-name">副鼻腔炎（内視鏡施行）</td>
+            <td>初診料 / 処方箋料<br />ネブライザー / 鼻腔ファイバー</td>
+            <td class="center">980点</td>
+            <td class="price">2,940円</td>
+          </tr>
+          <tr>
+            <td class="symptom-name">聴こえの症状</td>
+            <td>初診料 / 処方箋料<br />ティンパノメトリー / 標準純音聴力検査</td>
+            <td class="center">1,020点</td>
+            <td class="price">3,070円</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fees-intro fade-in" style="margin-top: 32px;">
+      上記はあくまでも目安の金額です。症状や検査内容により実際の費用は変動いたします。
+    </p>
+  </div>
+</section>
+
+<!-- Fees by Category -->
+<section class="fees">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Fee List</p>
+      <h2 class="section-title">検査・処置別 費用一覧</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <p class="fees-intro fade-in">
+      以下はすべて<strong>3割負担の場合</strong>の目安金額です。診察料・処方箋料は別途必要となります。
+    </p>
+
+    <!-- 内視鏡 -->
+    <div class="fee-category fade-in">
+      <div class="fee-category-head">
+        <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v6M9 5h6"/><circle cx="12" cy="14" r="6"/><path d="M9 14h6"/></svg></span>
+        内視鏡
+      </div>
+      <table class="fee-table">
+        <tr><td>喉頭ファイバースコープ</td><td>1,800円</td></tr>
+        <tr><td>鼻咽腔ファイバースコープ</td><td>1,800円</td></tr>
+      </table>
+    </div>
+
+    <!-- 耳の検査 -->
+    <div class="fee-category fade-in">
+      <div class="fee-category-head">
+        <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8a6 6 0 0112 0c0 5-3 7-3 9a3 3 0 11-6 0"/></svg></span>
+        耳の検査
+      </div>
+      <table class="fee-table">
+        <tr><td>純音聴力検査<span class="note">一般的な聞こえの検査</span></td><td>1,050円</td></tr>
+        <tr><td>簡易聴力検査<span class="note">簡単な聞こえの検査</span></td><td>330円</td></tr>
+        <tr><td>ティンパノグラム<span class="note">鼓膜の動きの検査</span></td><td>1,020円</td></tr>
+      </table>
+    </div>
+
+
+    <!-- アレルギー検査 -->
+    <div class="fee-category fade-in">
+      <div class="fee-category-head">
+        <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></span>
+        アレルギー検査
+      </div>
+      <table class="fee-table">
+        <tr><td>VIEW39<span class="note">39項目のアレルゲンを一度に検査</span></td><td>5,130円</td></tr>
+      </table>
+    </div>
+
+    <!-- 細菌検査 -->
+    <div class="fee-category fade-in">
+      <div class="fee-category-head">
+        <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+        細菌検査
+      </div>
+      <table class="fee-table">
+        <tr><td>鼻・細菌培養検査<span class="note">判断料含む</span></td><td>1,040円</td></tr>
+        <tr><td>耳・細菌培養検査</td><td>960円</td></tr>
+        <tr><td>咽頭・細菌培養検査</td><td>1,040円</td></tr>
+      </table>
+    </div>
+
+    <!-- 手術・処置 -->
+    <div class="fee-category fade-in">
+      <div class="fee-category-head">
+        <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2l8 8-12 12H2v-8z"/></svg></span>
+        手術・処置
+      </div>
+      <table class="fee-table">
+        <tr><td>鼻粘膜焼灼術（鼻出血）</td><td>3,260円</td></tr>
+        <tr><td>鼓膜切開術<span class="note">＋イオントフォレーゼ麻酔</span></td><td>2,630円</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Self-pay (Documents etc.) -->
+<section class="selfpay">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Self-pay</p>
+      <h2 class="section-title">自費検査・文書作成費用</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <p class="selfpay-intro fade-in">
+      以下はすべて<strong>自費</strong>でのご案内となります。<br />
+      保険適応外と医師が判断した場合の検査も同様です。
+    </p>
+
+    <!-- 自費検査 -->
+    <div class="fee-category fade-in">
+      <div class="fee-category-head">
+        <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 0c0 1.5-2.5 2.5-2.5 4M12 17h.01"/></svg></span>
+        自費検査
+      </div>
+      <table class="fee-table">
+        <tr><td>血液型検査</td><td>2,500円</td></tr>
+      </table>
+    </div>
+
+    <!-- 文書関係 -->
+    <div class="fee-category fade-in">
+      <div class="fee-category-head">
+        <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></span>
+        診断書・文書関係
+      </div>
+      <p style="padding: 16px 20px; background: var(--color-bg-soft); border-radius: 6px; font-size: 13px; line-height: 1.85; color: var(--color-text); margin-bottom: 18px;">
+        下記の料金にて診断書作成を承ります。<br />
+        一般診断書の作成には<strong>2日程度</strong>、生命保険診断書の作成には<strong>1週間程度</strong>お時間をいただきますので、事前にご連絡をいただくか予約の際のメモにご記入ください。英文診断書作成には<strong>2週間程度</strong>お時間をいただきますが、内容が複雑なものは4週間程度お時間をいただく場合がございます。<br />
+        <strong>料金表示はすべて税別です。</strong>
+      </p>
+      <table class="fee-table">
+        <tr><td>補聴器適合に関する診療情報提供書</td><td>2,000円</td></tr>
+        <tr><td>一般診断書<span class="note">会社などの提出用</span></td><td>3,000円</td></tr>
+        <tr><td>主治医意見書<span class="note">保育園・幼稚園などの提出用</span></td><td>3,000円</td></tr>
+        <tr><td>就学前健康診断書<span class="note">小学校入学時の提出用</span></td><td>5,000円</td></tr>
+        <tr><td>生命保険診断書<span class="note">生命保険会社などへの提出用</span></td><td>8,000円</td></tr>
+        <tr><td>英文診断書<span class="note">英語での診断書作成</span></td><td>30,000円</td></tr>
+        <tr><td>登園許可証・治癒証明<span class="note">未就学児で所定用紙持参</span></td><td>0円</td></tr>
+      </table>
+      <div style="margin-top: 18px; padding: 16px 20px; background: var(--color-bg-soft); border-left: 3px solid var(--color-primary); border-radius: 4px; font-size: 13px; color: var(--color-text); line-height: 1.85;">
+        <p style="margin: 0 0 10px; font-weight: 500;">※当院では下記の文書発行は行っておりません</p>
+        <ul style="margin: 0 0 10px 20px; padding: 0; list-style: disc;">
+          <li><strong>資格用診断書</strong>（猟銃・罠猟・美容師免許の資格申請等）</li>
+          <li><strong>麻薬等を使用していない証明</strong>の診断書</li>
+          <li><strong>身体障害者診断書</strong></li>
+          <li><strong>指定難病医療給付制度の書類</strong></li>
+          <li><strong>自賠責保険診断書</strong></li>
+        </ul>
+        <p style="margin: 0;">また、休業が不要な症状に対する<strong>傷病手当金申請書の記載</strong>はできません。診察した医師からの指示がなく、ご自身や会社の判断で休業した場合も記入はお断りします。<br /><strong>診断書や診療情報提供書の郵送</strong>には対応できませんのでご了承ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notice -->
+<div class="notice">
+  <div class="container">
+    <div class="notice-card fade-in">
+      <h3>ご注意事項</h3>
+      <ul>
+        <li>掲載されている金額はすべて目安であり、症状や検査内容により実際のお会計金額は変動いたします。</li>
+        <li>金額は健康保険3割負担の場合の概算です。負担割合が異なる場合は、それに応じた金額となります。</li>
+        <li>お薬を処方された方は、調剤薬局で別途お薬代が必要となります。</li>
+        <li>料金は診療報酬改定や設備更新等により予告なく変更となる場合がございます。</li>
+        <li>お会計に関する詳しいご質問は、お気軽に窓口スタッフまでお尋ねください。</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+<section class="contact">
+  <div class="container">
+    <h2>ご質問・ご予約はこちら</h2>
+    <p>費用や検査内容についてのご質問は、WEB予約のメッセージ欄または受付までお気軽にお問い合わせください。</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="label">Web</div>
+        <a href="#" onclick="alert('準備中です'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" class="value" style="font-size: 22px;" target="_blank" rel="noopener">WEB予約</a>
+        <p class="note">24時間受付中</p>
+      </div>
+      <div class="contact-card">
+        <div class="label">Hours</div>
+        <span class="value" style="font-size: 18px;">10:00 - 12:30 / 15:00 - 17:30</span>
+        <p class="note">水曜午後・土曜・日曜・祝日は休診</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">岩佐耳鼻咽喉科<span>IWASA ENT CLINIC</span></div>
+        <p class="footer-address">〒104-0031 東京都中央区京橋2丁目12-4 光和ビル 2階<br />TEL: 03-3567-8733</p>
+      </div>
+      <ul class="footer-nav">
+        <li><a href="clinic.html">クリニック紹介</a></li>
+        <li><a href="visiting.html">受診される方へ</a></li>
+        <li><a href="index.html#services">診療案内</a></li>
+        <li><a href="index.html#info">受付時間</a></li>
+            <li><a href="fees.html">費用について</a></li>
+        <li><a href="notices.html">書面掲示について</a></li>
+        <li><a href="recruit.html">求人情報</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+        <li><a href="index.html#info">アクセス</a></li>
+        <li><a href="clinic-overview.html">クリニック概要</a></li>
+        <li><a href="privacy-policy.html">個人情報保護方針</a></li>
+      </ul>
+    </div>
+    <p class="copyright">© 2026 Iwasa ENT Clinic. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      nav.classList.remove('open');
+    });
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<!-- Mobile Booking Bar (mobile only) -->
+<div class="mobile-book-bar">
+  <a href="#" onclick="alert('準備中です'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" class="mb-tel" target="_blank" rel="noopener">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    WEB予約
+  </a>
+  <a href="recruit.html" class="mb-web">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+    求人情報
+  </a>
+</div>
+
 </body>
 </html>
