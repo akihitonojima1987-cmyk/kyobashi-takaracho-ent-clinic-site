@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="岩佐耳鼻咽喉科のクリニック紹介ページ。当院の理念、院内の様子、設備についてご案内します。" />
-<link rel="canonical" href="https://kyobashi-ent.com/clinic.html" />
+<meta name="description" content="岩佐耳鼻咽喉科のネット予約のご案内。デジスマ診療アプリのダウンロードと予約方法をご案内します。" />
+<link rel="canonical" href="https://kyobashi-ent.com/reservation.html" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="ja_JP" />
 <meta property="og:site_name" content="岩佐耳鼻咽喉科" />
-<meta property="og:url" content="https://kyobashi-ent.com/clinic.html" />
-<meta property="og:title" content="クリニック紹介 | 岩佐耳鼻咽喉科" />
-<meta property="og:description" content="岩佐耳鼻咽喉科のクリニック紹介ページ。当院の理念、院内の様子、設備についてご案内します。" />
+<meta property="og:url" content="https://kyobashi-ent.com/reservation.html" />
+<meta property="og:title" content="ネット予約 | 岩佐耳鼻咽喉科" />
+<meta property="og:description" content="岩佐耳鼻咽喉科のネット予約のご案内。デジスマ診療アプリのダウンロードと予約方法をご案内します。" />
 <meta property="og:image" content="https://kyobashi-ent.com/og-image.jpg" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="クリニック紹介 | 岩佐耳鼻咽喉科" />
-<meta name="twitter:description" content="岩佐耳鼻咽喉科のクリニック紹介ページ。当院の理念、院内の様子、設備についてご案内します。" />
-<title>クリニック紹介 | 岩佐耳鼻咽喉科</title>
+<meta name="twitter:title" content="ネット予約 | 岩佐耳鼻咽喉科" />
+<meta name="twitter:description" content="岩佐耳鼻咽喉科のネット予約のご案内。デジスマ診療アプリのダウンロードと予約方法をご案内します。" />
+<title>ネット予約 | 岩佐耳鼻咽喉科</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet" />
@@ -230,6 +230,180 @@
     .mobile-book-bar .mb-tel { background: var(--color-primary); }
     .mobile-book-bar .mb-web { background: var(--color-primary-light); }
   }
+
+  /* === クリニック概要ページ用 === */
+  .overview-table { width: 100%; border-collapse: collapse; margin: 0 auto; max-width: 720px; }
+  .overview-table th, .overview-table td { padding: 14px 16px; border-bottom: 1px solid var(--color-border); text-align: left; vertical-align: top; line-height: 1.7; font-size: 14.5px; }
+  .overview-table th { width: 130px; color: var(--color-primary); font-weight: 500; letter-spacing: 0.15em; background: transparent; }
+  .overview-table td { color: var(--color-text); }
+  .overview-table td a { color: var(--color-primary); }
+  .hours-table { width: 100%; border-collapse: collapse; max-width: 760px; margin: 0 auto; }
+  .hours-table th, .hours-table td { border: 1px solid var(--color-border); padding: 12px; text-align: center; font-size: 14px; }
+  .hours-table thead th { background: var(--color-primary); color: #fff; font-weight: 500; letter-spacing: 0.05em; }
+  .hours-table tbody td { background: #fff; color: var(--color-text); }
+  .hours-note { text-align: center; margin-top: 16px; font-size: 13px; color: var(--color-text-light); }
+  .greeting-block { max-width: 720px; margin: 0 auto; line-height: 2.0; font-size: 14.5px; color: var(--color-text); }
+  .greeting-block .greeting-name { font-size: 17px; font-weight: 500; color: var(--color-text); margin-bottom: 24px; letter-spacing: 0.1em; }
+  .greeting-block p { margin: 0 0 16px 0; }
+  .greeting-block p:last-child { margin-bottom: 0; }
+  @media (max-width: 768px) {
+    .overview-table th { width: 90px; font-size: 13px; }
+    .overview-table th, .overview-table td { padding: 10px 8px; font-size: 13.5px; }
+    .hours-table th, .hours-table td { padding: 8px 4px; font-size: 12.5px; }
+  }
+
+
+  /* === clinic-overview.html バランス調整 === */
+  /* ページヒーロー控えめに */
+  .page-hero { height: 22vh !important; min-height: 200px !important; max-height: 280px !important; }
+  .page-hero-title { font-size: clamp(22px, 2.6vw, 28px) !important; }
+  .page-hero-label { font-size: 11px !important; letter-spacing: 0.3em !important; margin-bottom: 8px !important; }
+
+  /* セクションヘッダーを左寄せ・控えめに */
+  .section-head { text-align: left !important; margin-bottom: 24px !important; }
+  .section-head .section-label { font-size: 11px !important; letter-spacing: 0.3em !important; margin-bottom: 6px !important; }
+  .section-head .section-title { font-size: 18px !important; font-weight: 600 !important; line-height: 1.4 !important; padding-left: 12px !important; border-left: 3px solid var(--color-primary) !important; }
+  .section-head .section-title-bar { display: none !important; }
+
+  /* セクション余白を控えめに */
+  section[style*="padding: 64px"] { padding: 48px 0 !important; }
+
+  /* テーブルや本文の余白・サイズ調整 */
+  .overview-table { margin-top: 0 !important; }
+  .overview-table th { font-size: 13.5px !important; font-weight: 500 !important; letter-spacing: 0.1em !important; }
+  .overview-table td { font-size: 14.5px !important; }
+
+  .hours-table th, .hours-table td { font-size: 13.5px !important; padding: 10px 6px !important; }
+
+  .greeting-block .greeting-name { font-size: 16px !important; margin-bottom: 18px !important; }
+  .greeting-block p { font-size: 14.5px !important; line-height: 2.0 !important; }
+
+
+  /* === clinic-overview.html ご注意事項 === */
+  .overview-notice { max-width: 760px; margin: 0 auto; }
+  .overview-notice-intro { font-size: 14.5px; color: var(--color-text); margin-bottom: 24px; line-height: 1.9; padding: 14px 18px; background: #fff; border-left: 3px solid var(--color-primary); }
+  .overview-notice-list { list-style: none; padding: 0; margin: 0; }
+  .overview-notice-list li { background: #fff; padding: 16px 20px; margin-bottom: 12px; border-left: 3px solid #c8161c; }
+  .overview-notice-list li strong { font-size: 14px; color: var(--color-text); display: block; margin-bottom: 6px; line-height: 1.6; }
+  .overview-notice-list li p { font-size: 13.5px; color: var(--color-text-light); line-height: 1.95; margin: 0; }
+  .overview-notice-list .x-mark { color: #c8161c; font-weight: 700; margin-right: 6px; }
+  .overview-notice-link { text-align: center; margin-top: 20px; font-size: 13px; color: var(--color-text-light); }
+  .overview-notice-link a { color: var(--color-primary); }
+
+
+  /* === 院長紹介(greeting.html)ページ === */
+  .staff-section { padding: 48px 0; background: var(--color-bg); }
+  .staff-block { max-width: 880px; margin: 0 auto; }
+  .staff-block + .staff-block { margin-top: 40px; }
+  .staff-section-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    background: var(--color-primary);
+    padding: 14px 28px;
+    margin: 0 0 28px 0;
+    border-radius: 8px;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+  .staff-card {
+    display: flex;
+    gap: 32px;
+    background: var(--color-bg-soft);
+    padding: 32px 36px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    align-items: flex-start;
+  }
+  .staff-card-name {
+    flex-shrink: 0;
+    min-width: 160px;
+  }
+  .staff-role-tag {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 14px;
+    border-radius: 4px;
+    letter-spacing: 0.15em;
+    margin: 0 0 12px 0;
+  }
+  .staff-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin: 0;
+    letter-spacing: 0.1em;
+  }
+  .staff-card-body {
+    flex: 1;
+  }
+  .staff-bio-heading {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 18px;
+    border-radius: 20px;
+    letter-spacing: 0.15em;
+    margin: 0 0 14px 0;
+    font-weight: 500;
+  }
+  .staff-bio-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 2.0;
+  }
+  .staff-bio-list li {
+    font-size: 14.5px;
+    color: var(--color-text);
+    padding: 2px 0;
+  }
+  @media (max-width: 768px) {
+    .staff-section-title { font-size: 18px; padding: 12px 20px; margin-bottom: 20px; }
+    .staff-card { flex-direction: column; gap: 18px; padding: 24px 20px; }
+    .staff-card-name { min-width: auto; }
+    .staff-name { font-size: 17px; }
+    .staff-bio-list li { font-size: 13.5px; }
+  }
+
+  .greeting { max-width: 880px; margin: 0 auto 40px; background: #fff; border: 1px solid #e6edf3; border-radius: 14px; padding: 32px; display: flex; gap: 28px; align-items: flex-start; box-shadow: 0 6px 24px rgba(31,95,139,0.06); }
+  .greeting-portrait, .staff-portrait { flex: 0 0 auto; background: linear-gradient(135deg, #eef4f9, #dbe7f1); border: 1px dashed #9db8cd; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #5f7d96; text-align: center; line-height: 1.4; }
+  .greeting-portrait { width: 140px; height: 140px; font-size: 12px; }
+  .staff-portrait { width: 96px; height: 96px; margin: 0 auto 14px; font-size: 11px; }
+  .greeting-message h3 { font-size: 20px; color: var(--color-primary); margin-bottom: 14px; letter-spacing: 0.04em; line-height: 1.6; }
+  .greeting-message p { font-size: 15px; line-height: 1.95; color: var(--color-text); margin-bottom: 14px; }
+  .greeting-message .greeting-sign { text-align: right; font-weight: 500; margin-top: 6px; margin-bottom: 0; }
+  @media (max-width: 600px) { .greeting { flex-direction: column; align-items: center; padding: 24px 18px; } .greeting-portrait { width: 120px; height: 120px; } }
+  .reserve-section { padding: 56px 0; background: var(--color-bg); }
+  .reserve-section .container { max-width: 880px; }
+  .reserve-lead { text-align: center; margin-bottom: 40px; }
+  .reserve-lead p { font-size: 16px; line-height: 1.9; color: var(--color-text); }
+  .reserve-note { margin-top: 16px; font-size: 14px; color: var(--color-text-light); background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: 8px; padding: 12px 16px; display: inline-block; }
+  .reserve-block { background: #fff; border: 1px solid var(--color-border); border-radius: 14px; padding: 28px; margin-bottom: 24px; box-shadow: 0 6px 24px rgba(31,95,139,0.06); }
+  .reserve-h2 { font-size: 19px; color: var(--color-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; letter-spacing: 0.03em; }
+  .reserve-step-no { font-family: "Cormorant Garamond", serif; font-size: 12px; letter-spacing: 0.12em; background: var(--color-primary); color: #fff; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .reserve-block > p { line-height: 1.85; color: var(--color-text); }
+  .store-btns { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 6px; }
+  .store-btn { flex: 1 1 200px; text-align: center; padding: 14px 18px; border-radius: 10px; background: var(--color-primary); color: #fff; font-weight: 500; text-decoration: none; transition: opacity .2s; }
+  .store-btn:hover { opacity: .88; }
+  .qr-box { width: 120px; height: 120px; margin: 10px auto 0; border: 1px dashed #9db8cd; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #5f7d96; font-size: 12px; text-align: center; background: var(--color-bg-soft); }
+  .reserve-list { list-style: none; padding: 0; }
+  .reserve-list li { position: relative; padding-left: 22px; margin-bottom: 10px; line-height: 1.8; }
+  .reserve-list li::before { content: "\25CB"; position: absolute; left: 0; color: var(--color-primary); }
+  .flow-list { list-style: none; padding: 0; }
+  .flow-list li { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--color-border); }
+  .flow-list li:last-child { border-bottom: none; }
+  .flow-no { flex: 0 0 auto; width: 32px; height: 32px; border-radius: 50%; background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+  .flow-list b { color: var(--color-text); }
+  .flow-list p { font-size: 14px; color: var(--color-text-light); margin-top: 4px; line-height: 1.7; }
+  .reserve-cta { text-align: center; margin-top: 32px; }
+  .reserve-btn { display: inline-block; padding: 16px 40px; border-radius: 999px; background: var(--color-primary); color: #fff; font-size: 17px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 20px rgba(31,95,139,0.25); }
+  .reserve-cta-note { margin-top: 14px; font-size: 13px; color: var(--color-text-light); }
+  .reserve-cta-note a { color: var(--color-primary); }
+  @media (max-width: 600px) { .reserve-section { padding: 40px 0; } .reserve-block { padding: 22px 18px; } .store-btn { flex-basis: 100%; } }
 </style>
 <script type="application/ld+json">
 {
@@ -286,7 +460,7 @@
         <li class="has-submenu">
           <a href="index.html#services" class="submenu-toggle">診療案内</a>
           <ul class="submenu">
-            <li><a href="clinic.html" class="active">クリニック紹介</a></li>
+            <li><a href="clinic.html">クリニック紹介</a></li>
             <li><a href="index.html#info">受付時間</a></li>
             <li><a href="fees.html">費用について</a></li>
             <li><a href="notices.html">書面掲示について</a></li>
@@ -313,8 +487,8 @@
 <!-- Page Hero -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-label">Clinic</p>
-    <h1 class="page-hero-title">クリニック紹介</h1>
+    <p class="page-hero-label">Reservation</p>
+    <h1 class="page-hero-title">ネット予約</h1>
   </div>
 </section>
 
@@ -323,215 +497,53 @@
   <div class="container">
     <a href="index.html">ホーム</a>
     <span>/</span>
-    クリニック紹介
+    ネット予約
   </div>
 </div>
 
-<!-- Philosophy -->
-<section class="philosophy">
+<!-- ネット予約 -->
+<section class="reserve-section">
   <div class="container">
-    <div class="section-head fade-in">
-      <p class="section-label">Philosophy</p>
-      <h2 class="section-title">当院の理念</h2>
-      <div class="section-title-bar"></div>
+    <div class="reserve-lead">
+      <p>当院のネット予約は、スマートフォンアプリ「<strong>デジスマ診療</strong>（M3デジカル スマート診察券）」で承ります。<br />アプリ（無料）をご用意いただくと、予約・受付・お会計までスマホでスムーズに行えます。</p>
+      <p class="reserve-note">※ ネット予約は現在<strong>開始準備中</strong>です。開始までは<strong>ご予約不要</strong>で、受付時間内にそのまま直接ご来院いただけます。</p>
     </div>
-    <div class="philosophy-inner fade-in">
-      <p class="philosophy-headline">
-        地域の皆さまの<br />"かかりつけ医"として。
-        <em>Trusted Care, Close to You</em>
-      </p>
-      <div class="philosophy-text">
-        <p>
-          岩佐耳鼻咽喉科は、京橋・宝町エリアにお住まいの方、お勤めの方の「耳・鼻・のど」のかかりつけ医として、丁寧でわかりやすい診療を心がけています。
-        </p>
-        <p>
-          耳鼻咽喉科の症状は、日常生活に密接に関わるものが多く、放っておくと仕事や暮らしの質を下げてしまうことも少なくありません。当院では、患者様お一人おひとりのお話にじっくり耳を傾け、症状の背景や生活スタイルを踏まえた上で、最適な治療方針をご提案いたします。
-        </p>
-        <p>
-          「今日、この症状について相談したい」とお気軽に足を運んでいただける存在でありたい。そう考え、アクセスの良い立地と、シンプルで落ち着いた院内環境をご用意しました。お仕事帰りや昼休みのちょっとした時間でも、気軽にご利用いただけます。
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Pillars -->
-<section class="pillars">
-  <div class="container">
-    <div class="section-head fade-in">
-      <p class="section-label">Our Values</p>
-      <h2 class="section-title">私たちが大切にしていること</h2>
-      <div class="section-title-bar"></div>
+    <div class="reserve-block">
+      <h2 class="reserve-h2"><span class="reserve-step-no">STEP&nbsp;1</span>アプリをダウンロード</h2>
+      <p>下のボタンから「デジスマ診療（M3デジカル スマート診察券）」アプリをインストールしてください。iPhone・Android どちらも無料です。</p>
+      <div class="store-btns">
+        <a class="store-btn" href="https://apps.apple.com/jp/app/id1563102530" target="_blank" rel="noopener">App Store でダウンロード</a>
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=jp.digikar.smart.app" target="_blank" rel="noopener">Google Play で手に入れる</a>
+      </div>
+      <div class="qr-box"><span>院内QR<br />（準備中）</span></div>
     </div>
-    <div class="pillars-grid">
-      <div class="pillar-card fade-in">
-        <div class="pillar-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        </div>
-        <p class="pillar-num">01</p>
-        <h3>丁寧なコミュニケーション</h3>
-        <p>症状・治療について、専門用語に頼らずわかりやすくご説明します。ご不安な点や疑問は、どうぞ遠慮なくお伝えください。</p>
-      </div>
-      <div class="pillar-card fade-in">
-        <div class="pillar-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        </div>
-        <p class="pillar-num">02</p>
-        <h3>科学的根拠に基づく医療</h3>
-        <p>診療ガイドラインとエビデンスに基づき、過不足のない検査・治療をご提供します。必要に応じて専門病院へのご紹介も行います。</p>
-      </div>
-      <div class="pillar-card fade-in">
-        <div class="pillar-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <p class="pillar-num">03</p>
-        <h3>働く世代のかかりつけ</h3>
-        <p>お仕事の合間にも通いやすい立地・診療時間。短時間でも的確な診断と、継続しやすい治療計画をご提案します。</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Gallery -->
-<section class="gallery">
-  <div class="container">
-    <div class="section-head fade-in">
-      <p class="section-label">Interior</p>
-      <h2 class="section-title">院内の様子</h2>
-      <div class="section-title-bar"></div>
+    <div class="reserve-block">
+      <h2 class="reserve-h2"><span class="reserve-step-no">STEP&nbsp;2</span>ご利用に必要なもの</h2>
+      <ul class="reserve-list">
+        <li>スマートフォン（アプリをインストール）</li>
+        <li>健康保険証（マイナ保険証）</li>
+        <li>クレジットカード（VISA / Mastercard）※キャッシュレス決済をご希望の場合</li>
+      </ul>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item fade-in">
-        <div class="gallery-image">
-          <div class="gallery-icon">
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
-          </div>
-        </div>
-        <div class="gallery-body">
-          <h4>受付</h4>
-          <p>明るく落ち着いた雰囲気の受付。スタッフが笑顔でお迎えします。</p>
-        </div>
-      </div>
-      <div class="gallery-item fade-in">
-        <div class="gallery-image">
-          <div class="gallery-icon">
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-          </div>
-        </div>
-        <div class="gallery-body">
-          <h4>待合室</h4>
-          <p>ゆったりとしたソファ席をご用意しております。</p>
-        </div>
-      </div>
-      <div class="gallery-item fade-in">
-        <div class="gallery-image">
-          <div class="gallery-icon">
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2v20"/><path d="M2 12h20"/><circle cx="12" cy="12" r="8"/></svg>
-          </div>
-        </div>
-        <div class="gallery-body">
-          <h4>処置室</h4>
-          <p>ネブライザー・鼻洗浄など、清潔で効率的な処置空間です。</p>
-        </div>
-      </div>
-      <div class="gallery-item fade-in">
-        <div class="gallery-image">
-          <div class="gallery-icon">
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 10h8"/><path d="M8 14h5"/></svg>
-          </div>
-        </div>
-        <div class="gallery-body">
-          <h4>検査スペース</h4>
-          <p>聴力検査、内視鏡検査など、各種専門検査に対応しています。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Equipment -->
-<section class="equipment">
-  <div class="container">
-    <div class="section-head fade-in">
-      <p class="section-label">Equipment</p>
-      <h2 class="section-title">主な設備</h2>
-      <div class="section-title-bar"></div>
+    <div class="reserve-block">
+      <h2 class="reserve-h2"><span class="reserve-step-no">STEP&nbsp;3</span>予約から会計までの流れ</h2>
+      <ol class="flow-list">
+        <li><span class="flow-no">1</span><div><b>予約</b><p>アプリまたは予約用URL・QRコードから、ご希望の日時を予約します。</p></div></li>
+        <li><span class="flow-no">2</span><div><b>問診</b><p>来院前にアプリで問診にご回答いただけます。</p></div></li>
+        <li><span class="flow-no">3</span><div><b>受付</b><p>来院されたら、アプリのQRコードで受付（チェックイン）。</p></div></li>
+        <li><span class="flow-no">4</span><div><b>診察</b><p>順番になりましたら診察室へご案内します。</p></div></li>
+        <li><span class="flow-no">5</span><div><b>会計</b><p>登録したクレジットカードで自動精算。現金でのお支払いも可能です。</p></div></li>
+        <li><span class="flow-no">6</span><div><b>次回予約</b><p>診察後、アプリからそのまま次回のご予約ができます。</p></div></li>
+      </ol>
     </div>
-    <div class="equipment-grid">
-      <div class="equipment-card fade-in">
-        <div class="equipment-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
-        </div>
-        <div>
-          <h4>電子内視鏡システム</h4>
-          <p>鼻・のど・喉頭の精密な観察が可能。画像を患者様と共有しながらご説明します。</p>
-        </div>
-      </div>
-      <div class="equipment-card fade-in">
-        <div class="equipment-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 019-9"/><path d="M3 12a9 9 0 009 9"/><circle cx="12" cy="12" r="2"/></svg>
-        </div>
-        <div>
-          <h4>聴力検査機器</h4>
-          <p>標準純音聴力検査・ティンパノメトリーなど、精密な聴力評価に対応します。</p>
-        </div>
-      </div>
-      <div class="equipment-card fade-in">
-        <div class="equipment-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a8 8 0 018 8v4a8 8 0 11-16 0v-4a8 8 0 018-8z"/><path d="M12 12v-2"/></svg>
-        </div>
-        <div>
-          <h4>ネブライザー</h4>
-          <p>鼻・のどに直接薬を届ける吸入療法。アレルギー性鼻炎や咽喉頭炎に効果的です。</p>
-        </div>
-      </div>
-      <div class="equipment-card fade-in">
-        <div class="equipment-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
-        <div>
-          <h4>電子カルテ</h4>
-          <p>スムーズな受付・診療情報管理を実現。待ち時間の短縮にも配慮しています。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Affiliated Hospitals -->
-<section class="affiliates" id="affiliates">
-  <div class="container">
-    <div class="section-head fade-in">
-      <p class="section-label">Affiliated Hospitals</p>
-      <h2 class="section-title">提携医療機関</h2>
-      <div class="section-title-bar"></div>
+    <div class="reserve-cta">
+      <a href="#" onclick="alert('ネット予約は開始準備中です。開始までは受付時間内に直接ご来院ください。'); return false;" class="reserve-btn">ネット予約はこちら（準備中）</a>
+      <p class="reserve-cta-note">開始までは予約不要・直接ご来院ください。／ お電話：<a href="tel:0335678733">03-3567-8733</a></p>
     </div>
-    <p class="affiliates-intro fade-in">
-      診療所で対応可能な検査・治療は院内で行い、入院手術や高度な精密検査が必要な場合には、下記の提携医療機関と連携して最適な医療をご提供いたします。
-    </p>
-    <div class="affiliates-grid">
-      <div class="affiliate-card fade-in">
-        <div class="affiliate-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9v2M15 9v2M9 14v7M15 14v7M10 21v-4h4v4"/></svg>
-        </div>
-        <h4>順天堂大学医学部附属順天堂医院</h4>
-        <p class="affiliate-sub">Juntendo University Hospital</p>
-        <p>東京都文京区本郷に所在する大学病院。耳鼻咽喉科・頭頸部外科をはじめ、他科との連携が必要となる総合的な精査・治療が求められる際に速やかにご紹介いたします。</p>
-      </div>
-    </div>
-    <p class="affiliates-note fade-in">※症状や検査結果によっては、上記以外の大学病院・総合病院・専門病院をご紹介することもございます。いずれの場合も紹介状をご用意のうえ、責任をもって連携先の主治医へお繋ぎいたします。</p>
-  </div>
-</section>
-
-<!-- Access Brief -->
-<section class="access-brief">
-  <div class="container">
-    <h2>アクセス</h2>
-    <p>都営浅草線「宝町駅」A7・A6番出口 徒歩30秒<br />東京メトロ銀座線「京橋駅」4番出口 徒歩2分 / 有楽町線「銀座一丁目駅」7番出口 徒歩6分 / 日比谷線「八丁堀駅」A3番出口 徒歩6分 / JR東京駅八重洲南口 徒歩10分<br />〒104-0031 東京都中央区京橋2丁目12-4 光和ビル 2階</p>
-    <a href="index.html#info" class="btn-ghost">
-      詳しいアクセス情報
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-    </a>
   </div>
 </section>
 
