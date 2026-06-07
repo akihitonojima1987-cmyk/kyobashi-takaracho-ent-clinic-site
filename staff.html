@@ -369,6 +369,14 @@
     .staff-bio-list li { font-size: 13.5px; }
   }
 
+  .greeting { max-width: 880px; margin: 0 auto 40px; background: #fff; border: 1px solid #e6edf3; border-radius: 14px; padding: 32px; display: flex; gap: 28px; align-items: flex-start; box-shadow: 0 6px 24px rgba(31,95,139,0.06); }
+  .greeting-portrait, .staff-portrait { flex: 0 0 auto; background: linear-gradient(135deg, #eef4f9, #dbe7f1); border: 1px dashed #9db8cd; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #5f7d96; text-align: center; line-height: 1.4; }
+  .greeting-portrait { width: 140px; height: 140px; font-size: 12px; }
+  .staff-portrait { width: 96px; height: 96px; margin: 0 auto 14px; font-size: 11px; }
+  .greeting-message h3 { font-size: 20px; color: var(--color-primary); margin-bottom: 14px; letter-spacing: 0.04em; line-height: 1.6; }
+  .greeting-message p { font-size: 15px; line-height: 1.95; color: var(--color-text); margin-bottom: 14px; }
+  .greeting-message .greeting-sign { text-align: right; font-weight: 500; margin-top: 6px; margin-bottom: 0; }
+  @media (max-width: 600px) { .greeting { flex-direction: column; align-items: center; padding: 24px 18px; } .greeting-portrait { width: 120px; height: 120px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -440,7 +448,7 @@
         <li><a href="index.html#info">アクセス</a></li>
         <li><a href="clinic-overview.html">クリニック概要</a></li>
       </ul>
-      <a href="#" onclick="alert('準備中です'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" class="nav-tel" target="_blank" rel="noopener">
+      <a href="#" onclick="alert('WEB予約は準備中です。受付時間内に直接ご来院ください。'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" class="nav-tel" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         WEB予約
       </a>
@@ -469,9 +477,21 @@
 <!-- 医師紹介 -->
 <section class="staff-section">
   <div class="container">
+    <div class="greeting">
+      <div class="greeting-portrait" role="img" aria-label="院長 野島 愛来 似顔絵（準備中）"><span>似顔絵<br />準備中</span></div>
+      <div class="greeting-message">
+        <h3>地域の皆様に寄り添い、共に歩むクリニックへ</h3>
+        <p>こんにちは。院長の野島 愛来（のじま あいら）です。当院では、患者様が何でも気軽にお話しいただける「話しやすい雰囲気づくり」を一番に大切にしています。</p>
+        <p>たとえば「ただの鼻水」でも、アレルギー性鼻炎・副鼻腔炎・かぜなど原因はさまざまです。「いつから」「どんな状態か」という詳しいお話の中に正しい診断のヒントが隠れているからこそ、皆様の声をしっかりとお聞きする問診を大切にしています。</p>
+        <p>また、ご自身の体で何が起きているのかを「納得していただくこと」も重視しています。言葉だけでなく、検査結果や内視鏡の画像などを実際にお見せしながら、分かりやすく状態を共有いたします。</p>
+        <p>診療の際は、目の前の患者様を「自分の大切な家族」に置き換えて考えます。ご希望にも耳を傾けながら、最善の医療をご提案いたします。気になることやご要望は、どんな小さなことでも遠慮なくお伝えください。</p>
+        <p class="greeting-sign">岩佐耳鼻咽喉科　院長　野島 愛来</p>
+      </div>
+    </div>
     <div class="staff-block">
       <div class="staff-card">
         <div class="staff-card-name">
+          <div class="staff-portrait" role="img" aria-label="野島 曉人 似顔絵（準備中）"><span>似顔絵<br />準備中</span></div>
           <h3 class="staff-name">野島 曉人</h3>
         </div>
         <div class="staff-card-body">
@@ -479,7 +499,7 @@
           <ul class="staff-bio-list">
             <li>日本大学医学部 卒業</li>
             <li>順天堂大学医学部 耳鼻咽喉科学教室 入局</li>
-            <li>日本耳鼻咽喉科頭頸部外科学会 認定専門医</li>
+            <li>日本耳鼻咽喉科頭頸部外科学会 専門医</li>
             <li>江東病院 科長</li>
           </ul>
         </div>
@@ -489,6 +509,7 @@
     <div class="staff-block">
       <div class="staff-card">
         <div class="staff-card-name">
+          <div class="staff-portrait" role="img" aria-label="野島 愛来 似顔絵（準備中）"><span>似顔絵<br />準備中</span></div>
           <h3 class="staff-name">野島 愛来</h3>
         </div>
         <div class="staff-card-body">
@@ -497,7 +518,7 @@
             <li>聖マリアンナ医科大学 卒業</li>
             <li>順天堂大学医学部 耳鼻咽喉科学教室 入局</li>
             <li>関連病院にて研修</li>
-            <li>日本耳鼻咽喉科頭頸部外科学会 認定専門医</li>
+            <li>日本耳鼻咽喉科頭頸部外科学会 専門医</li>
             <li>都内クリニック 勤務</li>
             <li>2026年6月 岩佐耳鼻咽喉科 院長就任</li>
           </ul>
@@ -555,7 +576,7 @@
 
 <!-- Mobile Booking Bar (mobile only) -->
 <div class="mobile-book-bar">
-  <a href="#" onclick="alert('準備中です'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" class="mb-tel" target="_blank" rel="noopener">
+  <a href="#" onclick="alert('WEB予約は準備中です。受付時間内に直接ご来院ください。'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" class="mb-tel" target="_blank" rel="noopener">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
     WEB予約
   </a>
