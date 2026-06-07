@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="岩佐耳鼻咽喉科のクリニック概要。診療科目・院長・所在地・連絡先・診療時間・院長挨拶をご案内します。" />
-<link rel="canonical" href="https://kyobashi-ent.com/clinic-overview.html" />
+<meta name="description" content="岩佐耳鼻咽喉科の院長紹介。院長プロフィール・略歴をご案内します。" />
+<link rel="canonical" href="https://kyobashi-ent.com/greeting.html" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="ja_JP" />
 <meta property="og:site_name" content="岩佐耳鼻咽喉科" />
-<meta property="og:url" content="https://kyobashi-ent.com/clinic-overview.html" />
-<meta property="og:title" content="クリニック概要 | 岩佐耳鼻咽喉科" />
-<meta property="og:description" content="岩佐耳鼻咽喉科のクリニック紹介ページ。当院の理念、院内の様子、設備についてご案内します。" />
+<meta property="og:url" content="https://kyobashi-ent.com/greeting.html" />
+<meta property="og:title" content="院長紹介 | 岩佐耳鼻咽喉科" />
+<meta property="og:description" content="岩佐耳鼻咽喉科の院長紹介。院長プロフィール・略歴をご案内します。" />
 <meta property="og:image" content="https://kyobashi-ent.com/og-image.jpg" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="クリニック概要 | 岩佐耳鼻咽喉科" />
-<meta name="twitter:description" content="岩佐耳鼻咽喉科のクリニック紹介ページ。当院の理念、院内の様子、設備についてご案内します。" />
-<title>クリニック概要 | 岩佐耳鼻咽喉科</title>
+<meta name="twitter:title" content="院長紹介 | 岩佐耳鼻咽喉科" />
+<meta name="twitter:description" content="岩佐耳鼻咽喉科の院長紹介。院長プロフィール・略歴をご案内します。" />
+<title>院長紹介 | 岩佐耳鼻咽喉科</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet" />
@@ -290,6 +290,93 @@
   .overview-notice-link { text-align: center; margin-top: 20px; font-size: 13px; color: var(--color-text-light); }
   .overview-notice-link a { color: var(--color-primary); }
 
+
+  /* === 院長紹介(greeting.html)ページ === */
+  .staff-section { padding: 48px 0; background: var(--color-bg); }
+  .staff-block { max-width: 880px; margin: 0 auto; }
+  .staff-block + .staff-block { margin-top: 40px; }
+  .staff-section-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    background: var(--color-primary);
+    padding: 14px 28px;
+    margin: 0 0 28px 0;
+    border-radius: 8px;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+  .staff-card {
+    display: flex;
+    gap: 32px;
+    background: var(--color-bg-soft);
+    padding: 32px 36px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    align-items: flex-start;
+  }
+  .staff-card-name {
+    flex-shrink: 0;
+    min-width: 160px;
+  }
+  .staff-role-tag {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 14px;
+    border-radius: 4px;
+    letter-spacing: 0.15em;
+    margin: 0 0 12px 0;
+  }
+  .staff-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin: 0;
+    letter-spacing: 0.1em;
+  }
+  .staff-card-body {
+    flex: 1;
+  }
+  .staff-bio-heading {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 18px;
+    border-radius: 20px;
+    letter-spacing: 0.15em;
+    margin: 0 0 14px 0;
+    font-weight: 500;
+  }
+  .staff-bio-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 2.0;
+  }
+  .staff-bio-list li {
+    font-size: 14.5px;
+    color: var(--color-text);
+    padding: 2px 0;
+  }
+  @media (max-width: 768px) {
+    .staff-section-title { font-size: 18px; padding: 12px 20px; margin-bottom: 20px; }
+    .staff-card { flex-direction: column; gap: 18px; padding: 24px 20px; }
+    .staff-card-name { min-width: auto; }
+    .staff-name { font-size: 17px; }
+    .staff-bio-list li { font-size: 13.5px; }
+  }
+
+  .greeting { max-width: 880px; margin: 0 auto 40px; background: #fff; border: 1px solid #e6edf3; border-radius: 14px; padding: 32px; display: flex; gap: 28px; align-items: flex-start; box-shadow: 0 6px 24px rgba(31,95,139,0.06); }
+  .greeting-portrait, .staff-portrait { flex: 0 0 auto; background: linear-gradient(135deg, #eef4f9, #dbe7f1); border: 1px dashed #9db8cd; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #5f7d96; text-align: center; line-height: 1.4; }
+  .greeting-portrait { width: 140px; height: 140px; font-size: 12px; }
+  .staff-portrait { width: 96px; height: 96px; margin: 0 auto 14px; font-size: 11px; }
+  .greeting-message h3 { font-size: 20px; color: var(--color-primary); margin-bottom: 14px; letter-spacing: 0.04em; line-height: 1.6; }
+  .greeting-message p { font-size: 15px; line-height: 1.95; color: var(--color-text); margin-bottom: 14px; }
+  .greeting-message .greeting-sign { text-align: right; font-weight: 500; margin-top: 6px; margin-bottom: 0; }
+  @media (max-width: 600px) { .greeting { flex-direction: column; align-items: center; padding: 24px 18px; } .greeting-portrait { width: 120px; height: 120px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -350,7 +437,7 @@
             <li><a href="index.html#info">受付時間</a></li>
             <li><a href="fees.html">費用について</a></li>
             <li><a href="notices.html">書面掲示について</a></li>
-            <li><a href="greeting.html">院長紹介</a></li>
+            <li><a href="greeting.html" class="active">院長紹介</a></li>
             <li><a href="clinic.html#affiliates">提携医療機関</a></li>
           </ul>
         </li>
@@ -359,7 +446,7 @@
         <li><a href="#" onclick="alert('準備中です'); return false;" data-original-href="recruit.html">求人情報</a></li>
         <li><a href="faq.html">よくある質問</a></li>
         <li><a href="index.html#info">アクセス</a></li>
-        <li><a href="clinic-overview.html" class="active">クリニック概要</a></li>
+        <li><a href="clinic-overview.html">クリニック概要</a></li>
       </ul>
       <a href="#" onclick="alert('WEB予約は準備中です。受付時間内に直接ご来院ください。'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" class="nav-tel" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -373,8 +460,8 @@
 <!-- Page Hero -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-hero-label">Overview</p>
-    <h1 class="page-hero-title">クリニック概要</h1>
+    <p class="page-hero-label">Message</p>
+    <h1 class="page-hero-title">院長紹介</h1>
   </div>
 </section>
 
@@ -383,75 +470,43 @@
   <div class="container">
     <a href="index.html">ホーム</a>
     <span>/</span>
-    クリニック概要
+    院長紹介
   </div>
 </div>
 
-<!-- 当院のご案内 -->
-<section style="padding: 64px 0; background: var(--color-bg);">
+<!-- 院長紹介 -->
+<section class="staff-section">
   <div class="container">
-    <table class="overview-table">
-      <tr>
-        <th>診療科目</th>
-        <td>耳鼻咽喉科</td>
-      </tr>
-      <tr>
-        <th>院　　長</th>
-        <td>野島　愛来</td>
-      </tr>
-      <tr>
-        <th>所在地</th>
-        <td>〒104-0031 東京都中央区京橋2丁目12-4 光和ビル 2階</td>
-      </tr>
-      <tr>
-        <th>連絡先</th>
-        <td>TEL：03-3567-8733</td>
-      </tr>
-      <tr>
-        <th>WEB予約</th>
-        <td><a href="#" onclick="alert('WEB予約は準備中です。受付時間内に直接ご来院ください。'); return false;" data-original-href="https://wakumy.lyd.inc/clinic/hg10976?openExternalBrowser=1" target="_blank" rel="noopener">https://wakumy.lyd.inc/clinic/hg10976</a></td>
-      </tr>
-    </table>
-  </div>
-</section>
-
-<!-- 診療時間 -->
-<section style="padding: 64px 0; background: var(--color-bg-soft);">
-  <div class="container">
-    <div class="section-head fade-in">
-      <p class="section-label">Hours</p>
-      <h2 class="section-title">診療時間</h2>
-      <div class="section-title-bar"></div>
+    <div class="greeting">
+      <div class="greeting-message">
+        <h3>地域の皆様に寄り添い、共に歩むクリニックへ</h3>
+        <p>こんにちは。院長の野島 愛来（のじま あいら）です。当院では、患者様が何でも気軽にお話しいただける「話しやすい雰囲気づくり」を一番に大切にしています。</p>
+        <p>たとえば「ただの鼻水」でも、アレルギー性鼻炎・副鼻腔炎・かぜなど原因はさまざまです。「いつから」「どんな状態か」という詳しいお話の中に正しい診断のヒントが隠れているからこそ、皆様の声をしっかりとお聞きする問診を大切にしています。</p>
+        <p>また、ご自身の体で何が起きているのかを「納得していただくこと」も重視しています。言葉だけでなく、検査結果や内視鏡の画像などを実際にお見せしながら、分かりやすく状態を共有いたします。</p>
+        <p>診療の際は、目の前の患者様を「自分の大切な家族」に置き換えて考えます。ご希望にも耳を傾けながら、最善の医療をご提案いたします。気になることやご要望は、どんな小さなことでも遠慮なくお伝えください。</p>
+        <p class="greeting-sign">岩佐耳鼻咽喉科　院長　野島 愛来</p>
+      </div>
     </div>
-
-    <table class="hours-table">
-      <thead>
-        <tr>
-          <th>受付時間</th>
-          <th>月</th>
-          <th>火</th>
-          <th>水</th>
-          <th>木</th>
-          <th>金</th>
-          <th>土</th>
-          <th>日・祝</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>9:45〜12:30</td>
-          <td>●</td><td>●</td><td>－</td><td>●</td><td>●</td><td>－</td><td>－</td>
-        </tr>
-        <tr>
-          <td>14:45〜17:30</td>
-          <td>●</td><td>●</td><td>－</td><td>●</td><td>●</td><td>－</td><td>－</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="hours-note">※●：通常診療　※全日予約優先制　※休診日：水曜・土曜・日曜・祝日</p>
+    <div class="staff-block">
+      <div class="staff-card">
+        <div class="staff-card-name">
+          <h3 class="staff-name">野島 愛来（院長）</h3>
+        </div>
+        <div class="staff-card-body">
+          <h4 class="staff-bio-heading">経歴・資格</h4>
+          <ul class="staff-bio-list">
+            <li>聖マリアンナ医科大学 卒業</li>
+            <li>順天堂大学医学部 耳鼻咽喉科学教室 入局</li>
+            <li>関連病院にて研修</li>
+            <li>日本耳鼻咽喉科頭頸部外科学会 専門医</li>
+            <li>都内クリニック 勤務</li>
+            <li>2026年6月 岩佐耳鼻咽喉科 院長就任</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
 
 <!-- Footer -->
 <footer class="footer">
