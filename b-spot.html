@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="テストのBスポット療法（EAT・上咽頭擦過療法）のご案内。慢性上咽頭炎に対する治療で、後鼻漏・のどの違和感・咳などのつらい症状にお悩みの方へ。内視鏡で確認しながら処置します。" />
+<link rel="canonical" href="https://kyobashi-ent.com/b-spot.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="テスト" />
+<meta property="og:url" content="https://kyobashi-ent.com/b-spot.html" />
+<meta property="og:title" content="Bスポット療法（EAT） | テスト" />
+<meta property="og:description" content="テストのBスポット療法（EAT・上咽頭擦過療法）のご案内。慢性上咽頭炎に対する治療です。" />
+<meta property="og:image" content="https://kyobashi-ent.com/og-image.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Bスポット療法（EAT） | テスト" />
+<meta name="twitter:description" content="テストのBスポット療法（EAT・上咽頭擦過療法）のご案内。慢性上咽頭炎に対する治療です。" />
+<title>Bスポット療法（EAT） | テスト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --color-primary: #1f5f8b;
+    --color-primary-light: #4a8bb8;
+    --color-accent: #e9f2f8;
+    --color-text: #2b2b2b;
+    --color-text-light: #6b6b6b;
+    --color-bg: #ffffff;
+    --color-bg-soft: #f7f9fb;
+    --color-border: #e5e9ed;
+    --max-width: 1200px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Noto Sans JP", sans-serif; font-weight: 400; color: var(--color-text); line-height: 1.8; background: var(--color-bg); -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; transition: opacity var(--transition); }
+  a:hover { opacity: 0.7; }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  .header { position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid var(--color-border); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+  .logo { font-size: 18px; font-weight: 500; letter-spacing: 0.05em; color: var(--color-primary); }
+  .logo span { display: block; font-size: 11px; letter-spacing: 0.2em; color: var(--color-text-light); font-weight: 400; margin-top: 2px; }
+  .nav { display: flex; align-items: center; gap: 32px; }
+  .nav-list { display: flex; list-style: none; gap: 28px; }
+  .nav-list a { font-size: 14px; font-weight: 500; letter-spacing: 0.05em; position: relative; }
+  .nav-list a.active { color: var(--color-primary); }
+  .nav-list a::after { content: ""; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--color-primary); transition: width var(--transition); }
+  .nav-list a:hover::after, .nav-list a.active::after { width: 100%; }
+  .nav-list .has-submenu { position: relative; }
+  .nav-list .submenu-toggle::before { content: "▾"; font-size: 10px; margin-left: 6px; opacity: 0.55; display: inline-block; vertical-align: middle; transition: transform 0.2s; float: right; margin-top: 1px; }
+  .has-submenu:hover .submenu-toggle::before { transform: rotate(-180deg); opacity: 1; }
+  .submenu { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%); background: #fff; list-style: none; padding: 10px 0; min-width: 200px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); border: 1px solid var(--color-border); border-radius: 4px; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease, top 0.2s ease; z-index: 101; }
+  .submenu::before { content: ""; position: absolute; top: -7px; left: 50%; transform: translateX(-50%); border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #fff; }
+  .has-submenu:hover .submenu, .has-submenu:focus-within .submenu { opacity: 1; visibility: visible; top: 100%; }
+  .submenu li { display: block; }
+  .submenu a { display: block; padding: 10px 20px; font-size: 13px; font-weight: 400; white-space: nowrap; letter-spacing: 0.05em; color: var(--color-text); }
+  .submenu a::after { display: none !important; }
+  .submenu a:hover { background: #f4f7fa; color: var(--color-primary); }
+  .submenu a.active { color: var(--color-primary); font-weight: 500; }
+  .nav-tel { display: flex; align-items: center; gap: 6px; padding: 10px 20px; background: var(--color-primary); color: #fff; border-radius: 30px; font-size: 13px; font-weight: 500; letter-spacing: 0.05em; }
+  .nav-tel:hover { background: var(--color-primary-light); opacity: 1; }
+  .menu-btn { display: none; width: 32px; height: 32px; background: none; border: none; cursor: pointer; position: relative; }
+  .menu-btn span { display: block; width: 24px; height: 1px; background: var(--color-text); position: absolute; left: 4px; transition: var(--transition); }
+  .menu-btn span:nth-child(1) { top: 10px; }
+  .menu-btn span:nth-child(2) { top: 16px; }
+  .menu-btn span:nth-child(3) { top: 22px; }
+  .menu-btn.active span:nth-child(1) { top: 16px; transform: rotate(45deg); }
+  .menu-btn.active span:nth-child(2) { opacity: 0; }
+  .menu-btn.active span:nth-child(3) { top: 16px; transform: rotate(-45deg); }
+
+  /* Page Hero */
+  .page-hero { height: 40vh; min-height: 320px; max-height: 440px; padding-top: 72px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e9f2f8 0%, #f7f9fb 100%); position: relative; overflow: hidden; }
+  .page-hero::before { content: ""; position: absolute; top: -20%; right: -10%; width: 50%; height: 80%; background: radial-gradient(circle, rgba(74, 139, 184, 0.12) 0%, transparent 60%); border-radius: 50%; }
+  .page-hero-inner { text-align: center; position: relative; z-index: 1; }
+  .page-hero-label { font-family: "Cormorant Garamond", serif; font-size: 14px; letter-spacing: 0.3em; color: var(--color-primary); margin-bottom: 12px; text-transform: uppercase; }
+  .page-hero-title { font-size: clamp(28px, 4vw, 42px); font-weight: 500; letter-spacing: 0.1em; color: var(--color-text); }
+
+  /* Breadcrumb */
+  .breadcrumb { padding: 20px 0; font-size: 13px; color: var(--color-text-light); background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
+  .breadcrumb a { color: var(--color-primary); }
+  .breadcrumb span { margin: 0 8px; opacity: 0.5; }
+
+  /* Section common */
+  section { padding: 100px 0; }
+  .section-head { text-align: center; margin-bottom: 64px; }
+  .section-label { font-family: "Cormorant Garamond", serif; font-size: 14px; letter-spacing: 0.3em; color: var(--color-primary); margin-bottom: 12px; text-transform: uppercase; }
+  .section-title { font-size: clamp(26px, 3.5vw, 36px); font-weight: 500; letter-spacing: 0.1em; line-height: 1.5; }
+  .section-title-bar { width: 40px; height: 1px; background: var(--color-primary); margin: 24px auto 0; }
+
+  /* Intro */
+  .intro { background: var(--color-bg); }
+  .intro-inner { max-width: 840px; margin: 0 auto; }
+  .intro-block { margin-bottom: 48px; }
+  .intro-block:last-child { margin-bottom: 0; }
+  .intro-block h3 { font-size: 20px; font-weight: 500; letter-spacing: 0.05em; color: var(--color-primary); margin-bottom: 16px; padding-left: 14px; border-left: 4px solid var(--color-primary); }
+  .intro-block p { font-size: 15px; color: var(--color-text-light); line-height: 2.1; }
+  .intro-block p + p { margin-top: 16px; }
+  .term { color: var(--color-text); font-weight: 500; }
+
+  /* Pillars (features) */
+  .pillars { background: var(--color-bg-soft); }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .pillar-card { background: #fff; padding: 48px 32px; text-align: center; border-radius: 8px; transition: var(--transition); border: 1px solid transparent; }
+  .pillar-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(31, 95, 139, 0.08); border-color: var(--color-border); }
+  .pillar-icon { width: 64px; height: 64px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-primary); border-radius: 50%; color: var(--color-primary); }
+  .pillar-num { font-family: "Cormorant Garamond", serif; font-size: 14px; letter-spacing: 0.3em; color: var(--color-primary); text-transform: uppercase; margin-bottom: 8px; }
+  .pillar-card h3 { font-size: 19px; font-weight: 500; margin-bottom: 16px; letter-spacing: 0.05em; }
+  .pillar-card p { font-size: 14px; color: var(--color-text-light); line-height: 2; }
+
+  /* Flow steps */
+  .flow { background: var(--color-bg); }
+  .flow-steps { max-width: 840px; margin: 0 auto; list-style: none; }
+  .flow-step { display: flex; gap: 24px; align-items: flex-start; padding: 28px 0; border-bottom: 1px solid var(--color-border); }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-no { flex-shrink: 0; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-primary); color: #fff; font-family: "Cormorant Garamond", serif; font-size: 20px; }
+  .flow-step h4 { font-size: 17px; font-weight: 500; margin-bottom: 6px; letter-spacing: 0.05em; }
+  .flow-step p { font-size: 14px; color: var(--color-text-light); line-height: 1.9; }
+
+  /* Symptoms */
+  .symptoms { background: var(--color-bg-soft); }
+  .symptom-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
+  .symptom-card { background: #fff; padding: 32px; border-radius: 8px; border: 1px solid var(--color-border); }
+  .symptom-card h4 { font-size: 16px; font-weight: 500; margin-bottom: 16px; letter-spacing: 0.05em; color: var(--color-primary); }
+  .symptom-card ul { list-style: none; }
+  .symptom-card li { position: relative; padding-left: 20px; font-size: 14px; color: var(--color-text-light); line-height: 2; }
+  .symptom-card li::before { content: "○"; position: absolute; left: 0; color: var(--color-primary-light); font-size: 11px; top: 6px; }
+  .symptom-note { max-width: 960px; margin: 32px auto 0; font-size: 12.5px; color: var(--color-text-light); line-height: 1.9; }
+
+  /* Detail (回数・費用・注意) */
+  .detail { background: var(--color-bg); }
+  .detail-grid { max-width: 960px; margin: 0 auto; display: grid; gap: 24px; }
+  .detail-card { background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: 8px; padding: 32px 36px; }
+  .detail-card h3 { font-size: 18px; font-weight: 500; letter-spacing: 0.05em; margin-bottom: 14px; color: var(--color-primary); display: flex; align-items: center; gap: 10px; }
+  .detail-card p { font-size: 14.5px; color: var(--color-text-light); line-height: 2; }
+  .cost-list { list-style: none; margin-top: 8px; }
+  .cost-list li { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 10px 0; border-bottom: 1px dashed var(--color-border); font-size: 14.5px; }
+  .cost-list li:last-child { border-bottom: none; }
+  .cost-list .cost-label { color: var(--color-text); }
+  .cost-list .cost-val { color: var(--color-primary); font-weight: 500; }
+  .note-box { background: #fff7f5; border-left: 3px solid #c46a4a; border-radius: 4px; padding: 16px 18px; margin-top: 16px; font-size: 13px; line-height: 1.9; color: var(--color-text); }
+
+  /* FAQ */
+  .faq { background: var(--color-bg-soft); }
+  .faq-list { max-width: 840px; margin: 0 auto; }
+  .faq-item { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 14px; overflow: hidden; }
+  .faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 20px 24px; font-size: 15px; font-weight: 500; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-q { flex-shrink: 0; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--color-accent); color: var(--color-primary); font-family: "Cormorant Garamond", serif; font-size: 15px; }
+  .faq-item .faq-a { padding: 0 24px 22px 62px; font-size: 14px; color: var(--color-text-light); line-height: 2; }
+
+  /* CTA */
+  .cta { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%); color: #fff; text-align: center; padding: 96px 0; }
+  .cta h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 500; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .cta p { font-size: 15px; opacity: 0.92; margin-bottom: 40px; line-height: 2; }
+  .cta .btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; border-radius: 30px; font-size: 14px; font-weight: 500; letter-spacing: 0.1em; border: 1px solid #fff; color: #fff; transition: var(--transition); }
+  .cta .btn-ghost:hover { background: #fff; color: var(--color-primary); opacity: 1; }
+
+  /* Footer */
+  .footer { background: #2b2b2b; color: #fff; padding: 64px 0 32px; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .footer-logo { font-size: 18px; font-weight: 500; letter-spacing: 0.05em; margin-bottom: 12px; }
+  .footer-logo span { display: block; font-size: 11px; letter-spacing: 0.2em; opacity: 0.6; font-weight: 400; margin-top: 4px; }
+  .footer-address { font-size: 13px; opacity: 0.7; line-height: 2; }
+  .footer-nav { display: flex; gap: 32px; list-style: none; flex-wrap: wrap; }
+  .footer-nav a { font-size: 13px; opacity: 0.7; letter-spacing: 0.05em; }
+  .footer-nav a:hover { opacity: 1; }
+  .copyright { text-align: center; padding-top: 32px; font-size: 12px; opacity: 0.5; letter-spacing: 0.1em; font-family: "Cormorant Garamond", serif; }
+
+  /* Animations */
+  .mobile-book-bar { display: none; }
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+    .symptom-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 72px 0; }
+    .nav-list, .nav-tel { display: none; }
+    .menu-btn { display: block; }
+    .nav.open { position: fixed; top: 72px; left: 0; right: 0; background: #fff; border-top: 1px solid var(--color-border); padding: 24px; flex-direction: column; align-items: stretch; }
+    .nav.open .nav-list { display: flex; flex-direction: column; gap: 16px; }
+    .nav.open .submenu { position: static; transform: none; opacity: 1; visibility: visible; box-shadow: none; border: none; padding: 8px 0 0 20px; background: transparent; min-width: 0; }
+    .nav.open .submenu::before { display: none; }
+    .nav.open .submenu a { padding: 8px 0; font-size: 13.5px; }
+    .nav.open .has-submenu { display: block; }
+    .nav.open .nav-tel { display: inline-flex; justify-content: center; margin-top: 16px; }
+    .section-head { margin-bottom: 48px; }
+    .flow-step { gap: 16px; }
+    body { padding-bottom: 64px; }
+    .mobile-book-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 99;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+    }
+    .mobile-book-bar a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 18px 8px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #fff;
+      text-decoration: none;
+    }
+    .mobile-book-bar a:hover { opacity: 1; }
+    .mobile-book-bar .mb-tel { background: var(--color-primary); }
+    .mobile-book-bar .mb-web { background: var(--color-primary-light); }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "Bスポット療法（EAT・上咽頭擦過療法）",
+  "url": "https://kyobashi-ent.com/b-spot.html",
+  "about": {
+    "@type": "MedicalProcedure",
+    "name": "上咽頭擦過療法（EAT・Bスポット療法）",
+    "procedureType": "https://schema.org/TherapeuticProcedure"
+  },
+  "publisher": {
+    "@type": "MedicalClinic",
+    "name": "テスト",
+    "alternateName": "IWASA ENT CLINIC",
+    "url": "https://kyobashi-ent.com/",
+    "telephone": "+81-3-3567-8733",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "京橋2-12-4 光和ビル2階",
+      "addressLocality": "中央区",
+      "addressRegion": "東京都",
+      "postalCode": "104-0031",
+      "addressCountry": "JP"
+    }
+  }
+}
+</script>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      テスト
+      <span>IWASA ENT CLINIC</span>
+    </a>
+    <nav class="nav" id="nav">
+      <ul class="nav-list">
+        <li class="has-submenu">
+          <a href="index.html#services" class="submenu-toggle">診療案内</a>
+          <ul class="submenu">
+            <li><a href="clinic.html">クリニック紹介</a></li>
+            <li><a href="index.html#info">診療時間</a></li>
+            <li><a href="fees.html">費用について</a></li>
+            <li><a href="notices.html">書面掲示について</a></li>
+            <li><a href="greeting.html">院長紹介</a></li>
+            <li><a href="clinic.html#affiliates">提携医療機関</a></li>
+            <li><a href="b-spot.html" class="active">Bスポット療法（EAT）</a></li>
+          </ul>
+        </li>
+        <li><a href="visiting.html">受診される方へ</a></li>
+        <li><a href="index.html#news">お知らせ</a></li>
+        <li><a href="#" onclick="alert('準備中です'); return false;" data-original-href="recruit.html">求人情報</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+        <li><a href="index.html#info">アクセス</a></li>
+        <li><a href="clinic-overview.html">クリニック概要</a></li>
+      </ul>
+      <a href="reservation.html" class="nav-tel">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        ネット予約
+      </a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-label">Treatment</p>
+    <h1 class="page-hero-title">Bスポット療法（EAT）</h1>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html">ホーム</a>
+    <span>/</span>
+    Bスポット療法（EAT）
+  </div>
+</div>
+
+<!-- Intro -->
+<section class="intro">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">About EAT</p>
+      <h2 class="section-title">Bスポット療法とは</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <div class="intro-inner fade-in">
+      <div class="intro-block">
+        <h3>上咽頭炎とは</h3>
+        <p>
+          <span class="term">上咽頭</span>は、鼻のいちばん奥と、のどの上のあいだに位置する部分です。空気の通り道であると同時に、外から入ってくるウイルスや細菌に最初に接する場所のため、炎症が起こりやすいところです。
+        </p>
+        <p>
+          ここに慢性的な炎症が続いた状態を<span class="term">慢性上咽頭炎</span>といい、後鼻漏（鼻水がのどに流れる感じ）、のどの違和感、痰がからむ、長引く咳、声のかすれなど、さまざまな症状の原因となることがあるとされています。
+        </p>
+      </div>
+      <div class="intro-block">
+        <h3>Bスポット療法（EAT）とは</h3>
+        <p>
+          <span class="term">Bスポット療法</span>は、塩化亜鉛（えんかあえん）という消炎作用のある薬液を染み込ませた綿棒を、鼻や口から上咽頭に直接こすりつける処置です。<span class="term">上咽頭擦過療法（EAT：Epipharyngeal Abrasive Therapy）</span>とも呼ばれます。
+        </p>
+        <p>
+          慢性上咽頭炎に対する治療法の一つとして広く行われており、特別な機械を使わないシンプルな処置です。炎症が強い場合には処置時に痛みや出血を伴うことがありますが、治療を続けるうちに軽くなっていくことが多いとされています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="pillars">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Our Approach</p>
+      <h2 class="section-title">当院の特徴</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card fade-in">
+        <div class="pillar-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/></svg>
+        </div>
+        <p class="pillar-num">01</p>
+        <h3>内視鏡で「見ながら」処置</h3>
+        <p>上咽頭は外から見えにくい場所です。当院では内視鏡で炎症の状態を確認しながら処置を行い、必要な部位を的確に治療します。</p>
+      </div>
+      <div class="pillar-card fade-in">
+        <div class="pillar-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <p class="pillar-num">02</p>
+        <h3>画像を一緒に確認</h3>
+        <p>内視鏡の画像をモニターで共有し、いまの炎症の様子や治療による変化を、患者様ご自身に見ていただきながらご説明します。</p>
+      </div>
+      <div class="pillar-card fade-in">
+        <div class="pillar-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <p class="pillar-num">03</p>
+        <h3>つらい症状にあわせて</h3>
+        <p>後鼻漏やのどの違和感など、長引く症状でお悩みの方に、診察のうえで適応を判断し、無理のない範囲で治療をご提案します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flow -->
+<section class="flow">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Treatment Flow</p>
+      <h2 class="section-title">治療の流れ</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <ol class="flow-steps fade-in">
+      <li class="flow-step">
+        <span class="flow-no">1</span>
+        <div>
+          <h4>診察・症状の確認</h4>
+          <p>症状やこれまでの経過をお伺いし、Bスポット療法の適応となるかを診察で確認します。</p>
+        </div>
+      </li>
+      <li class="flow-step">
+        <span class="flow-no">2</span>
+        <div>
+          <h4>上咽頭の観察</h4>
+          <p>内視鏡を用いて上咽頭の炎症の状態を観察します。必要に応じて鼻の処置を行います。</p>
+        </div>
+      </li>
+      <li class="flow-step">
+        <span class="flow-no">3</span>
+        <div>
+          <h4>塩化亜鉛による擦過</h4>
+          <p>塩化亜鉛を染み込ませた綿棒を、鼻や口から上咽頭にあてて擦過します。処置自体は短時間で終わります。</p>
+        </div>
+      </li>
+      <li class="flow-step">
+        <span class="flow-no">4</span>
+        <div>
+          <h4>処置後のご説明</h4>
+          <p>処置後の注意点や、次回以降の通院の目安についてご説明します。</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Symptoms -->
+<section class="symptoms">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Indications</p>
+      <h2 class="section-title">こんな症状の方に</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <div class="symptom-grid">
+      <div class="symptom-card fade-in">
+        <h4>上咽頭炎に関連する症状</h4>
+        <ul>
+          <li>後鼻漏（鼻水がのどに流れる）</li>
+          <li>のどの違和感・つまる感じ</li>
+          <li>痰がからむ・長引く咳</li>
+          <li>声のかすれ</li>
+        </ul>
+      </div>
+      <div class="symptom-card fade-in">
+        <h4>関連が指摘されている症状</h4>
+        <ul>
+          <li>頭痛・首や肩のこり</li>
+          <li>めまい・耳鳴り</li>
+          <li>全身の倦怠感</li>
+          <li>鼻やのどの慢性的な不調</li>
+        </ul>
+      </div>
+    </div>
+    <p class="symptom-note fade-in">
+      ※ 慢性上咽頭炎は、一部の全身疾患（IgA腎症・掌蹠膿疱症など）との関連が研究・報告されていますが、効果には個人差があり、すべての方に当てはまるものではありません。気になる症状がある方は、まず診察でご相談ください。
+    </p>
+  </div>
+</section>
+
+<!-- Detail: 回数・費用・注意 -->
+<section class="detail">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">Details</p>
+      <h2 class="section-title">治療回数・費用・注意点</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <div class="detail-grid">
+      <div class="detail-card fade-in">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          治療回数の目安
+        </h3>
+        <p>週に1〜2回のペースで、計10〜15回程度を目安に治療を続け、効果を判定していきます。症状や炎症の程度によって回数には個人差があります。</p>
+      </div>
+      <div class="detail-card fade-in">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+          費用について（保険適用）
+        </h3>
+        <p>Bスポット療法には<span class="term">健康保険が適用されます</span>。3割負担の場合の目安は以下の通りです。</p>
+        <ul class="cost-list">
+          <li><span class="cost-label">初回（診察・検査を含む）</span><span class="cost-val">約 3,000〜4,000円</span></li>
+          <li><span class="cost-label">2回目以降</span><span class="cost-val">約 500〜600円</span></li>
+        </ul>
+        <p class="note-box">※ 上記はあくまで目安です。実際の金額は、その日の診察・検査内容や負担割合により異なります。</p>
+      </div>
+      <div class="detail-card fade-in">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          注意点・副作用
+        </h3>
+        <p>炎症が強い場合、処置中や処置後に上咽頭・のどのヒリヒリとした痛みや、少量の出血がみられることがあります。多くは2〜3日で落ち着きます。</p>
+        <p class="note-box">※ 抗凝固薬（血をサラサラにするお薬）を複数服用中の方、最近喘息の発作があった方などは、治療の適応とならない場合があります。診察のうえで判断いたしますので、お薬の内容やご病気についてはお気軽にお知らせください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-head fade-in">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">よくあるご質問</h2>
+      <div class="section-title-bar"></div>
+    </div>
+    <div class="faq-list fade-in">
+      <details class="faq-item">
+        <summary><span class="faq-q">Q</span>痛みはありますか？</summary>
+        <div class="faq-a">炎症が強いほど痛みを感じやすい傾向があります。炎症が強い部位ほどしみる・痛むことがありますが、治療を続けて炎症が落ち着いてくると、痛みも和らいでいくことが多いとされています。</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">Q</span>何歳から受けられますか？</summary>
+        <div class="faq-a">基本的に年齢の制限はありませんが、処置中にじっとしている必要があるため、おおむね小学校高学年くらいから受けやすい治療です。お子様の場合は診察のうえでご相談ください。</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">Q</span>妊娠中・授乳中でも受けられますか？</summary>
+        <div class="faq-a">塩化亜鉛を局所に用いる処置のため、妊娠中・授乳中の方でも受けていただけることが多い治療です。念のため、診察時に妊娠の有無などをお知らせください。</div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">Q</span>どのくらいで効果がわかりますか？</summary>
+        <div class="faq-a">効果のあらわれ方には個人差があります。一般的には週1〜2回・計10〜15回程度を続けて効果を判定します。症状の変化をみながら、継続するかどうかをご相談していきます。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>長引くのど・鼻の不調はご相談ください</h2>
+    <p>後鼻漏やのどの違和感など、なかなか良くならない症状でお困りの方は、<br />まずは一度ご相談ください。診察のうえで治療の適応をご案内します。</p>
+    <a href="reservation.html" class="btn-ghost">
+      ネット予約について
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">テスト<span>IWASA ENT CLINIC</span></div>
+        <p class="footer-address">〒104-0031 東京都中央区京橋2丁目12-4 光和ビル 2階<br />TEL: 03-3567-8733</p>
+      </div>
+      <ul class="footer-nav">
+        <li><a href="clinic.html">クリニック紹介</a></li>
+        <li><a href="visiting.html">受診される方へ</a></li>
+        <li><a href="index.html#services">診療案内</a></li>
+        <li><a href="b-spot.html">Bスポット療法（EAT）</a></li>
+        <li><a href="fees.html">費用について</a></li>
+        <li><a href="notices.html">書面掲示について</a></li>
+        <li><a href="#" onclick="alert('準備中です'); return false;" data-original-href="recruit.html">求人情報</a></li>
+        <li><a href="faq.html">よくある質問</a></li>
+        <li><a href="index.html#info">アクセス</a></li>
+        <li><a href="clinic-overview.html">クリニック概要</a></li>
+        <li><a href="privacy-policy.html">個人情報保護方針</a></li>
+      </ul>
+    </div>
+    <p class="copyright">© 2026 Iwasa ENT Clinic. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('nav');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      nav.classList.remove('open');
+    });
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+<!-- Mobile Booking Bar (mobile only) -->
+<div class="mobile-book-bar">
+  <a href="reservation.html" class="mb-tel">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    ネット予約
+  </a>
+  <a href="faq.html" class="mb-web">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    よくある質問
+  </a>
+</div>
+
+</body>
+</html>
