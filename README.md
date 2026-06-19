@@ -1,29 +1,11 @@
-# 岩佐耳鼻咽喉科 ウェブサイト
+﻿# アリバみみはなのどクリニック 公開サイト
 
-静的HTMLによる岩佐耳鼻咽喉科（東京都中央区京橋・宝町駅徒歩30秒）のウェブサイトです。
+静的HTML（ビルド不要）。Cloudflare Pages 自動デプロイ。
 
-## ページ構成
+- index.html … トップ（写真なし版）
+- reservation.html … ご予約・デジスマ案内
+- b-spot.html … Bスポット療法
+- logo.png / doctor.png … ロゴ・院長似顔絵
 
-- `index.html` — トップページ
-- `clinic.html` — クリニック紹介
-- `staff.html` — スタッフ紹介
-- `fees.html` — 費用について
-- `notices.html` — 書面掲示について
-- `faq.html` — よくある質問
-- `recruit.html` — 求人情報
-
-## デプロイ
-
-Cloudflare Pages に GitHub 連携でデプロイしています。`main` ブランチへの push で自動デプロイされます。
-
-- Framework preset: **None**
-- Build command: （なし）
-- Build output directory: `/`
-
-## ローカルプレビュー
-
-```bash
-# Python が入っていれば
-python -m http.server 8000
-# → http://localhost:8000 でブラウザ表示
-```
+編集元（成果物）からの生成は スクリプト\build_deploy_site.py（OneDrive側プロジェクト）。
+※ 旧・京橋宝町耳鼻咽喉科サイト（全12ページ）は 2026-06-19 に本モックへ全置き換え。旧版は git 履歴（置換前コミット 0a830e5）から復元可能。
