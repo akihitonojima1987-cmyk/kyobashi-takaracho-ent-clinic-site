@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ariba-ent.com/sitemap.xml
+Sitemap: https://kt-jibika.jp/sitemap.xml
