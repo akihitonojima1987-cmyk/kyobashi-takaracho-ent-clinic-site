@@ -3,27 +3,137 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>準備中</title>
-<meta name="robots" content="noindex, nofollow">
+<title>待合状況（整理券番号）｜岩佐耳鼻咽喉科</title>
+<meta name="description" content="岩佐耳鼻咽喉科の待合状況。ただいまお呼びしている整理券番号を表示します（自動更新）。">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  html, body { margin: 0; height: 100%; }
-  body {
-    display: flex; align-items: center; justify-content: center; min-height: 100vh;
-    background: #f6f9ff; color: #3a423e; text-align: center; padding: 24px;
-    font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  :root { --ac:#4285f4; --acd:#1a66d6; --acs:#e8f0fe; --acbg:#f6f9ff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Zen Kaku Gothic New', sans-serif; color: #3a423e; background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; border-radius: 999px; white-space: nowrap; }
+  .btn-primary { background: var(--ac); color: #fff; box-shadow: 0 8px 20px rgba(47,99,196,0.30); transition: background .2s, box-shadow .2s, transform .2s; }
+  .btn-primary:hover { background: var(--acd); box-shadow: 0 10px 24px rgba(47,99,196,0.40); transform: translateY(-2px); }
+  .btn-line { background: #06c755; color: #fff; box-shadow: 0 6px 16px rgba(6,199,85,0.3); }
+  .foot-link { color: #aab2ac; transition: color .2s; }
+  .foot-link:hover { color: #fff; }
+  @media (max-width: 860px) {
+    .nav-menu { display:none !important; }
+    .section-pad { padding-left:22px !important; padding-right:22px !important; }
+    .h1-title { font-size: 28px !important; }
   }
-  .box { max-width: 440px; }
-  .dot { width: 56px; height: 56px; border-radius: 50%; background: #e8f0fe; color: #1a66d6;
-         display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 20px; }
-  h1 { font-size: 22px; font-weight: 700; margin: 0 0 14px; letter-spacing: 0.03em; }
-  p  { font-size: 14.5px; line-height: 2.0; color: #5b645f; margin: 0; }
 </style>
-</head>
-<body>
-  <div class="box">
-    <div class="dot">◷</div>
-    <h1>ただいま準備中です</h1>
-    <p>ホームページは現在準備中です。<br>公開まで今しばらくお待ちください。</p>
-  </div>
+<style>@media(max-width:600px){header>div{padding-left:14px!important;padding-right:14px!important;gap:8px!important}header img{height:34px!important}header a>span>span:first-child{font-size:15px!important;letter-spacing:.02em!important;white-space:nowrap!important}header a>span>span:last-child{display:none!important}header nav{gap:8px!important}header nav a.pill{font-size:12px!important;padding:9px 13px!important}}@media(max-width:400px){header img{height:30px!important}header a>span>span:first-child{font-size:13px!important;white-space:nowrap!important}header nav a.pill{font-size:11px!important;padding:8px 9px!important}}</style></head>
+<body id="top">
+
+<div>
+  <!-- ヘッダー -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eceae4;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="index.html" style="display: flex; align-items: center; gap: 12px;">
+        <img src="logo.png" alt="岩佐耳鼻咽喉科 ロゴ" style="height: 44px; width: auto; flex: none; display: block;">
+        <span style="display: flex; flex-direction: column; line-height: 1.15;">
+          <span style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 21px; letter-spacing: 0.04em; color: #3a423e;">岩佐耳鼻咽喉科</span>
+          <span style="font-size: 10px; letter-spacing: 0.28em; color: var(--acd); margin-top: 3px;">IWASA ENT CLINIC</span>
+        </span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 26px;">
+        <div class="nav-menu" style="display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 500; color: #4a534e; white-space: nowrap;">
+          <a href="index.html#about">当院について</a>
+          <a href="index.html#doctor">院長紹介</a>
+          <a href="index.html#services">診療内容</a>
+          <a href="index.html#access">アクセス</a>
+          <a href="waiting.html">受付番号</a>
+          <a href="index.html#faq">よくある質問</a>
+          <a href="contact.html">お問い合わせ</a>
+        </div>
+        <a href="reservation.html" class="pill btn-primary" style="flex: none; font-size: 14px; padding: 11px 18px;">ご予約</a>
+        <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="flex: none; font-size: 14px; padding: 11px 20px;">公式LINE</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ページヘッダー -->
+    <section style="position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(150deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 72%, #fef4da 100%);"></div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.85) 100%);"></div>
+      <div class="section-pad" style="position: relative; max-width: 820px; margin: 0 auto; padding: 64px 28px 44px; text-align: center;">
+        <div style="font-size: 12px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 12px;">WAITING</div>
+        <h1 class="h1-title" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 34px; line-height: 1.45; letter-spacing: 0.04em; color: #353d39; margin: 0;">待合状況（整理券番号）</h1>
+      </div>
+    </section>
+
+    <!-- 整理券番号（ライブ画像） -->
+    <section style="background:#fff;">
+      <div class="section-pad" style="max-width: 620px; margin: 0 auto; padding: 40px 28px 16px; text-align: center;">
+        <p style="font-size: 14.5px; line-height: 1.95; color: #5b645f; margin: 0 0 18px;">当日すでに受付を済ませ「整理券」をお持ちの方へ。<br>ただいまお呼びしている整理券番号です（約60秒ごとに自動更新）。<br>表示の番号が <span style="border-bottom:3px solid #fbbc05; font-weight:700; color:#3a423e;">3〜4番前</span> になりましたら、必ず待合室でお待ちください。</p>
+
+        <div style="display:inline-block; padding: 16px; background: #f4fbef; border: 1px double #5ab61d; border-radius: 14px;">
+          <img id="ticket" src="https://www.kt-jibika.jp/waiting.jpg" alt="ただいまお呼びしている整理券番号"
+               style="display:block; width: 280px; max-width: 100%; height: auto; image-rendering: -webkit-optimize-contrast;">
+        </div>
+
+        <div style="margin-top: 16px;">
+          <button id="reloadBtn" type="button" class="pill btn-primary" style="border:none; cursor:pointer; font-size:15px; padding:11px 24px;">最新の状況に更新</button>
+          <p id="updatedAt" style="font-size:12px; color:#939a93; margin:10px 0 0;"></p>
+        </div>
+      </div>
+
+      <!-- 注意書き -->
+      <div class="section-pad" style="max-width: 620px; margin: 0 auto; padding: 18px 28px 60px;">
+        <ol style="margin:0; padding-left:1.2em; font-size:14px; line-height:2.0; color:#4a534e;">
+          <li>最新の状況を確認する際は、上の「最新の状況に更新」ボタン、またはブラウザの更新ボタンでページを再読み込みしてください。</li>
+          <li>番号をお呼びした時に待合室にいらっしゃらない場合、順次、後の方に繰り上がりますので予めご了承ください。</li>
+          <li>急なご都合でお戻りになれない場合にはご一報ください（TEL：<a href="tel:0335678733" style="color:var(--acd); font-weight:700;">03-3567-8733</a>）。</li>
+        </ol>
+        <p style="margin-top:26px; text-align:center;"><a href="index.html" style="color:var(--acd); font-weight:700; font-size:14px;">← トップページへ戻る</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer style="background: #2b313a; color: #cdd3ce;">
+    <div class="section-pad" style="max-width: 1080px; margin: 0 auto; padding: 48px 28px 26px;">
+      <div style="display:flex; gap:14px; align-items:center; margin-bottom:16px;">
+        <img src="logo.png" alt="岩佐耳鼻咽喉科 ロゴ" style="height: 34px; width: auto; display: block;">
+        <span style="font-family:'Shippori Mincho',serif; font-size:18px; color:#fff; letter-spacing:0.04em;">岩佐耳鼻咽喉科</span>
+      </div>
+      <p style="font-size:13px; line-height:1.9; color:#aab2ac; margin:0 0 18px;">〒104-0031 東京都中央区京橋2-12-4 光和ビル2F　／　都営浅草線「宝町駅」A7・A6出口・東京メトロ銀座線「京橋駅」4出口　／　TEL：03-3567-8733</p>
+      <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:13px; border-top:1px solid rgba(255,255,255,0.1); padding-top:18px;">
+        <a href="index.html" class="foot-link">トップ</a>
+        <a href="index.html#services" class="foot-link">診療内容</a>
+        <a href="index.html#access" class="foot-link">アクセス・診療時間</a>
+        <a href="reservation.html" class="foot-link">ご予約</a>
+        <a href="privacy-policy.html" class="foot-link">プライバシーポリシー</a>
+        <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="foot-link">公式LINE</a>
+      </div>
+      <div style="padding-top:18px; font-size:11.5px; color:#8a928c; letter-spacing:0.05em;">© 2026 岩佐耳鼻咽喉科 IWASA ENT CLINIC. All Rights Reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // 整理券画像を約60秒ごとに自動更新（キャッシュ回避でタイムスタンプ付与）
+  (function () {
+    var img = document.getElementById('ticket');
+    var stamp = document.getElementById('updatedAt');
+    var base = 'https://www.kt-jibika.jp/waiting.jpg';
+    function refresh() {
+      img.src = base + '?t=' + Date.now();
+      var d = new Date();
+      var hh = ('0' + d.getHours()).slice(-2);
+      var mm = ('0' + d.getMinutes()).slice(-2);
+      stamp.textContent = '最終確認：' + hh + ':' + mm;
+    }
+    document.getElementById('reloadBtn').addEventListener('click', refresh);
+    refresh();
+    setInterval(refresh, 60000);
+  })();
+</script>
 </body>
 </html>
