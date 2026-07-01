@@ -6,9 +6,69 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://kyobashi-ent.com/services</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://kyobashi-ent.com/reservation</loc>
     <lastmod>2026-07-01</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/pollinosis</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/allergic-rhinitis</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/sublingual-immunotherapy</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/sinusitis</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/otitis-media</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/sudden-hearing-loss</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/vertigo</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/tonsillitis</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/tinnitus</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/earwax</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/sas</loc>
+    <lastmod>2026-07-01</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://kyobashi-ent.com/b-spot</loc>
