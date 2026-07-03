@@ -98,55 +98,21 @@
           <p style="font-size: 13.5px; line-height: 1.95; color: #4a534e; margin: 0 0 12px;">お問い合わせには <strong>3営業日以内</strong> を目安にご返信いたします（診療状況により、お時間をいただく場合があります）。<strong>お急ぎの場合は、診療時間内にお電話</strong>（<a href="tel:0335678733" style="color:var(--acd); font-weight:700;">03-3567-8733</a>）でお問い合わせください。</p>
           <ul style="margin: 0; padding-left: 1.1em; font-size: 13px; line-height: 1.95; color: #5b645f;">
             <li>ご予約の取得・変更は本フォームではお受けできません（<a href="reservation.html" style="color:var(--acd); font-weight:700;">ご予約について</a>をご覧ください）。</li>
-            <li>受診歴のある方は、安全確認のため<strong>診察券番号</strong>をご記載ください（ご記載がない場合、ご返信できないことがあります）。</li>
+            <li>患者さまだけでなく、<strong>業者・お取引先の方</strong>からのご連絡も同じフォームで承ります。フォームの「お問い合わせの種別」でお選びください。</li>
             <li>症状に関するご相談・病気の説明・セカンドオピニオン等は、メールではお答えできません。ご予約のうえ直接ご受診ください。</li>
             <li>特定の個人・組織を誹謗中傷する内容にはお答えできません。あらかじめご了承ください。</li>
           </ul>
         </div>
       </div>
 
-      <!-- フォーム -->
+      <!-- フォーム（Googleフォーム・患者さま/業者さま 共通窓口） -->
       <div class="section-pad" style="max-width: 720px; margin: 0 auto; padding: 26px 28px 64px;">
-        <!-- 送信先：Formspree（takaracho.ent.office）-->
-        <form action="https://formspree.io/f/mzdlegdr" method="POST">
-          <input type="hidden" name="_subject" value="【HP】お問い合わせ">
-
-          <div class="field">
-            <label for="f-name">お名前<span class="req">必須</span></label>
-            <input class="input" id="f-name" type="text" name="お名前" required autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="f-kana">フリガナ<span class="req">必須</span></label>
-            <input class="input" id="f-kana" type="text" name="フリガナ" required>
-          </div>
-          <div class="field">
-            <label for="f-email">メールアドレス<span class="req">必須</span></label>
-            <input class="input" id="f-email" type="email" name="メールアドレス" required autocomplete="email" inputmode="email">
-          </div>
-          <div class="field">
-            <label for="f-tel">電話番号<span class="req">必須</span></label>
-            <input class="input" id="f-tel" type="tel" name="電話番号" required autocomplete="tel" inputmode="tel">
-          </div>
-          <div class="field">
-            <label>当院への受診歴<span class="req">必須</span></label>
-            <div class="radios">
-              <label><input type="radio" name="受診歴" value="あり" required>あり</label>
-              <label><input type="radio" name="受診歴" value="なし">なし</label>
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-card">診察券番号<span class="opt">受診歴のある方</span></label>
-            <input class="input" id="f-card" type="text" name="診察券番号" inputmode="numeric">
-          </div>
-          <div class="field">
-            <label for="f-msg">お問い合わせ内容<span class="req">必須</span></label>
-            <textarea class="textarea" id="f-msg" name="お問い合わせ内容" required></textarea>
-          </div>
-
-          <p style="font-size: 12px; color: #939a93; line-height: 1.8; margin: 0 0 18px;">送信いただいた個人情報は、お問い合わせ対応の目的にのみ使用します。詳しくは<a href="privacy-policy.html" style="color:var(--acd); font-weight:700;">プライバシーポリシー</a>をご覧ください。</p>
-
-          <button class="submit" type="submit">送信する</button>
-        </form>
+        <p style="text-align:center; font-size: 14.5px; line-height: 2.0; color: #4a534e; margin: 0 0 22px;">お問い合わせは、下記のフォームからお願いいたします。<br>患者さま・業者さま<strong>共通の窓口</strong>です。フォームの<strong>「お問い合わせの種別」</strong>でどちらかをお選びください。</p>
+        <div style="border: 1.5px solid #e6ebf4; border-radius: 14px; overflow: hidden; background: #fff;">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf-H2Nwi0lh-Yucs1jILH5qe7FuFcfiNOiMbxrjYic4e4iFIg/viewform?embedded=true" width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" style="display:block;" title="お問い合わせフォーム">読み込んでいます…</iframe>
+        </div>
+        <p style="margin: 16px 0 0; text-align:center; font-size: 13.5px; line-height: 1.9; color:#5b645f;">フォームが表示されない場合は、<a href="https://docs.google.com/forms/d/e/1FAIpQLSf-H2Nwi0lh-Yucs1jILH5qe7FuFcfiNOiMbxrjYic4e4iFIg/viewform" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700;">こちらからフォームを開いて</a>ご回答ください。</p>
+        <p style="margin: 14px 0 0; text-align:center; font-size: 12px; color: #939a93; line-height: 1.8;">送信いただいた個人情報は、お問い合わせ対応の目的にのみ使用します。詳しくは<a href="privacy-policy.html" style="color:var(--acd); font-weight:700;">プライバシーポリシー</a>をご覧ください。</p>
 
         <p style="margin-top: 30px; text-align: center;"><a href="index.html" style="color:var(--acd); font-weight:700; font-size:14px;">← トップページへ戻る</a></p>
       </div>
