@@ -44,6 +44,10 @@
   }
   .submit:hover { background: var(--acd); transform: translateY(-2px); }
 
+  /* Googleフォーム埋め込み（スクロール不要になるよう高さを確保。モバイルは縦に伸びるため高めに） */
+  .gform { width: 100%; height: 900px; border: 0; display: block; }
+  @media (max-width: 600px) { .gform { height: 1460px; } }
+
   @media (max-width: 860px) {
     .nav-menu { display:none !important; }
     .section-pad { padding-left:22px !important; padding-right:22px !important; }
@@ -98,7 +102,7 @@
           <p style="font-size: 13.5px; line-height: 1.95; color: #4a534e; margin: 0 0 12px;">お問い合わせには <strong>3営業日以内</strong> を目安にご返信いたします（診療状況により、お時間をいただく場合があります）。<strong>お急ぎの場合は、診療時間内にお電話</strong>（<a href="tel:0335678733" style="color:var(--acd); font-weight:700;">03-3567-8733</a>）でお問い合わせください。</p>
           <ul style="margin: 0; padding-left: 1.1em; font-size: 13px; line-height: 1.95; color: #5b645f;">
             <li>ご予約の取得・変更は本フォームではお受けできません（<a href="reservation.html" style="color:var(--acd); font-weight:700;">ご予約について</a>をご覧ください）。</li>
-            <li>患者さまだけでなく、<strong>業者・お取引先の方</strong>からのご連絡も同じフォームで承ります。フォームの「お問い合わせの種別」でお選びください。</li>
+            <li><strong>業者・お取引先の方</strong>は、ページ下部の「業者・お取引先の方はこちら」から専用フォームへお進みください。</li>
             <li>症状に関するご相談・病気の説明・セカンドオピニオン等は、メールではお答えできません。ご予約のうえ直接ご受診ください。</li>
             <li>特定の個人・組織を誹謗中傷する内容にはお答えできません。あらかじめご了承ください。</li>
           </ul>
@@ -107,12 +111,19 @@
 
       <!-- フォーム（Googleフォーム・患者さま/業者さま 共通窓口） -->
       <div class="section-pad" style="max-width: 720px; margin: 0 auto; padding: 26px 28px 64px;">
-        <p style="text-align:center; font-size: 14.5px; line-height: 2.0; color: #4a534e; margin: 0 0 22px;">お問い合わせは、下記のフォームからお願いいたします。<br>患者さま・業者さま<strong>共通の窓口</strong>です。フォームの<strong>「お問い合わせの種別」</strong>でどちらかをお選びください。</p>
+        <p style="text-align:center; font-size: 14.5px; line-height: 2.0; color: #4a534e; margin: 0 0 22px;">お問い合わせは、下記のフォームからお願いいたします。<br>下のフォームに直接ご記入いただけます。</p>
         <div style="border: 1.5px solid #e6ebf4; border-radius: 14px; overflow: hidden; background: #fff;">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf-H2Nwi0lh-Yucs1jILH5qe7FuFcfiNOiMbxrjYic4e4iFIg/viewform?embedded=true" width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" style="display:block;" title="お問い合わせフォーム">読み込んでいます…</iframe>
+          <iframe class="gform" src="https://docs.google.com/forms/d/e/1FAIpQLScX43SF_WTrqj5SQTC16R2fqGooEiTic2qpLeDolcQFbkDMZg/viewform?embedded=true" title="お問い合わせフォーム（患者さま用）" loading="lazy">読み込んでいます…</iframe>
         </div>
-        <p style="margin: 16px 0 0; text-align:center; font-size: 13.5px; line-height: 1.9; color:#5b645f;">フォームが表示されない場合は、<a href="https://docs.google.com/forms/d/e/1FAIpQLSf-H2Nwi0lh-Yucs1jILH5qe7FuFcfiNOiMbxrjYic4e4iFIg/viewform" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700;">こちらからフォームを開いて</a>ご回答ください。</p>
+        <p style="margin: 16px 0 0; text-align:center; font-size: 13.5px; line-height: 1.9; color:#5b645f;">フォームが表示されない場合は、<a href="https://docs.google.com/forms/d/e/1FAIpQLScX43SF_WTrqj5SQTC16R2fqGooEiTic2qpLeDolcQFbkDMZg/viewform" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700;">こちらからフォームを開いて</a>ご回答ください。</p>
         <p style="margin: 14px 0 0; text-align:center; font-size: 12px; color: #939a93; line-height: 1.8;">送信いただいた個人情報は、お問い合わせ対応の目的にのみ使用します。詳しくは<a href="privacy-policy.html" style="color:var(--acd); font-weight:700;">プライバシーポリシー</a>をご覧ください。</p>
+
+        <!-- 業者・お取引先の方へ（別フォームへのリンク） -->
+        <div style="margin-top: 40px; background: var(--acbg); border: 1px solid #e6ebf4; border-radius: 14px; padding: 22px 24px; text-align: center;">
+          <div style="font-size: 15px; font-weight: 700; color: #3a423e; margin: 0 0 8px;">業者・お取引先の方はこちら</div>
+          <p style="font-size: 13px; line-height: 1.9; color: #5b645f; margin: 0 0 16px;">お取引・ご提案など、業者・お取引先の方からのお問い合わせは、専用フォームで承っております。</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-H2Nwi0lh-Yucs1jILH5qe7FuFcfiNOiMbxrjYic4e4iFIg/viewform" target="_blank" rel="noopener" class="pill" style="background: #fff; color: var(--acd); border: 1.5px solid var(--ac); font-size: 15px; padding: 13px 28px;">業者・お取引先の方 お問い合わせフォーム ↗</a>
+        </div>
 
         <p style="margin-top: 30px; text-align: center;"><a href="index.html" style="color:var(--acd); font-weight:700; font-size:14px;">← トップページへ戻る</a></p>
       </div>
