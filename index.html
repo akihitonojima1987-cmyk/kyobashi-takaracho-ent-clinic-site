@@ -153,7 +153,7 @@
   /* ヒーロー3枚カルーセル（クロスフェード＋微ズーム） */
   .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center;
                 opacity: 0; transition: opacity 1.4s ease; transform: scale(1.0); }
-  .hero-slide.is-active { opacity: 0.92; animation: heroZoom 9s ease forwards; }
+  .hero-slide.is-active { opacity: 1.0; animation: heroZoom 9s ease forwards; }
   @keyframes heroZoom { from { transform: scale(1.0); } to { transform: scale(1.035); } }
   @media (prefers-reduced-motion: reduce) {
     .hero-slide { transition: none; transform: none; }
@@ -203,7 +203,7 @@
           <div class="hero-slide" style="background-image: url('hero2.jpg');"></div>
           <div class="hero-slide" style="background-image: url('hero3.jpg');"></div>
         </div>
-        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.90) 38%, rgba(255,255,255,0.45) 64%, rgba(255,255,255,0.20) 100%);"></div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.82) 30%, rgba(255,255,255,0.38) 52%, rgba(255,255,255,0) 70%);"></div>
         <div class="hero1-inner" style="position: relative; max-width: 1180px; margin: 0 auto; height: 100%; padding: 0 28px; display: flex; align-items: center;">
           <div class="hero1-copy" style="max-width: 520px; animation: ktk-rise 0.8s ease both;">
             <div style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 18px;">
