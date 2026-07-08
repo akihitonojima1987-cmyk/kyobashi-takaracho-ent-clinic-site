@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ご予約・受付について｜岩佐耳鼻咽喉科</title>
-<meta name="description" content="岩佐耳鼻咽喉科のご予約・受付案内。現在は受付順（順番予約）で診療しております。2026年8月1日から、予約システム「デジスマ」で時間帯予約ができるようになります。">
+<title>ネット予約のご案内｜岩佐耳鼻咽喉科</title>
+<meta name="description" content="岩佐耳鼻咽喉科のネット予約のご案内。2026年8月1日から、デジスマ診療アプリで時間帯予約ができるようになります。それまでは受付順（順番予約）で診療しております。">
 <link rel="canonical" href="https://kyobashi-ent.com/reservation">
 
 <!-- OGP -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="ご予約・受付について｜岩佐耳鼻咽喉科">
-<meta property="og:description" content="現在は受付順（順番予約）で診療しております。2026年8月1日から、予約システム「デジスマ」で時間帯予約ができるようになります。">
+<meta property="og:title" content="ネット予約のご案内｜岩佐耳鼻咽喉科">
+<meta property="og:description" content="2026年8月1日から、デジスマ診療アプリで時間帯予約ができるようになります。それまでは受付順（順番予約）で診療しております。">
 <meta property="og:url" content="https://kyobashi-ent.com/reservation">
 <meta property="og:image" content="https://kyobashi-ent.com/logo.png">
 <meta property="og:site_name" content="岩佐耳鼻咽喉科">
@@ -26,6 +26,8 @@
   body { font-family: 'Zen Kaku Gothic New', sans-serif; color: #3a423e; background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
   .pill { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; border-radius: 999px; white-space: nowrap; }
+  .btn-head { background: var(--ac); color: #fff; box-shadow: 0 6px 16px rgba(47,99,196,0.26); transition: background .2s, box-shadow .2s, transform .2s; }
+  .btn-head:hover { background: var(--acd); box-shadow: 0 8px 20px rgba(47,99,196,0.34); transform: translateY(-1px); }
   .btn-primary { background: var(--ac); color: #fff; box-shadow: 0 8px 20px rgba(47,99,196,0.30); transition: background .2s, box-shadow .2s, transform .2s; }
   .btn-primary:hover { background: var(--acd); box-shadow: 0 10px 24px rgba(47,99,196,0.40); transform: translateY(-2px); }
   .btn-outline { background: #fff; color: var(--acd); border: 1.5px solid var(--ac); transition: background .2s; }
@@ -35,16 +37,30 @@
   .btn-disabled { background: #d7dde6; color: #fff; cursor: default; }
   .foot-link { color: #aab2ac; transition: color .2s; }
   .foot-link:hover { color: #fff; }
-  .step-card { background:#fff; border-radius:18px; padding:26px 28px; box-shadow:0 8px 24px rgba(80,100,90,0.06); display:flex; gap:18px; align-items:flex-start; }
-  .step-num { flex:none; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Shippori Mincho',serif; font-size:20px; }
-  @media (max-width: 860px) {
-    .nav-menu { display:none !important; }
-    .flow-grid { grid-template-columns: 1fr !important; }
-    .section-pad { padding-left:22px !important; padding-right:22px !important; }
-    .h1-title { font-size: 30px !important; }
-  }
   .nav-link { padding: 6px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
   .nav-link:hover { border-bottom-color: var(--ac); color: var(--acd); }
+  /* STEPカード */
+  .step-card { background:#fff; border:1px solid #e8eef6; border-radius:18px; padding:30px 30px; box-shadow:0 8px 24px rgba(80,100,90,0.06); }
+  .step-tag { display:inline-block; background:var(--ac); color:#fff; font-size:12px; font-weight:700; letter-spacing:0.14em; border-radius:999px; padding:5px 16px; margin-bottom:14px; }
+  /* メリットカード */
+  .merit-card { background:#fff; border-radius:18px; padding:30px 26px; box-shadow:0 8px 24px rgba(80,100,90,0.06); text-align:center; }
+  .merit-icon { width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; margin:0 auto 14px; }
+  /* FAQ（details/summary） */
+  .faq-item { background:#fff; border:1px solid #ecece5; border-radius:14px; margin-bottom:12px; overflow:hidden; }
+  .faq-item summary { list-style:none; cursor:pointer; display:flex; align-items:flex-start; gap:12px; padding:18px 20px; font-weight:700; font-size:15px; color:#3a423e; line-height:1.7; }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::before { content:"Q"; flex:none; width:28px; height:28px; border-radius:50%; background:var(--acs); color:var(--acd); display:flex; align-items:center; justify-content:center; font-family:'Shippori Mincho',serif; font-size:15px; }
+  .faq-item summary::after { content:"＋"; margin-left:auto; color:var(--acd); font-size:18px; flex:none; }
+  .faq-item[open] summary::after { content:"－"; }
+  .faq-item .faq-a { padding:0 20px 20px 60px; font-size:14px; line-height:2.0; color:#5b645f; }
+  .faq-item .faq-a a { color:var(--acd); font-weight:700; }
+  @media (max-width: 860px) {
+    .nav-menu { display:none !important; }
+    .flow-grid, .merit-grid { grid-template-columns: 1fr !important; }
+    .section-pad { padding-left:22px !important; padding-right:22px !important; }
+    .h1-title { font-size: 28px !important; }
+    .faq-item .faq-a { padding-left:20px; }
+  }
 </style>
 <meta name="robots" content="noindex"><style>.hamburger,.mobile-menu,.mobile-cta{display:none}@media(max-width:640px){header>div{gap:10px!important;padding:11px 14px!important;justify-content:space-between!important}header img{height:33px!important}header a>span>span:first-child{font-size:17px!important;letter-spacing:.01em!important;white-space:nowrap!important}header a>span>span:last-child{display:none!important}header nav{display:none!important}.hero-cta{display:none!important}.hamburger{display:flex!important;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;border:none;background:transparent;cursor:pointer;position:fixed;top:11px;right:12px;z-index:60}.hamburger span{display:block;width:24px;height:2.5px;margin:0 auto;background:#3a423e;border-radius:2px;transition:transform .25s,opacity .2s}body.menu-open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}body.menu-open .hamburger span:nth-child(2){opacity:0}body.menu-open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}body.menu-open{overflow:hidden}body.menu-open .mobile-menu{display:flex!important;flex-direction:column;position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:80px 22px calc(22px + env(safe-area-inset-bottom,0px));gap:2px;overflow-y:auto}.mobile-menu a{font-size:17px;font-weight:600;color:#3a423e;text-decoration:none;padding:17px 6px;border-bottom:1px solid #eef0ec}.mobile-menu a.mm-accent{color:#1a66d6}.mobile-menu a.mm-line{color:#06c755}.mobile-cta{display:flex!important;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:100;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid #e6e4de;box-shadow:0 -4px 16px rgba(0,0,0,.10)}.mobile-cta a{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-size:15px;font-weight:700;letter-spacing:.02em;padding:14px 10px;box-shadow:none}main{padding-bottom:78px!important}footer{padding-bottom:74px!important}}@media(max-width:400px){header img{height:30px!important}header a>span>span:first-child{font-size:15px!important}}</style></head>
 <body id="top">
@@ -77,163 +93,168 @@
   </header>
 
   <main>
-    <!-- ============ ページヘッダー ============ -->
+    <!-- ============ ヒーロー ============ -->
     <section style="position: relative; overflow: hidden;">
       <div style="position: absolute; inset: 0; background: linear-gradient(150deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 72%, #fef4da 100%);"></div>
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.82) 100%);"></div>
-      <div class="section-pad" style="position: relative; max-width: 860px; margin: 0 auto; padding: 72px 28px 60px; text-align: center;">
+      <div class="section-pad" style="position: relative; max-width: 860px; margin: 0 auto; padding: 72px 28px 56px; text-align: center;">
         <div style="font-size: 12px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 12px;">RESERVATION</div>
-        <h1 class="h1-title" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 40px; line-height: 1.45; letter-spacing: 0.04em; color: #353d39; margin: 0 0 18px;">ご予約・受付について</h1>
-        <p style="font-size: 16px; line-height: 2.0; color: #56605b; margin: 0;">現在は<strong>受付順（順番予約）</strong>で診療しております。<br>2026年<strong>8月1日</strong>から、予約システム「<strong>デジスマ</strong>」で<strong>時間帯予約</strong>ができるようになります。</p>
+        <h1 class="h1-title" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 38px; line-height: 1.5; letter-spacing: 0.04em; color: #353d39; margin: 0 0 16px;">当院のご予約は<br>デジスマ診療アプリが便利です</h1>
+        <span class="pill" style="background:#fff; color:var(--acd); border:1.5px solid var(--ac); font-size:14px; padding:10px 22px;"><strong style="font-size:18px;">1</strong>分で簡単アプリ登録</span>
       </div>
     </section>
 
-    <!-- ============ ステータス（お知らせバナー） ============ -->
+    <!-- ============ お知らせ（開始時期・現在の受付方法） ============ -->
     <section style="background: #fff;">
       <div class="section-pad" style="max-width: 860px; margin: 0 auto; padding: 0 28px;">
-        <div style="margin-top: -28px; position: relative; background: #fff; border: 1px solid #ecece5; border-left: 5px solid var(--ac); border-radius: 16px; box-shadow: 0 16px 40px rgba(80,100,90,0.10); padding: 22px 26px; display: flex; gap: 16px; align-items: flex-start;">
-          <span style="flex:none; width:42px; height:42px; border-radius:50%; background: var(--acs); color: var(--acd); display:flex; align-items:center; justify-content:center; font-size:20px;">◷</span>
-          <div>
-            <div style="font-family: 'Shippori Mincho', serif; font-size: 18px; color:#3a423e; margin-bottom: 6px;">2026年8月1日から「時間帯予約」を開始します</div>
-            <p style="margin:0; font-size: 14px; line-height: 1.9; color:#5b645f;">それまでは<strong>受付順（順番予約）</strong>で診療しております。ご予約は不要です。受付時間内に直接ご来院ください。予約開始の際は、このページと公式LINEでご案内します。</p>
-          </div>
+        <div style="margin-top: -24px; position: relative; background: #fff; border: 1px solid #ecece5; border-left: 5px solid var(--ac); border-radius: 16px; box-shadow: 0 16px 40px rgba(80,100,90,0.10); padding: 22px 26px;">
+          <div style="font-family: 'Shippori Mincho', serif; font-size: 18px; color:#3a423e; margin-bottom: 8px;">ネット予約は 2026年8月1日（土）から始まります</div>
+          <p style="margin:0 0 10px; font-size: 14px; line-height: 1.95; color:#5b645f;">それまでは<strong>受付順（順番予約）</strong>で診療しております。ご予約は不要ですので、受付時間内（午前 9:45–12:30／午後 14:45–17:30）に直接ご来院ください。再診の方は診察券を、初診の方はマイナ保険証（マイナンバーカード）または資格確認書をご提示ください。整理券をお渡しし、番号順にお呼びします。</p>
+          <p style="margin:0; font-size: 13.5px; line-height: 1.9; color:#5b645f;">ただいまお呼びしている番号は <a href="waiting.html" style="color:var(--acd); font-weight:700;">受付番号のページ</a> でご確認いただけます。</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ 【現在】順番予約（受付順） ============ -->
+    <!-- ============ ネット予約のご案内 ============ -->
     <section style="background: #fff;">
-      <div class="section-pad" style="max-width: 1000px; margin: 0 auto; padding: 56px 28px 16px;">
-        <div style="text-align:center; margin-bottom: 14px;">
-          <div style="font-size: 12px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">NOW</div>
-          <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 28px; color:#3a423e; margin:0; letter-spacing:0.04em;">現在の受付方法（順番予約）</h2>
-        </div>
-        <p style="font-size: 15.5px; line-height: 2.1; color:#5b645f; margin:0 auto 36px; max-width: 720px; text-align:center;">当院は現在、ご来院された順番でお呼びする<strong>受付順（順番予約）</strong>で診療しております。事前のご予約は必要ありません。受付時間内に直接ご来院ください。</p>
-
-        <!-- 受付の流れ -->
-        <div class="flow-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 18px;">
-          <div class="step-card">
-            <span class="step-num" style="background:#e8f0fe; color:#1a66d6;">1</span>
-            <div>
-              <h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">ご来院・受付</h3>
-              <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;"><strong>再診の方</strong>：診察券をご提出ください。「整理券」をお渡しします。<br><strong>初診の方</strong>：マイナ保険証（マイナンバーカード）または資格確認書をご提示のうえ「初診」とお伝えください。「整理券」と問診票をお渡しします。</p>
-            </div>
-          </div>
-          <div class="step-card">
-            <span class="step-num" style="background:#fdeceb; color:#c5372b;">2</span>
-            <div>
-              <h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">整理券番号の順にお呼びします</h3>
-              <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">診療の順番が近づきましたら、整理券番号の順にお名前をお呼びします。お呼びしたら、診察室前の中待ち（長椅子）にお進みください。</p>
-            </div>
-          </div>
-          <div class="step-card">
-            <span class="step-num" style="background:#fef4da; color:#b9760c;">3</span>
-            <div>
-              <h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">待ち番号はホームページで確認できます</h3>
-              <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">ただいまお呼びしている整理券番号は、ホームページでご確認いただけます。番号がご自身の整理券の<strong>3〜4番前</strong>になりましたら、必ず待合室でお待ちください。</p>
-            </div>
-          </div>
-          <div class="step-card">
-            <span class="step-num" style="background:#e6f4ea; color:#277c40;">4</span>
-            <div>
-              <h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">診察・お会計</h3>
-              <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">診察のあと、お会計・お薬の処方せんをお渡しします。お支払いは現在<strong>現金のみ</strong>です（キャッシュレス決済は順次導入予定）。</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 受付時間 -->
-        <div style="margin-top: 28px; background: var(--acbg); border:1px solid #e6ebf4; border-radius: 14px; padding: 20px 24px;">
-          <div style="font-size: 12px; font-weight: 700; color: var(--acd); margin-bottom: 6px;">受付時間</div>
-          <div style="font-size: 15px; color: #3a423e; line-height: 1.9;">午前 9:45–12:30 ／ 午後 14:45–17:30</div>
-          <div style="font-size: 12.5px; color: #939a93; line-height: 1.8; margin-top: 4px;">診療時間：午前 10:00–13:00 ／ 午後 15:00–18:00　休診：水曜・土曜・日曜・祝日</div>
-        </div>
-
-        <!-- 待ち番号確認 CTA -->
-        <div style="text-align:center; margin-top: 26px;">
-          <a href="waiting.html" class="pill btn-primary" style="font-size:15px; padding:15px 32px;">ただいまの受付番号を確認する →</a>
-        </div>
-
-        <!-- ご注意 -->
-        <div style="margin-top: 34px; border-top:1px solid #ecece6; padding-top: 26px;">
-          <h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 12px;">受付についてのご注意</h3>
-          <ul style="margin:0; padding-left: 1.2em; font-size:14px; line-height:2.05; color:#5b645f;">
-            <li>お名前をお呼びした際に院内にいらっしゃらない場合は、次の方を先にお呼びし、順番が後になりますので、あらかじめご了承ください。</li>
-            <li>受付時間より前は、クリニックの中でお待ちいただくことができません。受付時間まではお待ちいただきますよう、お願いいたします。</li>
-            <li>急なご都合で受付後にお戻りになれない場合は、お電話でご一報ください（<a href="tel:0335678733" style="color:var(--acd); font-weight:700;">03-3567-8733</a>）。</li>
-          </ul>
-        </div>
+      <div class="section-pad" style="max-width: 860px; margin: 0 auto; padding: 52px 28px 8px; text-align:center;">
+        <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 26px; color:#3a423e; margin:0 0 18px; letter-spacing:0.04em;">ネット予約のご案内</h2>
+        <p style="font-size: 15px; line-height: 2.1; color:#5b645f; margin:0 0 10px; text-align:left;">当院では、患者さまにより快適にご利用いただけるよう、スマートフォンアプリ「<strong>デジスマ診療</strong>」を活用したご予約をおすすめしています。<br>デジスマアプリで予約すると、ご希望の時間帯を選べて待ち時間を短縮でき、スムーズにご受診いただけます。</p>
+        <p style="font-size: 12.5px; line-height: 1.9; color:#939a93; margin:0; text-align:left;">※ 医療という特性上、診療内容によってはお時間を要する場合もあり、ご予約の時間枠に遅れてしまうこともございます。あらかじめご了承ください。</p>
       </div>
     </section>
 
-    <!-- ============ 【2026年8月1日から】デジスマ時間帯予約 ============ -->
+    <!-- ============ ネット予約の方法（STEP 1〜3） ============ -->
     <section style="background: var(--acbg);">
-      <div class="section-pad" style="max-width: 1000px; margin: 0 auto; padding: 64px 28px;">
-        <div style="text-align:center; margin-bottom: 28px;">
-          <span style="display:inline-block; font-size:12px; font-weight:700; color:#fff; background:var(--ac); border-radius:999px; padding:5px 16px; margin-bottom:14px; letter-spacing:0.08em;">2026年8月1日から</span>
-          <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 28px; color:#3a423e; margin:0 0 12px; letter-spacing:0.04em;">時間帯予約（デジスマ）を開始します</h2>
-          <p style="font-size: 15px; line-height: 2.05; color:#5b645f; margin:0 auto; max-width: 720px;">2026年8月1日から、予約システム「<strong>デジスマ</strong>」で時間帯予約ができるようになります。アプリは今からダウンロード・登録しておけますので、あらかじめご準備いただくと当日の流れがスムーズです。</p>
+      <div class="section-pad" style="max-width: 860px; margin: 0 auto; padding: 56px 28px 64px;">
+        <div style="text-align:center; margin-bottom: 30px;">
+          <div style="font-size: 12px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">HOW TO</div>
+          <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 26px; color:#3a423e; margin:0; letter-spacing:0.04em;">ネット予約の方法</h2>
         </div>
 
-        <!-- デジスマとは -->
-        <p style="font-size: 14.5px; line-height: 2.05; color:#5b645f; margin:8px auto 0; max-width: 720px; text-align:center;">「デジスマ」は、スマートフォンのアプリから<strong>時間帯予約</strong>ができ、来院時は<strong>QRコードで受付</strong>ができる予約・受付システムです。待ち時間を減らし、より通いやすい受診を目指します。</p>
-
-        <!-- アプリDL推奨 -->
-        <div style="text-align:center; margin: 28px auto 0; max-width: 640px; background: #fff; border:1px solid #e8eef6; border-radius:16px; padding: 24px 24px;">
-          <p style="font-size:14.5px; color:#3a423e; font-weight:700; margin:0 0 4px;">今のうちにアプリのダウンロード・登録がおすすめです</p>
-          <p style="font-size:13px; color:#6b746f; line-height:1.9; margin:0 0 16px;">予約開始後は、予約から当日の受付まで、アプリひとつで行えます。受診前にダウンロード・登録しておくと当日の流れがスムーズです。</p>
-          <div style="display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap;">
+        <!-- STEP 1 -->
+        <div class="step-card" style="margin-bottom:18px;">
+          <span class="step-tag">STEP 1</span>
+          <h3 style="font-family:'Shippori Mincho',serif; font-size:19px; color:#3a423e; margin:0 0 12px;">初めての方は、デジスマアプリをダウンロードしてください</h3>
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin: 6px 0 12px;">
             <a href="https://apps.apple.com/jp/app/m3%E3%83%87%E3%82%B8%E3%82%AB%E3%83%AB%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E8%A8%BA%E5%AF%9F%E5%88%B8/id1563102530" target="_blank" rel="noopener" aria-label="App Store でダウンロード">
-              <img src="appstore_badge.svg" alt="App Store でダウンロード" style="height:48px; width:auto; display:block;">
+              <img src="appstore_badge.svg" alt="App Store でダウンロード" style="height:46px; width:auto; display:block;">
             </a>
             <a href="https://play.google.com/store/apps/details?id=jp.digikar.smart.app&utm_campaign=v1&utm_medium=patient_lp&utm_source=lp" target="_blank" rel="noopener" aria-label="Google Play で手に入れよう">
-              <img src="googleplay_badge.png" alt="Google Play で手に入れよう" style="height:48px; width:auto; display:block;">
+              <img src="googleplay_badge.png" alt="Google Play で手に入れよう" style="height:46px; width:auto; display:block;">
             </a>
           </div>
-          <a href="https://digikar-smart.jp/" target="_blank" rel="noopener" style="display:inline-block; margin-top:16px; font-size:13px; color:var(--acd); font-weight:700;">デジスマ診療について（公式サイト） →</a>
+          <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">アプリを開いたら、画面の案内にそってお名前などの本人情報を登録してください。アプリのダウンロード・登録は今からでも行えます。ダウンロードが済んだら STEP 2 へお進みください。</p>
         </div>
 
-        <!-- ご利用の流れ -->
-        <div style="text-align:center; margin: 44px 0 24px;">
-          <div style="font-size: 12px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">HOW TO USE</div>
-          <h3 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 22px; color:#3a423e; margin:0;">ご利用の流れ（8月1日から）</h3>
-        </div>
-        <div class="flow-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 18px;">
-          <div class="step-card">
-            <span class="step-num" style="background:#e8f0fe; color:#1a66d6;">1</span>
-            <div><h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">アプリをダウンロード</h3><p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">スマートフォンに予約アプリ「デジスマ」をインストールします（上のダウンロードボタンから）。</p></div>
+        <!-- STEP 2 -->
+        <div class="step-card" style="margin-bottom:18px;">
+          <span class="step-tag">STEP 2</span>
+          <h3 style="font-family:'Shippori Mincho',serif; font-size:19px; color:#3a423e; margin:0 0 12px;">アプリから、当院の予約ページを開いてご予約ください</h3>
+          <div style="margin: 4px 0 12px;">
+            <!-- 8月1日にやること：下の無効ボタンを、デジスマ医院専用予約URLへの有効な btn-primary ボタン（target=_blank）に差し替える（URLはNotion「🌐公式サイト引き継ぎ書類 §6 予約導線」参照）＋日付注記・お知らせボックスの未来形表記を現在形に更新 -->
+            <span class="pill btn-disabled" style="font-size:15px; padding:14px 34px;">予約ページはこちら（8月1日 予約開始）</span>
           </div>
-          <div class="step-card">
-            <span class="step-num" style="background:#fdeceb; color:#c5372b;">2</span>
-            <div><h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">アカウントを登録</h3><p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">お名前・マイナ保険証や資格確認書などの情報を登録します。</p></div>
-          </div>
-          <div class="step-card">
-            <span class="step-num" style="background:#fef4da; color:#b9760c;">3</span>
-            <div><h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">時間帯を選んで予約</h3><p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">ご希望の日付・時間帯を選んで予約します（2026年8月1日から）。順番が近づくとお知らせが届きます。</p></div>
-          </div>
-          <div class="step-card">
-            <span class="step-num" style="background:#e6f4ea; color:#277c40;">4</span>
-            <div><h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">来院・QRで受付</h3><p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">ご来院時、受付に設置したQRコードをアプリのカメラで読み込むだけで受付が完了します。</p></div>
-          </div>
+          <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">予約開始日に、このページに予約ボタンと当院の予約用QRコードを掲載します。ご希望の日付・時間帯を選んでご予約ください。</p>
         </div>
 
-        <!-- 予約ボタン（開始前は無効） -->
-        <div style="text-align:center; margin-top: 30px;">
-          <span class="pill btn-disabled" style="font-size:16px; padding:16px 40px;">予約ページ（2026年8月1日 予約開始）</span>
-          <p style="font-size:13px; color:#939a93; line-height:1.9; margin:14px 0 0;">※ 時間帯予約の受付は2026年8月1日からです。それまでは受付順（順番予約）で診療しております。</p>
+        <!-- STEP 3 -->
+        <div class="step-card" style="margin-bottom:22px;">
+          <span class="step-tag">STEP 3</span>
+          <h3 style="font-family:'Shippori Mincho',serif; font-size:19px; color:#3a423e; margin:0 0 12px;">予約完了画面から、事前WEB問診にご回答をお願いします</h3>
+          <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">ご来院前に問診にお答えいただくと、当日のご案内がスムーズになります。<br>※ 登録メールアドレスに届いたメールからもご回答いただけます。</p>
+        </div>
+
+        <!-- 補足：アプリが難しい方 -->
+        <div style="background:#fff; border:1px dashed #c9d4e6; border-radius:14px; padding:18px 22px;">
+          <p style="font-size:13.5px; line-height:2.0; color:#5b645f; margin:0;">アプリの操作が難しい方は、予約ページをスマートフォン・パソコンの<strong>ブラウザからもご利用いただけます</strong>（8月1日から）。どうしても操作が難しい場合は、お電話（<a href="tel:0335678733" style="color:var(--acd); font-weight:700;">03-3567-8733</a>）でもご相談いただけます。</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ 問い合わせCTA ============ -->
+    <!-- ============ デジスマのメリット ============ -->
+    <section style="background: #fff;">
+      <div class="section-pad" style="max-width: 1000px; margin: 0 auto; padding: 60px 28px;">
+        <div style="text-align:center; margin-bottom: 30px;">
+          <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 24px; line-height:1.7; color:#3a423e; margin:0; letter-spacing:0.04em;">デジスマ診療アプリで予約すれば、<br>受付も待ち時間も、もっとスムーズに。</h2>
+        </div>
+        <div class="merit-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+          <div class="merit-card">
+            <div class="merit-icon" style="background:#e8f0fe; color:#1a66d6;">◷</div>
+            <h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">24時間いつでも<br>ネット予約</h3>
+            <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">診療時間外でも、スマホからご希望の時間帯を選んで予約できます。</p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon" style="background:#e6f4ea; color:#277c40;">📱</div>
+            <h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">スマホをかざすだけの<br>カンタン受付</h3>
+            <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">ご来院時は、受付のQRコードをアプリのカメラで読み込むだけで受付が完了します。</p>
+          </div>
+          <div class="merit-card">
+            <div class="merit-icon" style="background:#fef4da; color:#b9760c;">✎</div>
+            <h3 style="font-family:'Shippori Mincho',serif; font-size:17px; color:#3a423e; margin:0 0 8px;">事前のWeb問診で<br>待ち時間短縮</h3>
+            <p style="font-size:13.5px; line-height:1.95; color:#6b746f; margin:0;">ご来院前に問診へお答えいただくことで、当日のご案内がスムーズになります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ よくある質問 ============ -->
+    <section style="background: var(--acbg);">
+      <div class="section-pad" style="max-width: 860px; margin: 0 auto; padding: 60px 28px 64px;">
+        <div style="text-align:center; margin-bottom: 28px;">
+          <div style="font-size: 12px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">FAQ</div>
+          <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 26px; color:#3a423e; margin:0; letter-spacing:0.04em;">よくある質問</h2>
+        </div>
+
+        <details class="faq-item">
+          <summary>ネット予約は初めてで不安です。簡単にできますか？</summary>
+          <div class="faq-a">はい、ご安心ください。スマートフォンやパソコンから、画面の案内にそって選ぶだけでご予約いただけます。どうしても操作が難しい場合は、お電話（<a href="tel:0335678733">03-3567-8733</a>）でもご相談いただけます。</div>
+        </details>
+        <details class="faq-item">
+          <summary>どこから予約できますか？</summary>
+          <div class="faq-a">2026年8月1日から、このページと、各ページ右上の「ご予約」ボタンからご案内する予約ページでご予約いただけます。デジスマアプリをダウンロード済みの方は、アプリからもご予約が可能です。</div>
+        </details>
+        <details class="faq-item">
+          <summary>電話で予約するのと何が違いますか？</summary>
+          <div class="faq-a">ネット予約なら、時間を気にせず24時間いつでも予約ができ、予約内容の確認やキャンセルもスマホやパソコンから簡単に行えます。ご自身のタイミングで操作できるので、お忙しい方にもおすすめです。</div>
+        </details>
+        <details class="faq-item">
+          <summary>ネット予約のあと、確認メールなどは届きますか？</summary>
+          <div class="faq-a">デジスマアプリをご利用の場合は、アプリに通知が届きます。アプリにメールアドレスを登録いただくと、予約確定メールも届きます。アプリをご利用にならない場合は通知が届きませんので、予約確定画面のスクリーンショットを保存していただくことをおすすめします。</div>
+        </details>
+        <details class="faq-item">
+          <summary>予約の確認・変更・キャンセルはどうしたらいいですか？</summary>
+          <div class="faq-a">デジスマアプリの予約詳細画面から「予約変更」「予約取消」を行えます。操作が難しい場合は、お電話（<a href="tel:0335678733">03-3567-8733</a>）でご連絡ください。</div>
+        </details>
+        <details class="faq-item">
+          <summary>ネット予約がうまくできなかった場合はどうしたらいいですか？</summary>
+          <div class="faq-a">恐れ入りますが、操作がうまくいかない場合は、無理をなさらずにお電話（<a href="tel:0335678733">03-3567-8733</a>）にてお問い合わせ・ご相談ください。</div>
+        </details>
+        <details class="faq-item">
+          <summary>予約なしで受診できますか？　今日診てもらいたいときは？</summary>
+          <div class="faq-a">はい、受診いただけます。現在は受付順（順番予約）ですので、ご予約なしで受付時間内に直接ご来院ください。2026年8月1日にネット予約が始まったあとも、ご予約なしでのご来院は受付順でご案内します（ご予約の方が優先となるため、お待ちいただく場合があります）。</div>
+        </details>
+        <details class="faq-item">
+          <summary>家族の分も一緒に予約できますか？</summary>
+          <div class="faq-a">はい、可能です。デジスマアプリの「家族を追加」からご家族の情報を登録いただくと、ご自身のスマートフォンからご家族のお名前でも予約ができます。受診されるご本人とご家族、それぞれ人数分のご予約をお願いします。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
     <section style="background: var(--ac);">
       <div class="section-pad" style="max-width: 900px; margin: 0 auto; padding: 56px 28px; text-align:center;">
-        <h2 style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:26px; color:#fff; margin:0 0 12px; letter-spacing:0.05em;">ご不明な点はお気軽に</h2>
-        <p style="font-size:15px; color:rgba(255,255,255,0.92); margin:0 0 30px; line-height:1.9;">予約開始や休診などの最新のお知らせは、公式LINEでも配信しています。</p>
+        <div style="display:flex; gap:10px 22px; justify-content:center; flex-wrap:wrap; margin-bottom:22px;">
+          <span style="color:#fff; font-size:13.5px; font-weight:700;">✓ 宝町駅 A6出口 徒歩1分</span>
+          <span style="color:#fff; font-size:13.5px; font-weight:700;">✓ 京橋駅 4番出口 徒歩2分</span>
+          <span style="color:#fff; font-size:13.5px; font-weight:700;">✓ 東京駅 八重洲南口 徒歩9分</span>
+        </div>
+        <h2 style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:24px; line-height:1.7; color:#fff; margin:0 0 12px; letter-spacing:0.05em;">ネット予約は8月1日から。<br>それまではご予約なしで、受付順で診療しています。</h2>
+        <p style="font-size:14.5px; color:rgba(255,255,255,0.92); margin:0 0 28px; line-height:1.9;">お電話でのお問い合わせも可能です。予約開始のお知らせは公式LINEでも配信します。</p>
         <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a href="tel:0335678733" class="pill" style="font-size:16px; padding:16px 36px; background:#fff; color:var(--acd);">📞 03-3567-8733（タップで発信）</a>
           <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="font-size:16px; padding:16px 36px;">公式LINE</a>
-          <a href="contact.html" class="pill btn-outline" style="font-size:16px; padding:16px 36px; background:rgba(255,255,255,0.12); color:#fff; border-color:rgba(255,255,255,0.8);">お問い合わせ</a>
-          <a href="access.html" class="pill" style="font-size:16px; padding:16px 36px; background:#fff; color:var(--acd);">アクセス・診療時間</a>
+          <a href="contact.html" class="pill" style="font-size:16px; padding:16px 36px; background:rgba(255,255,255,0.12); color:#fff; border:1.5px solid rgba(255,255,255,0.8);">お問い合わせ</a>
         </div>
       </div>
     </section>
@@ -246,7 +267,7 @@
         <img src="logo.png?v=4" alt="岩佐耳鼻咽喉科 ロゴ" style="height: 34px; width: auto; display: block;">
         <span style="font-family:'Shippori Mincho',serif; font-size:18px; color:#fff; letter-spacing:0.04em;">岩佐耳鼻咽喉科</span>
       </div>
-      <p style="font-size:13px; line-height:1.9; color:#aab2ac; margin:0 0 18px;">〒104-0031 東京都中央区京橋2-12-4 光和ビル2F　／　都営浅草線「宝町駅」A7・A6出口・東京メトロ銀座線「京橋駅」4出口　／　TEL：03-3567-8733</p>
+      <p style="font-size:13px; line-height:1.9; color:#aab2ac; margin:0 0 18px;">〒104-0031 東京都中央区京橋2-12-4 光和ビル2F　／　都営浅草線「宝町駅」A6・A7出口 徒歩1分・東京メトロ銀座線「京橋駅」4番出口 徒歩2分　／　TEL：03-3567-8733</p>
       <div style="display:flex; gap:20px; flex-wrap:wrap; font-size:13px; border-top:1px solid rgba(255,255,255,0.1); padding-top:18px;">
         <a href="index.html" class="foot-link">トップ</a>
         <a href="about.html" class="foot-link">当院について</a>
