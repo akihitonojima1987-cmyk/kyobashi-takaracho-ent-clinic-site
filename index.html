@@ -131,10 +131,14 @@
   /* ===== レスポンシブ ===== */
   @media (max-width: 860px) {
     .nav-menu { display: none !important; }                 /* PCナビは非表示 */
-    .hero1-wrap { height: auto !important; }
-    .hero1-inner { flex-direction: column; padding: 40px 22px 0 !important; }
+    /* スマホの写真エリアは画面を占有しすぎないよう、見出しだけを重ねる帯（約300px）に縮小。
+       診療時間カードは写真の下に独立表示（.hours-card を section 直下へ移設済み）。 */
+    .hero1-wrap { height: 300px !important; }
+    .hero1-inner { flex-direction: column; justify-content: flex-end !important; padding: 0 22px 22px !important; }
     .hero1-copy { max-width: 100% !important; }
-    .hero1-h1 { font-size: 32px !important; }
+    .hero1-h1 { font-size: 26px !important; margin: 0 0 4px !important; }
+    .hero1-lead { display: none !important; }
+    .hero1-scrim { background: linear-gradient(0deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.6) 45%, rgba(255,255,255,0.05) 82%) !important; }
     .hours-card {
       position: static !important; transform: none !important;
       width: 100% !important; margin: 28px 0 40px !important;
@@ -147,7 +151,7 @@
     .doctor-panel { height: auto !important; padding: 36px 24px !important; }
   }
   @media (max-width: 480px) {
-    .hero1-h1 { font-size: 27px !important; }
+    .hero1-h1 { font-size: 22px !important; }
     .h2-title { font-size: 26px !important; }
   }
   /* ヒーロー3枚カルーセル（クロスフェード＋微ズーム） */
@@ -196,21 +200,21 @@
     <!-- ============ ファーストビュー（Hero1：王道・カラー面＋診療時間カード／写真なし） ============ -->
     <section style="position: relative; background: var(--acbg);">
       <div class="hero1-wrap" style="position: relative; height: 560px; overflow: hidden;">
-        <div style="position: absolute; inset: 0; background: linear-gradient(115deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 70%, #fef4da 100%);"></div>
+        <div class="hero1-bg" style="position: absolute; inset: 0; background: linear-gradient(115deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 70%, #fef4da 100%);"></div>
         <!-- ヒーロー3枚カルーセル（都会／内装／人・クロスフェード） -->
         <div class="hero-carousel" style="position: absolute; inset: 0;">
           <div class="hero-slide is-active" style="background-image: url('hero1.jpg?v=2'); background-position: center 40%;"></div>
           <div class="hero-slide" style="background-image: url('hero2.jpg?v=2'); background-position: center 20%;"></div>
           <div class="hero-slide" style="background-image: url('hero3.jpg?v=2'); background-position: center 55%;"></div>
         </div>
-        <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.82) 30%, rgba(255,255,255,0.38) 52%, rgba(255,255,255,0) 70%);"></div>
+        <div class="hero1-scrim" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.82) 30%, rgba(255,255,255,0.38) 52%, rgba(255,255,255,0) 70%);"></div>
         <div class="hero1-inner" style="position: relative; max-width: 1180px; margin: 0 auto; height: 100%; padding: 0 28px; display: flex; align-items: center;">
           <div class="hero1-copy" style="max-width: 520px; animation: ktk-rise 0.8s ease both;">
             <div style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 18px;">
               <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
             </div>
             <h1 class="hero1-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 44px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 22px;">耳・鼻・のどの不調に、<br>やさしく寄りそう。</h1>
-            <p style="font-size: 16px; line-height: 2.05; color: #5b645f; margin: 0 0 30px; letter-spacing: 0.03em;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
+            <p class="hero1-lead" style="font-size: 16px; line-height: 2.05; color: #5b645f; margin: 0 0 30px; letter-spacing: 0.03em;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
             <div class="hero-cta" style="display: flex; gap: 14px; flex-wrap: wrap;">
               <a href="reservation.html" class="pill btn-primary" style="font-size: 15px; padding: 15px 30px;">ご予約について</a>
               <a href="waiting.html" class="pill btn-outline" style="font-size: 15px; padding: 15px 28px;"><span style="width:9px; height:9px; border-radius:50%; background:#34a853; display:inline-block;"></span>受付番号を確認</a>
@@ -218,31 +222,31 @@
             </div>
           </div>
         </div>
-        <!-- 診療時間カード -->
-        <div class="hours-card" style="position: absolute; right: 28px; top: 50%; transform: translateY(-50%); width: 320px; background: rgba(255,255,255,0.96); border: 1px solid #ecece5; border-radius: 18px; box-shadow: 0 20px 50px rgba(80,100,90,0.16); padding: 22px 24px;">
-          <div style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 18px; color: #3a423e; display: flex; align-items: center; gap: 9px; margin-bottom: 14px;">
-            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--ac);"></span>診療時間
-          </div>
-          <table style="width: 100%; border-collapse: collapse; font-size: 12.5px;">
-            <thead>
-              <tr style="color: #8a918b;">
-                <th style="text-align: left; padding: 5px 2px; font-weight: 500;"></th>
-                <th style="padding: 5px 2px; font-weight: 700;">月</th><th style="padding: 5px 2px; font-weight: 700;">火</th><th style="padding: 5px 2px; font-weight: 700;">水</th><th style="padding: 5px 2px; font-weight: 700;">木</th><th style="padding: 5px 2px; font-weight: 700;">金</th><th style="padding: 5px 2px; font-weight: 700;">土</th><th style="padding: 5px 2px; font-weight: 700; color: #c98b8b;">日</th>
-              </tr>
-            </thead>
-            <tbody style="color: #4a534e;">
-              <tr style="border-top: 1px solid #eeeeea;">
-                <td style="padding: 9px 2px; white-space: nowrap; color: #6b746f;">10:00–13:00</td>
-                <td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: #cdd0cb;">—</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: #cdd0cb;">—</td><td style="text-align: center; color: #cdd0cb;">—</td>
-              </tr>
-              <tr style="border-top: 1px solid #eeeeea;">
-                <td style="padding: 9px 2px; white-space: nowrap; color: #6b746f;">15:00–18:00</td>
-                <td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: #cdd0cb;">—</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: #cdd0cb;">—</td><td style="text-align: center; color: #cdd0cb;">—</td>
-              </tr>
-            </tbody>
-          </table>
-          <p style="margin: 12px 0 0; font-size: 11px; color: #939a93; line-height: 1.7;">休診：水曜・土曜・日曜・祝日<br>受付：午前 9:45–12:30／午後 14:45–17:30</p>
+      </div>
+      <!-- 診療時間カード（PC：写真右に重ねて表示／スマホ：写真帯の下に独立表示） -->
+      <div class="hours-card" style="position: absolute; right: 28px; top: 50%; transform: translateY(-50%); width: 320px; background: rgba(255,255,255,0.96); border: 1px solid #ecece5; border-radius: 18px; box-shadow: 0 20px 50px rgba(80,100,90,0.16); padding: 22px 24px;">
+        <div style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 18px; color: #3a423e; display: flex; align-items: center; gap: 9px; margin-bottom: 14px;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--ac);"></span>診療時間
         </div>
+        <table style="width: 100%; border-collapse: collapse; font-size: 12.5px;">
+          <thead>
+            <tr style="color: #8a918b;">
+              <th style="text-align: left; padding: 5px 2px; font-weight: 500;"></th>
+              <th style="padding: 5px 2px; font-weight: 700;">月</th><th style="padding: 5px 2px; font-weight: 700;">火</th><th style="padding: 5px 2px; font-weight: 700;">水</th><th style="padding: 5px 2px; font-weight: 700;">木</th><th style="padding: 5px 2px; font-weight: 700;">金</th><th style="padding: 5px 2px; font-weight: 700;">土</th><th style="padding: 5px 2px; font-weight: 700; color: #c98b8b;">日</th>
+            </tr>
+          </thead>
+          <tbody style="color: #4a534e;">
+            <tr style="border-top: 1px solid #eeeeea;">
+              <td style="padding: 9px 2px; white-space: nowrap; color: #6b746f;">10:00–13:00</td>
+              <td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: #cdd0cb;">—</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: #cdd0cb;">—</td><td style="text-align: center; color: #cdd0cb;">—</td>
+            </tr>
+            <tr style="border-top: 1px solid #eeeeea;">
+              <td style="padding: 9px 2px; white-space: nowrap; color: #6b746f;">15:00–18:00</td>
+              <td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: #cdd0cb;">—</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: var(--acd);">●</td><td style="text-align: center; color: #cdd0cb;">—</td><td style="text-align: center; color: #cdd0cb;">—</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin: 12px 0 0; font-size: 11px; color: #939a93; line-height: 1.7;">休診：水曜・土曜・日曜・祝日<br>受付：午前 9:45–12:30／午後 14:45–17:30</p>
       </div>
     </section>
 
