@@ -42,6 +42,9 @@
   /* STEPカード */
   .step-card { background:#fff; border:1px solid #e8eef6; border-radius:18px; padding:30px 30px; box-shadow:0 8px 24px rgba(80,100,90,0.06); }
   .step-tag { display:inline-block; background:var(--ac); color:#fff; font-size:12px; font-weight:700; letter-spacing:0.14em; border-radius:999px; padding:5px 16px; margin-bottom:14px; }
+  /* アプリDL（iPhone / Android の2列。スマホでも横並びを維持） */
+  .dl-grid { display:flex; gap:20px 32px; flex-wrap:wrap; margin:10px 0; }
+  .dl-col { text-align:center; }
   /* メリットカード */
   .merit-card { background:#fff; border-radius:18px; padding:30px 26px; box-shadow:0 8px 24px rgba(80,100,90,0.06); text-align:center; }
   .merit-icon { width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; margin:0 auto 14px; }
@@ -60,6 +63,17 @@
     .section-pad { padding-left:22px !important; padding-right:22px !important; }
     .h1-title { font-size: 28px !important; }
     .faq-item .faq-a { padding-left:20px; }
+    /* STEPカードの左右余白を詰めて、DL2列ぶんの幅を確保 */
+    .step-card { padding:24px 16px !important; }
+    /* iPhone / Android のDLブロックをスマホでも横並びに */
+    .dl-grid { flex-wrap:nowrap; justify-content:center; gap:14px; }
+    .dl-col { flex:1 1 0; min-width:0; max-width:190px; }
+    .dl-badge { height:38px !important; max-width:100%; }
+    .dl-qr { max-width:100%; height:auto !important; }
+    /* ボタン系：nowrapのはみ出し防止（画面内で折り返す） */
+    .btn-disabled { white-space:normal; text-align:center; line-height:1.7; font-size:14px !important; padding:12px 22px !important; }
+    .cta-btns { flex-direction:column; align-items:center; }
+    .cta-btns .pill { width:100%; max-width:340px; justify-content:center; white-space:normal; text-align:center; }
   }
 </style>
 <meta name="robots" content="noindex"><style>.hamburger,.mobile-menu,.mobile-cta{display:none}@media(max-width:640px){header>div{gap:10px!important;padding:11px 14px!important;justify-content:space-between!important}header img{height:33px!important}header a>span>span:first-child{font-size:17px!important;letter-spacing:.01em!important;white-space:nowrap!important}header a>span>span:last-child{display:none!important}header nav{display:none!important}.hero-cta{display:none!important}.hamburger{display:flex!important;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;padding:0;border:none;background:transparent;cursor:pointer;position:fixed;top:11px;right:12px;z-index:60}.hamburger span{display:block;width:24px;height:2.5px;margin:0 auto;background:#3a423e;border-radius:2px;transition:transform .25s,opacity .2s}body.menu-open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}body.menu-open .hamburger span:nth-child(2){opacity:0}body.menu-open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}body.menu-open{overflow:hidden}body.menu-open .mobile-menu{display:flex!important;flex-direction:column;position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:80px 22px calc(22px + env(safe-area-inset-bottom,0px));gap:2px;overflow-y:auto}.mobile-menu a{font-size:17px;font-weight:600;color:#3a423e;text-decoration:none;padding:17px 6px;border-bottom:1px solid #eef0ec}.mobile-menu a.mm-accent{color:#1a66d6}.mobile-menu a.mm-line{color:#06c755}.mobile-cta{display:flex!important;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:100;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid #e6e4de;box-shadow:0 -4px 16px rgba(0,0,0,.10)}.mobile-cta a{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-size:15px;font-weight:700;letter-spacing:.02em;padding:14px 10px;box-shadow:none}main{padding-bottom:78px!important}footer{padding-bottom:74px!important}}@media(max-width:400px){header img{height:30px!important}header a>span>span:first-child{font-size:15px!important}}</style></head>
@@ -140,20 +154,20 @@
         <div class="step-card" style="margin-bottom:18px;">
           <span class="step-tag">STEP 1</span>
           <h3 style="font-family:'Shippori Mincho',serif; font-size:19px; color:#3a423e; margin:0 0 12px;">デジスマアプリをダウンロード<span style="font-size:13px; color:#8a928c;">（おすすめ）</span></h3>
-          <div style="display:flex; gap:20px 32px; flex-wrap:wrap; margin: 10px 0 10px;">
-            <div style="text-align:center;">
+          <div class="dl-grid">
+            <div class="dl-col">
               <div style="font-size:12.5px; font-weight:700; color:#6b746f; margin-bottom:8px;">iPhone をお使いの方</div>
               <a href="https://apps.apple.com/jp/app/m3%E3%83%87%E3%82%B8%E3%82%AB%E3%83%AB%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E8%A8%BA%E5%AF%9F%E5%88%B8/id1563102530" target="_blank" rel="noopener" aria-label="App Store でダウンロード">
-                <img src="appstore_badge.svg" alt="App Store でダウンロード" style="height:44px; width:auto; display:block; margin:0 auto 10px;">
+                <img src="appstore_badge.svg" alt="App Store でダウンロード" class="dl-badge" style="height:44px; width:auto; display:block; margin:0 auto 10px;">
               </a>
-              <img src="qr_appstore.png" alt="App Store ダウンロード用QRコード" style="width:108px; height:108px; display:block; margin:0 auto; border:1px solid #e6ebf4; border-radius:8px; padding:5px; background:#fff;">
+              <img src="qr_appstore.png" alt="App Store ダウンロード用QRコード" class="dl-qr" style="width:108px; height:108px; display:block; margin:0 auto; border:1px solid #e6ebf4; border-radius:8px; padding:5px; background:#fff;">
             </div>
-            <div style="text-align:center;">
+            <div class="dl-col">
               <div style="font-size:12.5px; font-weight:700; color:#6b746f; margin-bottom:8px;">Android をお使いの方</div>
               <a href="https://play.google.com/store/apps/details?id=jp.digikar.smart.app&utm_campaign=v1&utm_medium=patient_lp&utm_source=lp" target="_blank" rel="noopener" aria-label="Google Play で手に入れよう">
-                <img src="googleplay_badge.png" alt="Google Play で手に入れよう" style="height:44px; width:auto; display:block; margin:0 auto 10px;">
+                <img src="googleplay_badge.png" alt="Google Play で手に入れよう" class="dl-badge" style="height:44px; width:auto; display:block; margin:0 auto 10px;">
               </a>
-              <img src="qr_googleplay.png" alt="Google Play ダウンロード用QRコード" style="width:108px; height:108px; display:block; margin:0 auto; border:1px solid #e6ebf4; border-radius:8px; padding:5px; background:#fff;">
+              <img src="qr_googleplay.png" alt="Google Play ダウンロード用QRコード" class="dl-qr" style="width:108px; height:108px; display:block; margin:0 auto; border:1px solid #e6ebf4; border-radius:8px; padding:5px; background:#fff;">
             </div>
           </div>
           <p style="font-size:12px; line-height:1.85; color:#939a93; margin: 0 0 8px;">スマートフォンでは上のボタンから直接、パソコンでご覧の方はスマホでQRコードを読み取ってダウンロードできます。</p>
@@ -264,7 +278,7 @@
         </div>
         <h2 style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:24px; line-height:1.7; color:#fff; margin:0 0 12px; letter-spacing:0.05em;">ネット予約は8月2日20時から。<br>それまではご予約なしで、受付順で診療しています。</h2>
         <p style="font-size:14.5px; color:rgba(255,255,255,0.92); margin:0 0 28px; line-height:1.9;">お電話でのお問い合わせも可能です。予約開始のお知らせは公式LINEでも配信します。</p>
-        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <div class="cta-btns" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
           <a href="tel:0335678733" class="pill" style="font-size:16px; padding:16px 36px; background:#fff; color:var(--acd);">📞 03-3567-8733（タップで発信）</a>
           <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="font-size:16px; padding:16px 36px;">公式LINE</a>
           <a href="contact.html" class="pill" style="font-size:16px; padding:16px 36px; background:rgba(255,255,255,0.12); color:#fff; border:1.5px solid rgba(255,255,255,0.8);">お問い合わせ</a>
