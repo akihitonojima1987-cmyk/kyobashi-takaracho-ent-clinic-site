@@ -76,6 +76,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kyobashi-ent.com/cold</loc>
+    <lastmod>2026-07-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://kyobashi-ent.com/tinnitus</loc>
     <lastmod>2026-07-13</lastmod>
     <priority>0.7</priority>
@@ -144,6 +149,11 @@
     <loc>https://kyobashi-ent.com/b-spot</loc>
     <lastmod>2026-07-13</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/cost</loc>
+    <lastmod>2026-07-13</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://kyobashi-ent.com/privacy-policy</loc>
