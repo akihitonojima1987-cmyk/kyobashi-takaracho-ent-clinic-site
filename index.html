@@ -149,6 +149,7 @@
     .hero2col-news { padding: 26px 24px !important; }
     .hero-news-list { max-height: none !important; }
     .hero-overlay-h1 { font-size: 24px !important; }
+    .hero-badge-cluster { position: static !important; top: auto !important; right: auto !important; margin: 0 0 18px !important; }
     .grid-2, .grid-3, .doctor-grid, .access-grid { grid-template-columns: 1fr !important; }
     .section-pad { padding-left: 22px !important; padding-right: 22px !important; }
     .hero2-panel { height: 320px !important; }
@@ -160,6 +161,7 @@
     .hero-slideshow { height: 236px !important; }
     .hero-slide { flex-direction: column !important; align-items: flex-start !important; justify-content: center !important; gap: 12px !important; }
     .hero-slide-icon { width: 52px !important; height: 52px !important; }
+    .hero-badge-circle { width: 76px !important; height: 76px !important; }
   }
 </style>
 <meta name="google-site-verification" content="pGPBMylmYfVTwUG7GwRKCaJKfem3hZ4_OsFs_sWu4g0" />
@@ -229,16 +231,31 @@
       <div style="max-width: 1180px; margin: 0 auto; padding: 0 28px;">
         <div class="hero2col-grid" style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: stretch;">
           <!-- 見出し（左） -->
-          <div class="hero2col-copy" style="position: relative; border-radius: 20px; overflow: hidden; background: linear-gradient(115deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 70%, #fef4da 100%); padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; min-height: 420px;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px; animation: ktk-rise 0.8s ease both;">
-              <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
+          <div class="hero2col-copy" style="position: relative; padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; min-height: 420px;">
+            <div style="position: absolute; inset: 0; border-radius: 20px; overflow: hidden; background: linear-gradient(115deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 70%, #fef4da 100%); z-index: 0;"></div>
+            <!-- アクセスバッジ（見出しカードの角に重ねる丸バッジ） -->
+            <div class="hero-badge-cluster" style="position: absolute; top: -16px; right: -14px; z-index: 3; display: flex; flex-wrap: wrap; gap: 10px;">
+              <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #e8f0fe; box-shadow: 0 10px 22px rgba(47,99,196,0.22); display: flex; align-items: center; justify-content: center; text-align: center; animation: ktk-rise 0.8s ease both;">
+                <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.45; letter-spacing: 0.01em; color: #1a66d6;">都営浅草線<br>宝町駅<br>徒歩1分</span>
+              </div>
+              <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #e6f4ea; box-shadow: 0 10px 22px rgba(52,168,83,0.20); display: flex; align-items: center; justify-content: center; text-align: center; animation: ktk-rise 0.8s ease both;">
+                <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 12px; line-height: 1.5; letter-spacing: 0.01em; color: #2e7d4f;">Bスポット<br>療法</span>
+              </div>
+              <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #fef4da; box-shadow: 0 10px 22px rgba(230,180,60,0.24); display: flex; align-items: center; justify-content: center; text-align: center; animation: ktk-rise 0.8s ease both;">
+                <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 12px; line-height: 1.5; letter-spacing: 0.01em; color: #a67c00;">電子<br>内視鏡</span>
+              </div>
             </div>
-            <h1 class="hero-overlay-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 36px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 18px; animation: ktk-rise 0.8s ease both;">耳・鼻・のどの不調に、<br>やさしく寄りそう。</h1>
-            <p style="font-size: 15px; line-height: 2; color: #5b645f; margin: 0 0 26px; letter-spacing: 0.02em;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="reservation.html" class="pill btn-primary" style="font-size: 14.5px; padding: 14px 26px;">ご予約について</a>
-              <a href="waiting.html" class="pill btn-outline" style="font-size: 14.5px; padding: 14px 24px;"><span style="width:9px; height:9px; border-radius:50%; background:#34a853; display:inline-block;"></span>受付番号を確認</a>
-              <a href="about.html" class="pill btn-outline" style="font-size: 14.5px; padding: 14px 26px;">当院について</a>
+            <div style="position: relative; z-index: 1;">
+              <div style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px; animation: ktk-rise 0.8s ease both;">
+                <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
+              </div>
+              <h1 class="hero-overlay-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 36px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 18px; animation: ktk-rise 0.8s ease both;">耳・鼻・のどの不調に、<br>やさしく寄りそう。</h1>
+              <p style="font-size: 15px; line-height: 2; color: #5b645f; margin: 0 0 26px; letter-spacing: 0.02em;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
+              <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="reservation.html" class="pill btn-primary" style="font-size: 14.5px; padding: 14px 26px;">ご予約について</a>
+                <a href="waiting.html" class="pill btn-outline" style="font-size: 14.5px; padding: 14px 24px;"><span style="width:9px; height:9px; border-radius:50%; background:#34a853; display:inline-block;"></span>受付番号を確認</a>
+                <a href="about.html" class="pill btn-outline" style="font-size: 14.5px; padding: 14px 26px;">当院について</a>
+              </div>
             </div>
           </div>
           <!-- お知らせ（右） -->
