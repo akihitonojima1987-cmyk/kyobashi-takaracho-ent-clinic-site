@@ -50,9 +50,8 @@
 <div>
 <div>
 
-  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eceae4;">
-    <div class="head-bar"><div class="head-bar-inner"><span class="head-bar-note">都営浅草線「宝町駅」A6・A7出口 徒歩1分</span><span class="head-bar-sep" aria-hidden="true"></span><span class="head-bar-note">休診日：水曜・土曜・日曜・祝日</span></div></div>
-    <div style="max-width: 1180px; margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <header style="position: static; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eceae4;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 16px 28px 10px; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;">
       <a href="index.html" style="display: flex; align-items: center; gap: 11px; flex: none;">
         <!-- ロゴ：象アイコン -->
         <img src="logo.png?v=4" alt="岩佐耳鼻咽喉科 ロゴ" style="height:46px;width:46px;object-fit:contain;display:block;flex:none;">
@@ -61,19 +60,28 @@
           <span class="brand-en" style="font-size: 9.5px; letter-spacing: 0.24em; color: var(--acd); margin-top: 3px; white-space: nowrap;">IWASA ENT CLINIC</span>
         </span>
       </a>
-      <nav style="display: flex; align-items: center; gap: 16px;">
-        <div class="nav-menu" style="display: flex; align-items: center; gap: 16px; font-size: 13.5px; font-weight: 500; color: #4a534e; white-space: nowrap;">
-          <a href="about.html"    class="nav-link">当院について</a>
-          <a href="first-visit.html" class="nav-link">初診の方へ</a>
-          <div class="nav-dd"><a href="services.html" class="nav-link nav-dd-toggle">診療内容<span class="nav-dd-caret" aria-hidden="true">▾</span></a><div class="nav-dd-menu"><div class="nav-dd-inner"><a href="services.html">診療内容トップ</a><a href="sublingual-immunotherapy.html">舌下免疫療法</a><a href="b-spot.html">Bスポット療法</a></div></div></div>
-          <a href="access.html"   class="nav-link">アクセス</a>
-          <a href="symptoms.html" class="nav-link">このような時</a>
-          <a href="index.html#faq" class="nav-link">よくある質問</a>
+      <div class="head-bar" style="flex: none; margin-top: 4px;">
+        <div class="head-bar-inner" style="max-width: none; padding: 0; justify-content: flex-end;">
+          <span class="head-bar-note">都営浅草線「宝町駅」A6・A7出口 徒歩1分</span>
+          <span class="head-bar-sep" aria-hidden="true"></span>
+          <span class="head-bar-note">休診日：水曜・土曜・日曜・祝日</span>
+          <span class="head-bar-sep" aria-hidden="true"></span>
+          <span class="head-bar-note">03-3567-8733</span>
         </div>
-        <a href="reservation.html" class="pill btn-head" style="flex: none; font-size: 13.5px; padding: 10px 16px;">ご予約</a>
-        <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="flex: none; font-size: 13.5px; padding: 10px 18px;">公式LINE</a>
-      </nav>
+      </div>
     </div>
+    <nav style="max-width: 1180px; margin: 0 auto; padding: 10px 28px 14px; display: flex; align-items: center; justify-content: center; gap: 16px; border-top: 1px solid #eceae4;">
+      <div class="nav-menu" style="display: flex; align-items: center; gap: 16px; font-size: 13.5px; font-weight: 500; color: #4a534e; white-space: nowrap;">
+        <a href="about.html"    class="nav-link">当院について</a>
+        <a href="first-visit.html" class="nav-link">初診の方へ</a>
+        <div class="nav-dd"><a href="services.html" class="nav-link nav-dd-toggle">診療内容<span class="nav-dd-caret" aria-hidden="true">▾</span></a><div class="nav-dd-menu"><div class="nav-dd-inner"><a href="services.html">診療内容トップ</a><a href="sublingual-immunotherapy.html">舌下免疫療法</a><a href="b-spot.html">Bスポット療法</a></div></div></div>
+        <a href="access.html"   class="nav-link">アクセス</a>
+        <a href="symptoms.html" class="nav-link">このような時</a>
+        <a href="index.html#faq" class="nav-link">よくある質問</a>
+      </div>
+      <a href="reservation.html" class="pill btn-head" style="flex: none; font-size: 13.5px; padding: 10px 16px;">ご予約</a>
+      <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="flex: none; font-size: 13.5px; padding: 10px 18px;">公式LINE</a>
+    </nav>
   </header>
 
   <main>
@@ -200,7 +208,7 @@
             <a href="waiting.html" class="foot-link">待合状況（受付番号）</a>
             <a href="index.html#faq" class="foot-link">よくある質問</a>
             <a href="contact.html" class="foot-link">お問い合わせ</a>
-            <a href="privacy-policy.html" class="foot-link">プライバシーポリシー</a>
+            <a href="privacy-policy.html" class="foot-link">プライバシーポリシー</a><a href="website-policy.html" class="foot-link">ホームページ運営について</a>
           </div>
         </div>
         <div>

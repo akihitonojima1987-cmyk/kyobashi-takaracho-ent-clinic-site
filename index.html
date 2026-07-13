@@ -94,6 +94,19 @@
   .nav-link { padding: 6px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
   .nav-link:hover { border-bottom-color: var(--ac); color: var(--acd); }
 
+  /* 診療内容ドロップダウン（ヘッダー） */
+  .nav-dd { position: relative; }
+  .nav-dd-caret { display: inline-block; font-size: 10px; margin-left: 2px; transition: transform .18s ease; }
+  .nav-dd:hover .nav-dd-caret { transform: rotate(180deg); }
+  .nav-dd-menu { position: absolute; top: 100%; left: 50%; transform: translate(-50%, -6px); margin-top: 10px;
+                 background: #fff; border-radius: 12px; box-shadow: 0 14px 32px rgba(80,100,90,0.18);
+                 padding: 8px; min-width: 180px; opacity: 0; visibility: hidden; pointer-events: none;
+                 transition: opacity .18s ease, transform .18s ease, visibility .18s; z-index: 60; }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
+  .nav-dd-inner { display: flex; flex-direction: column; }
+  .nav-dd-inner a { padding: 9px 14px; border-radius: 8px; font-size: 13.5px; color: #4a534e; white-space: nowrap; transition: background .15s, color .15s; }
+  .nav-dd-inner a:hover { background: var(--acs); color: var(--acd); }
+
   .btn-head { background: var(--ac); color: #fff; box-shadow: 0 6px 16px rgba(47,99,196,0.26);
               transition: background .2s, box-shadow .2s, transform .2s; }
   .btn-head:hover { background: var(--acd); box-shadow: 0 8px 20px rgba(47,99,196,0.34); transform: translateY(-1px); }
@@ -144,6 +157,9 @@
   @media (max-width: 480px) {
     .hero-overlay-h1 { font-size: 21px !important; }
     .h2-title { font-size: 26px !important; }
+    .hero-slideshow { height: 236px !important; }
+    .hero-slide { flex-direction: column !important; align-items: flex-start !important; justify-content: center !important; gap: 12px !important; }
+    .hero-slide-icon { width: 52px !important; height: 52px !important; }
   }
 </style>
 <meta name="google-site-verification" content="pGPBMylmYfVTwUG7GwRKCaJKfem3hZ4_OsFs_sWu4g0" />
@@ -170,9 +186,8 @@
 <div>
 
   <!-- ============ ヘッダー ============ -->
-  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eceae4;">
-    <div class="head-bar"><div class="head-bar-inner"><span class="head-bar-note">都営浅草線「宝町駅」A6・A7出口 徒歩1分</span><span class="head-bar-sep" aria-hidden="true"></span><span class="head-bar-note">休診日：水曜・土曜・日曜・祝日</span></div></div>
-    <div style="max-width: 1180px; margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <header style="position: static; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eceae4;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 16px 28px 10px; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;">
       <a href="index.html" style="display: flex; align-items: center; gap: 11px; flex: none;">
         <!-- ロゴ：象アイコン -->
         <img src="logo.png?v=4" alt="岩佐耳鼻咽喉科 ロゴ" style="height:46px;width:46px;object-fit:contain;display:block;flex:none;">
@@ -181,40 +196,129 @@
           <span class="brand-en" style="font-size: 9.5px; letter-spacing: 0.24em; color: var(--acd); margin-top: 3px; white-space: nowrap;">IWASA ENT CLINIC</span>
         </span>
       </a>
-      <nav style="display: flex; align-items: center; gap: 16px;">
-        <div class="nav-menu" style="display: flex; align-items: center; gap: 16px; font-size: 13.5px; font-weight: 500; color: #4a534e; white-space: nowrap;">
-          <a href="about.html"    class="nav-link">当院について</a>
-          <a href="first-visit.html" class="nav-link">初診の方へ</a>
-          <div class="nav-dd"><a href="services.html" class="nav-link nav-dd-toggle">診療内容<span class="nav-dd-caret" aria-hidden="true">▾</span></a><div class="nav-dd-menu"><div class="nav-dd-inner"><a href="services.html">診療内容トップ</a><a href="sublingual-immunotherapy.html">舌下免疫療法</a><a href="b-spot.html">Bスポット療法</a></div></div></div>
-          <a href="access.html"   class="nav-link">アクセス</a>
-          <a href="symptoms.html" class="nav-link">このような時</a>
-          <a href="index.html#faq" class="nav-link">よくある質問</a>
+      <div class="head-bar" style="flex: none; margin-top: 4px;">
+        <div class="head-bar-inner" style="max-width: none; padding: 0; justify-content: flex-end;">
+          <span class="head-bar-note">都営浅草線「宝町駅」A6・A7出口 徒歩1分</span>
+          <span class="head-bar-sep" aria-hidden="true"></span>
+          <span class="head-bar-note">休診日：水曜・土曜・日曜・祝日</span>
+          <span class="head-bar-sep" aria-hidden="true"></span>
+          <span class="head-bar-note">03-3567-8733</span>
         </div>
-        <a href="reservation.html" class="pill btn-head" style="flex: none; font-size: 13.5px; padding: 10px 16px;">ご予約</a>
-        <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="flex: none; font-size: 13.5px; padding: 10px 18px;">公式LINE</a>
-      </nav>
+      </div>
     </div>
+    <nav style="max-width: 1180px; margin: 0 auto; padding: 10px 28px 14px; display: flex; align-items: center; justify-content: center; gap: 16px; border-top: 1px solid #eceae4;">
+      <div class="nav-menu" style="display: flex; align-items: center; gap: 16px; font-size: 13.5px; font-weight: 500; color: #4a534e; white-space: nowrap;">
+        <a href="about.html"    class="nav-link">当院について</a>
+        <a href="first-visit.html" class="nav-link">初診の方へ</a>
+        <div class="nav-dd"><a href="services.html" class="nav-link nav-dd-toggle">診療内容<span class="nav-dd-caret" aria-hidden="true">▾</span></a><div class="nav-dd-menu"><div class="nav-dd-inner"><a href="services.html">診療内容トップ</a><a href="sublingual-immunotherapy.html">舌下免疫療法</a><a href="b-spot.html">Bスポット療法</a></div></div></div>
+        <a href="access.html"   class="nav-link">アクセス</a>
+        <a href="symptoms.html" class="nav-link">このような時</a>
+        <a href="index.html#faq" class="nav-link">よくある質問</a>
+      </div>
+      <a href="reservation.html" class="pill btn-head" style="flex: none; font-size: 13.5px; padding: 10px 16px;">ご予約</a>
+      <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="flex: none; font-size: 13.5px; padding: 10px 18px;">公式LINE</a>
+    </nav>
   </header>
 
   <main>
 
-    <!-- ============ ファーストビュー（見出し×お知らせ 2カラム／写真なし方針を維持） ============ -->
+    <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;">岩佐耳鼻咽喉科｜宝町駅すぐの耳鼻咽喉科・アレルギー科（東京都中央区京橋）</h1>
+
+    <!-- ============ ファーストビュー（力を入れている治療スライドショー×お知らせ／写真なし方針を維持） ============ -->
     <section style="background: var(--acbg); padding: 40px 0 56px;">
       <div style="max-width: 1180px; margin: 0 auto; padding: 0 28px;">
+
         <div class="hero2col-grid" style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: stretch;">
-          <!-- 見出し（左） -->
-          <div class="hero2col-copy" style="position: relative; border-radius: 20px; overflow: hidden; background: linear-gradient(115deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 70%, #fef4da 100%); padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; min-height: 420px;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px; animation: ktk-rise 0.8s ease both;">
-              <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
-            </div>
-            <h1 class="hero-overlay-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 36px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 18px; animation: ktk-rise 0.8s ease both;">耳・鼻・のどの不調に、<br>やさしく寄りそう。</h1>
-            <p style="font-size: 15px; line-height: 2; color: #5b645f; margin: 0 0 26px; letter-spacing: 0.02em;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <a href="reservation.html" class="pill btn-primary" style="font-size: 14.5px; padding: 14px 26px;">ご予約について</a>
-              <a href="waiting.html" class="pill btn-outline" style="font-size: 14.5px; padding: 14px 24px;"><span style="width:9px; height:9px; border-radius:50%; background:#34a853; display:inline-block;"></span>受付番号を確認</a>
-              <a href="about.html" class="pill btn-outline" style="font-size: 14.5px; padding: 14px 26px;">当院について</a>
+          <!-- 力を入れている治療スライドショー（左／写真不使用・自作グラフィックバナー） -->
+          <div class="hero-slideshow" style="position: relative; height: 100%; min-height: 420px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(80,100,90,0.10);">
+            <a href="sublingual-immunotherapy.html" class="hero-slide is-active" data-slide="0" style="position: absolute; inset: 0; z-index: 1; opacity: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; padding: 44px 40px; background: linear-gradient(120deg, #eef3ff 0%, #dde9ff 60%, #cfe1ff 100%); transition: opacity 1s ease;">
+              <div class="hero-slide-icon" style="width: 76px; height: 76px; border-radius: 50%; background: #fff; box-shadow: 0 8px 18px rgba(66,133,244,0.24); display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 19px; color: var(--acd); letter-spacing: 0.02em;">舌下</span>
+              </div>
+              <div>
+                <span style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #fff; background: var(--acd); padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">花粉が飛ばない今が始めどき</span>
+                <h3 style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; color: #2b3b55; margin: 0 0 10px; letter-spacing: 0.02em;">舌下免疫療法（スギ・ダニ）</h3>
+                <p style="font-size: 14px; color: #4a5568; margin: 0; line-height: 1.8; max-width: 380px;">対症療法ではなく体質改善を目指す治療です。<span style="color: var(--acd); font-weight: 700;">詳しくを見る →</span></p>
+              </div>
+            </a>
+            <a href="b-spot.html" class="hero-slide" data-slide="1" style="position: absolute; inset: 0; z-index: 0; opacity: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; padding: 44px 40px; background: linear-gradient(120deg, #fef4f6 0%, #fbe4e9 60%, #f6d2da 100%); transition: opacity 1s ease;">
+              <div class="hero-slide-icon" style="width: 76px; height: 76px; border-radius: 50%; background: #fff; box-shadow: 0 8px 18px rgba(204,107,133,0.24); display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 24px; color: #cc6b85; letter-spacing: 0.02em;">B</span>
+              </div>
+              <div>
+                <span style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #fff; background: #cc6b85; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">力を入れている治療</span>
+                <h3 style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; color: #2b3b55; margin: 0 0 10px; letter-spacing: 0.02em;">Bスポット療法（EAT・上咽頭擦過療法）</h3>
+                <p style="font-size: 14px; color: #4a5568; margin: 0; line-height: 1.8; max-width: 380px;">慢性上咽頭炎・後鼻漏・のどの違和感に。<span style="color: #cc6b85; font-weight: 700;">詳しくを見る →</span></p>
+              </div>
+            </a>
+            <a href="earwax.html" class="hero-slide" data-slide="2" style="position: absolute; inset: 0; z-index: 0; opacity: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; padding: 44px 40px; background: linear-gradient(120deg, #fdf7ec 0%, #f7ecd3 60%, #f0dfb8 100%); transition: opacity 1s ease;">
+              <div class="hero-slide-icon" style="width: 76px; height: 76px; border-radius: 50%; background: #fff; box-shadow: 0 8px 18px rgba(166,124,61,0.24); display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 19px; color: #a67c3d; letter-spacing: 0.02em;">耳垢</span>
+              </div>
+              <div>
+                <span style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #fff; background: #a67c3d; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">プール・学校検診のシーズンに</span>
+                <h3 style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; color: #2b3b55; margin: 0 0 10px; letter-spacing: 0.02em;">耳あか・耳掃除</h3>
+                <p style="font-size: 14px; color: #4a5568; margin: 0; line-height: 1.8; max-width: 380px;">無理な耳掃除は逆効果になることも。専用の器具で安全に除去します。<span style="color: #a67c3d; font-weight: 700;">詳しくを見る →</span></p>
+              </div>
+            </a>
+            <a href="otitis-externa.html" class="hero-slide" data-slide="3" style="position: absolute; inset: 0; z-index: 0; opacity: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; padding: 44px 40px; background: linear-gradient(120deg, #fff4f2 0%, #ffe3de 60%, #ffd0c8 100%); transition: opacity 1s ease;">
+              <div class="hero-slide-icon" style="width: 76px; height: 76px; border-radius: 50%; background: #fff; box-shadow: 0 8px 18px rgba(194,104,90,0.24); display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 19px; color: #c2685a; letter-spacing: 0.02em;">外耳</span>
+              </div>
+              <div>
+                <span style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #fff; background: #c2685a; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">汗・プールで増える季節に</span>
+                <h3 style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; color: #2b3b55; margin: 0 0 10px; letter-spacing: 0.02em;">外耳炎（かゆい・痛い耳）</h3>
+                <p style="font-size: 14px; color: #4a5568; margin: 0; line-height: 1.8; max-width: 380px;">耳を触るくせで悪化しやすい病気です。かゆみ・痛みはお早めに。<span style="color: #c2685a; font-weight: 700;">詳しくを見る →</span></p>
+              </div>
+            </a>
+            <a href="vertigo.html" class="hero-slide" data-slide="4" style="position: absolute; inset: 0; z-index: 0; opacity: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; padding: 44px 40px; background: linear-gradient(120deg, #f6f3ff 0%, #e9e1ff 60%, #dccdff 100%); transition: opacity 1s ease;">
+              <div class="hero-slide-icon" style="width: 76px; height: 76px; border-radius: 50%; background: #fff; box-shadow: 0 8px 18px rgba(122,99,184,0.24); display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 14px; color: #7a63b8; letter-spacing: 0.02em;">めまい</span>
+              </div>
+              <div>
+                <span style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #fff; background: #7a63b8; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">夏バテ・気圧の変化に注意</span>
+                <h3 style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; color: #2b3b55; margin: 0 0 10px; letter-spacing: 0.02em;">めまい（BPPV・メニエール病）</h3>
+                <p style="font-size: 14px; color: #4a5568; margin: 0; line-height: 1.8; max-width: 380px;">ぐるぐる・ふわふわするめまい、耳が原因のことも。<span style="color: #7a63b8; font-weight: 700;">詳しくを見る →</span></p>
+              </div>
+            </a>
+            <a href="allergic-rhinitis.html" class="hero-slide" data-slide="5" style="position: absolute; inset: 0; z-index: 0; opacity: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 20px; padding: 44px 40px; background: linear-gradient(120deg, #fbfbe8 0%, #f3f4c9 60%, #e9eda3 100%); transition: opacity 1s ease;">
+              <div class="hero-slide-icon" style="width: 76px; height: 76px; border-radius: 50%; background: #fff; box-shadow: 0 8px 18px rgba(127,143,46,0.24); display: flex; align-items: center; justify-content: center; flex: none;">
+                <span style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 19px; color: #7f8f2e; letter-spacing: 0.02em;">花粉</span>
+              </div>
+              <div>
+                <span style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #fff; background: #7f8f2e; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;">スギだけじゃない、夏も花粉症</span>
+                <h3 style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; color: #2b3b55; margin: 0 0 10px; letter-spacing: 0.02em;">アレルギー性鼻炎（夏の花粉症）</h3>
+                <p style="font-size: 14px; color: #4a5568; margin: 0; line-height: 1.8; max-width: 380px;">花粉は一年中飛んでいます。夏の症状も油断せずご相談を。<span style="color: #7f8f2e; font-weight: 700;">詳しくを見る →</span></p>
+              </div>
+            </a>
+            <div class="hero-slide-dots" style="position: absolute; right: 20px; bottom: 18px; z-index: 2; display: flex; gap: 8px;">
+              <button type="button" class="hero-dot is-active" data-dot="0" aria-label="舌下免疫療法のスライドを表示" style="width: 8px; height: 8px; padding: 0; border: none; border-radius: 50%; background: var(--acd); cursor: pointer;"></button>
+              <button type="button" class="hero-dot" data-dot="1" aria-label="Bスポット療法のスライドを表示" style="width: 8px; height: 8px; padding: 0; border: none; border-radius: 50%; background: #d7dee2; cursor: pointer;"></button>
+              <button type="button" class="hero-dot" data-dot="2" aria-label="耳あか・耳掃除のスライドを表示" style="width: 8px; height: 8px; padding: 0; border: none; border-radius: 50%; background: #d7dee2; cursor: pointer;"></button>
+              <button type="button" class="hero-dot" data-dot="3" aria-label="外耳炎のスライドを表示" style="width: 8px; height: 8px; padding: 0; border: none; border-radius: 50%; background: #d7dee2; cursor: pointer;"></button>
+              <button type="button" class="hero-dot" data-dot="4" aria-label="めまいのスライドを表示" style="width: 8px; height: 8px; padding: 0; border: none; border-radius: 50%; background: #d7dee2; cursor: pointer;"></button>
+              <button type="button" class="hero-dot" data-dot="5" aria-label="アレルギー性鼻炎のスライドを表示" style="width: 8px; height: 8px; padding: 0; border: none; border-radius: 50%; background: #d7dee2; cursor: pointer;"></button>
             </div>
           </div>
+          <script>
+          (function(){
+            var root = document.currentScript.previousElementSibling;
+            var slides = root.querySelectorAll('.hero-slide');
+            var dots = root.querySelectorAll('.hero-dot');
+            var idx = 0, timer;
+            function show(i){
+              idx = i;
+              slides.forEach(function(s, si){ s.style.opacity = si === i ? '1' : '0'; s.style.zIndex = si === i ? '1' : '0'; });
+              dots.forEach(function(d, di){ d.style.background = di === i ? 'var(--acd)' : '#d7dee2'; });
+            }
+            function next(){ show((idx + 1) % slides.length); }
+            function restart(){ clearInterval(timer); timer = setInterval(next, 5000); }
+            dots.forEach(function(d, di){
+              d.addEventListener('click', function(e){ e.preventDefault(); show(di); restart(); });
+            });
+            restart();
+          })();
+          </script>
           <!-- お知らせ（右） -->
           <div class="hero2col-news" style="background: #fff; border-radius: 20px; box-shadow: 0 20px 50px rgba(80,100,90,0.10); padding: 34px 32px; display: flex; flex-direction: column;">
             <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
@@ -542,7 +646,7 @@
             <a href="#faq"      class="foot-link">よくある質問</a>
             <a href="recruit.html" class="foot-link">求人情報</a>
             <a href="contact.html" class="foot-link">お問い合わせ</a>
-            <a href="privacy-policy.html" class="foot-link">プライバシーポリシー</a>
+            <a href="privacy-policy.html" class="foot-link">プライバシーポリシー</a><a href="website-policy.html" class="foot-link">ホームページ運営について</a>
             <a href="contact.html" class="foot-link">業者・取引先の方へ（お問い合わせ）</a>
           </div>
         </div>
