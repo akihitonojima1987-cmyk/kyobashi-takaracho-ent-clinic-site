@@ -144,6 +144,11 @@
   .top-info-tel { color: var(--acd); font-weight: 700; font-size: 18px; white-space: nowrap; text-decoration: none; }
   .top-info-sep { width: 1px; height: 10px; background: #d6dbe2; }
 
+  /* ヘッダー右上の head-bar（PC幅）：station/診療時間/休診日の帯 */
+  .head-bar-inner { display: flex; align-items: center; gap: 10px; }
+  .head-bar-note { font-size: 12.5px; color: #6b746f; white-space: nowrap; letter-spacing: 0.02em; line-height: 1.6; }
+  .head-bar-sep { width: 1px; height: 10px; background: #d6dbe2; flex: none; }
+
   /* 全ページ共通の帯：ヘッダー直下（スクロールなしで見える位置）に休診・初診案内を流す */
   .top-ticker { background: var(--acd); overflow: hidden; white-space: nowrap; }
   .top-ticker-track { display: inline-block; white-space: nowrap; padding: 9px 0; font-size: 12.5px; color: #fff; letter-spacing: 0.02em;
@@ -224,6 +229,11 @@
       </a>
       <div class="head-bar" style="flex: none; margin-top: 2px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
         <a href="tel:0335678733" style="display: flex; align-items: center; gap: 6px; font-size: 23px; font-weight: 700; color: var(--acd); white-space: nowrap; letter-spacing: 0.01em;">☎ 03-3567-8733</a>
+        <div class="head-bar-inner" style="max-width: none; padding: 0; justify-content: flex-end;">
+          <span class="head-bar-note">診療時間　10:00–13:00／15:00–18:00</span>
+          <span class="head-bar-sep" aria-hidden="true"></span>
+          <span class="head-bar-note">受付時間　9:45–12:30／14:45–17:30</span>
+        </div>
         <div class="head-bar-inner" style="max-width: none; padding: 0; justify-content: flex-end;">
           <span class="head-bar-note">都営浅草線「宝町駅」A6・A7出口 徒歩1分</span>
           <span class="head-bar-sep" aria-hidden="true"></span>
