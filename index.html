@@ -138,10 +138,10 @@
   .top-info-bar { display: none; }
   @media (max-width: 1060px) {
     .top-info-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 5px 12px; background: #fff; border-bottom: 1px solid #eceae4; padding: 8px 14px;
-      font-size: 13.5px; color: #4a534e; letter-spacing: 0.02em; }
+      gap: 6px 12px; background: #fff; border-bottom: 1px solid #eceae4; padding: 9px 14px;
+      font-size: 15px; color: #4a534e; letter-spacing: 0.02em; }
   }
-  .top-info-tel { color: var(--acd); font-weight: 700; font-size: 15px; white-space: nowrap; text-decoration: none; }
+  .top-info-tel { color: var(--acd); font-weight: 700; font-size: 18px; white-space: nowrap; text-decoration: none; }
   .top-info-sep { width: 1px; height: 10px; background: #d6dbe2; }
 
   /* 全ページ共通の帯：ヘッダー直下（スクロールなしで見える位置）に休診・初診案内を流す */
@@ -249,8 +249,8 @@
   <!-- 休診・初診案内の帯（お知らせ欄とは別・全ページ共通） -->
   <div class="top-ticker" role="note" aria-label="お知らせ">
     <div class="top-ticker-track" aria-hidden="true">
-      <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　●　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　●　</span>
-      <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　●　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　●　</span>
+      <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　　</span>
+      <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　　</span>
     </div>
   </div>
 
@@ -284,6 +284,14 @@
                 </div>
               </div>
             </div>
+          </div>
+          <!-- スマホ用：電話番号・診療時間・診療日の帯（PCではヘッダー右上の同内容が見えるため非表示。グリッド内に置くことでスマホでは「見出し→この帯→お知らせ」の順に積み上がる） -->
+          <div class="top-info-bar">
+            <a href="tel:0335678733" class="top-info-tel">☎ 03-3567-8733</a>
+            <span class="top-info-sep" aria-hidden="true"></span>
+            <span>診療時間　10:00–13:00／15:00–18:00</span>
+            <span class="top-info-sep" aria-hidden="true"></span>
+            <span>診療日　月・火・木・金</span>
           </div>
           <!-- お知らせ（右） -->
           <details class="hero2col-news hero-news-details" open style="background: #fff; border-radius: 20px; box-shadow: 0 20px 50px rgba(80,100,90,0.10); padding: 34px 32px; display: flex; flex-direction: column;">
@@ -342,15 +350,6 @@
       if (d && window.innerWidth <= 860) { d.removeAttribute('open'); }
     })();
     </script>
-
-    <!-- スマホ用：電話番号・診療時間・診療日の帯（PCではヘッダー右上の同内容が見えるため非表示） -->
-    <div class="top-info-bar">
-      <a href="tel:0335678733" class="top-info-tel">☎ 03-3567-8733</a>
-      <span class="top-info-sep" aria-hidden="true"></span>
-      <span>診療時間　10:00–13:00／15:00–18:00</span>
-      <span class="top-info-sep" aria-hidden="true"></span>
-      <span>診療日　月・火・木・金</span>
-    </div>
 
     <!-- ============ 当院の特徴 ============ -->
     <section style="background: #ffffff;">
