@@ -138,8 +138,8 @@
   .top-info-bar { display: none; }
   @media (max-width: 1060px) {
     .top-info-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 5px 10px; background: #fff; border-bottom: 1px solid #eceae4; padding: 8px 14px;
-      font-size: 12px; color: #4a534e; letter-spacing: 0.02em; }
+      gap: 4px 10px; background: #fff; border-bottom: 1px solid #eceae4; padding: 6px 14px;
+      font-size: 11px; color: #4a534e; letter-spacing: 0.02em; }
   }
   .top-info-tel { color: var(--acd); font-weight: 700; white-space: nowrap; text-decoration: none; }
   .top-info-sep { width: 1px; height: 10px; background: #d6dbe2; }
@@ -154,13 +154,16 @@
   /* ===== レスポンシブ ===== */
   @media (max-width: 860px) {
     .nav-menu { display: none !important; }                 /* PCナビは非表示 */
-    .hero-fv-section { padding: 20px 0 28px !important; }
-    .hero2col-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
-    .hero2col-copy { min-height: auto !important; padding: 26px 26px !important; }
-    .hero-eyebrow { margin-bottom: 8px !important; }
-    .hero-overlay-h1 { font-size: 27.5px !important; margin-bottom: 10px !important; }
-    .hero-lead { font-size: 15px !important; line-height: 1.65 !important; margin-bottom: 14px !important; }
-    .hero-badge-cluster { gap: 8px !important; }
+    .hero-fv-section { padding: 12px 0 16px !important; }
+    .hero2col-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .hero2col-copy { min-height: auto !important; padding: 16px 20px !important; }
+    .hero-eyebrow { margin-bottom: 6px !important; font-size: 12px !important; }
+    .hero-overlay-h1 { font-size: 22px !important; margin-bottom: 8px !important; }
+    .hero-lead { font-size: 13.5px !important; line-height: 1.55 !important; margin-bottom: 10px !important; }
+    .hero-badge-cluster { gap: 6px !important; }
+    .hero-badge-circle { width: 64px !important; height: 64px !important; }
+    .hero-badge-circle span { font-size: 10.5px !important; line-height: 1.3 !important; }
+    .top-ticker-track { padding: 4px 0 !important; font-size: 9px !important; }
     .hero2col-news { padding: 16px 20px !important; }
     .hero-news-summary { margin-bottom: 10px !important; }
     .hero-news-list { max-height: none !important; }
@@ -170,12 +173,13 @@
     .doctor-panel { height: auto !important; padding: 36px 24px !important; }
   }
   @media (max-width: 480px) {
-    .hero-overlay-h1 { font-size: 24px !important; }
+    .hero-overlay-h1 { font-size: 21px !important; }
     .h2-title { font-size: 30px !important; }
     .hero-slideshow { height: 236px !important; }
     .hero-slide { flex-direction: column !important; align-items: flex-start !important; justify-content: center !important; gap: 12px !important; }
     .hero-slide-icon { width: 52px !important; height: 52px !important; }
-    .hero-badge-circle { width: 76px !important; height: 76px !important; }
+    .hero-badge-circle { width: 56px !important; height: 56px !important; }
+    .hero-badge-circle span { font-size: 9px !important; line-height: 1.25 !important; }
   }
 </style>
 <meta name="google-site-verification" content="pGPBMylmYfVTwUG7GwRKCaJKfem3hZ4_OsFs_sWu4g0" />
@@ -236,15 +240,6 @@
       <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="flex: none; font-size: 16.5px; padding: 12px 22px;">公式LINE</a>
     </nav>
   </header>
-
-  <!-- スマホ用：電話番号・診療時間・診療日の帯（PCではヘッダー右上の同内容が見えるため非表示） -->
-  <div class="top-info-bar">
-    <a href="tel:0335678733" class="top-info-tel">☎ 03-3567-8733</a>
-    <span class="top-info-sep" aria-hidden="true"></span>
-    <span>診療時間　10:00–13:00／15:00–18:00</span>
-    <span class="top-info-sep" aria-hidden="true"></span>
-    <span>診療日　月・火・木・金</span>
-  </div>
 
   <!-- 休診・初診案内の帯（お知らせ欄とは別・全ページ共通） -->
   <div class="top-ticker" role="note" aria-label="お知らせ">
@@ -342,6 +337,15 @@
       if (d && window.innerWidth <= 860) { d.removeAttribute('open'); }
     })();
     </script>
+
+    <!-- スマホ用：電話番号・診療時間・診療日の帯（PCではヘッダー右上の同内容が見えるため非表示） -->
+    <div class="top-info-bar">
+      <a href="tel:0335678733" class="top-info-tel">☎ 03-3567-8733</a>
+      <span class="top-info-sep" aria-hidden="true"></span>
+      <span>診療時間　10:00–13:00／15:00–18:00</span>
+      <span class="top-info-sep" aria-hidden="true"></span>
+      <span>診療日　月・火・木・金</span>
+    </div>
 
     <!-- ============ 当院の特徴 ============ -->
     <section style="background: #ffffff;">
