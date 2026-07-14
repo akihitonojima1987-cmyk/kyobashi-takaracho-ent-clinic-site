@@ -138,10 +138,10 @@
   .top-info-bar { display: none; }
   @media (max-width: 1060px) {
     .top-info-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 4px 10px; background: #fff; border-bottom: 1px solid #eceae4; padding: 6px 14px;
-      font-size: 11px; color: #4a534e; letter-spacing: 0.02em; }
+      gap: 5px 12px; background: #fff; border-bottom: 1px solid #eceae4; padding: 8px 14px;
+      font-size: 13.5px; color: #4a534e; letter-spacing: 0.02em; }
   }
-  .top-info-tel { color: var(--acd); font-weight: 700; white-space: nowrap; text-decoration: none; }
+  .top-info-tel { color: var(--acd); font-weight: 700; font-size: 15px; white-space: nowrap; text-decoration: none; }
   .top-info-sep { width: 1px; height: 10px; background: #d6dbe2; }
 
   /* 全ページ共通の帯：ヘッダー直下（スクロールなしで見える位置）に休診・初診案内を流す */
@@ -163,10 +163,15 @@
     .hero-badge-cluster { gap: 6px !important; }
     .hero-badge-circle { width: 64px !important; height: 64px !important; }
     .hero-badge-circle span { font-size: 10.5px !important; line-height: 1.3 !important; }
-    .top-ticker-track { padding: 4px 0 !important; font-size: 9px !important; }
-    .hero2col-news { padding: 16px 20px !important; }
+    .top-ticker-track { padding: 3px 0 !important; font-size: 8px !important; }
+    .hero2col-news { padding: 8px 16px !important; }
     .hero-news-summary { margin-bottom: 10px !important; }
+    .hero-news-details:not([open]) .hero-news-summary { margin-bottom: 0 !important; }
+    .hero-news-summary h2 { font-size: 15px !important; }
     .hero-news-list { max-height: none !important; }
+    .hero-news-list > div > div > span { font-size: 10.5px !important; }
+    .hero-news-list > div > p { font-size: 12.5px !important; line-height: 1.5 !important; }
+    .hero2col-news > p:last-child { font-size: 11.5px !important; }
     .grid-2, .grid-3, .doctor-grid, .access-grid { grid-template-columns: 1fr !important; }
     .section-pad { padding-left: 22px !important; padding-right: 22px !important; }
     .hero2-panel { height: 320px !important; }
