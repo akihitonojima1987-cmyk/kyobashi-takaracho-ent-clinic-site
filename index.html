@@ -134,26 +134,36 @@
   .hero-news-arrow { transition: transform .2s ease; }
   .hero-news-details[open] .hero-news-arrow { transform: rotate(180deg); }
 
-  /* お知らせ：折りたたみ中は見出し下に一行の流れるテキスト（マーキー）を表示 */
-  .hero-news-ticker { display: none; overflow: hidden; white-space: nowrap; width: 100%; min-width: 0; margin-top: 8px;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-  .hero-news-summary { min-width: 0; }
-  .hero2col-news.hero-news-details { min-width: 0; }
-  .hero-news-details:not([open]) .hero-news-ticker { display: block; }
-  .hero-news-ticker-track { display: inline-block; white-space: nowrap; font-size: 13.5px; color: #6b746f;
-    animation: hero-news-marquee 26s linear infinite; }
-  @keyframes hero-news-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce) { .hero-news-ticker-track { animation: none; } }
+  /* スマホ用：電話・診療時間・診療日の帯（PC幅ではヘッダー右上の head-bar が同内容を表示するため隠す） */
+  .top-info-bar { display: none; }
+  @media (max-width: 1060px) {
+    .top-info-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 5px 10px; background: #fff; border-bottom: 1px solid #eceae4; padding: 8px 14px;
+      font-size: 12px; color: #4a534e; letter-spacing: 0.02em; }
+  }
+  .top-info-tel { color: var(--acd); font-weight: 700; white-space: nowrap; text-decoration: none; }
+  .top-info-sep { width: 1px; height: 10px; background: #d6dbe2; }
+
+  /* 全ページ共通の帯：ヘッダー直下（スクロールなしで見える位置）に休診・初診案内を流す */
+  .top-ticker { background: var(--acd); overflow: hidden; white-space: nowrap; }
+  .top-ticker-track { display: inline-block; white-space: nowrap; padding: 9px 0; font-size: 12.5px; color: #fff; letter-spacing: 0.02em;
+    animation: top-ticker-marquee 26s linear infinite; }
+  @keyframes top-ticker-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .top-ticker-track { animation: none; } }
 
   /* ===== レスポンシブ ===== */
   @media (max-width: 860px) {
     .nav-menu { display: none !important; }                 /* PCナビは非表示 */
-    .hero2col-grid { grid-template-columns: 1fr !important; }
-    .hero2col-copy { min-height: auto !important; padding: 36px 26px !important; }
-    .hero2col-news { padding: 26px 24px !important; }
+    .hero-fv-section { padding: 20px 0 28px !important; }
+    .hero2col-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .hero2col-copy { min-height: auto !important; padding: 26px 26px !important; }
+    .hero-eyebrow { margin-bottom: 8px !important; }
+    .hero-overlay-h1 { font-size: 27.5px !important; margin-bottom: 10px !important; }
+    .hero-lead { font-size: 15px !important; line-height: 1.65 !important; margin-bottom: 14px !important; }
+    .hero-badge-cluster { gap: 8px !important; }
+    .hero2col-news { padding: 16px 20px !important; }
+    .hero-news-summary { margin-bottom: 10px !important; }
     .hero-news-list { max-height: none !important; }
-    .hero-overlay-h1 { font-size: 27.5px !important; }
     .grid-2, .grid-3, .doctor-grid, .access-grid { grid-template-columns: 1fr !important; }
     .section-pad { padding-left: 22px !important; padding-right: 22px !important; }
     .hero2-panel { height: 320px !important; }
@@ -227,23 +237,40 @@
     </nav>
   </header>
 
+  <!-- スマホ用：電話番号・診療時間・診療日の帯（PCではヘッダー右上の同内容が見えるため非表示） -->
+  <div class="top-info-bar">
+    <a href="tel:0335678733" class="top-info-tel">☎ 03-3567-8733</a>
+    <span class="top-info-sep" aria-hidden="true"></span>
+    <span>診療時間　10:00–13:00／15:00–18:00</span>
+    <span class="top-info-sep" aria-hidden="true"></span>
+    <span>診療日　月・火・木・金</span>
+  </div>
+
+  <!-- 休診・初診案内の帯（お知らせ欄とは別・全ページ共通） -->
+  <div class="top-ticker" role="note" aria-label="お知らせ">
+    <div class="top-ticker-track" aria-hidden="true">
+      <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　●　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　●　</span>
+      <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　●　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　●　</span>
+    </div>
+  </div>
+
   <main>
 
     <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;">岩佐耳鼻咽喉科｜宝町駅すぐの耳鼻咽喉科・アレルギー科（東京都中央区京橋）</h1>
 
     <!-- ============ ファーストビュー（見出し×お知らせ 2カラム／写真なし方針を維持） ============ -->
-    <section style="background: var(--acbg); padding: 40px 0 56px;">
+    <section class="hero-fv-section" style="background: var(--acbg); padding: 40px 0 56px;">
       <div style="max-width: 1180px; margin: 0 auto; padding: 0 28px;">
         <div class="hero2col-grid" style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: stretch;">
           <!-- 見出し（左） -->
           <div class="hero2col-copy" style="position: relative; padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; min-height: 420px;">
             <div style="position: absolute; inset: 0; border-radius: 20px; overflow: hidden; background: linear-gradient(115deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 70%, #fef4da 100%); z-index: 0;"></div>
             <div style="position: relative; z-index: 1;">
-              <div style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px; animation: ktk-rise 0.8s ease both;">
+              <div class="hero-eyebrow" style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px; animation: ktk-rise 0.8s ease both;">
                 <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
               </div>
-              <h1 class="hero-overlay-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 41.5px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 18px; animation: ktk-rise 0.8s ease both;">耳・鼻・のどの不調に、<br>やさしく寄りそう。</h1>
-              <p style="font-size: 17px; line-height: 2; color: #5b645f; margin: 0 0 22px; letter-spacing: 0.02em;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
+              <h1 class="hero-overlay-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 41.5px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 18px; animation: ktk-rise 0.8s ease both;">耳・鼻・のどの不調に。</h1>
+              <p class="hero-lead" style="font-size: 17px; line-height: 2; color: #5b645f; margin: 0 0 22px; letter-spacing: 0.02em;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
               <!-- アクセスバッジ（旧ボタン列の位置） -->
               <div class="hero-badge-cluster" style="display: flex; flex-wrap: wrap; gap: 10px;">
                 <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #e8f0fe; box-shadow: 0 10px 22px rgba(47,99,196,0.22); display: flex; align-items: center; justify-content: center; text-align: center; animation: ktk-rise 0.8s ease both;">
@@ -260,21 +287,12 @@
           </div>
           <!-- お知らせ（右） -->
           <details class="hero2col-news hero-news-details" open style="background: #fff; border-radius: 20px; box-shadow: 0 20px 50px rgba(80,100,90,0.10); padding: 34px 32px; display: flex; flex-direction: column;">
-            <summary class="hero-news-summary" style="display: flex; flex-direction: column; margin-bottom: 14px;">
-              <span style="display: flex; align-items: baseline; justify-content: space-between;">
-                <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 23px; color: #3a423e; margin: 0;">お知らせ</h2>
-                <span style="display: flex; align-items: center; gap: 8px;">
-                  <span style="font-size: 12px; letter-spacing: 0.2em; color: var(--acd); font-weight: 700;">NEWS</span>
-                  <span class="hero-news-arrow" aria-hidden="true" style="font-size: 11px; color: var(--acd);">▾</span>
-                </span>
+            <summary class="hero-news-summary" style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
+              <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 23px; color: #3a423e; margin: 0;">お知らせ</h2>
+              <span style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 12px; letter-spacing: 0.2em; color: var(--acd); font-weight: 700;">NEWS</span>
+                <span class="hero-news-arrow" aria-hidden="true" style="font-size: 11px; color: var(--acd);">▾</span>
               </span>
-              <!-- 折りたたみ中のみ表示（マーキー）。お知らせを追加・削除したら下の2つの<span>も合わせて更新すること -->
-              <div class="hero-news-ticker" aria-hidden="true">
-                <div class="hero-news-ticker-track">
-                  <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　●　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　●　</span>
-                  <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　●　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　●　</span>
-                </div>
-              </div>
             </summary>
             <div class="hero-news-list" style="flex: 1; overflow-y: auto; max-height: 280px; border-top: 1px solid #ecece6; margin-bottom: 18px;">
               <div style="padding: 13px 2px; border-bottom: 1px solid #ecece6;">
