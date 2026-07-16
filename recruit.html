@@ -38,11 +38,10 @@
 
 <div>
   <!-- ヘッダー -->
-    <!-- ============ ヘッダー上の帯（参考：casa-familyclinic.com／左右いっぱいに使う） ============ -->
-    <div class="head-topbar" style="background: #fff; border-bottom: 1px solid #eceae4; padding: 9px 40px; display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 13.5px; color: #4a534e;">
-      <span>〒104-0031 東京都中央区京橋2-12-4 光和ビル2F</span>
-      <span style="display: flex; align-items: center; gap: 16px; white-space: nowrap;">
-        <span>休診日　水曜・土曜・日曜・祝日</span>
+  <!-- ============ ヘッダー上の帯（参考：casa-familyclinic.com／左右いっぱいに使う） ============ -->
+    <div class="head-topbar" style="background: #fff; border-bottom: 1px solid #eceae4; padding: 9px 40px; display: flex; align-items: center; gap: 16px; font-size: 13.5px; color: #3a423e;">
+      <span style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+        <span>〒104-0031 東京都中央区京橋2-12-4 光和ビル2F　都営浅草線「宝町駅」A6・A7出口から徒歩1分</span>
         <a href="access.html" class="pill" style="background: var(--acs); color: var(--acd); font-size: 13px; padding: 6px 16px;">アクセス・診療時間</a>
       </span>
     </div>
@@ -53,19 +52,25 @@
         <!-- ロゴ：象アイコン -->
         <img class="logo-icon" src="logo.png?v=4" alt="岩佐耳鼻咽喉科 ロゴ" style="height:54px;width:54px;object-fit:contain;display:block;flex:none;">
         <span style="display: flex; flex-direction: column; line-height: 1.12;">
-          <img class="brand-name-img" src="logo-text.png" alt="岩佐耳鼻咽喉科" style="height:36px;width:auto;display:block;">
-          <span class="brand-access" style="font-size: 14px; font-weight: 700; color: #c62828; margin-top: 4px; white-space: nowrap; line-height: 1.5;">都営浅草線「宝町駅」A6・A7出口から徒歩1分<br>東京メトロ銀座線「京橋駅」4番出口から徒歩2分</span>
-          <!-- 診療科タグ（参考：casa-familyclinic.com の色付きタグ列。標榜科は耳鼻咽喉科のみ） -->
-          <span style="display: flex; gap: 6px; margin-top: 8px;">
-            <span class="pill" style="background: var(--ac); color: #fff; font-size: 12.5px; font-weight: 700; padding: 4px 12px;">耳鼻咽喉科</span>
-          </span>
+          <!-- クリニック名：象アイコンの丸っこいタッチに合わせ丸ゴシック・単色に。
+               上に地域バッジ、名称の右に診療科タグ（参考：こいずみ耳鼻咽喉科、2026-07-16） -->
+          <span class="pill" style="background: #4a9b6e; color: #fff; font-size: 12px; font-weight: 700; padding: 4px 12px; align-self: flex-start; margin-bottom: 6px;">京橋・宝町の耳鼻科</span>
+          <span class="brand-name-text" style="font-family: 'Zen Maru Gothic', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.02em; color: #6b746f;">岩佐耳鼻咽喉科</span>
+          <span style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 11.5px; color: #9aa39c; letter-spacing: 0.06em; margin-top: 4px;">IWASA ENT CLINIC</span>
         </span>
       </a>
-      <!-- 電話番号（参考：casa-familyclinic.com の色付き電話アイコン＋大きな番号） -->
-      <a href="tel:0335678733" style="display: flex; align-items: center; gap: 12px; flex: none;">
-        <span style="width: 48px; height: 48px; border-radius: 50%; background: var(--acs); color: var(--acd); display: flex; align-items: center; justify-content: center; font-size: 23px;">☎</span>
-        <span style="font-size: 33px; font-weight: 700; color: var(--acd); white-space: nowrap; letter-spacing: 0.01em;">03-3567-8733</span>
-      </a>
+      <!-- 電話番号＋サイト内検索（参考：うえのこどもクリニック。右側に縦に並べる） -->
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex: none;">
+        <a href="tel:0335678733" style="display: flex; align-items: center; gap: 12px;">
+          <span style="width: 48px; height: 48px; border-radius: 50%; background: var(--acs); color: var(--acd); display: flex; align-items: center; justify-content: center; font-size: 23px;">☎</span>
+          <span style="font-size: 33px; font-weight: 700; color: var(--acd); white-space: nowrap; letter-spacing: 0.01em;">03-3567-8733</span>
+        </a>
+        <!-- サイト内検索（参考：casa-familyclinic.com。Google検索でサイト内検索） -->
+        <form action="https://www.google.com/search" method="get" target="_blank" style="display: flex; align-items: center;">
+          <input type="hidden" name="as_sitesearch" value="kyobashi-ent.com">
+          <input type="text" name="q" placeholder="サイト内検索" style="border: 1.5px solid #d8dee8; border-radius: 999px; padding: 8px 16px; font-size: 14px; width: 160px; font-family: inherit;">
+        </form>
+      </div>
     </div>
     <nav style="padding: 16px 40px 22px; display: flex; align-items: center; justify-content: center; border-top: 1px solid #eceae4;">
       <div class="nav-menu" style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 18px; font-size: 18.5px; font-weight: 500; color: #4a534e; white-space: nowrap;">
