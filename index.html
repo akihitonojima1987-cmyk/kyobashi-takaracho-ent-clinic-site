@@ -128,11 +128,23 @@
   /* 共通ボタン形状 */
   .pill { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; border-radius: 999px; white-space: nowrap; }
 
-  /* お知らせ：スマホでは初期状態を折りたたみ（タップで開閉、PCは常時展開） */
-  .hero-news-summary { list-style: none; cursor: pointer; }
-  .hero-news-summary::-webkit-details-marker { display: none; }
-  .hero-news-arrow { transition: transform .2s ease; }
-  .hero-news-details[open] .hero-news-arrow { transform: rotate(180deg); }
+  /* お知らせ：1行タイトルだけ並べ、タップ／クリックで全文を開く。
+     全文を並べると1件で3〜4行になり、お知らせだけで画面を占有するため（2026-07-16）。 */
+  .news-item { border-bottom: 1px solid #ecece6; }
+  .news-item:last-child { border-bottom: none; }
+  .news-summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 15px 2px; }
+  .news-summary::-webkit-details-marker { display: none; }
+  .news-summary:hover .news-title { color: var(--acd); }
+  .news-date { flex: none; font-size: 14px; color: #97a09a; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .news-tag { flex: none; font-size: 12px; font-weight: 700; color: var(--acd); background: var(--acs);
+    padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+  /* min-width:0 が無いと flex 子要素が縮まず、省略（…）が効かずに溢れる */
+  .news-title { flex: 1; min-width: 0; font-size: 15px; color: #4a534e; line-height: 1.5;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color .2s; }
+  .news-item[open] .news-title { white-space: normal; color: var(--acd); }
+  .news-arrow { flex: none; font-size: 11px; color: var(--acd); transition: transform .2s ease; }
+  .news-item[open] .news-arrow { transform: rotate(180deg); }
+  .news-body { margin: 0 2px 16px; font-size: 14px; color: #5b645f; line-height: 1.85; }
 
   /* スマホ用：電話・診療時間・診療日の帯（PC幅ではヘッダー右上の head-bar が同内容を表示するため隠す） */
   .top-info-bar { display: none; }
@@ -229,14 +241,14 @@
     .sec-features .svc-card p { font-size: 12.5px !important; line-height: 1.75 !important; }
 
     .top-ticker-track { padding: 3px 0 !important; font-size: 8px !important; }
-    .hero2col-news { padding: 8px 16px !important; }
-    .hero-news-summary { margin-bottom: 10px !important; }
-    .hero-news-details:not([open]) .hero-news-summary { margin-bottom: 0 !important; }
-    .hero-news-summary h2 { font-size: 15px !important; }
-    .hero-news-list { max-height: none !important; }
-    .hero-news-list > div > div > span { font-size: 10.5px !important; }
-    .hero-news-list > div > p { font-size: 12.5px !important; line-height: 1.5 !important; }
-    .hero2col-news > p:last-child { font-size: 11.5px !important; }
+    /* お知らせ（1行タイトル＋展開）をスマホ用に圧縮 */
+    .sec-news { padding: 18px 0 22px !important; }
+    .news-list { padding: 2px 16px !important; }
+    .news-summary { gap: 8px !important; padding: 12px 2px !important; }
+    .news-date { font-size: 11px !important; }
+    .news-tag { font-size: 10.5px !important; padding: 1px 7px !important; }
+    .news-title { font-size: 12.5px !important; }
+    .news-body { font-size: 12.5px !important; line-height: 1.7 !important; margin-bottom: 12px !important; }
     .grid-2, .grid-3, .doctor-grid, .access-grid, .hero2col-news { grid-template-columns: 1fr !important; }
     .section-pad { padding-left: 22px !important; padding-right: 22px !important; }
     .hero2-panel { height: 320px !important; }
@@ -354,22 +366,36 @@
             <span style="font-size: 12px; letter-spacing: 0.2em; color: var(--acd); font-weight: 700;">NEWS</span>
             <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 22px; color: #3a423e; margin: 0;">お知らせ</h2>
           </div>
-          <div style="padding: 8px 28px;">
-            <div style="padding: 18px 2px; border-bottom: 1px solid #ecece6; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
-              <span style="font-size: 14px; color: #97a09a; white-space: nowrap; font-variant-numeric: tabular-nums;">2026.07.14</span>
-              <span style="font-size: 12px; font-weight: 700; color: var(--acd); background: var(--acs); padding: 2px 9px; border-radius: 999px; white-space: nowrap;">休診</span>
-              <p style="margin: 0; font-size: 15px; color: #4a534e; line-height: 1.6; flex: 1; min-width: 220px;">8月10日（月）・11日（火）・13日（木）・14日（金）は夏季休診（お盆休み）とさせていただきます。</p>
-            </div>
-            <div style="padding: 18px 2px; border-bottom: 1px solid #ecece6; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
-              <span style="font-size: 14px; color: #97a09a; white-space: nowrap; font-variant-numeric: tabular-nums;">2026.07.14</span>
-              <span style="font-size: 12px; font-weight: 700; color: var(--acd); background: var(--acs); padding: 2px 9px; border-radius: 999px; white-space: nowrap;">設備</span>
-              <p style="margin: 0; font-size: 15px; color: #4a534e; line-height: 1.6; flex: 1; min-width: 220px;">内視鏡検査用のビデオプロセッサ「PENTAX Medical EPK-3000」を新しく導入いたしました。</p>
-            </div>
-            <div style="padding: 18px 2px; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
-              <span style="font-size: 14px; color: #97a09a; white-space: nowrap; font-variant-numeric: tabular-nums;">2026.07.04</span>
-              <span style="font-size: 12px; font-weight: 700; color: var(--acd); background: var(--acs); padding: 2px 9px; border-radius: 999px; white-space: nowrap;">予約</span>
-              <p style="margin: 0; font-size: 15px; color: #4a534e; line-height: 1.6; flex: 1; min-width: 220px;">2026年8月2日（日）18時より、予約システム「デジスマ」で時間帯予約を開始します。それまでは受付順（順番予約）で診療しております。</p>
-            </div>
+          <!-- 各件は「日付＋タグ＋1行タイトル」だけを表示し、全文は展開して読む形にしている。
+               新しいお知らせを足すときは .news-item を1つ複製し、タイトルは1行に収まる短さにすること。 -->
+          <div class="news-list" style="padding: 8px 28px;">
+            <details class="news-item">
+              <summary class="news-summary">
+                <span class="news-date">2026.07.14</span>
+                <span class="news-tag">休診</span>
+                <span class="news-title">夏季休診のお知らせ（8月10日〜14日）</span>
+                <span class="news-arrow" aria-hidden="true">▾</span>
+              </summary>
+              <p class="news-body">8月10日（月）・11日（火）・13日（木）・14日（金）は夏季休診（お盆休み）とさせていただきます。ネット予約（デジスマ）もこの期間はご利用いただけません。ご迷惑をおかけしますが、よろしくお願いいたします。</p>
+            </details>
+            <details class="news-item">
+              <summary class="news-summary">
+                <span class="news-date">2026.07.14</span>
+                <span class="news-tag">設備</span>
+                <span class="news-title">内視鏡のビデオプロセッサを新しく導入しました</span>
+                <span class="news-arrow" aria-hidden="true">▾</span>
+              </summary>
+              <p class="news-body">内視鏡検査用のビデオプロセッサ「PENTAX Medical EPK-3000」を新しく導入いたしました。</p>
+            </details>
+            <details class="news-item">
+              <summary class="news-summary">
+                <span class="news-date">2026.07.04</span>
+                <span class="news-tag">予約</span>
+                <span class="news-title">8月2日18時からネット予約を開始します</span>
+                <span class="news-arrow" aria-hidden="true">▾</span>
+              </summary>
+              <p class="news-body">2026年8月2日（日）18時より、予約システム「デジスマ」で時間帯予約を開始します。それまでは受付順（順番予約）で診療しております。</p>
+            </details>
           </div>
         </div>
       </div>
