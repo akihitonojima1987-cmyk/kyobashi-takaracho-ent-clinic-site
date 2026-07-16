@@ -156,18 +156,76 @@
   @keyframes top-ticker-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .top-ticker-track { animation: none; } }
 
+  /* ===== 症状からさがす（スマホ専用の入口） ===== */
+  /* PC では下の「診療内容」カード6枚が同じ役割を担うため非表示。スマホでのみ開く。 */
+  .sec-symptom { display: none; }
+  .symptom-head { padding: 0 22px; margin-bottom: 14px; }
+  .symptom-eyebrow { font-size: 11.5px; letter-spacing: 0.2em; color: var(--acd); font-weight: 700; margin-bottom: 6px; }
+  .symptom-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 19px; color: #3a423e; margin: 0; }
+  .symptom-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 2px 22px 14px;
+    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .symptom-scroll::-webkit-scrollbar { display: none; }
+  .symptom-item { flex: none; width: 76px; scroll-snap-align: start;
+    display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .symptom-circle { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-family: 'Shippori Mincho', serif; font-size: 24px;
+    box-shadow: 0 8px 18px rgba(60,90,150,.14); border: 2.5px solid #fff; transition: transform .15s; }
+  .symptom-item:active .symptom-circle { transform: scale(.94); }
+  .symptom-label { font-size: 11.5px; font-weight: 700; color: #3a423e; text-align: center; line-height: 1.3; }
+  .sc-ear    { background: #e8f0fe; color: #1a66d6; }
+  .sc-nose   { background: #fdeceb; color: #c5372b; }
+  .sc-throat { background: #fef4da; color: #b9760c; }
+  .sc-dizzy  { background: #e6f4ea; color: #277c40; }
+  .sc-sas    { background: #e8f0fe; color: #1a66d6; }
+  .sc-kids   { background: #fdeceb; color: #c5372b; }
+
+  /* 当院の特徴カードの写真：PCは上部に横長で表示（既定）。スマホでは高さを詰める（下の@media参照） */
+
   /* ===== レスポンシブ ===== */
   @media (max-width: 860px) {
     .nav-menu { display: none !important; }                 /* PCナビは非表示 */
-    .hero-fv-section { padding: 12px 0 16px !important; }
-    .hero2col-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
-    .hero2col-copy { min-height: auto !important; padding: 16px 20px !important; }
-    .hero-eyebrow { margin-bottom: 6px !important; font-size: 12px !important; }
-    .hero-overlay-h1 { font-size: 22px !important; margin-bottom: 8px !important; }
-    .hero-lead { font-size: 13.5px !important; line-height: 1.55 !important; margin-bottom: 10px !important; }
-    .hero-badge-cluster { gap: 6px !important; }
-    .hero-badge-circle { width: 64px !important; height: 64px !important; }
-    .hero-badge-circle span { font-size: 10.5px !important; line-height: 1.3 !important; }
+
+    /* --- スマホのトップページ構成（2026-07-16）---
+       PCは「写真ヒーロー→お知らせ→当院の特徴→…」だが、スマホでは
+       ヒーローが1画面を占有し、かつ白グラデーションがPC向け（左→右）のため
+       写真の上に文字が乗って読みにくい。スマホではヒーローを畳み、
+       「当院の特徴」を開幕に昇格させる（試作 _試着_トップ_モバイル別デザイン.html で確認した構成）。
+       セクションは main の flex + order で並べ替える。DOM順は変えないのでPCは無影響。 */
+    main { display: flex; flex-direction: column; }
+    .sec-features { order: 1; }
+    .sec-symptom  { order: 2; }
+    .top-info-bar { order: 3; }
+    .sec-news     { order: 4; }
+    .sec-doctor   { order: 5; }
+    .sec-access   { order: 6; }
+    .sec-faq      { order: 7; }
+    .sec-about    { order: 8; }
+    #services     { order: 9; }
+    .sec-request  { order: 10; }
+    .sec-cta      { order: 11; }
+    .sec-contact  { order: 12; }
+    .hero-fv-section { display: none !important; }   /* ヒーローはスマホでは出さない（本人指示） */
+    .sec-treatments  { display: none !important; }   /* 力を入れている治療（本人指示でスマホ非表示） */
+
+    /* 症状からさがす（スマホでのみ表示） */
+    .sec-symptom { display: block; padding: 4px 0 6px; background: #fff; }
+
+    /* 当院の特徴＝開幕セクション。淡いグラデーションを敷き、カードは横スワイプにする */
+    .sec-features { background: linear-gradient(160deg, #f6f9ff 0%, #e8f0fe 45%, #eef7ef 78%, #fef4da 100%) !important; }
+    .sec-features .section-pad { padding: 24px 22px 10px !important; }
+    .sec-features .sec-head { margin-bottom: 16px !important; }
+    .sec-features .h2-title { font-size: 22px !important; }
+    .sec-features .sec-head > div:first-child { font-size: 11.5px !important; margin-bottom: 6px !important; }
+    /* .grid-3 の1カラム化より詳細度を上げて横スクロールに変える */
+    .sec-features .feat-grid { display: flex !important; overflow-x: auto; gap: 12px !important;
+      margin: 0 -22px; padding: 2px 22px 14px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+    .sec-features .feat-grid::-webkit-scrollbar { display: none; }
+    .sec-features .svc-card { flex: none; width: 232px; scroll-snap-align: start; }
+    .sec-features .svc-card img { height: 116px !important; }
+    .sec-features .svc-card > div:last-child { padding: 16px 18px 20px !important; }
+    .sec-features .svc-card h3 { font-size: 16px !important; margin-bottom: 8px !important; }
+    .sec-features .svc-card p { font-size: 12.5px !important; line-height: 1.75 !important; }
+
     .top-ticker-track { padding: 3px 0 !important; font-size: 8px !important; }
     .hero2col-news { padding: 8px 16px !important; }
     .hero-news-summary { margin-bottom: 10px !important; }
@@ -249,10 +307,7 @@
         <a href="access.html"   class="nav-link">アクセス</a>
         <a href="symptoms.html" class="nav-link">このような時</a>
         <a href="faq.html" class="nav-link">よくある質問</a>
-        <a href="waiting.html" class="nav-link">受付番号</a>
       </div>
-      <a href="reservation.html" class="pill btn-head" style="flex: none; font-size: 16.5px; padding: 12px 20px;">ご予約</a>
-      <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="flex: none; font-size: 16.5px; padding: 12px 22px;">公式LINE</a>
     </nav>
   </header>
 
@@ -268,43 +323,44 @@
 
     <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;">岩佐耳鼻咽喉科｜宝町駅すぐの耳鼻咽喉科・アレルギー科（東京都中央区京橋）</h1>
 
-    <!-- ============ ファーストビュー（見出し×お知らせ 2カラム／写真なし方針を維持） ============ -->
-    <section class="hero-fv-section" style="background: var(--acbg); padding: 40px 0 56px;">
+    <!-- ============ ファーストビュー（ヒーロー一面写真→下にお知らせ） ============ -->
+    <section class="hero-fv-section" style="position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; padding: 56px 0;">
+      <img src="hero-photo.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% center; z-index: 0;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.85) 28%, rgba(255,255,255,0.5) 52%, rgba(255,255,255,0.12) 74%, rgba(255,255,255,0) 92%); z-index: 0;"></div>
+      <div style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 28px; width: 100%;">
+        <div class="hero-eyebrow" style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px;">
+          <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
+        </div>
+        <h1 class="hero-overlay-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 41.5px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 18px;">耳・鼻・のどの不調に。</h1>
+        <p class="hero-lead" style="font-size: 17px; line-height: 2; color: #5b645f; margin: 0 0 22px; letter-spacing: 0.02em; max-width: 520px;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
+        <!-- アクセスバッジ -->
+        <div class="hero-badge-cluster" style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #e8f0fe; box-shadow: 0 10px 22px rgba(47,99,196,0.22); display: flex; align-items: center; justify-content: center; text-align: center;">
+            <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.45; letter-spacing: 0.01em; color: #1a66d6;">都営浅草線<br>宝町駅<br>徒歩1分</span>
+          </div>
+          <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #e6f4ea; box-shadow: 0 10px 22px rgba(52,168,83,0.20); display: flex; align-items: center; justify-content: center; text-align: center;">
+            <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.5; letter-spacing: 0.01em; color: #2e7d4f;">Bスポット<br>療法</span>
+          </div>
+          <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #fef4da; box-shadow: 0 10px 22px rgba(230,180,60,0.24); display: flex; align-items: center; justify-content: center; text-align: center;">
+            <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.5; letter-spacing: 0.01em; color: #a67c00;">電子<br>内視鏡</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- スマホ用：電話番号・診療時間・診療日の帯（PCではヘッダー右上の同内容が見えるため非表示） -->
+    <div class="top-info-bar">
+      <a href="tel:0335678733" class="top-info-tel">☎ 03-3567-8733</a>
+      <span class="top-info-sep" aria-hidden="true"></span>
+      <span>診療時間　10:00–13:00／15:00–18:00<br>受付時間　9:45–12:30／14:45–17:30</span>
+      <span class="top-info-sep" aria-hidden="true"></span>
+      <span>診療日　月・火・木・金</span>
+    </div>
+
+    <!-- ============ お知らせ（ヒーロー下） ============ -->
+    <section class="sec-news" style="background: var(--acbg); padding: 40px 0 56px;">
       <div style="max-width: 1180px; margin: 0 auto; padding: 0 28px;">
-        <div class="hero2col-grid" style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: stretch;">
-          <!-- 見出し（左） -->
-          <div class="hero2col-copy" style="position: relative; padding: 44px 40px; display: flex; flex-direction: column; justify-content: center; min-height: 420px;">
-            <div style="position: absolute; inset: 0; border-radius: 20px; overflow: hidden; background: linear-gradient(115deg, #f6f9ff 0%, #e8f0fe 40%, #e6f4ea 70%, #fef4da 100%); z-index: 0;"></div>
-            <div style="position: relative; z-index: 1;">
-              <div class="hero-eyebrow" style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px; animation: ktk-rise 0.8s ease both;">
-                <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
-              </div>
-              <h1 class="hero-overlay-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 41.5px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 18px; animation: ktk-rise 0.8s ease both;">耳・鼻・のどの不調に。</h1>
-              <p class="hero-lead" style="font-size: 17px; line-height: 2; color: #5b645f; margin: 0 0 22px; letter-spacing: 0.02em;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
-              <!-- アクセスバッジ（旧ボタン列の位置） -->
-              <div class="hero-badge-cluster" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #e8f0fe; box-shadow: 0 10px 22px rgba(47,99,196,0.22); display: flex; align-items: center; justify-content: center; text-align: center; animation: ktk-rise 0.8s ease both;">
-                  <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 12.5px; line-height: 1.45; letter-spacing: 0.01em; color: #1a66d6;">都営浅草線<br>宝町駅<br>徒歩1分</span>
-                </div>
-                <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #e6f4ea; box-shadow: 0 10px 22px rgba(52,168,83,0.20); display: flex; align-items: center; justify-content: center; text-align: center; animation: ktk-rise 0.8s ease both;">
-                  <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.5; letter-spacing: 0.01em; color: #2e7d4f;">Bスポット<br>療法</span>
-                </div>
-                <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #fef4da; box-shadow: 0 10px 22px rgba(230,180,60,0.24); display: flex; align-items: center; justify-content: center; text-align: center; animation: ktk-rise 0.8s ease both;">
-                  <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.5; letter-spacing: 0.01em; color: #a67c00;">電子<br>内視鏡</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- スマホ用：電話番号・診療時間・診療日の帯（PCではヘッダー右上の同内容が見えるため非表示。グリッド内に置くことでスマホでは「見出し→この帯→お知らせ」の順に積み上がる） -->
-          <div class="top-info-bar">
-            <a href="tel:0335678733" class="top-info-tel">☎ 03-3567-8733</a>
-            <span class="top-info-sep" aria-hidden="true"></span>
-            <span>診療時間　10:00–13:00／15:00–18:00<br>受付時間　9:45–12:30／14:45–17:30</span>
-            <span class="top-info-sep" aria-hidden="true"></span>
-            <span>診療日　月・火・木・金</span>
-          </div>
-          <!-- お知らせ（右） -->
-          <details class="hero2col-news hero-news-details" open style="background: #fff; border-radius: 20px; box-shadow: 0 20px 50px rgba(80,100,90,0.10); padding: 34px 32px; display: flex; flex-direction: column;">
+        <details class="hero2col-news hero-news-details" open style="background: #fff; border-radius: 20px; box-shadow: 0 20px 50px rgba(80,100,90,0.10); padding: 34px 32px; display: flex; flex-direction: column;">
             <summary class="hero-news-summary" style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
               <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 23px; color: #3a423e; margin: 0;">お知らせ</h2>
               <span style="display: flex; align-items: center; gap: 8px;">
@@ -350,8 +406,7 @@
               </div>
             </div>
             <p style="font-size: 14px; color: #6b746f; background: var(--acbg); border-radius: 10px; padding: 10px 14px; margin: 0; line-height: 1.7;">診療時間：月・火・木・金　10:00–13:00／15:00–18:00<br>受付時間：9:45–12:30／14:45–17:30<br>休診：水曜・土曜・日曜・祝日</p>
-          </details>
-        </div>
+        </details>
       </div>
     </section>
     <script>
@@ -362,34 +417,72 @@
     </script>
 
     <!-- ============ 当院の特徴 ============ -->
-    <section style="background: #ffffff;">
+    <section class="sec-features" style="background: #ffffff;">
       <div class="section-pad" style="max-width: 1080px; margin: 0 auto; padding: 80px 28px;">
-        <div style="text-align: center; margin-bottom: 48px;">
+        <div class="sec-head" style="text-align: center; margin-bottom: 48px;">
           <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">FEATURES</div>
           <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 37px; color: #3a423e; margin: 0; letter-spacing: 0.04em;">当院の特徴</h2>
         </div>
-        <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
-          <div class="svc-card" style="background: #fff; border-radius: 18px; padding: 32px 28px; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
-            <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">01</div>
-            <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">耳鼻咽喉科専門医による診療</h3>
-            <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">日本耳鼻咽喉科頭頸部外科学会 耳鼻咽喉科専門医の院長が、一人ひとりていねいに診療いたします。</p>
+        <div class="grid-3 feat-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
+          <div class="svc-card" style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
+            <img src="feature-doctor.jpg" alt="" style="width: 100%; height: 170px; object-fit: cover; object-position: 78% center; display: block;">
+            <div style="padding: 24px 28px 32px;">
+              <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">01</div>
+              <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">耳鼻咽喉科専門医による診療</h3>
+              <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">日本耳鼻咽喉科頭頸部外科学会 耳鼻咽喉科専門医の院長が、一人ひとりていねいに診療いたします。</p>
+            </div>
           </div>
-          <div class="svc-card" style="background: #fff; border-radius: 18px; padding: 32px 28px; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
-            <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">02</div>
-            <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">宝町駅A6・A7出口から徒歩1分</h3>
-            <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">都営浅草線「宝町駅」A6・A7出口から徒歩1分、東京メトロ銀座線「京橋駅」からも徒歩2分。お仕事帰りにも通いやすい立地です。</p>
+          <div class="svc-card" style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
+            <img src="feature-station.jpg" alt="都営浅草線 宝町駅" style="width: 100%; height: 170px; object-fit: cover; object-position: center 65%; display: block;">
+            <div style="padding: 24px 28px 32px;">
+              <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">02</div>
+              <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">宝町駅A6・A7出口から徒歩1分</h3>
+              <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">都営浅草線「宝町駅」A6・A7出口から徒歩1分、東京メトロ銀座線「京橋駅」からも徒歩2分。お仕事帰りにも通いやすい立地です。</p>
+            </div>
           </div>
-          <div class="svc-card" style="background: #fff; border-radius: 18px; padding: 32px 28px; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
-            <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">03</div>
-            <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">お子さまからご高齢の方まで</h3>
-            <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">小児の耳鼻咽喉科にも対応。世代を問わず安心してご相談いただけます。</p>
+          <div class="svc-card" style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
+            <img src="feature-family.jpg" alt="" style="width: 100%; height: 170px; object-fit: cover; display: block;">
+            <div style="padding: 24px 28px 32px;">
+              <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">03</div>
+              <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">お子さまからご高齢の方まで</h3>
+              <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">小児の耳鼻咽喉科にも対応。世代を問わず安心してご相談いただけます。</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ============ 症状からさがす（スマホ専用・PCでは非表示） ============ -->
+    <!-- PCには下の「診療内容」カード6枚が同じ役割を果たすため、こちらはスマホの入口としてのみ表示する。 -->
+    <section class="sec-symptom">
+      <div class="symptom-head">
+        <div class="symptom-eyebrow">SYMPTOM</div>
+        <h2>どの症状でお困りですか？</h2>
+      </div>
+      <div class="symptom-scroll">
+        <a class="symptom-item" href="services.html#ear">
+          <span class="symptom-circle sc-ear">耳</span><span class="symptom-label">耳の症状</span>
+        </a>
+        <a class="symptom-item" href="services.html#nose">
+          <span class="symptom-circle sc-nose">鼻</span><span class="symptom-label">鼻の症状</span>
+        </a>
+        <a class="symptom-item" href="services.html#throat">
+          <span class="symptom-circle sc-throat">喉</span><span class="symptom-label">のどの症状</span>
+        </a>
+        <a class="symptom-item" href="vertigo.html">
+          <span class="symptom-circle sc-dizzy">◍</span><span class="symptom-label">めまい</span>
+        </a>
+        <a class="symptom-item" href="sas.html">
+          <span class="symptom-circle sc-sas">☾</span><span class="symptom-label">いびき・SAS</span>
+        </a>
+        <a class="symptom-item" href="pediatric.html">
+          <span class="symptom-circle sc-kids">✿</span><span class="symptom-label">お子さま</span>
+        </a>
+      </div>
+    </section>
+
         <!-- ============ 当院について（要約・詳細は専用ページ） ============ -->
-    <section style="background: var(--acbg);">
+    <section class="sec-about" style="background: var(--acbg);">
       <div class="section-pad" style="max-width: 820px; margin: 0 auto; padding: 72px 28px; text-align: center;">
         <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">ABOUT US</div>
         <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 37px; color: #3a423e; margin: 0 0 20px; letter-spacing: 0.04em;">当院について</h2>
@@ -400,7 +493,7 @@
     </section>
 
     <!-- ============ 医師紹介（要約・詳細は専用ページ） ============ -->
-    <section style="background: #ffffff;">
+    <section class="sec-doctor" style="background: #ffffff;">
       <div class="section-pad" style="max-width: 820px; margin: 0 auto; padding: 72px 28px; text-align: center;">
         <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">DOCTOR</div>
         <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 37px; color: #3a423e; margin: 0 0 26px; letter-spacing: 0.04em;">医師紹介</h2>
@@ -460,7 +553,7 @@
     </section>
 
     <!-- ============ 力を入れている治療 ============ -->
-    <section style="background: #ffffff;">
+    <section class="sec-treatments" style="background: #ffffff;">
       <div class="section-pad" style="max-width: 1000px; margin: 0 auto; padding: 80px 28px;">
         <div style="text-align: center; margin-bottom: 44px;">
           <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">FEATURED TREATMENTS</div>
@@ -481,7 +574,7 @@
     </section>
 
         <!-- ============ アクセス（要約・詳細は専用ページ） ============ -->
-    <section style="background: #ffffff;">
+    <section class="sec-access" style="background: #ffffff;">
       <div class="section-pad" style="max-width: 900px; margin: 0 auto; padding: 72px 28px; text-align: center;">
         <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">ACCESS</div>
         <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 37px; color: #3a423e; margin: 0 0 22px; letter-spacing: 0.04em;">アクセス・診療時間</h2>
@@ -493,7 +586,7 @@
     </section>
 
     <!-- ============ よくある質問（要約・詳細は専用ページ） ============ -->
-    <section style="background: var(--acbg);">
+    <section class="sec-faq" style="background: var(--acbg);">
       <div class="section-pad" style="max-width: 900px; margin: 0 auto; padding: 72px 28px; text-align: center;">
         <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">FAQ</div>
         <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 37px; color: #3a423e; margin: 0 0 22px; letter-spacing: 0.04em;">よくある質問</h2>
@@ -504,7 +597,7 @@
 
 
     <!-- ============ 診療に関するお願い ============ -->
-    <section style="background: #fff;">
+    <section class="sec-request" style="background: #fff;">
       <div class="section-pad" style="max-width: 800px; margin: 0 auto; padding: 80px 28px;">
         <div style="text-align: center; margin-bottom: 14px;">
           <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">REQUEST</div>
@@ -542,7 +635,7 @@
     </section>
 
     <!-- ============ 予約CTA ============ -->
-    <section style="background: var(--ac); position: relative; overflow: hidden;">
+    <section class="sec-cta" style="background: var(--ac); position: relative; overflow: hidden;">
       <div class="section-pad" style="max-width: 900px; margin: 0 auto; padding: 64px 28px; text-align: center; position: relative;">
         <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 32px; color: #fff; margin: 0 0 14px; letter-spacing: 0.05em;">ご予約</h2>
         <p style="font-size: 17px; color: rgba(255,255,255,0.92); margin: 0 0 34px; line-height: 1.9;">現在は受付順（順番予約）で診療しております。2026年8月2日（日）18時から、デジスマで時間帯予約ができるようになります。<br>予約開始や休診などの最新のお知らせは、公式LINEでも配信しています。</p>
@@ -554,7 +647,7 @@
     </section>
 
     <!-- ============ お問い合わせ（予約とは別） ============ -->
-    <section style="background: #fff;">
+    <section class="sec-contact" style="background: #fff;">
       <div class="section-pad" style="max-width: 720px; margin: 0 auto; padding: 56px 28px; text-align: center;">
         <div style="font-size: 14px; letter-spacing: 0.22em; color: var(--acd); margin-bottom: 10px;">CONTACT</div>
         <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 30px; color: #353d39; margin: 0 0 14px; letter-spacing: 0.05em;">お問い合わせ</h2>
