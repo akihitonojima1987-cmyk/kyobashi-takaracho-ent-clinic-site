@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>岩佐耳鼻咽喉科｜宝町駅すぐの耳鼻咽喉科・アレルギー科（東京都中央区京橋）</title>
+<title>岩佐耳鼻咽喉科｜宝町駅すぐの耳鼻咽喉科（東京都中央区京橋）</title>
 <meta name="description" content="東京都中央区京橋の耳鼻咽喉科。岩佐耳鼻咽喉科は都営浅草線「宝町駅」A6・A7出口すぐ／東京メトロ銀座線「京橋駅」。花粉症・アレルギー性鼻炎・副鼻腔炎・中耳炎・めまい・舌下免疫療法・Bスポット療法に対応。WEB予約・LINE予約可。">
 <link rel="canonical" href="https://kyobashi-ent.com/">
 
@@ -316,6 +316,44 @@
 })();
 </script>
 
+<!-- ============ 重要なお知らせ ポップアップ（参考：こころみクリニック） ============ -->
+<div id="notice-modal" style="position: fixed; inset: 0; z-index: 300; background: rgba(30,34,32,0.55); display: none; align-items: center; justify-content: center; padding: 20px;">
+  <div style="background: #fff; border-radius: 18px; max-width: 460px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.25); overflow: hidden;">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #eceae4;">
+      <h2 style="font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 600; color: #3a423e; margin: 0;">重要なお知らせ</h2>
+      <button type="button" id="notice-modal-close" aria-label="閉じる" style="background: none; border: none; font-size: 22px; color: #9aa39c; cursor: pointer; line-height: 1; padding: 4px;">✕</button>
+    </div>
+    <div style="margin: 18px 24px; padding: 18px 20px; max-height: 46vh; overflow-y: auto; background: #f7f8f6; border-radius: 12px;">
+      <p style="font-size: 14.5px; font-weight: 700; color: #3a423e; margin: 0 0 8px;">院長交代のお知らせ</p>
+      <p style="font-size: 14.5px; line-height: 1.9; color: #4a534e; margin: 0 0 18px;">前院長・岩佐の診療は、2026年5月31日をもちまして終了いたしました。2026年6月1日より、野島愛来が院長として新体制で診療を行っております。今後とも変わらぬご愛顧を賜りますよう、よろしくお願い申し上げます。</p>
+      <p style="font-size: 14.5px; font-weight: 700; color: #c5372b; margin: 0 0 8px;">【休診】夏季休診のお知らせ</p>
+      <p style="font-size: 14.5px; line-height: 1.9; color: #4a534e; margin: 0 0 18px;">8月10日（月）・11日（火）・13日（木）・14日（金）は夏季休診（お盆休み）とさせていただきます。ネット予約（デジスマ）もこの期間はご利用いただけません。ご迷惑をおかけしますが、よろしくお願いいたします。</p>
+      <p style="font-size: 14.5px; font-weight: 700; color: #3a423e; margin: 0 0 8px;">【初診の方へ】</p>
+      <p style="font-size: 14.5px; line-height: 1.9; color: #4a534e; margin: 0;">マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。</p>
+    </div>
+    <div style="text-align: center; padding: 0 24px 22px; font-size: 12.5px; color: #9aa39c;">岩佐耳鼻咽喉科　耳鼻咽喉科</div>
+  </div>
+</div>
+<script>
+(function(){
+  var modal = document.getElementById('notice-modal');
+  function closeNotice(){
+    modal.style.display = 'none';
+    sessionStorage.setItem('noticeModalClosed', '1');
+  }
+  if (!sessionStorage.getItem('noticeModalClosed')) {
+    modal.style.display = 'flex';
+  }
+  document.getElementById('notice-modal-close').addEventListener('click', closeNotice);
+  modal.addEventListener('click', function(e){
+    if (e.target === modal) closeNotice();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeNotice();
+  });
+})();
+</script>
+
 <div>
 
   <!-- ============ ヘッダー上の帯（参考：casa-familyclinic.com／左右いっぱいに使う） ============ -->
@@ -375,7 +413,7 @@
 
   <main>
 
-    <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;">岩佐耳鼻咽喉科｜宝町駅すぐの耳鼻咽喉科・アレルギー科（東京都中央区京橋）</h1>
+    <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;">岩佐耳鼻咽喉科｜宝町駅すぐの耳鼻咽喉科（東京都中央区京橋）</h1>
 
     <!-- ============ ファーストビュー（ヒーロー一面写真→下にお知らせ） ============ -->
     <section class="hero-fv-section" style="position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; padding: 56px 0;">
@@ -736,7 +774,7 @@
         <dl style="margin: 0; display: grid; grid-template-columns: 92px 1fr; gap: 11px 22px; font-size: 15px; line-height: 1.8; max-width: 760px;">
           <dt style="color: #fff; font-weight: 600;">名称</dt><dd style="margin: 0; color: #aab2ac;">岩佐耳鼻咽喉科</dd>
           <dt style="color: #fff; font-weight: 600;">管理医師</dt><dd style="margin: 0; color: #aab2ac;">野島 愛来</dd>
-          <dt style="color: #fff; font-weight: 600;">診療科目</dt><dd style="margin: 0; color: #aab2ac;">耳鼻咽喉科・アレルギー科</dd>
+          <dt style="color: #fff; font-weight: 600;">診療科目</dt><dd style="margin: 0; color: #aab2ac;">耳鼻咽喉科</dd>
           <dt style="color: #fff; font-weight: 600;">所在地</dt><dd style="margin: 0; color: #aab2ac;">〒104-0031 東京都中央区京橋2-12-4 光和ビル2F</dd>
           <dt style="color: #fff; font-weight: 600;">アクセス</dt><dd style="margin: 0; color: #aab2ac;">都営浅草線「宝町駅」A6・A7出口 徒歩1分／東京メトロ銀座線「京橋駅」4番出口 徒歩2分</dd>
           <dt style="color: #fff; font-weight: 600;">TEL</dt><dd style="margin: 0; color: #aab2ac;">03-3567-8733</dd>

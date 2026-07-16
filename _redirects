@@ -1,2 +1,14 @@
 /doctor /doctor-profile 301
 /doctor.html /doctor-profile 301
+/greeting /about 301
+/greeting.html /about 301
+/clinic /about 301
+/clinic.html /about 301
+/clinic-overview /about 301
+/clinic-overview.html /about 301
+/visiting /first-visit 301
+/visiting.html /first-visit 301
+/notices /faq 301
+/notices.html /faq 301
+/fees / 301
+/fees.html / 301
