@@ -128,6 +128,22 @@
   /* 共通ボタン形状 */
   .pill { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; border-radius: 999px; white-space: nowrap; }
 
+  /* ご予約・お問い合わせのカード（旧・予約CTA＋お問い合わせを統合） */
+  .hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .hub-card { background: #fff; border-radius: 16px; padding: 26px 16px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 9px;
+    box-shadow: 0 8px 22px rgba(80,100,90,0.08); border: 1px solid transparent;
+    transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .hub-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(80,100,90,0.16); border-color: var(--ac); }
+  .hub-icon { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+  .hub-icon svg { width: 25px; height: 25px; }
+  .hub-web  { background: #e8f0fe; color: #1a66d6; }
+  .hub-line { background: #e6f4ea; color: #06a94a; }
+  .hub-mail { background: #fdeceb; color: #c5372b; }
+  .hub-tel  { background: #e8f0fe; color: #1a66d6; }
+  .hub-label { font-family: 'Shippori Mincho', serif; font-size: 18px; color: #3a423e; line-height: 1.3; }
+  .hub-desc { font-size: 12.5px; color: #8a918b; line-height: 1.6; }
+
   /* お知らせ：1行タイトルだけ並べ、タップ／クリックで全文を開く。
      全文を並べると1件で3〜4行になり、お知らせだけで画面を占有するため（2026-07-16）。 */
   /* 【重要】grid/flex の子は min-width:auto が既定のため、nowrap のタイトルの幅そのままに
@@ -220,8 +236,7 @@
     .sec-faq      { order: 6; }
     #services     { order: 7; }
     .sec-request  { order: 8; }
-    .sec-cta      { order: 9; }
-    .sec-contact  { order: 10; }
+    .sec-hub      { order: 9; }
     .hero-fv-section { display: none !important; }   /* ヒーローはスマホでは出さない（本人指示） */
     .sec-treatments  { display: none !important; }   /* 力を入れている治療（本人指示でスマホ非表示） */
 
@@ -246,6 +261,16 @@
     .sec-features .svc-card p { font-size: 12.5px !important; line-height: 1.75 !important; }
 
     .top-ticker-track { padding: 3px 0 !important; font-size: 8px !important; }
+    /* ご予約・お問い合わせのカードはスマホでは2列 */
+    .hub-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+    .hub-card { padding: 18px 10px !important; gap: 7px !important; }
+    .hub-icon { width: 44px !important; height: 44px !important; }
+    .hub-icon svg { width: 21px !important; height: 21px !important; }
+    .hub-label { font-size: 15px !important; }
+    .hub-desc { font-size: 11px !important; }
+    .hub-head { margin-bottom: 18px !important; }
+    .hub-lead { font-size: 12.5px !important; line-height: 1.75 !important; }
+
     /* お知らせ（1行タイトル＋展開）をスマホ用に圧縮。
        タイトルに使える幅が狭いので、カードの左右余白・日付・タグを詰めて title に幅を回す。 */
     .sec-news { padding: 18px 0 22px !important; }
@@ -272,7 +297,7 @@
   }
 </style>
 <meta name="google-site-verification" content="pGPBMylmYfVTwUG7GwRKCaJKfem3hZ4_OsFs_sWu4g0" />
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" href="apple-touch-icon.png"><style>.nav-dd{position:relative;display:flex;align-items:center}.nav-dd-caret{display:inline-block;font-size:0;width:0;height:0;margin-left:6px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--acd);transition:transform .2s}.nav-dd:hover .nav-dd-caret{transform:translateY(1px)}.nav-dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;z-index:70}.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}.nav-dd-inner{background:#fff;border-radius:12px;box-shadow:0 14px 34px rgba(60,90,150,.16);padding:8px;min-width:172px}.nav-dd-inner a{display:block;padding:11px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:#4a534e;text-decoration:none;white-space:nowrap}.nav-dd-inner a:hover{background:var(--acbg);color:#3a423e}.head-bar{background:var(--acbg);border-bottom:1px solid #eceae4}.head-bar-inner{max-width:1180px;margin:0 auto;padding:6px 28px;display:flex;align-items:center;justify-content:flex-end;gap:14px}.head-bar-note{font-size:12px;color:#6b7686;letter-spacing:.03em;white-space:nowrap}.head-bar-sep{width:1px;height:11px;background:#d6dbe2}header .brand-name-img{align-self:flex-start}.hamburger,.mobile-menu,.mobile-cta{display:none}@media(max-width:1060px){.nav-menu{display:none!important}.head-bar{display:none!important}}@media(max-width:1060px){header>div{gap:10px!important;padding:11px 64px 11px 14px!important;justify-content:space-between!important}header .brand-access{white-space:normal!important}header .logo-icon{height:33px!important;width:33px!important}header>div>a{flex:0 1 auto!important;min-width:0}header .brand-name-img{height:24px!important}header a>span>span:last-child{font-size:11.5px!important;margin-top:2px!important}header nav{display:none!important}.hero-cta{display:none!important}.pill{white-space:normal!important;text-align:center;max-width:100%}.hamburger{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:46px;height:46px;padding:0;border:none;border-radius:12px;background:var(--ac);box-shadow:0 4px 14px rgba(66,133,244,.35);cursor:pointer;position:fixed;top:11px;right:12px;z-index:60}body.menu-open .hamburger{background:var(--acd)}.hamburger span{display:block;width:22px;height:2.5px;margin:0 auto;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}body.menu-open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}body.menu-open .hamburger span:nth-child(2){opacity:0}body.menu-open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}body.menu-open{overflow:hidden}body.menu-open .mobile-menu{display:flex!important;flex-direction:column;position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:80px 22px calc(22px + env(safe-area-inset-bottom,0px));gap:2px;overflow-y:auto}.mobile-menu a{font-size:17px;font-weight:600;color:#3a423e;text-decoration:none;padding:17px 6px;border-bottom:1px solid #eef0ec}.mobile-menu a.mm-accent{color:#1a66d6}.mobile-menu a.mm-line{color:#06c755}.mobile-cta{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:fixed;left:0;right:0;bottom:0;z-index:100;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));background:rgba(255,253,249,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid #ecece6;box-shadow:0 -4px 16px rgba(0,0,0,.08)}body.menu-open .mobile-cta{display:none!important}.mobile-cta a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:6px 2px;font-size:10.5px;font-weight:700;letter-spacing:.02em;box-shadow:none;background:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mobile-cta a svg{width:20px;height:20px;flex:none}.mobile-cta a.mc-tel{color:var(--acd)}.mobile-cta a.mc-web{color:var(--ac)}.mobile-cta a.mc-line{color:#06c755}.mobile-cta a.mc-waiting{color:#ef6c52}main{padding-bottom:74px!important}footer{padding-bottom:70px!important}}@media(max-width:860px){.section-pad{--k:.58}main .grid-3:has(>.dz-card){grid-template-columns:1fr 1fr!important;gap:10px!important}main .grid-3:has(>.dz-card) .dz-card{padding:14px 14px!important;border-radius:12px!important}main .grid-3:has(>.dz-card) .dz-card>div{font-size:14px!important;margin-bottom:5px!important;line-height:1.4!important}main .grid-3:has(>.dz-card) .dz-card p{font-size:11.5px!important;line-height:1.6!important;margin-bottom:8px!important}main .grid-3:has(>.dz-card) .dz-card span{font-size:11.5px!important}main .chk-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}main .chk-grid>div{padding:11px 12px!important;font-size:12.5px!important}}@media(max-width:400px){header .logo-icon{height:30px!important;width:30px!important}header .brand-name-img{height:22px!important}header a>span>span:last-child{font-size:10.5px!important}}.float-cta{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;flex-direction:row-reverse;gap:12px}.float-cta a{display:flex;flex-direction:column;align-items:center;justify-content:center;width:78px;height:78px;border-radius:50%;color:#fff;font-size:12px;font-weight:700;line-height:1.35;text-align:center;letter-spacing:.01em;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}.float-cta a:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.24)}.float-cta a span{font-size:17px;line-height:1;margin-bottom:3px}.float-cta .fc-line{background:#06c755}.float-cta .fc-web{background:var(--ac)}.float-cta .fc-waiting{background:#ef6c52}@media(max-width:1060px){.float-cta{display:none!important}}</style></head>
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" href="apple-touch-icon.png"><style>.nav-dd{position:relative;display:flex;align-items:center}.nav-dd-caret{display:inline-block;font-size:0;width:0;height:0;margin-left:6px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--acd);transition:transform .2s}.nav-dd:hover .nav-dd-caret{transform:translateY(1px)}.nav-dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;z-index:70}.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}.nav-dd-inner{background:#fff;border-radius:12px;box-shadow:0 14px 34px rgba(60,90,150,.16);padding:8px;min-width:172px}.nav-dd-inner a{display:block;padding:11px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:#4a534e;text-decoration:none;white-space:nowrap}.nav-dd-inner a:hover{background:var(--acbg);color:#3a423e}.head-bar{background:var(--acbg);border-bottom:1px solid #eceae4}.head-bar-inner{max-width:1180px;margin:0 auto;padding:6px 28px;display:flex;align-items:center;justify-content:flex-end;gap:14px}.head-bar-note{font-size:12px;color:#6b7686;letter-spacing:.03em;white-space:nowrap}.head-bar-sep{width:1px;height:11px;background:#d6dbe2}header .brand-name-img{align-self:flex-start}.hamburger,.mobile-menu,.mobile-cta{display:none}@media(max-width:1060px){.nav-menu{display:none!important}.head-bar{display:none!important}}@media(max-width:1060px){header>div{gap:10px!important;padding:11px 64px 11px 14px!important;justify-content:space-between!important}header .brand-access{white-space:normal!important}header .logo-icon{height:33px!important;width:33px!important}header>div>a{flex:0 1 auto!important;min-width:0}header .brand-name-img{height:24px!important}header a>span>span:last-child{font-size:11.5px!important;margin-top:2px!important}header nav{display:none!important}.hero-cta{display:none!important}.pill{white-space:normal!important;text-align:center;max-width:100%}.hamburger{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:46px;height:46px;padding:0;border:none;border-radius:12px;background:var(--ac);box-shadow:0 4px 14px rgba(66,133,244,.35);cursor:pointer;position:fixed;top:11px;right:12px;z-index:60}body.menu-open .hamburger{background:var(--acd)}.hamburger span{display:block;width:22px;height:2.5px;margin:0 auto;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}body.menu-open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}body.menu-open .hamburger span:nth-child(2){opacity:0}body.menu-open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}body.menu-open{overflow:hidden}body.menu-open .mobile-menu{display:flex!important;flex-direction:column;position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:80px 22px calc(22px + env(safe-area-inset-bottom,0px));gap:2px;overflow-y:auto}.mobile-menu a{font-size:17px;font-weight:600;color:#3a423e;text-decoration:none;padding:17px 6px;border-bottom:1px solid #eef0ec}.mobile-menu a.mm-accent{color:#1a66d6}.mobile-menu a.mm-line{color:#06c755}.mobile-cta{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:fixed;left:0;right:0;bottom:0;z-index:100;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));background:rgba(255,253,249,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid #ecece6;box-shadow:0 -4px 16px rgba(0,0,0,.08)}body.menu-open .mobile-cta{display:none!important}.mobile-cta a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:9px 2px;font-size:13px;font-weight:700;letter-spacing:.02em;box-shadow:none;background:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mobile-cta a svg{width:26px;height:26px;flex:none}.mobile-cta a.mc-tel{color:var(--acd)}.mobile-cta a.mc-web{color:var(--ac)}.mobile-cta a.mc-line{color:#06c755}.mobile-cta a.mc-waiting{color:#ef6c52}main{padding-bottom:88px!important}footer{padding-bottom:84px!important}}@media(max-width:860px){.section-pad{--k:.58}main .grid-3:has(>.dz-card){grid-template-columns:1fr 1fr!important;gap:10px!important}main .grid-3:has(>.dz-card) .dz-card{padding:14px 14px!important;border-radius:12px!important}main .grid-3:has(>.dz-card) .dz-card>div{font-size:14px!important;margin-bottom:5px!important;line-height:1.4!important}main .grid-3:has(>.dz-card) .dz-card p{font-size:11.5px!important;line-height:1.6!important;margin-bottom:8px!important}main .grid-3:has(>.dz-card) .dz-card span{font-size:11.5px!important}main .chk-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}main .chk-grid>div{padding:11px 12px!important;font-size:12.5px!important}}@media(max-width:400px){header .logo-icon{height:30px!important;width:30px!important}header .brand-name-img{height:22px!important}header a>span>span:last-child{font-size:10.5px!important}}.float-cta{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;flex-direction:row-reverse;gap:12px}.float-cta a{display:flex;flex-direction:column;align-items:center;justify-content:center;width:78px;height:78px;border-radius:50%;color:#fff;font-size:12px;font-weight:700;line-height:1.35;text-align:center;letter-spacing:.01em;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}.float-cta a:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.24)}.float-cta a span{font-size:17px;line-height:1;margin-bottom:3px}.float-cta .fc-line{background:#06c755}.float-cta .fc-web{background:var(--ac)}.float-cta .fc-waiting{background:#ef6c52}@media(max-width:1060px){.float-cta{display:none!important}}</style></head>
 <body id="top">
 
 <!-- ============ オープニング（リニューアルのお知らせ） ============ -->
@@ -636,27 +661,45 @@
       </div>
     </section>
 
-    <!-- ============ 予約CTA ============ -->
-    <section class="sec-cta" style="background: var(--ac); position: relative; overflow: hidden;">
-      <div class="section-pad" style="max-width: 900px; margin: 0 auto; padding: calc(64px * var(--k,1)) 28px; text-align: center; position: relative;">
-        <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 32px; color: #fff; margin: 0 0 14px; letter-spacing: 0.05em;">ご予約</h2>
-        <p style="font-size: 17px; color: rgba(255,255,255,0.92); margin: 0 0 34px; line-height: 1.9;">現在は受付順（順番予約）で診療しております。2026年8月2日（日）18時から、デジスマで時間帯予約ができるようになります。<br>予約開始や休診などの最新のお知らせは、公式LINEでも配信しています。</p>
-        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-          <a href="reservation.html" class="pill cta-light" style="font-size: 18.5px; padding: 17px 36px;">ご予約について</a>
-          <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="font-size: 18.5px; padding: 17px 36px;">公式LINE</a>
+    <!-- ============ ご予約・お問い合わせ（旧「予約CTA」＋「お問い合わせ」を1セクションに統合） ============ -->
+    <!-- 見出し＋長文＋ボタンの2セクションが並んで冗長だったため、4枚のカードに集約（2026-07-16）。
+         予約状況の但し書きだけは残す（8/2 18時に時間帯予約が始まるため）。 -->
+    <section class="sec-hub" style="background: var(--acbg);">
+      <div class="section-pad" style="max-width: 940px; margin: 0 auto; padding: calc(64px * var(--k,1)) 28px;">
+        <div class="hub-head" style="text-align: center; margin-bottom: 30px;">
+          <div style="font-size: 14px; letter-spacing: 0.22em; color: var(--acd); margin-bottom: 10px;">CONTACT</div>
+          <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 32px; color: #353d39; margin: 0 0 14px; letter-spacing: 0.05em;">ご予約・お問い合わせ</h2>
+          <p class="hub-lead" style="font-size: 16px; color: #5b645f; margin: 0 auto; max-width: 620px; line-height: 1.9;">現在は受付順（順番予約）で診療しております。2026年8月2日（日）18時から、デジスマで時間帯予約ができるようになります。</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ お問い合わせ（予約とは別） ============ -->
-    <section class="sec-contact" style="background: #fff;">
-      <div class="section-pad" style="max-width: 720px; margin: 0 auto; padding: calc(56px * var(--k,1)) 28px; text-align: center;">
-        <div style="font-size: 14px; letter-spacing: 0.22em; color: var(--acd); margin-bottom: 10px;">CONTACT</div>
-        <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 30px; color: #353d39; margin: 0 0 14px; letter-spacing: 0.05em;">お問い合わせ</h2>
-        <p style="font-size: 17px; color: #5b645f; margin: 0 0 28px; line-height: 1.9;">ご質問などは、お問い合わせフォームよりお送りください（3営業日以内を目安にご返信します）。<br>お急ぎの場合・症状のご相談は、診療時間内にお電話ください。</p>
-        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-          <a href="contact.html" class="pill" style="background: var(--ac); color: #fff; font-size: 18.5px; padding: 17px 36px; box-shadow: 0 8px 20px rgba(47,99,196,0.30);">お問い合わせフォーム</a>
-          <a href="tel:0335678733" class="pill" style="background: #fff; color: var(--acd); border: 1.5px solid var(--ac); font-size: 18.5px; padding: 16px 34px;">☎ 03-3567-8733</a>
+        <div class="hub-grid">
+          <a class="hub-card" href="reservation.html">
+            <span class="hub-icon hub-web" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 13.5l2 2 4-4"/></svg>
+            </span>
+            <span class="hub-label">ご予約</span>
+            <span class="hub-desc">ご予約方法のご案内</span>
+          </a>
+          <a class="hub-card" href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener">
+            <span class="hub-icon hub-line" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+            </span>
+            <span class="hub-label">公式LINE</span>
+            <span class="hub-desc">休診・お知らせを配信</span>
+          </a>
+          <a class="hub-card" href="contact.html">
+            <span class="hub-icon hub-mail" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+            </span>
+            <span class="hub-label">お問い合わせ</span>
+            <span class="hub-desc">フォームから（3営業日以内に返信）</span>
+          </a>
+          <a class="hub-card" href="tel:0335678733">
+            <span class="hub-icon hub-tel" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2.5-1-4.5-3-5.5-5.5l2-2-2-6-4 3Z"/></svg>
+            </span>
+            <span class="hub-label">03-3567-8733</span>
+            <span class="hub-desc">お急ぎ・症状のご相談は診療時間内に</span>
+          </a>
         </div>
       </div>
     </section>
