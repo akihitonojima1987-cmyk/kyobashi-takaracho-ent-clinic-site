@@ -162,8 +162,11 @@
   .symptom-head { padding: 0 22px; margin-bottom: 14px; }
   .symptom-eyebrow { font-size: 11.5px; letter-spacing: 0.2em; color: var(--acd); font-weight: 700; margin-bottom: 6px; }
   .symptom-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 19px; color: #3a423e; margin: 0; }
+  /* scroll-padding-left が無いと、scroll-snap-align:start が1枚目をコンテナの padding box 端へ
+     吸着させ、左の padding を食って先頭が画面端で切れる（実測 scrollLeft=22.4px）。
+     snapport を padding と同じだけ内側にずらして防ぐ。 */
   .symptom-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 2px 22px 14px;
-    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+    scroll-snap-type: x proximity; scroll-padding-left: 22px; -webkit-overflow-scrolling: touch; }
   .symptom-scroll::-webkit-scrollbar { display: none; }
   .symptom-item { flex: none; width: 76px; scroll-snap-align: start;
     display: flex; flex-direction: column; align-items: center; gap: 8px; }
@@ -218,7 +221,8 @@
     .sec-features .sec-head > div:first-child { font-size: 11.5px !important; margin-bottom: 6px !important; }
     /* .grid-3 の1カラム化より詳細度を上げて横スクロールに変える */
     .sec-features .feat-grid { display: flex !important; overflow-x: auto; gap: 12px !important;
-      margin: 0 -22px; padding: 2px 22px 14px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+      margin: 0 -22px; padding: 2px 22px 14px; scroll-snap-type: x proximity;
+      scroll-padding-left: 22px; -webkit-overflow-scrolling: touch; }
     .sec-features .feat-grid::-webkit-scrollbar { display: none; }
     .sec-features .svc-card { flex: none; width: 232px; scroll-snap-align: start; }
     .sec-features .svc-card img { height: 116px !important; }
