@@ -199,14 +199,12 @@
     .sec-symptom  { order: 2; }
     .top-info-bar { order: 3; }
     .sec-news     { order: 4; }
-    .sec-doctor   { order: 5; }
-    .sec-access   { order: 6; }
-    .sec-faq      { order: 7; }
-    .sec-about    { order: 8; }
-    #services     { order: 9; }
-    .sec-request  { order: 10; }
-    .sec-cta      { order: 11; }
-    .sec-contact  { order: 12; }
+    .sec-access   { order: 5; }
+    .sec-faq      { order: 6; }
+    #services     { order: 7; }
+    .sec-request  { order: 8; }
+    .sec-cta      { order: 9; }
+    .sec-contact  { order: 10; }
     .hero-fv-section { display: none !important; }   /* ヒーローはスマホでは出さない（本人指示） */
     .sec-treatments  { display: none !important; }   /* 力を入れている治療（本人指示でスマホ非表示） */
 
@@ -508,15 +506,50 @@
       </div>
     </section>
 
-        <!-- ============ アクセス（要約・詳細は専用ページ） ============ -->
-    <section class="sec-access" style="background: #ffffff;">
-      <div class="section-pad" style="max-width: 900px; margin: 0 auto; padding: calc(72px * var(--k,1)) 28px; text-align: center;">
-        <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">ACCESS</div>
-        <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 37px; color: #3a423e; margin: 0 0 22px; letter-spacing: 0.04em;">アクセス・診療時間</h2>
-        <p style="font-size: 17px; line-height: 1.9; color: #4a534e; margin: 0 0 6px;">〒104-0031 東京都中央区京橋2-12-4 光和ビル2F</p>
-        <p style="font-size: 16px; line-height: 1.9; color: #6b746f; margin: 0 0 6px;">都営浅草線「宝町駅」A6・A7出口 徒歩1分／東京メトロ銀座線「京橋駅」4番出口 徒歩2分</p>
-        <p style="font-size: 18.5px; font-weight: 700; color: #3a423e; margin: 0 0 24px; font-variant-numeric: tabular-nums;">TEL 03-3567-8733</p>
-        <a href="access.html" class="pill btn-primary" style="font-size: 17px; padding: 14px 32px;">地図・診療時間・持ち物を詳しく →</a>
+        <!-- ============ アクセス・診療時間（地図・時間表はトップにそのまま掲載） ============ -->
+    <section id="access" class="sec-access" style="background: #ffffff;">
+      <div class="section-pad" style="max-width: 1080px; margin: 0 auto; padding: 72px 28px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">ACCESS &amp; HOURS</div>
+          <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 37px; color: #3a423e; margin: 0; letter-spacing: 0.04em;">アクセス・診療時間</h2>
+        </div>
+        <div class="access-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start;">
+          <div>
+            <div style="height: 330px; border-radius: 18px; overflow: hidden; box-shadow: 0 12px 30px rgba(60,90,150,0.08); border: 1px solid #e8eef6;">
+              <iframe title="岩佐耳鼻咽喉科の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E4%BA%AC%E6%A9%8B2-12-4%20%E5%85%89%E5%92%8C%E3%83%93%E3%83%AB&z=17&output=embed" style="width: 100%; height: 100%; border: 0; display: block;"></iframe>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E4%B8%AD%E5%A4%AE%E5%8C%BA%E4%BA%AC%E6%A9%8B2-12-4%20%E5%85%89%E5%92%8C%E3%83%93%E3%83%AB" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--acd);">Googleマップで開く →</a>
+          </div>
+          <div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 16px; margin-bottom: 22px;">
+              <thead>
+                <tr style="color: #8a918b; font-size: 14px;">
+                  <th style="text-align: left; padding: 8px 4px; font-weight: 500; border-bottom: 1.5px solid var(--ac);"></th>
+                  <th style="padding: 8px 4px; font-weight: 700; border-bottom: 1.5px solid var(--ac);">月</th><th style="padding: 8px 4px; font-weight: 700; border-bottom: 1.5px solid var(--ac);">火</th><th style="padding: 8px 4px; font-weight: 700; border-bottom: 1.5px solid var(--ac);">水</th><th style="padding: 8px 4px; font-weight: 700; border-bottom: 1.5px solid var(--ac);">木</th><th style="padding: 8px 4px; font-weight: 700; border-bottom: 1.5px solid var(--ac);">金</th><th style="padding: 8px 4px; font-weight: 700; border-bottom: 1.5px solid var(--ac);">土</th><th style="padding: 8px 4px; font-weight: 700; color: #c98b8b; border-bottom: 1.5px solid var(--ac);">日祝</th>
+                </tr>
+              </thead>
+              <tbody style="color: #4a534e;">
+                <tr>
+                  <td style="padding: 13px 4px; white-space: nowrap; color: #6b746f; border-bottom: 1px solid #eeeeea;">10:00–13:00</td>
+                  <td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td>
+                </tr>
+                <tr>
+                  <td style="padding: 13px 4px; white-space: nowrap; color: #6b746f; border-bottom: 1px solid #eeeeea;">15:00–18:00</td>
+                  <td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="font-size: 14px; color: #939a93; line-height: 1.8; margin: 0 0 18px;">休診：水曜・土曜・日曜・祝日</p>
+            <div style="background: var(--acbg); border-radius: 12px; padding: 14px 18px; margin: 0 0 24px;">
+              <div style="font-size: 14px; font-weight: 700; color: var(--acd); margin-bottom: 6px;">受付時間</div>
+              <div style="font-size: 16px; color: #4a534e; line-height: 1.8;">午前 9:45–12:30 ／ 午後 14:45–17:30<br><span style="font-size: 14px; color: #939a93;">受付は診療開始15分前から、診療終了30分前までです。受付時間内にご来院ください。</span></div>
+            </div>
+            <p style="font-size: 17px; line-height: 1.9; color: #4a534e; margin: 0 0 6px;">〒104-0031 東京都中央区京橋2-12-4 光和ビル2F</p>
+            <p style="font-size: 16px; line-height: 1.9; color: #6b746f; margin: 0 0 6px;">都営浅草線「宝町駅」A6・A7出口 徒歩1分／東京メトロ銀座線「京橋駅」4番出口 徒歩2分</p>
+            <p style="font-size: 18.5px; font-weight: 700; color: #3a423e; margin: 0 0 20px; font-variant-numeric: tabular-nums;">TEL 03-3567-8733</p>
+            <a href="access.html" class="pill btn-primary" style="font-size: 15px; padding: 12px 26px;">持ち物・お支払い・連携医療機関を詳しく →</a>
+          </div>
+        </div>
       </div>
     </section>
 
