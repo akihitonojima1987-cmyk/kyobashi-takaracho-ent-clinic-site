@@ -326,6 +326,10 @@
     <div style="margin: 18px 24px 22px; padding: 18px 20px; max-height: 46vh; overflow-y: auto; background: #f7f8f6; border-radius: 12px;">
       <p style="font-size: 14.5px; font-weight: 700; color: #3a423e; margin: 0 0 8px;">院長交代のお知らせ</p>
       <p style="font-size: 14.5px; line-height: 1.9; color: #4a534e; margin: 0;">岩佐英之先生の診療は、2026年5月31日をもちまして終了いたしました。2026年6月1日より新体制で診療を行っております。</p>
+      <!-- 名称変更（2026-07-17 追加）。定款変更認可がまだのため、新名称は書かず日付と「予定」だけを告知する。
+           ※新名称をここに直接書くと、build_deploy_site.py の置換ルールで現名称に化ける（このコメント自体も置換対象）。 -->
+      <p style="font-size: 14.5px; font-weight: 700; color: #3a423e; margin: 18px 0 8px; padding-top: 16px; border-top: 1px solid #e4e6e1;">名称変更のお知らせ</p>
+      <p style="font-size: 14.5px; line-height: 1.9; color: #4a534e; margin: 0;">2026年11月1日（予定）より、当院の名称を変更いたします。新しい名称および正式な切り替え日は、決まり次第あらためて当ホームページでお知らせいたします。</p>
     </div>
   </div>
 </div>
@@ -455,6 +459,18 @@
           <!-- 各件は「日付＋タグ＋1行タイトル」だけを表示し、全文は展開して読む形にしている。
                新しいお知らせを足すときは .news-item を1つ複製し、タイトルは1行に収まる短さにすること。 -->
           <div class="news-list" style="padding: 8px 28px;">
+            <!-- 名称変更（2026-07-17 追加）。定款変更認可がまだのため、新名称は書かず日付と「予定」だけを告知する。
+                 ※新名称をここに直接書くと、build_deploy_site.py の置換ルールで現名称に化ける（このコメント自体も置換対象）。
+                    新名称を出す段階では、REPLACE の当該ルールより後段に専用ルールが必要。 -->
+            <details class="news-item">
+              <summary class="news-summary">
+                <span class="news-date">2026.07.17</span>
+                <span class="news-tag">名称</span>
+                <span class="news-title">名称変更のお知らせ</span>
+                <span class="news-arrow" aria-hidden="true">▾</span>
+              </summary>
+              <p class="news-body">2026年11月1日（予定）より、当院の名称を変更いたします。新しい名称および正式な切り替え日は、決まり次第あらためて当ホームページでお知らせいたします。</p>
+            </details>
             <details class="news-item">
               <summary class="news-summary">
                 <span class="news-date">2026.07.14</span>
