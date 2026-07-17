@@ -58,7 +58,26 @@
     </div>
   <!-- ============ ヘッダー ============ -->
     <header style="position: relative; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eceae4;">
-    <div class="head-main" style="padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap;">
+    <style>
+    /* ヘッダー3カラム（2026-07-17）。参考：clinic-ojima.com を実測して配置を再現。
+       同サイトは header_box / main_nav とも幅1200px固定＋margin:0 auto。これが無いと
+       広い画面で院名と電話の間が大きく開くため、同じ頭打ちを入れている。 */
+    .head-main { display: flex; align-items: center; padding: 18px 40px; flex-wrap: nowrap;
+      max-width: 1280px; margin-left: auto; margin-right: auto; }
+    header nav .nav-menu { max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .head-tel-col { width: 300px; flex: none; margin-left: auto; }
+    .head-side { width: 340px; flex: none; margin-left: 30px; }
+    /* 1061〜1120px は固定幅のままだと1行に収まらないため、この帯だけ詰める */
+    @media (max-width: 1120px) and (min-width: 1061px) {
+      .head-main { padding-left: 24px !important; padding-right: 24px !important; }
+      header nav { padding-left: 24px !important; padding-right: 24px !important; }
+      .head-tel-col { width: 250px !important; }
+      .head-side { width: 320px !important; margin-left: 16px !important; }
+      .head-tel-num { font-size: 25px !important; }
+      .brand-access { font-size: 12px !important; }
+    }
+    </style>
+    <div class="head-main">
       <a href="index.html" style="display: flex; align-items: center; gap: 11px; flex: none;">
         <!-- ロゴ：象アイコン -->
         <img class="logo-icon" src="logo.png?v=5" alt="岩佐耳鼻咽喉科 ロゴ" style="height:54px;width:54px;object-fit:contain;display:block;flex:none;">
@@ -70,17 +89,31 @@
           <span style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 11.5px; color: #9aa39c; letter-spacing: 0.06em; margin-top: 4px;">IWASA ENT CLINIC</span>
         </span>
       </a>
-      <!-- 電話番号＋サイト内検索（参考：うえのこどもクリニック。右側に縦に並べる） -->
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex: none;">
-        <a href="tel:0335678733" style="display: flex; align-items: center; gap: 12px;">
-          <span style="width: 48px; height: 48px; border-radius: 50%; background: var(--acs); color: var(--acd); display: flex; align-items: center; justify-content: center; font-size: 23px;">☎</span>
-          <span style="font-size: 33px; font-weight: 700; color: var(--acd); white-space: nowrap; letter-spacing: 0.01em;">03-3567-8733</span>
+      <!-- 中央：アクセス文＋電話番号（参考：clinic-ojima.com の header_info を実測して再現） -->
+      <div class="head-tel-col" style="display:flex; flex-direction:column; align-items:center;">
+        <p class="brand-access" style="font-size:13.5px; font-weight:700; color:#4a534e; letter-spacing:0.05em; text-align:center; line-height:1.5; padding:6px 0; margin:0 0 16px;">都営浅草線「宝町駅」A6・A7出口から徒歩1分</p>
+        <a href="tel:0335678733" style="display:flex; align-items:center; justify-content:center; gap:8px;">
+          <span aria-hidden="true" style="color:#ffa40e; font-size:24px; line-height:1; flex:none;">☎</span>
+          <span class="head-tel-num" style="font-size:30px; font-weight:400; color:#3a423e; letter-spacing:0.03em; white-space:nowrap;">03-3567-8733</span>
         </a>
-        <!-- サイト内検索（参考：casa-familyclinic.com。Google検索でサイト内検索） -->
-        <form action="https://www.google.com/search" method="get" target="_blank" style="display: flex; align-items: center;">
-          <input type="hidden" name="as_sitesearch" value="kyobashi-ent.com">
-          <input type="text" name="q" placeholder="サイト内検索" style="border: 1.5px solid #d8dee8; border-radius: 999px; padding: 8px 16px; font-size: 14px; width: 160px; font-family: inherit;">
-        </form>
+      </div>
+      <!-- 右：診療時間＋WEB予約・公式LINE・サイト内検索（参考：header_info2） -->
+      <div class="head-side" style="display:flex; flex-direction:column; align-items:flex-start; gap:9px;">
+        <p class="head-bar-inner" style="margin:0; align-items:flex-start;">
+          <span style="background:var(--acs); color:var(--acd); font-size:12px; font-weight:700; padding:3px 9px; border-radius:4px; white-space:nowrap; flex:none;">診療時間</span>
+          <span class="head-bar-note" style="white-space:normal; font-size:13px; line-height:1.55;">10:00–13:00／15:00–18:00<br>休診　水・土・日・祝</span>
+        </p>
+        <div style="display:flex; align-items:center; gap:9px;">
+          <a href="reservation.html" style="display:flex;align-items:center;justify-content:center;background:var(--acd);color:#fff;font-size:15px;font-weight:700;padding:10px 18px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">WEB予約</a>
+          <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#06C755;color:#fff;font-size:15px;font-weight:700;padding:10px 18px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+            公式LINE
+          </a>
+          <form action="https://www.google.com/search" method="get" target="_blank" style="display:flex;align-items:center;flex:1;">
+            <input type="hidden" name="as_sitesearch" value="kyobashi-ent.com">
+            <input type="text" name="q" placeholder="検索" aria-label="サイト内検索" style="border:1.5px solid #d8dee8;border-radius:999px;padding:9px 12px;font-size:13px;width:100%;min-width:0;font-family:inherit;">
+          </form>
+        </div>
       </div>
     </div>
     <nav style="padding: 16px 40px 22px; display: flex; align-items: center; justify-content: center; border-top: 1px solid #eceae4;">
