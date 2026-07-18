@@ -65,7 +65,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 <style>
   /* ===== テーマ（Googleの4色・プライマリはブルー＝accentTheme:"blue"） ===== */
   :root {
@@ -182,12 +182,25 @@
   .head-bar-note { font-size: 14px; color: #6b746f; white-space: nowrap; letter-spacing: 0.02em; line-height: 1.6; }
   .head-bar-sep { width: 1px; height: 10px; background: #d6dbe2; flex: none; }
 
-  /* 全ページ共通の帯：ヘッダー直下（スクロールなしで見える位置）に休診・初診案内を流す */
-  .top-ticker { background: var(--acd); overflow: hidden; white-space: nowrap; }
-  .top-ticker-track { display: inline-block; white-space: nowrap; padding: 9px 0; font-size: 12.5px; color: #fff; letter-spacing: 0.02em;
-    animation: top-ticker-marquee 26s linear infinite; }
-  @keyframes top-ticker-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce) { .top-ticker-track { animation: none; } }
+  /* ヒーロー右側に重ねる診療時間カード（こころみ港クリニック cocoro-minato.clinic の意匠を実測して再現）。
+     薄い水色カード＋罫線なしの丸ゴシック表。写真の上でも読めるよう、背景は不透明・淡い影で浮かせる。 */
+  .hero-hours-wrap { flex: 0 0 auto; margin-right: 84px; align-self: flex-end; }/* 右下寄せ。右端の縦ボタン(92px)と衝突しない余白を確保 */
+  .hero-hours-card { background: #edf7fa; border-radius: 16px; padding: 10px 28px; width: 494px; max-width: 100%;
+    box-shadow: 0 14px 34px rgba(60,90,150,0.18); }
+  .hero-hours-table { border-collapse: collapse; width: 100%;
+    font-family: 'Zen Maru Gothic', 'Zen Kaku Gothic New', sans-serif; font-size: 16px; }
+  .hero-hours-table th { padding: 10px 4px; font-weight: 400; color: #35627a; text-align: center; white-space: nowrap; }
+  .hero-hours-table th.hh-title { text-align: left; }
+  .hero-hours-table td { padding: 11px 4px; text-align: center; color: #0093bc; }
+  .hero-hours-table td.hh-time { text-align: left; white-space: nowrap; color: #394b50; font-weight: 500; }
+  .hero-hours-table td.hh-o { font-size: 20px; line-height: 1; }
+  .hero-hours-table td.hh-x { font-size: 16px; }
+  .hh-note { margin: 6px 0 0; font-size: 13px; color: #5b645f; line-height: 1.7; }
+  /* カードは左コピー＋右端ボタンと横並びで収まる 1180px 以上でのみ表示。
+     それ未満では非表示にし、診療時間はヘッダー右上の帯（.head-hours）が担当する（下の対の指定と連動）。 */
+  @media (max-width: 1179px) { .hero-hours-wrap { display: none !important; } }
+  /* 逆に 1180px 以上ではヒーローのカードが診療時間を表示するので、ヘッダー右上の診療時間は隠す（重複回避） */
+  @media (min-width: 1180px) { .head-hours { display: none !important; } }
 
   /* ===== 症状からさがす（スマホ専用の入口） ===== */
   /* PC では下の「診療内容」カード6枚が同じ役割を担うため非表示。スマホでのみ開く。 */
@@ -215,7 +228,16 @@
   .sc-sas    { background: #dfeaf6; color: #5a97d1; }
   .sc-kids   { background: #fdeceb; color: #c5372b; }
 
-  /* 当院の特徴カードの写真：PCは上部に横長で表示（既定）。スマホでは高さを詰める（下の@media参照） */
+  /* 当院の特徴＝大きな写真＋テキストを左右交互（cocoro-minato.clinic 準拠・2026-07-18）。写真を主役に大きく。 */
+  .feat-zig-wrap { display: flex; flex-direction: column; gap: 64px; }
+  .feat-zig { display: flex; gap: 52px; align-items: center; }
+  .feat-zig.reverse { flex-direction: row-reverse; }
+  .feat-zig-img { flex: 1.55 1 0; min-width: 0; }
+  .feat-zig-img img { width: 100%; height: 440px; object-fit: cover; border-radius: 20px; box-shadow: 0 22px 52px rgba(80,100,90,0.14); display: block; }
+  .feat-zig-text { flex: 1 1 0; min-width: 0; }
+  .fz-num { font-family: 'Shippori Mincho', serif; font-size: 46px; font-weight: 700; color: #d7e5f3; line-height: 1; margin-bottom: 8px; }
+  .fz-h3 { font-family: 'Shippori Mincho', serif; font-size: 26px; color: #3a423e; margin: 0 0 16px; line-height: 1.55; }
+  .fz-p { font-size: 16px; line-height: 2; color: #6b746f; margin: 0; }
 
   /* ===== レスポンシブ ===== */
   @media (max-width: 860px) {
@@ -248,18 +270,14 @@
     .sec-features .sec-head { margin-bottom: 16px !important; }
     .sec-features .h2-title { font-size: 22px !important; }
     .sec-features .sec-head > div:first-child { font-size: 11.5px !important; margin-bottom: 6px !important; }
-    /* .grid-3 の1カラム化より詳細度を上げて横スクロールに変える */
-    .sec-features .feat-grid { display: flex !important; overflow-x: auto; gap: 12px !important;
-      margin: 0 -22px; padding: 2px 22px 14px; scroll-snap-type: x proximity;
-      scroll-padding-left: 22px; -webkit-overflow-scrolling: touch; }
-    .sec-features .feat-grid::-webkit-scrollbar { display: none; }
-    .sec-features .svc-card { flex: none; width: 232px; scroll-snap-align: start; }
-    .sec-features .svc-card img { height: 116px !important; }
-    .sec-features .svc-card > div:last-child { padding: 16px 18px 20px !important; }
-    .sec-features .svc-card h3 { font-size: 16px !important; margin-bottom: 8px !important; }
-    .sec-features .svc-card p { font-size: 12.5px !important; line-height: 1.75 !important; }
+    /* 当院の特徴＝大写真の縦積み（cocoro スマホ準拠：横幅いっぱい・約1.4:1で写真を主役に） */
+    .feat-zig-wrap { gap: 34px !important; }
+    .feat-zig, .feat-zig.reverse { flex-direction: column !important; gap: 12px !important; align-items: stretch !important; }
+    .feat-zig-img img { height: 212px !important; border-radius: 14px !important; box-shadow: 0 10px 26px rgba(80,100,90,0.16) !important; }
+    .fz-num { font-size: 32px !important; margin-bottom: 2px !important; }
+    .fz-h3 { font-size: 19px !important; margin-bottom: 8px !important; line-height: 1.5 !important; }
+    .fz-p { font-size: 13.5px !important; line-height: 1.8 !important; }
 
-    .top-ticker-track { padding: 3px 0 !important; font-size: 8px !important; }
     /* ご予約・お問い合わせのカードはスマホでは2列 */
     .hub-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
     .hub-card { padding: 18px 10px !important; gap: 7px !important; }
@@ -292,7 +310,7 @@
   }
 </style>
 <meta name="google-site-verification" content="pGPBMylmYfVTwUG7GwRKCaJKfem3hZ4_OsFs_sWu4g0" />
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" href="apple-touch-icon.png"><style>.nav-dd{position:relative;display:flex;align-items:center}.nav-dd-caret{display:inline-block;font-size:0;width:0;height:0;margin-left:6px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--acd);transition:transform .2s}.nav-dd:hover .nav-dd-caret{transform:translateY(1px)}.nav-dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;z-index:70}.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}.nav-dd-inner{background:#fff;border-radius:12px;box-shadow:0 14px 34px rgba(60,90,150,.16);padding:8px;min-width:172px}.nav-dd-inner a{display:block;padding:11px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:#4a534e;text-decoration:none;white-space:nowrap}.nav-dd-inner a:hover{background:var(--acbg);color:#3a423e}.head-bar-inner{max-width:1180px;margin:0 auto;padding:6px 28px;display:flex;align-items:center;justify-content:flex-end;gap:14px}.head-bar-note{font-size:12px;color:#6b7686;letter-spacing:.03em;white-space:nowrap}.head-bar-sep{width:1px;height:11px;background:#d6dbe2}.hamburger,.mobile-menu,.mobile-cta{display:none}@media(max-width:1060px){.nav-menu{display:none!important}.head-topbar{display:none!important}}@media(max-width:1060px){header>div{gap:10px!important;padding:11px 64px 11px 14px!important;justify-content:space-between!important}header .brand-access{white-space:normal!important}header .logo-icon{height:33px!important;width:33px!important}header>div>a{flex:0 1 auto!important;min-width:0}header .head-main>div{display:none!important}header .brand-name-text{font-size:20px!important}header .head-main .pill{font-size:10px!important;padding:2px 8px!important;margin-bottom:3px!important}header a>span>span:last-child{font-size:11.5px!important;margin-top:2px!important}header nav{display:none!important}.pill{white-space:normal!important;text-align:center;max-width:100%}.hamburger{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:46px;height:46px;padding:0;border:none;border-radius:12px;background:var(--ac);box-shadow:0 4px 14px rgba(66,133,244,.35);cursor:pointer;position:fixed;top:11px;right:12px;z-index:60}body.menu-open .hamburger{background:var(--acd)}.hamburger span{display:block;width:22px;height:2.5px;margin:0 auto;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}body.menu-open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}body.menu-open .hamburger span:nth-child(2){opacity:0}body.menu-open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}body.menu-open{overflow:hidden}body.menu-open .mobile-menu{display:flex!important;flex-direction:column;position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:80px 22px calc(22px + env(safe-area-inset-bottom,0px));gap:2px;overflow-y:auto}.mobile-menu a{font-size:17px;font-weight:600;color:#3a423e;text-decoration:none;padding:17px 6px;border-bottom:1px solid #eef0ec}.mobile-menu a.mm-accent{color:#5a97d1}.mobile-menu a.mm-line{color:#06c755}.mobile-cta{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:fixed;left:0;right:0;bottom:0;z-index:100;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));background:rgba(255,253,249,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid #ecece6;box-shadow:0 -4px 16px rgba(0,0,0,.08)}body.menu-open .mobile-cta{display:none!important}.mobile-cta a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:9px 2px;font-size:13px;font-weight:700;letter-spacing:.02em;box-shadow:none;background:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mobile-cta a svg{width:26px;height:26px;flex:none}.mobile-cta a.mc-tel{color:var(--acd)}.mobile-cta a.mc-web{color:var(--acd)}.mobile-cta a.mc-line{color:#06c755}.mobile-cta a.mc-waiting{color:#ef6c52}main{padding-bottom:88px!important}footer{padding-bottom:84px!important}}@media(max-width:860px){.section-pad{--k:.58}main .grid-3:has(>.dz-card){grid-template-columns:1fr 1fr!important;gap:10px!important}main .grid-3:has(>.dz-card) .dz-card{padding:14px 14px!important;border-radius:12px!important}main .grid-3:has(>.dz-card) .dz-card>div{font-size:14px!important;margin-bottom:5px!important;line-height:1.4!important}main .grid-3:has(>.dz-card) .dz-card p{font-size:11.5px!important;line-height:1.6!important;margin-bottom:8px!important}main .grid-3:has(>.dz-card) .dz-card span{font-size:11.5px!important}main .chk-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}main .chk-grid>div{padding:11px 12px!important;font-size:12.5px!important}}@media(max-width:400px){header .logo-icon{height:30px!important;width:30px!important}header a>span>span:last-child{font-size:10.5px!important}}.float-cta{position:fixed;right:22px;bottom:22px;z-index:45;display:flex;flex-direction:row-reverse;gap:12px}.float-cta a{display:flex;flex-direction:column;align-items:center;justify-content:center;width:78px;height:78px;border-radius:50%;color:#fff;font-size:12px;font-weight:700;line-height:1.35;text-align:center;letter-spacing:.01em;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}.float-cta a:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.24)}.float-cta a span{font-size:17px;line-height:1;margin-bottom:3px}.float-cta .fc-line{background:#06c755}.float-cta .fc-web{background:var(--acd)}.float-cta .fc-waiting{background:#ef6c52}@media(max-width:1060px){.float-cta{display:none!important}}</style></head>
+<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" href="apple-touch-icon.png"><style>.nav-dd{position:relative;display:flex;align-items:center}.nav-dd-caret{display:inline-block;font-size:0;width:0;height:0;margin-left:6px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--acd);transition:transform .2s}.nav-dd:hover .nav-dd-caret{transform:translateY(1px)}.nav-dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;z-index:70}.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}.nav-dd-inner{background:#fff;border-radius:12px;box-shadow:0 14px 34px rgba(60,90,150,.16);padding:8px;min-width:172px}.nav-dd-inner a{display:block;padding:11px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:#4a534e;text-decoration:none;white-space:nowrap}.nav-dd-inner a:hover{background:var(--acbg);color:#3a423e}.head-bar-inner{max-width:1180px;margin:0 auto;padding:6px 28px;display:flex;align-items:center;justify-content:flex-end;gap:14px}.head-bar-note{font-size:12px;color:#6b7686;letter-spacing:.03em;white-space:nowrap}.head-bar-sep{width:1px;height:11px;background:#d6dbe2}.hamburger,.mobile-menu,.mobile-cta{display:none}@media(max-width:1060px){.nav-menu{display:none!important}.head-topbar{display:none!important}}@media(max-width:1060px){header>div{gap:10px!important;padding:11px 64px 11px 14px!important;justify-content:space-between!important}header .brand-access{white-space:normal!important}header .logo-icon{height:33px!important;width:33px!important}header>div>a{flex:0 1 auto!important;min-width:0}header .head-main>div{display:none!important}header .brand-name-text{font-size:20px!important}header .head-main .pill{font-size:10px!important;padding:2px 8px!important;margin-bottom:3px!important}header a>span>span:last-child{font-size:11.5px!important;margin-top:2px!important}header nav{display:none!important}.pill{white-space:normal!important;text-align:center;max-width:100%}.hamburger{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:46px;height:46px;padding:0;border:none;border-radius:12px;background:var(--ac);box-shadow:0 4px 14px rgba(66,133,244,.35);cursor:pointer;position:fixed;top:11px;right:12px;z-index:60}body.menu-open .hamburger{background:var(--acd)}.hamburger span{display:block;width:22px;height:2.5px;margin:0 auto;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}body.menu-open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}body.menu-open .hamburger span:nth-child(2){opacity:0}body.menu-open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}body.menu-open{overflow:hidden}body.menu-open .mobile-menu{display:flex!important;flex-direction:column;position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:80px 22px calc(22px + env(safe-area-inset-bottom,0px));gap:2px;overflow-y:auto}.mobile-menu a{font-size:17px;font-weight:600;color:#3a423e;text-decoration:none;padding:17px 6px;border-bottom:1px solid #eef0ec}.mobile-menu a.mm-accent{color:#5a97d1}.mobile-menu a.mm-line{color:#06c755}.mobile-cta{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:fixed;left:0;right:0;bottom:0;z-index:100;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));background:rgba(255,253,249,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid #ecece6;box-shadow:0 -4px 16px rgba(0,0,0,.08)}body.menu-open .mobile-cta{display:none!important}.mobile-cta a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:9px 2px;font-size:13px;font-weight:700;letter-spacing:.02em;box-shadow:none;background:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mobile-cta a svg{width:26px;height:26px;flex:none}.mobile-cta a.mc-tel{color:var(--acd)}.mobile-cta a.mc-web{color:var(--acd)}.mobile-cta a.mc-line{color:#06c755}.mobile-cta a.mc-waiting{color:#ef6c52}main{padding-bottom:88px!important}footer{padding-bottom:84px!important}}@media(max-width:860px){.section-pad{--k:.58}main .grid-3:has(>.dz-card){grid-template-columns:1fr 1fr!important;gap:10px!important}main .grid-3:has(>.dz-card) .dz-card{padding:14px 14px!important;border-radius:12px!important}main .grid-3:has(>.dz-card) .dz-card>div{font-size:14px!important;margin-bottom:5px!important;line-height:1.4!important}main .grid-3:has(>.dz-card) .dz-card p{font-size:11.5px!important;line-height:1.6!important;margin-bottom:8px!important}main .grid-3:has(>.dz-card) .dz-card span{font-size:11.5px!important}main .chk-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}main .chk-grid>div{padding:11px 12px!important;font-size:12.5px!important}}@media(max-width:400px){header .logo-icon{height:30px!important;width:30px!important}header a>span>span:last-child{font-size:10.5px!important}}.float-cta{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:45;display:flex;flex-direction:column;gap:8px}.float-cta a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:92px;height:92px;border-radius:14px 0 0 14px;color:#fff;font-size:13px;font-weight:700;line-height:1.3;text-align:center;letter-spacing:.01em;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}.float-cta a:hover{transform:translateX(-4px);box-shadow:0 8px 22px rgba(0,0,0,.26)}.float-cta a svg{width:26px;height:26px;flex:none}.float-cta .fc-line{background:#06c755}.float-cta .fc-web{background:var(--acd)}.float-cta .fc-waiting{background:#ef6c52}@media(max-width:1060px){.float-cta{display:none!important}}</style></head>
 <body id="top">
 
 <!-- ============ オープニング（リニューアルのお知らせ） ============ -->
@@ -351,32 +369,33 @@
 
 <div>
 
-  <!-- ============ ヘッダー上の帯（参考：casa-familyclinic.com／左右いっぱいに使う） ============ -->
-    <div class="head-topbar" style="background: #fff; border-bottom: 1px solid #eceae4; padding: 9px 40px; display: flex; align-items: center; gap: 16px; font-size: 13.5px; color: #3a423e;">
-      <span style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-        <span>〒104-0031 東京都中央区京橋2-12-4 光和ビル2F　都営浅草線「宝町駅」A6・A7出口から徒歩1分</span>
-        <a href="access.html" class="pill" style="background: var(--acs); color: var(--acd); font-size: 13px; padding: 6px 16px;">アクセス・診療時間</a>
-      </span>
-    </div>
-  <!-- ============ ヘッダー ============ -->
+  <!-- ============ ヘッダー（住所＝中央・電話＝右下：cocoro-minato.clinic を実測して構成を再現・2026-07-18） ============ -->
     <header style="position: relative; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #eceae4;">
     <style>
-    /* ヘッダー3カラム（2026-07-17）。参考：clinic-ojima.com を実測して配置を再現。
-       同サイトは header_box / main_nav とも幅1200px固定＋margin:0 auto。これが無いと
-       広い画面で院名と電話の間が大きく開くため、同じ頭打ちを入れている。 */
-    .head-main { display: flex; align-items: center; padding: 18px 40px; flex-wrap: nowrap;
+    /* ヘッダー構成（2026-07-18・cocoro-minato.clinic 実測）：ロゴ(左)｜住所2行＋地図へ(中央)｜休診日/診療時間＋電話大(右)。 */
+    .head-main { display: flex; align-items: center; padding: 16px 40px; flex-wrap: nowrap;
       max-width: 1280px; margin-left: auto; margin-right: auto; }
     header nav .nav-menu { max-width: 1200px; margin-left: auto; margin-right: auto; }
-    .head-tel-col { width: 300px; flex: none; margin-left: auto; }
-    .head-side { width: 340px; flex: none; margin-left: 30px; }
-    /* 1061〜1120px は固定幅のままだと1行に収まらないため、この帯だけ詰める */
-    @media (max-width: 1120px) and (min-width: 1061px) {
+    /* 中央：住所（14px・左寄せ・2行）＋地図へピルリンク */
+    .head-address-col { margin-left: 44px; flex: 0 1 auto; min-width: 0; }
+    .head-address-col .addr-line { font-size: 14px; color: #4a4a4a; line-height: 1.6; letter-spacing: 0.01em; }
+    .head-map-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; color: var(--acd);
+      background: #e4eff6; border-radius: 100px; padding: 3px 11px; text-decoration: none; margin-left: 8px; white-space: nowrap; }
+    .head-map-link svg { width: 12px; height: 12px; }
+    /* 右：休診日/診療時間(上)＋電話(大)＋予約ボタン(下)。すべて右寄せ */
+    .head-right-col { margin-left: auto; flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+    .head-week { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4a4a4a; white-space: nowrap; }
+    .head-week .hw-jikan { display: inline-flex; align-items: center; font-size: 12.5px; color: var(--acd);
+      background: #e4eff6; border-radius: 100px; padding: 3px 11px; text-decoration: none; }
+    .head-tel-num { font-family: 'Montserrat','Zen Kaku Gothic New',sans-serif; font-size: 31px; font-weight: 600;
+      color: #0a6f92; letter-spacing: 0.02em; white-space: nowrap; }
+    /* 1061〜1180px は1行に収まらないため詰める */
+    @media (max-width: 1180px) and (min-width: 1061px) {
       .head-main { padding-left: 24px !important; padding-right: 24px !important; }
       header nav { padding-left: 24px !important; padding-right: 24px !important; }
-      .head-tel-col { width: 250px !important; }
-      .head-side { width: 320px !important; margin-left: 16px !important; }
-      .head-tel-num { font-size: 25px !important; }
-      .brand-access { font-size: 12px !important; }
+      .head-address-col { margin-left: 24px !important; }
+      .head-address-col .addr-line { font-size: 13px !important; }
+      .head-tel-num { font-size: 26px !important; }
     }
     </style>
     <div class="head-main">
@@ -391,24 +410,27 @@
           <span style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 11.5px; color: #9aa39c; letter-spacing: 0.06em; margin-top: 4px;">IWASA ENT CLINIC</span>
         </span>
       </a>
-      <!-- 中央：アクセス文＋電話番号（参考：clinic-ojima.com の header_info を実測して再現） -->
-      <div class="head-tel-col" style="display:flex; flex-direction:column; align-items:center;">
-        <p class="brand-access" style="font-size:13.5px; font-weight:700; color:#4a534e; letter-spacing:0.05em; text-align:center; line-height:1.5; padding:6px 0; margin:0 0 16px;">都営浅草線「宝町駅」A6・A7出口から徒歩1分</p>
-        <a href="tel:0335678733" style="display:flex; align-items:center; justify-content:center; gap:8px;">
-          <span aria-hidden="true" style="color:#ffa40e; font-size:24px; line-height:1; flex:none;">☎</span>
-          <span class="head-tel-num" style="font-size:30px; font-weight:400; color:#3a423e; letter-spacing:0.03em; white-space:nowrap;">03-3567-8733</span>
-        </a>
-      </div>
-      <!-- 右：診療時間＋WEB予約・公式LINE・サイト内検索（参考：header_info2） -->
-      <div class="head-side" style="display:flex; flex-direction:column; align-items:flex-start; gap:9px;">
-        <p class="head-bar-inner" style="margin:0; align-items:flex-start;">
-          <span style="background:var(--acs); color:var(--acd); font-size:12px; font-weight:700; padding:3px 9px; border-radius:4px; white-space:nowrap; flex:none;">診療時間</span>
-          <span class="head-bar-note" style="white-space:normal; font-size:13px; line-height:1.55;">10:00–13:00／15:00–18:00<br>休診　水・土・日・祝</span>
+      <!-- 中央：住所2行＋地図へ（cocoro-minato の header_address 準拠） -->
+      <div class="head-address-col">
+        <p style="margin:0;">
+          <span class="addr-line">中央区京橋2-12-4 光和ビル2F</span><br>
+          <span class="addr-line">都営浅草線「宝町駅」A6・A7出口から徒歩1分</span><a href="access.html" class="head-map-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>地図へ</a>
         </p>
-        <div style="display:flex; align-items:center; gap:9px;">
-          <a href="reservation.html" style="display:flex;align-items:center;justify-content:center;background:var(--acd);color:#fff;font-size:15px;font-weight:700;padding:10px 18px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">WEB予約</a>
-          <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#06C755;color:#fff;font-size:15px;font-weight:700;padding:10px 18px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+      </div>
+      <!-- 右：休診日/診療時間(上)＋電話(大)＋WEB予約・公式LINE(下)。休診日/診療時間(.head-hours)はヒーローのカードが出る1180px以上でのみ隠す -->
+      <div class="head-right-col">
+        <p class="head-week head-hours" style="margin:0;">
+          <span>休診日：水・土・日・祝</span>
+          <a href="access.html" class="hw-jikan">診療時間</a>
+        </p>
+        <a href="tel:0335678733" style="display:flex; align-items:center; gap:7px; text-decoration:none;">
+          <span aria-hidden="true" style="color:#ffa40e; font-size:22px; line-height:1; flex:none;">☎</span>
+          <span class="head-tel-num">03-3567-8733</span>
+        </a>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <a href="reservation.html" style="display:flex;align-items:center;justify-content:center;background:var(--acd);color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">WEB予約</a>
+          <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#06C755;color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex:none;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
             公式LINE
           </a>
         </div>
@@ -427,28 +449,21 @@
     </nav>
   </header>
 
-  <!-- 休診・初診案内の帯（お知らせ欄とは別・全ページ共通） -->
-  <div class="top-ticker" role="note" aria-label="お知らせ">
-    <div class="top-ticker-track" aria-hidden="true">
-      <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　　</span>
-      <span>【休診】8月10日(月)・11日(火)・13日(木)・14日(金)は夏季休診（お盆休み）とさせていただきます。　　【初診の方へ】マイナ保険証（または資格確認書）・お薬手帳をご持参ください。お支払いは現金のみです。　　</span>
-    </div>
-  </div>
-
   <main>
 
     <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;">岩佐耳鼻咽喉科｜宝町駅すぐの耳鼻咽喉科（東京都中央区京橋）</h1>
 
     <!-- ============ ファーストビュー（ヒーロー一面写真→下にお知らせ） ============ -->
-    <section class="hero-fv-section" style="position: relative; overflow: hidden; min-height: 480px; display: flex; align-items: center; padding: 56px 0;">
+    <section class="hero-fv-section" style="position: relative; overflow: hidden; min-height: clamp(540px, calc(100vh - 194px), 800px); display: flex; align-items: stretch; padding: 48px 0;">
       <img src="hero-photo.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% center; z-index: 0;">
-      <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.85) 28%, rgba(255,255,255,0.5) 52%, rgba(255,255,255,0.12) 74%, rgba(255,255,255,0) 92%); z-index: 0;"></div>
-      <div style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 28px; width: 100%;">
-        <div class="hero-eyebrow" style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(102deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.34) 26%, rgba(255,255,255,0.12) 48%, rgba(255,255,255,0) 68%); z-index: 0;"></div>
+      <div style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 44px; flex-wrap: wrap;">
+        <div class="hero-copy" style="flex: 1 1 420px; min-width: 0;">
+        <div class="hero-eyebrow" style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px; text-shadow: 0 1px 3px rgba(255,255,255,0.9);">
           <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
         </div>
-        <h1 class="hero-overlay-h1" style="font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 41.5px; line-height: 1.5; letter-spacing: 0.03em; color: #353d39; margin: 0 0 18px;">耳・鼻・のどの不調に。</h1>
-        <p class="hero-lead" style="font-size: 17px; line-height: 2; color: #5b645f; margin: 0 0 22px; letter-spacing: 0.02em; max-width: 520px;">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
+        <h1 class="hero-overlay-h1" style="font-family: 'Zen Maru Gothic', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 41.5px; line-height: 1.5; letter-spacing: 0.03em; color: #0393bd; text-shadow: 0 1px 10px rgba(255,255,255,0.9), 0 0 3px rgba(255,255,255,0.9); margin: 0 0 18px;">耳・鼻・のどの不調に。</h1>
+        <p class="hero-lead" style="font-size: 17px; line-height: 2; color: #4a534e; margin: 0 0 22px; letter-spacing: 0.02em; max-width: 520px; text-shadow: 0 1px 3px rgba(255,255,255,0.9);">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
         <!-- アクセスバッジ -->
         <div class="hero-badge-cluster" style="display: flex; flex-wrap: wrap; gap: 10px;">
           <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #dfeaf6; box-shadow: 0 10px 22px rgba(43,108,176,0.22); display: flex; align-items: center; justify-content: center; text-align: center;">
@@ -459,6 +474,31 @@
           </div>
           <div class="hero-badge-circle" style="width: 90px; height: 90px; border-radius: 50%; background: #fff; border: 3px solid #fef4da; box-shadow: 0 10px 22px rgba(230,180,60,0.24); display: flex; align-items: center; justify-content: center; text-align: center;">
             <span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 14px; line-height: 1.5; letter-spacing: 0.01em; color: #a67c00;">電子<br>内視鏡</span>
+          </div>
+        </div>
+        </div><!-- /.hero-copy -->
+        <!-- 診療時間カード（cocoro-minato.clinic 準拠・ヒーロー右に重ねる） -->
+        <div class="hero-hours-wrap">
+          <div class="hero-hours-card">
+            <table class="hero-hours-table">
+              <thead>
+                <tr>
+                  <th class="hh-title">診療時間</th>
+                  <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="hh-time">10:00〜13:00</td>
+                  <td class="hh-o">●</td><td class="hh-o">●</td><td class="hh-x">／</td><td class="hh-o">●</td><td class="hh-o">●</td><td class="hh-x">／</td><td class="hh-x">／</td>
+                </tr>
+                <tr>
+                  <td class="hh-time">15:00〜18:00</td>
+                  <td class="hh-o">●</td><td class="hh-o">●</td><td class="hh-x">／</td><td class="hh-o">●</td><td class="hh-o">●</td><td class="hh-x">／</td><td class="hh-x">／</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="hh-note">休診日：水・土・日・祝<br>受付　午前 9:45–12:30 ／ 午後 14:45–17:30</p>
           </div>
         </div>
       </div>
@@ -535,29 +575,29 @@
           <div style="font-size: 14px; letter-spacing: 0.24em; color: var(--acd); margin-bottom: 10px;">FEATURES</div>
           <h2 class="h2-title" style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 37px; color: #3a423e; margin: 0; letter-spacing: 0.04em;">当院の特徴</h2>
         </div>
-        <div class="grid-3 feat-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;">
-          <div class="svc-card" style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
-            <img src="feature-doctor.jpg" alt="" style="width: 100%; height: 170px; object-fit: cover; object-position: 78% center; display: block;">
-            <div style="padding: 24px 28px 32px;">
-              <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">01</div>
-              <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">耳鼻咽喉科専門医による診療</h3>
-              <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">日本耳鼻咽喉科頭頸部外科学会 耳鼻咽喉科専門医の院長が、一人ひとりていねいに診療いたします。</p>
+        <div class="feat-zig-wrap">
+          <div class="feat-zig">
+            <div class="feat-zig-img"><img src="feature-doctor.jpg" alt="" style="object-position: 78% center;"></div>
+            <div class="feat-zig-text">
+              <div class="fz-num">01</div>
+              <h3 class="fz-h3">耳鼻咽喉科専門医による診療</h3>
+              <p class="fz-p">日本耳鼻咽喉科頭頸部外科学会 耳鼻咽喉科専門医の院長が、一人ひとりていねいに診療いたします。</p>
             </div>
           </div>
-          <div class="svc-card" style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
-            <img src="feature-station.jpg" alt="都営浅草線 宝町駅" style="width: 100%; height: 170px; object-fit: cover; object-position: center 65%; display: block;">
-            <div style="padding: 24px 28px 32px;">
-              <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">02</div>
-              <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">宝町駅A6・A7出口から徒歩1分</h3>
-              <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">都営浅草線「宝町駅」A6・A7出口から徒歩1分、東京メトロ銀座線「京橋駅」からも徒歩2分。お仕事帰りにも通いやすい立地です。</p>
+          <div class="feat-zig reverse">
+            <div class="feat-zig-img"><img src="feature-station.jpg" alt="都営浅草線 宝町駅" style="object-position: center 65%;"></div>
+            <div class="feat-zig-text">
+              <div class="fz-num">02</div>
+              <h3 class="fz-h3">宝町駅A6・A7出口から徒歩1分</h3>
+              <p class="fz-p">都営浅草線「宝町駅」A6・A7出口から徒歩1分、東京メトロ銀座線「京橋駅」からも徒歩2分。お仕事帰りにも通いやすい立地です。</p>
             </div>
           </div>
-          <div class="svc-card" style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(80,100,90,0.06);">
-            <img src="feature-family.jpg" alt="" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-            <div style="padding: 24px 28px 32px;">
-              <div style="font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 700; color: var(--ac); letter-spacing: 0.05em; margin-bottom: 10px;">03</div>
-              <h3 style="font-family: 'Shippori Mincho', serif; font-size: 20.5px; color: #3a423e; margin: 0 0 12px;">お子さまからご高齢の方まで</h3>
-              <p style="font-size: 15.5px; line-height: 1.95; color: #6b746f; margin: 0;">小児の耳鼻咽喉科にも対応。世代を問わず安心してご相談いただけます。</p>
+          <div class="feat-zig">
+            <div class="feat-zig-img"><img src="feature-family.jpg" alt=""></div>
+            <div class="feat-zig-text">
+              <div class="fz-num">03</div>
+              <h3 class="fz-h3">お子さまからご高齢の方まで</h3>
+              <p class="fz-p">小児の耳鼻咽喉科にも対応。世代を問わず安心してご相談いただけます。</p>
             </div>
           </div>
         </div>
@@ -823,5 +863,5 @@
   </footer>
 
 </div>
-<button class="hamburger" aria-label="メニュー" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o);"><span></span><span></span><span></span></button><script>(function(){var h=document.querySelector('.hamburger');if(h)h.setAttribute('aria-expanded',document.body.classList.contains('menu-open')?'true':'false');})();</script><nav class="mobile-menu" onclick="if(event.target.closest('a')){document.body.classList.remove('menu-open');var h=document.querySelector('.hamburger');if(h)h.setAttribute('aria-expanded','false');}"><a href="index.html">HOME</a><a href="first-visit.html">ご来院の方へ</a><a href="doctor-profile.html">ドクター紹介</a><a href="services.html">診療内容</a><a href="sublingual-immunotherapy.html">舌下免疫療法</a><a href="b-spot.html">Bスポット療法</a><a href="access.html">アクセス・診療時間</a><a href="symptoms.html">このような時</a><a href="waiting.html">受付番号（待合状況）</a><a href="faq.html">よくある質問</a><a href="contact.html">お問い合わせ</a><a href="reservation.html" class="mm-accent">ご予約について</a><a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="mm-line">公式LINE</a><a href="tel:0335678733">お電話：03-3567-8733</a></nav><div class="mobile-cta"><a class="mc-tel" href="tel:0335678733"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2.5-1-4.5-3-5.5-5.5l2-2-2-6-4 3Z"/></svg>電話</a><a class="mc-web" href="reservation.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 13.5l2 2 4-4"/></svg>予約</a><a class="mc-line" href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>LINE</a><a class="mc-waiting" href="waiting.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4Z"/></svg>受付番号</a></div><div class="float-cta"><a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="fc-line"><span>LINE</span>予約</a><a href="reservation.html" class="fc-web"><span>Web</span>予約</a><a href="waiting.html" class="fc-waiting"><span>受付</span>番号</a></div></body>
+<button class="hamburger" aria-label="メニュー" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o);"><span></span><span></span><span></span></button><script>(function(){var h=document.querySelector('.hamburger');if(h)h.setAttribute('aria-expanded',document.body.classList.contains('menu-open')?'true':'false');})();</script><nav class="mobile-menu" onclick="if(event.target.closest('a')){document.body.classList.remove('menu-open');var h=document.querySelector('.hamburger');if(h)h.setAttribute('aria-expanded','false');}"><a href="index.html">HOME</a><a href="first-visit.html">ご来院の方へ</a><a href="doctor-profile.html">ドクター紹介</a><a href="services.html">診療内容</a><a href="sublingual-immunotherapy.html">舌下免疫療法</a><a href="b-spot.html">Bスポット療法</a><a href="access.html">アクセス・診療時間</a><a href="symptoms.html">このような時</a><a href="waiting.html">受付番号（待合状況）</a><a href="faq.html">よくある質問</a><a href="contact.html">お問い合わせ</a><a href="reservation.html" class="mm-accent">ご予約について</a><a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="mm-line">公式LINE</a><a href="tel:0335678733">お電話：03-3567-8733</a></nav><div class="mobile-cta"><a class="mc-tel" href="tel:0335678733"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2.5-1-4.5-3-5.5-5.5l2-2-2-6-4 3Z"/></svg>電話</a><a class="mc-web" href="reservation.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 13.5l2 2 4-4"/></svg>予約</a><a class="mc-line" href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>LINE</a><a class="mc-waiting" href="waiting.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4Z"/></svg>受付番号</a></div><div class="float-cta"><a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="fc-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>LINE予約</a><a href="reservation.html" class="fc-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 13.5l2 2 4-4"/></svg>Web予約</a><a href="waiting.html" class="fc-waiting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4Z"/></svg>受付番号</a></div></body>
 </html>
