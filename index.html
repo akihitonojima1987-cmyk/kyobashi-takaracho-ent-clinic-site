@@ -170,12 +170,22 @@
   /* スマホ用：電話・診療時間・診療日の帯（PC幅ではヘッダー右上の head-bar が同内容を表示するため隠す） */
   .top-info-bar { display: none; }
   @media (max-width: 1060px) {
-    .top-info-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 6px 12px; background: #fff; border-bottom: 1px solid #eceae4; padding: 9px 14px;
-      font-size: 15px; color: #4a534e; letter-spacing: 0.02em; }
+    .top-info-bar { display: flex; flex-direction: column; align-items: center; gap: 9px;
+      background: #fff; border-bottom: 1px solid #eceae4; padding: 12px 14px 15px; }
   }
-  .top-info-tel { color: var(--acd); font-weight: 700; font-size: 18px; white-space: nowrap; text-decoration: none; }
-  .top-info-sep { width: 1px; height: 10px; background: #d6dbe2; }
+  .top-info-tel { color: var(--acd); font-weight: 700; font-size: 19px; white-space: nowrap; text-decoration: none; }
+  /* スマホ用 診療時間ミニ表（曜日×○。PCヒーローカードのミニ版） */
+  .mini-hours { border-collapse: collapse; width: 100%; max-width: 366px;
+    font-family: 'Zen Kaku Gothic New', sans-serif; }
+  .mini-hours th { font-size: 11px; font-weight: 700; color: #6b746f; padding: 3px 2px;
+    border-bottom: 1.5px solid var(--ac); text-align: center; }
+  .mini-hours th:first-child { text-align: left; white-space: nowrap; }
+  .mini-hours th:last-child { color: #c98b8b; }
+  .mini-hours td { font-size: 13px; text-align: center; padding: 7px 2px;
+    border-bottom: 1px solid #eeeeea; color: var(--acd); }
+  .mini-hours td.mh-t { text-align: left; white-space: nowrap; color: #6b746f; font-size: 11.5px; }
+  .mini-hours td.x { color: #cdd0cb; }
+  .mini-hours-note { font-size: 11px; color: #939a93; margin: 0; text-align: center; line-height: 1.65; }
 
   /* ヘッダー右上の head-bar（PC幅）：station/診療時間/休診日の帯 */
   .head-bar-inner { display: flex; align-items: center; gap: 10px; }
@@ -239,6 +249,22 @@
   .fz-h3 { font-family: 'Shippori Mincho', serif; font-size: 26px; color: #3a423e; margin: 0 0 16px; line-height: 1.55; }
   .fz-p { font-size: 16px; line-height: 2; color: #6b746f; margin: 0; }
 
+  /* ヒーロー＝当院の特徴カルーセル（写真＋見出しが自動で切り替わる・PC/スマホ・2026-07-19） */
+  .hero-slide, .mh-slide { position: absolute; inset: 0; z-index: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.4s ease; }
+  .hero-slide.is-active, .mh-slide.is-active { opacity: 1; }
+  .hero-scrim { position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(102deg, rgba(255,255,255,0.76) 0%, rgba(255,255,255,0.54) 26%, rgba(255,255,255,0.22) 48%, rgba(255,255,255,0) 70%); }
+  .hero-feats { position: relative; min-height: 224px; }
+  .hero-feat { position: absolute; inset: 0; opacity: 0; transition: opacity .9s ease; }
+  .hero-feat.is-active { opacity: 1; }
+  .hf-num { font-family: 'Shippori Mincho', serif; font-size: 40px; font-weight: 700; color: #0378A0; line-height: 1; margin-bottom: 10px; text-shadow: 0 1px 8px rgba(255,255,255,0.95); }
+  .hf-title { font-family: 'Zen Maru Gothic','Zen Kaku Gothic New',sans-serif; font-weight: 700; font-size: 30px; line-height: 1.5; color: #234f6a; margin: 0 0 14px; text-shadow: 0 1px 10px rgba(255,255,255,0.98); }
+  .hf-desc { font-size: 16px; line-height: 2; color: #3f4a4f; margin: 0; max-width: 480px; text-shadow: 0 1px 4px rgba(255,255,255,0.92); }
+  .hero-dots { display: flex; gap: 9px; margin-top: 26px; }
+  .hero-dots span { width: 9px; height: 9px; border-radius: 50%; background: rgba(3,120,160,0.3); transition: all .3s; }
+  .hero-dots span.is-active { background: #0378A0; width: 24px; border-radius: 5px; }
+  @media (prefers-reduced-motion: reduce) { .hero-slide, .mh-slide, .hero-feat, .mh-feat { transition: none; } }
+
   /* スマホ専用ヒーロー。PCでは非表示（スマホ用ルールは @media 内） */
   .mobile-hero { display: none; }
 
@@ -255,25 +281,43 @@
     main { display: flex; flex-direction: column; }
     .mobile-hero  { order: 0; }
     .top-info-bar { order: 1; }
-    .sec-features { order: 2; }
-    .sec-symptom  { order: 3; }
+    .sec-symptom  { order: 2; }
+    .sec-features { order: 3; }
     .sec-news     { order: 4; }
     .sec-access   { order: 5; }
     .sec-faq      { order: 6; }
     #services     { order: 7; }
     .sec-hub      { order: 8; }
     .hero-fv-section { display: none !important; }   /* PC用ヒーローはスマホ非表示。代わりに .mobile-hero を上部に出す（2026-07-18） */
+    .sec-features { display: none !important; }       /* 当院の特徴はスマホではヒーローのカルーセルで表示するため、この下段セクションは非表示（2026-07-19） */
 
     /* スマホ専用ヒーロー：写真＋キャッチを上部に（参考：clinic-ojima.com／cocoromi-cl.jp） */
     .mobile-hero { display: block !important; position: relative; height: 300px; overflow: hidden; }
-    .mobile-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
+    /* 横スライド：3枚のスライドをトラックに並べ、translateXで送る（cocoromi 参考） */
+    .mobile-hero .mh-track { display: flex; height: 100%; transition: transform .55s ease; }
+    .mobile-hero .mh-slide2 { flex: 0 0 100%; height: 100%; position: relative; background-size: cover; background-position: center; }
+    .mobile-hero .mh-dots { position: absolute; left: 0; right: 0; bottom: 9px; display: flex; justify-content: center; gap: 7px; z-index: 3; }
+    .mobile-hero .mh-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.55); transition: all .3s; }
+    .mobile-hero .mh-dots span.is-active { background: #fff; width: 18px; border-radius: 4px; }
     .mobile-hero .mh-scrim { position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(10,25,40,0) 32%, rgba(10,25,40,0.18) 58%, rgba(10,25,40,0.64) 100%); }
     .mobile-hero .mh-copy { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 22px 22px; }
-    .mobile-hero .mh-eyebrow { color: #fff; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em;
+    .mobile-hero .mh-eyebrow { display: inline-flex; align-items: baseline; color: #fff; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em;
       margin-bottom: 6px; text-shadow: 0 1px 4px rgba(0,0,0,0.55); }
+    .mobile-hero .mh-num { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 19px; margin-right: 8px; letter-spacing: 0.04em; }
+    /* 左上の丸番号バッジ（cocoromi-cl.jp 準拠・ブランド青） */
+    .mobile-hero .mh-badge { position: absolute; top: 14px; left: 14px; z-index: 2; width: 66px; height: 66px;
+      border-radius: 50%; background: #0378A0; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; box-shadow: 0 4px 13px rgba(0,0,0,0.28); }
+    .mobile-hero .mh-badge-label { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.05em; color: #fff; line-height: 1; }
+    .mobile-hero .mh-badge-num { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 26px; color: #fff;
+      line-height: 1; margin-top: 2px; }
     .mobile-hero .mh-title { font-family: 'Zen Maru Gothic','Zen Kaku Gothic New',sans-serif; color: #fff;
-      font-size: 25px; font-weight: 700; margin: 0; line-height: 1.45; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+      font-size: 22px; font-weight: 700; margin: 0; line-height: 1.4; text-shadow: 0 2px 10px rgba(0,0,0,0.55); }
+    .mobile-hero .mh-feats { position: relative; min-height: 32px; }
+    .mobile-hero .mh-feat { position: absolute; left: 0; right: 0; top: 0; opacity: 0; transition: opacity .8s ease; }
+    .mobile-hero .mh-feat.is-active { opacity: 1; }
     .sec-treatments  { display: none !important; }   /* 力を入れている治療（本人指示でスマホ非表示） */
 
     /* 症状からさがす（スマホでのみ表示） */
@@ -470,12 +514,24 @@
 
     <!-- スマホ専用ヒーロー（PCは非表示。上部に写真＋キャッチ。参考：clinic-ojima.com／cocoromi-cl.jp・2026-07-18） -->
     <div class="mobile-hero">
-      <img src="hero-photo.jpg" alt="">
-      <div class="mh-scrim"></div>
-      <div class="mh-copy">
-        <div class="mh-eyebrow">京橋・宝町の耳鼻咽喉科</div>
-        <p class="mh-title">耳・鼻・のどの不調に。</p>
+      <div class="mh-track">
+        <div class="mh-slide2" style="background-image: url('feature-doctor.jpg'); background-position: 78% center;">
+          <div class="mh-scrim"></div>
+          <div class="mh-badge"><span class="mh-badge-label">Feature</span><span class="mh-badge-num">01</span></div>
+          <div class="mh-copy"><p class="mh-title">耳鼻咽喉科専門医による診療</p></div>
+        </div>
+        <div class="mh-slide2" style="background-image: url('feature-station.jpg'); background-position: center 62%;">
+          <div class="mh-scrim"></div>
+          <div class="mh-badge"><span class="mh-badge-label">Feature</span><span class="mh-badge-num">02</span></div>
+          <div class="mh-copy"><p class="mh-title">宝町駅から徒歩1分</p></div>
+        </div>
+        <div class="mh-slide2" style="background-image: url('feature-family.jpg'); background-position: center;">
+          <div class="mh-scrim"></div>
+          <div class="mh-badge"><span class="mh-badge-label">Feature</span><span class="mh-badge-num">03</span></div>
+          <div class="mh-copy"><p class="mh-title">お子さまからご高齢の方まで</p></div>
+        </div>
       </div>
+      <div class="mh-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
     </div>
 
     <!-- ============ ファーストビュー（ヒーロー一面写真→下にお知らせ） ============ -->
@@ -529,13 +585,34 @@
       </div>
     </section>
 
+    <script>
+    (function(){
+      var mh=document.querySelector('.mobile-hero'); if(!mh) return;
+      var track=mh.querySelector('.mh-track'); if(!track) return;
+      var n=track.children.length; if(n<2) return;
+      var dots=mh.querySelectorAll('.mh-dots span');
+      var i=0;
+      setInterval(function(){
+        i=(i+1)%n;
+        track.style.transform='translateX(-'+(i*100)+'%)';
+        for(var j=0;j<dots.length;j++) dots[j].classList.toggle('is-active', j===i);
+      }, 4500);
+    })();
+    </script>
+
     <!-- スマホ用：電話番号・診療時間・診療日の帯（PCではヘッダー右上の同内容が見えるため非表示） -->
     <div class="top-info-bar">
       <a href="tel:0335678733" class="top-info-tel">☎ 03-3567-8733</a>
-      <span class="top-info-sep" aria-hidden="true"></span>
-      <span>診療時間　10:00–13:00／15:00–18:00<br>受付時間　9:45–12:30／14:45–17:30</span>
-      <span class="top-info-sep" aria-hidden="true"></span>
-      <span>診療日　月・火・木・金</span>
+      <table class="mini-hours">
+        <thead>
+          <tr><th>診療時間</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mh-t">10:00–13:00</td><td>●</td><td>●</td><td class="x">／</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
+          <tr><td class="mh-t">15:00–18:00</td><td>●</td><td>●</td><td class="x">／</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
+        </tbody>
+      </table>
+      <p class="mini-hours-note">受付　9:45–12:30／14:45–17:30　・　休診：水・土・日・祝</p>
     </div>
 
     <!-- ============ お知らせ（ヒーロー下・こころみ風：左タイトル帯＋右3件リスト） ============ -->
@@ -593,7 +670,7 @@
       </div>
     </section>
 
-    <!-- ============ 当院の特徴 ============ -->
+    <!-- ============ 当院の特徴（PC用。スマホはヒーローのカルーセルで表示するため非表示） ============ -->
     <section class="sec-features" style="background: #ffffff;">
       <div class="section-pad" style="max-width: 1080px; margin: 0 auto; padding: calc(80px * var(--k,1)) 28px;">
         <div class="sec-head" style="text-align: center; margin-bottom: 48px;">
