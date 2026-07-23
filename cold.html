@@ -45,6 +45,109 @@
     .h1-title { font-size: 30px !important; }
   }
 </style>
+
+<style>
+/* =====================================================================
+   デザイン統一レイヤー 2026-07-24
+   サイト全体のテンプレート感を減らすための統一レイヤー。
+     ② 丸アイコン廃止（要素自体はソースから削除済み。ここでは残りのCSS由来分を処理）
+     ③ 影を落とし、面の区切りは1pxの罫線へ。角丸は8pxの1値に統一
+     ⑤ 書体は Shippori Mincho ＋ Zen Kaku Gothic New の2つだけ
+     ⑥ 明朝はセクション見出し専用。h1=30px / h2=23px の2段にする
+   共有CSSが無い構成のため、全ページの head 末尾に同じ内容を入れている。
+   ※このコメント内に閉じタグ文字列を書かないこと。build_deploy_site.py が
+     閉じタグを目印に favicon・GA4・スマホ用CSS を「全出現箇所」へ注入するため、
+     コメント内に書くとコメントが閉じず、この層まるごとが無効になる（2026-07-24 実際に踏んだ）。
+   戻す場合は 成果物\_バックアップ_2026-07-24_脱テンプレ適用前\ から上書き。
+   ===================================================================== */
+:root{ --r:8px; --line:#e2e6e3; }
+
+/* --- ⑤ 書体を2つに ---------------------------------------------------- */
+[style*="Zen Maru Gothic"],.hero-hours-table{
+  font-family:'Zen Kaku Gothic New',sans-serif !important; }
+.head-tel-num{ font-family:'Zen Kaku Gothic New',sans-serif !important;
+  font-variant-numeric:tabular-nums; font-weight:700 !important; }
+/* 院名とヒーロー見出しは明朝へ寄せる（ロゴの一部として扱う） */
+.brand-name-text{ font-family:'Shippori Mincho',serif !important;
+  font-weight:700 !important; letter-spacing:.08em !important; }
+.hero-overlay-h1,.hf-title,.mobile-hero .mh-title{
+  font-family:'Shippori Mincho',serif !important; font-weight:600 !important; }
+/* 見出し以外の明朝はゴシックに落とす＝明朝の希少性を上げて階層をつくる */
+h3[style*="Shippori"],h4[style*="Shippori"],.fz-h3,.hub-label{
+  font-family:'Zen Kaku Gothic New',sans-serif !important;
+  font-weight:700 !important; letter-spacing:.01em !important; }
+/* 連番 01/02/03 の明朝46px も見出しと競合するのでゴシックの小ラベルへ */
+.fz-num,.hf-num,.mobile-hero .mh-badge-num{
+  font-family:'Zen Kaku Gothic New',sans-serif !important; font-size:13px !important;
+  font-weight:700 !important; letter-spacing:.14em !important;
+  color:var(--acd) !important; margin-bottom:6px !important; text-shadow:none !important; }
+.mobile-hero .mh-badge-num{ color:#fff !important; margin:0 !important; }
+
+/* --- ⑥ 見出しの階層 --------------------------------------------------- */
+h1[style*="Shippori"],.h1-title{ font-size:30px !important; letter-spacing:.06em !important; }
+h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !important;
+  letter-spacing:.1em !important; }
+/* トップの主役2節だけ大きく残す */
+.sec-features .h2-title,#services .h2-title{ font-size:30px !important; }
+@media (max-width:480px){
+  h1[style*="Shippori"],.h1-title{ font-size:24px !important; }
+  h2[style*="Shippori"],.h2-title{ font-size:21px !important; }
+  .sec-features .h2-title,#services .h2-title{ font-size:24px !important; } }
+
+/* --- ② 丸アイコンの後始末（CSSクラス側で丸くしているもの） --------------- */
+/* 予約・LINE・問い合わせ・電話：パステル4色の円をやめ線アイコンだけ・色は1色に */
+.hub-icon{ background:transparent !important; width:auto !important; height:auto !important; }
+.hub-web,.hub-line,.hub-mail,.hub-tel{ color:var(--acd) !important; }
+.hub-icon svg{ width:26px !important; height:26px !important; }
+/* スマホ「症状からさがす」の丸（◍☾✿入り）→ 文字だけのタグに */
+.symptom-circle{ display:none !important; }
+.symptom-item{ width:auto !important; border:1px solid var(--line);
+  border-radius:999px; padding:9px 15px; background:#fff; }
+.symptom-label{ font-size:13px !important; white-space:nowrap; }
+/* スマホヒーローの66px丸番号バッジ → 小さな角丸ラベル */
+.mobile-hero .mh-badge{ width:auto !important; height:auto !important;
+  border-radius:999px !important; flex-direction:row !important;
+  gap:6px; padding:5px 12px !important; }
+/* ヒーローの3色白丸バッジの置き換え先（単色タグ） */
+.hero-tag{ display:inline-flex; align-items:center; background:rgba(255,255,255,.94);
+  border:1px solid var(--ac); color:var(--acd); font-size:13.5px; font-weight:700;
+  padding:8px 16px; border-radius:999px; letter-spacing:.02em; }
+
+/* --- ③ 影とカードを減らす --------------------------------------------- */
+*{ box-shadow:none !important; }                      /* いったん全消し */
+/* 押せる手がかり・浮いている必要があるものだけ最小限戻す */
+.btn-primary,.btn-head,.btn-line,.cta-light,
+.nav-dd-menu,#notice-modal > div{
+  box-shadow:0 2px 6px rgba(40,70,110,.18) !important; }
+/* 角丸を1値に統一（元は 10/12/14/16/18/20px がページごとにバラバラ） */
+[style*="border-radius: 20px"],[style*="border-radius:20px"],
+[style*="border-radius: 18px"],[style*="border-radius:18px"],
+[style*="border-radius: 16px"],[style*="border-radius:16px"],
+[style*="border-radius: 14px"],[style*="border-radius:14px"],
+[style*="border-radius: 12px"],[style*="border-radius:12px"],
+[style*="border-radius: 10px"],[style*="border-radius:10px"],
+.svc-card,.hub-card,.hero2col-news,.hero-hours-card,.cpay-tile,.feat-zig-img img{
+  border-radius:var(--r) !important; }
+/* ピル（ボタン・タグ）だけは丸のまま */
+.pill,.news-tag,.head-map-link,.hw-jikan,.cpay-note,.symptom-item,.hero-tag{
+  border-radius:999px !important; }
+/* 面の区切りは影ではなく1pxの罫線で */
+.svc-card,.hub-card,.hero2col-news,.hero-hours-card{
+  border:1px solid var(--line) !important; }
+/* 「力を入れている治療」の水色地・桃色地 → 白地＋罫線に揃える */
+.sec-treatments .grid-2 > div{ background:#fff !important;
+  border:1px solid var(--line) !important; }
+.sec-treatments a[style*="#c5372b"]{ color:var(--acd) !important; }
+/* hover でカードが浮くのをやめ、罫線の色だけ変える */
+.svc-card:hover,.hub-card:hover,.btn-head:hover,.btn-primary:hover,
+.cta-light:hover,.btn-line:hover{ transform:none !important; }
+.svc-card:hover,.hub-card:hover{ border-color:var(--ac) !important;
+  background:#fbfdff !important; }
+/* キャッシュレス節は自前の @media(max-width:600px) で 26px を !important 指定しており、
+   そのままだとスマホで他の見出し(21px)より大きくなって階層が逆転する。
+   同節の style はbody内＝この層より後ろに来るため、IDセレクタで特異性を上げて揃える。 */
+@media (max-width:600px){ #cpay .h2-title{ font-size:21px !important; } }
+</style>
 <link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" href="apple-touch-icon.png"><style>.nav-dd{position:relative;display:flex;align-items:center}.nav-dd-caret{display:inline-block;font-size:0;width:0;height:0;margin-left:6px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--acd);transition:transform .2s}.nav-dd:hover .nav-dd-caret{transform:translateY(1px)}.nav-dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;z-index:70}.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}.nav-dd-inner{background:#fff;border-radius:12px;box-shadow:0 14px 34px rgba(60,90,150,.16);padding:8px;min-width:172px}.nav-dd-inner a{display:block;padding:11px 14px;border-radius:8px;font-size:13.5px;font-weight:500;color:#4a534e;text-decoration:none;white-space:nowrap}.nav-dd-inner a:hover{background:var(--acbg);color:#3a423e}.head-bar-inner{max-width:1180px;margin:0 auto;padding:6px 28px;display:flex;align-items:center;justify-content:flex-end;gap:14px}.head-bar-note{font-size:12px;color:#6b7686;letter-spacing:.03em;white-space:nowrap}.head-bar-sep{width:1px;height:11px;background:#d6dbe2}.hamburger,.mobile-menu,.mobile-cta{display:none}@media(max-width:1060px){.nav-menu{display:none!important}.head-topbar{display:none!important}}@media(max-width:1060px){header>div{gap:10px!important;padding:11px 64px 11px 14px!important;justify-content:space-between!important}header .brand-access{white-space:normal!important}header .logo-icon{height:33px!important;width:33px!important}header>div>a{flex:0 1 auto!important;min-width:0}header .head-main>div{display:none!important}header .brand-name-text{font-size:20px!important}header .head-main .pill{font-size:10px!important;padding:2px 8px!important;margin-bottom:3px!important}header a>span>span:last-child{font-size:11.5px!important;margin-top:2px!important}header nav{display:none!important}.pill{white-space:normal!important;text-align:center;max-width:100%}.hamburger{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:46px;height:46px;padding:0;border:none;border-radius:12px;background:var(--ac);box-shadow:0 4px 14px rgba(66,133,244,.35);cursor:pointer;position:fixed;top:11px;right:12px;z-index:60}body.menu-open .hamburger{background:var(--acd)}.hamburger span{display:block;width:22px;height:2.5px;margin:0 auto;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s}body.menu-open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}body.menu-open .hamburger span:nth-child(2){opacity:0}body.menu-open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}body.menu-open{overflow:hidden}body.menu-open .mobile-menu{display:flex!important;flex-direction:column;position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.98);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:80px 22px calc(22px + env(safe-area-inset-bottom,0px));gap:2px;overflow-y:auto}.mobile-menu a{font-size:17px;font-weight:600;color:#3a423e;text-decoration:none;padding:17px 6px;border-bottom:1px solid #eef0ec}.mobile-menu a.mm-accent{color:#5a97d1}.mobile-menu a.mm-line{color:#06c755}.mobile-cta{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:fixed;left:0;right:0;bottom:0;z-index:100;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));background:rgba(255,253,249,.97);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid #ecece6;box-shadow:0 -4px 16px rgba(0,0,0,.08)}body.menu-open .mobile-cta{display:none!important}.mobile-cta a{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:9px 2px;font-size:13px;font-weight:700;letter-spacing:.02em;box-shadow:none;background:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mobile-cta a svg{width:26px;height:26px;flex:none}.mobile-cta a.mc-tel{color:var(--acd)}.mobile-cta a.mc-web{color:var(--acd)}.mobile-cta a.mc-line{color:#06c755}.mobile-cta a.mc-waiting{color:#ef6c52}main{padding-bottom:88px!important}footer{padding-bottom:84px!important}}@media(max-width:860px){.section-pad{--k:.58}main .grid-3:has(>.dz-card){grid-template-columns:1fr 1fr!important;gap:10px!important}main .grid-3:has(>.dz-card) .dz-card{padding:14px 14px!important;border-radius:12px!important}main .grid-3:has(>.dz-card) .dz-card>div{font-size:14px!important;margin-bottom:5px!important;line-height:1.4!important}main .grid-3:has(>.dz-card) .dz-card p{font-size:11.5px!important;line-height:1.6!important;margin-bottom:8px!important}main .grid-3:has(>.dz-card) .dz-card span{font-size:11.5px!important}main .chk-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}main .chk-grid>div{padding:11px 12px!important;font-size:12.5px!important}}@media(max-width:400px){header .logo-icon{height:30px!important;width:30px!important}header a>span>span:last-child{font-size:10.5px!important}}.float-cta{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:45;display:flex;flex-direction:column;gap:8px}.float-cta a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:92px;height:92px;border-radius:14px 0 0 14px;color:#fff;font-size:13px;font-weight:700;line-height:1.3;text-align:center;letter-spacing:.01em;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}.float-cta a:hover{transform:translateX(-4px);box-shadow:0 8px 22px rgba(0,0,0,.26)}.float-cta a svg{width:26px;height:26px;flex:none}.float-cta .fc-line{background:#06c755}.float-cta .fc-web{background:var(--acd)}.float-cta .fc-waiting{background:#ef6c52}@media(max-width:1060px){.float-cta{display:none!important}}</style></head>
 <body id="top">
 <div>
@@ -90,27 +193,24 @@
           <span style="font-family: 'Zen Maru Gothic', sans-serif; font-size: 11.5px; color: #9aa39c; letter-spacing: 0.06em; margin-top: 4px;">IWASA ENT CLINIC</span>
         </span>
       </a>
-      <!-- 中央：住所2行＋地図へ（cocoro-minato の header_address 準拠） -->
-      <div class="head-address-col">
-        <p style="margin:0;">
-          <span class="addr-line">中央区京橋2-12-4 光和ビル2F</span><br>
-          <span class="addr-line">都営浅草線「宝町駅」A6・A7出口から徒歩1分</span><a href="access.html" class="head-map-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>地図へ</a>
-        </p>
-      </div>
-      <!-- 右：休診日/診療時間(上)＋電話(大)＋WEB予約・公式LINE(下)。休診日/診療時間(.head-hours)はヒーローのカードが出る1180px以上でのみ隠す -->
-      <div class="head-right-col">
-        <p class="head-week head-hours" style="margin:0;">
-          <span>休診日：水・土・日・祝</span>
-          <a href="access.html" class="hw-jikan">診療時間</a>
-        </p>
-        <a href="tel:0335678733" style="display:flex; align-items:center; gap:7px; text-decoration:none;">
-          <span aria-hidden="true" style="color:#ffa40e; font-size:22px; line-height:1; flex:none;">☎</span>
-          <span class="head-tel-num">03-3567-8733</span>
+      <!-- 中央：アクセス文＋電話番号（参考：clinic-ojima.com の header_info を実測して再現） -->
+      <div class="head-tel-col" style="display:flex; flex-direction:column; align-items:center;">
+        <p class="brand-access" style="font-size:13.5px; font-weight:700; color:#4a534e; letter-spacing:0.05em; text-align:center; line-height:1.5; padding:6px 0; margin:0 0 16px;">都営浅草線「宝町駅」A6・A7出口から徒歩1分</p>
+        <a href="tel:0335678733" style="display:flex; align-items:center; justify-content:center; gap:8px;">
+          <span aria-hidden="true" style="color:#0a6f92; display:inline-flex; align-items:center; font-size:1.05em;"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;flex:none;"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2.5-1-4.5-3-5.5-5.5l2-2-2-6-4 3Z"/></svg></span>
+          <span class="head-tel-num" style="font-size:30px; font-weight:400; color:#3a423e; letter-spacing:0.03em; white-space:nowrap;">03-3567-8733</span>
         </a>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <a href="reservation.html" style="display:flex;align-items:center;justify-content:center;background:var(--acd);color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">WEB予約</a>
-          <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#06C755;color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex:none;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+      </div>
+      <!-- 右：診療時間＋WEB予約・公式LINE・サイト内検索（参考：header_info2） -->
+      <div class="head-side" style="display:flex; flex-direction:column; align-items:flex-start; gap:9px;">
+        <p class="head-bar-inner" style="margin:0; align-items:flex-start;">
+          <span style="background:var(--acs); color:var(--acd); font-size:12px; font-weight:700; padding:3px 9px; border-radius:4px; white-space:nowrap; flex:none;">診療時間</span>
+          <span class="head-bar-note" style="white-space:normal; font-size:13px; line-height:1.55;">10:00–13:00／15:00–18:00<br>休診　水・土・日・祝</span>
+        </p>
+        <div style="display:flex; align-items:center; gap:9px;">
+          <a href="reservation.html" style="display:flex;align-items:center;justify-content:center;background:var(--acd);color:#fff;font-size:15px;font-weight:700;padding:10px 18px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">WEB予約</a>
+          <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#06C755;color:#fff;font-size:15px;font-weight:700;padding:10px 18px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:17px;height:17px;flex:none;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
             公式LINE
           </a>
         </div>
@@ -189,7 +289,6 @@
     <section style="background: var(--acbg);">
       <div class="section-pad" style="max-width: 800px; margin: 0 auto; padding: calc(56px * var(--k,1)) 28px;">
         <div style="text-align:center; margin-bottom: 28px;">
-          <div style="font-size:12px; letter-spacing:0.24em; color:var(--acd); margin-bottom:10px;">FAQ</div>
           <h2 style="font-family:'Shippori Mincho',serif; font-weight:600; font-size:26px; color:#3a423e; margin:0;">よくあるご質問</h2>
         </div>
         <div style="display:flex; flex-direction:column; gap:14px;"><details style="background:#fff; border-radius:14px; padding:4px 24px; box-shadow:0 6px 18px rgba(80,100,90,.05);">
@@ -223,7 +322,7 @@
         <p style="font-size: 15px; color: rgba(255,255,255,0.92); margin: 0 0 30px; line-height: 1.9;">気になる症状は、お早めにご相談ください。<br>現在は受付順（順番予約）で診療しております。2026年8月2日（日）18時から、予約システム「デジスマ」で時間帯予約ができるようになります。</p>
         <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
           <a href="reservation.html" class="pill" style="background:#fff; color:var(--acd); font-size: 16px; padding: 16px 34px; box-shadow:0 10px 26px rgba(0,0,0,.12);">WEB予約・アプリのご案内</a>
-          <a href="tel:0335678733" class="pill" style="background: rgba(255,255,255,0.12); color:#fff; border:1.5px solid rgba(255,255,255,0.8); font-size: 16px; padding: 15px 32px;"><span aria-hidden="true" style="color:#ffa40e;">☎</span> 03-3567-8733</a>
+          <a href="tel:0335678733" class="pill" style="background: rgba(255,255,255,0.12); color:#fff; border:1.5px solid rgba(255,255,255,0.8); font-size: 16px; padding: 15px 32px;"><span aria-hidden="true" style="color:#0a6f92; display:inline-flex; align-items:center; font-size:1.05em;"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;flex:none;"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2.5-1-4.5-3-5.5-5.5l2-2-2-6-4 3Z"/></svg></span> 03-3567-8733</a>
           <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="pill btn-line" style="font-size: 16px; padding: 16px 32px;">公式LINE</a>
         </div>
       </div>
