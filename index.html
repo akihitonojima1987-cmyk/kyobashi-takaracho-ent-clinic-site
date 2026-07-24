@@ -649,49 +649,93 @@ h1.h2-title{ font-size:30px !important; }
     </div>
 
     <!-- ============ ファーストビュー（ヒーロー一面写真→下にお知らせ） ============ -->
-    <section class="hero-fv-section" style="position: relative; overflow: hidden; min-height: clamp(540px, calc(100vh - 194px), 800px); display: flex; align-items: stretch; padding: 48px 0;">
-      <img src="hero-photo.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% center; z-index: 0;">
-      <div style="position: absolute; inset: 0; background: linear-gradient(102deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.34) 26%, rgba(255,255,255,0.12) 48%, rgba(255,255,255,0) 68%); z-index: 0;"></div>
-      <div style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 44px; flex-wrap: wrap;">
-        <div class="hero-copy" style="flex: 1 1 420px; min-width: 0;">
-        <div class="hero-eyebrow" style="display: inline-flex; align-items: center; gap: 8px; color: var(--acd); font-size: 15px; font-weight: 700; letter-spacing: 0.18em; margin-bottom: 16px; text-shadow: 0 1px 3px rgba(255,255,255,0.9);">
-          <span style="width: 26px; height: 1px; background: var(--ac);"></span>京橋・宝町の耳鼻咽喉科
-        </div>
-        <h1 class="hero-overlay-h1" style="font-family: 'Zen Maru Gothic', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 41.5px; line-height: 1.5; letter-spacing: 0.03em; color: #0378A0; text-shadow: 0 1px 10px rgba(255,255,255,0.9), 0 0 3px rgba(255,255,255,0.9); margin: 0 0 18px;">耳・鼻・のどの不調に。</h1>
-        <p class="hero-lead" style="font-size: 17px; line-height: 2; color: #4a534e; margin: 0 0 22px; letter-spacing: 0.02em; max-width: 520px; text-shadow: 0 1px 3px rgba(255,255,255,0.9);">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
-        <!-- アクセスバッジ -->
-        <div class="hero-badge-cluster" style="display: flex; flex-wrap: wrap; gap: 9px;">
-          <span class="hero-tag">都営浅草線 宝町駅 徒歩1分</span>
-          <span class="hero-tag">Bスポット療法</span>
-          <span class="hero-tag">電子内視鏡</span>
-        </div>
-        </div><!-- /.hero-copy -->
-        <!-- 診療時間カード（cocoro-minato.clinic 準拠・ヒーロー右に重ねる） -->
-        <div class="hero-hours-wrap">
-          <div class="hero-hours-card">
-            <table class="hero-hours-table">
-              <thead>
-                <tr>
-                  <th class="hh-title">診療時間</th>
-                  <th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="hh-time">10:00〜13:00</td>
-                  <td class="hh-o">●</td><td class="hh-o">●</td><td class="hh-x">／</td><td class="hh-o">●</td><td class="hh-o">●</td><td class="hh-x">／</td><td class="hh-x">／</td>
-                </tr>
-                <tr>
-                  <td class="hh-time">15:00〜18:00</td>
-                  <td class="hh-o">●</td><td class="hh-o">●</td><td class="hh-x">／</td><td class="hh-o">●</td><td class="hh-o">●</td><td class="hh-x">／</td><td class="hh-x">／</td>
-                </tr>
-              </tbody>
-            </table>
-            <p class="hh-note">休診日：水・土・日・祝<br>受付　午前 9:45–12:30 ／ 午後 14:45–17:30</p>
+    <style>
+  /* PCヒーロー：2スライド自動切替（2026-07-24）。従来の一枚絵＋診療時間カードから変更。 */
+  .pv-hero{ position:relative; overflow:hidden; min-height:clamp(540px, calc(100vh - 194px), 760px); }
+  .pv-slide{ position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; z-index:0; }
+  .pv-slide.pv-on{ opacity:1; z-index:1; }
+  .pv-bg{ position:absolute; inset:0; background-size:cover; }
+  .pv-scrim{ position:absolute; inset:0; }
+  .pv-scrim-r{ background:linear-gradient(276deg,rgba(10,22,26,.72) 0%,rgba(10,22,26,.5) 40%,rgba(10,22,26,.12) 70%,rgba(10,22,26,0) 88%); }
+  .pv-scrim-l{ background:linear-gradient(96deg,rgba(10,22,26,.72) 0%,rgba(10,22,26,.5) 40%,rgba(10,22,26,.12) 70%,rgba(10,22,26,0) 88%); }
+  .pv-wrap{ position:relative; z-index:2; max-width:1180px; margin:0 auto; padding:0 40px;
+            min-height:inherit; display:flex; align-items:center; }
+  .pv-copy{ max-width:560px; }
+  .pv-copy.pv-r{ margin-left:auto; text-align:right; }
+  .pv-eyebrow{ display:inline-flex; align-items:center; gap:9px; color:#bfe8f7; font-size:15px;
+               font-weight:700; letter-spacing:.18em; margin-bottom:15px; }
+  .pv-copy.pv-r .pv-eyebrow{ flex-direction:row-reverse; }
+  .pv-eyebrow i{ width:26px; height:1px; background:var(--ac); display:block; }
+  .pv-h1{ font-family:'Zen Maru Gothic','Zen Kaku Gothic New',sans-serif; font-weight:700;
+          font-size:42px; line-height:1.5; letter-spacing:.03em; color:#fff; margin:0 0 17px;
+          text-shadow:0 2px 16px rgba(0,0,0,.45); }
+  .pv-lead{ font-size:16.5px; line-height:2; color:#eef3f5; margin:0 0 24px; letter-spacing:.02em;
+            text-shadow:0 1px 8px rgba(0,0,0,.5); }
+  /* 3色白丸バッジ（正円） */
+  .pv-circs{ display:flex; flex-wrap:wrap; gap:12px; }
+  .pv-copy.pv-r .pv-circs{ justify-content:flex-end; }
+  .pv-circ{ width:94px; height:94px; border-radius:50%; background:rgba(255,255,255,.94);
+            border:2px solid var(--c); color:var(--c); display:flex; align-items:center;
+            justify-content:center; text-align:center; font-size:12px; font-weight:700;
+            line-height:1.34; letter-spacing:.01em; padding:6px; flex:none;
+            box-shadow:0 6px 18px rgba(0,0,0,.16) !important; }
+  .pv-dots{ position:absolute; left:0; right:0; bottom:22px; z-index:5; display:flex; gap:9px; justify-content:center; }
+  .pv-dots span{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,.55); cursor:pointer; transition:.3s; }
+  .pv-dots span.on{ background:#fff; width:26px; border-radius:5px; }
+  @media (prefers-reduced-motion: reduce){ .pv-slide{ transition:none; } }
+  /* ヒーローの診療時間カードを廃止したため、1180px以上でもヘッダーの診療時間を表示する */
+  @media (min-width: 1180px){ .head-hours{ display:flex !important; } }
+</style>
+
+    <section class="hero-fv-section pv-hero">
+      <!-- スライド1：白衣＋都市（PIXTA 135087107）／コピー右 -->
+      <div class="pv-slide pv-on">
+        <div class="pv-bg" style="background-image:url('hero-slide1.jpg'); background-position:28% center;"></div>
+        <div class="pv-scrim pv-scrim-r"></div>
+        <div class="pv-wrap"><div class="pv-copy pv-r">
+          <div class="pv-eyebrow"><i></i>京橋・宝町の耳鼻咽喉科</div>
+          <p class="pv-h1">耳・鼻・のどの不調に。</p>
+          <p class="pv-lead">耳・鼻・のどの健やかな毎日を、京橋・宝町の地で。<br>耳鼻咽喉科専門医が、ていねいで安心できる診療をお届けします。</p>
+          <div class="pv-circs">
+            <span class="pv-circ" style="--c:#3d7fa0">都営浅草線<br>宝町駅<br>徒歩1分</span>
+            <span class="pv-circ" style="--c:#4e9e78">Bスポット<br>療法</span>
+            <span class="pv-circ" style="--c:#b0912f">電子内視鏡</span>
           </div>
-        </div>
+        </div></div>
       </div>
+      <!-- スライド2：オフィスビル＋植栽／アクセス訴求・コピー左 -->
+      <div class="pv-slide">
+        <div class="pv-bg" style="background-image:url('hero-slide2.jpg'); background-position:center 45%;"></div>
+        <div class="pv-scrim pv-scrim-l"></div>
+        <div class="pv-wrap"><div class="pv-copy pv-l">
+          <div class="pv-eyebrow"><i></i>京橋・宝町の耳鼻咽喉科</div>
+          <p class="pv-h1">都心5駅から、歩いてすぐ。</p>
+          <p class="pv-lead">地下鉄4路線＋JR。宝町駅からは徒歩1分です。</p>
+          <div class="pv-circs">
+            <span class="pv-circ" style="--c:#3d7fa0">宝町駅<br>徒歩1分</span>
+            <span class="pv-circ" style="--c:#4e9e78">京橋駅<br>徒歩2分</span>
+            <span class="pv-circ" style="--c:#b0912f">東京駅<br>徒歩9分</span>
+          </div>
+        </div></div>
+      </div>
+      <div class="pv-dots"><span class="on"></span><span></span></div>
     </section>
+
+    <script>
+    (function(){
+      var slides=[].slice.call(document.querySelectorAll('.pv-hero .pv-slide'));
+      var dots=[].slice.call(document.querySelectorAll('.pv-dots span'));
+      if(slides.length<2) return;
+      var idx=0, timer=null;
+      function show(n){ idx=(n+slides.length)%slides.length;
+        slides.forEach(function(s,k){ s.classList.toggle('pv-on', k===idx); });
+        dots.forEach(function(d,k){ d.classList.toggle('on', k===idx); }); }
+      function start(){ stop(); timer=setInterval(function(){ show(idx+1); }, 5000); }
+      function stop(){ if(timer) clearInterval(timer); }
+      dots.forEach(function(d,k){ d.addEventListener('click', function(){ show(k); start(); }); });
+      start();
+    })();
+    </script>
 
     <script>
     (function(){
