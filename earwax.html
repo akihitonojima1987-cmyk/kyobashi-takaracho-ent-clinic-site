@@ -85,13 +85,17 @@ h3[style*="Shippori"],h4[style*="Shippori"],.fz-h3,.hub-label{
 
 /* --- ⑥ 見出しの階層 --------------------------------------------------- */
 h1[style*="Shippori"],.h1-title{ font-size:30px !important; letter-spacing:.06em !important; }
-h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !important;
+/* 見出しのクラスは .h1-title / .h2-title / .sec-h2 の3系統＋素のh2が混在している。
+   クラス単位で拾うと必ず取りこぼし、h2(40px) が h1(30px) より大きい逆転が起きる
+   （2026-07-24 に first-visit で実際に発生）。h2 は要素セレクタで一括指定する。 */
+h2,.sec-h2,h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !important;
   letter-spacing:.1em !important; }
+h1.h2-title{ font-size:30px !important; }
 /* トップの主役2節だけ大きく残す */
 .sec-features .h2-title,#services .h2-title{ font-size:30px !important; }
 @media (max-width:480px){
-  h1[style*="Shippori"],.h1-title{ font-size:24px !important; }
-  h2[style*="Shippori"],.h2-title{ font-size:21px !important; }
+  h1[style*="Shippori"],.h1-title,h1.h2-title{ font-size:24px !important; }
+  h2,.sec-h2,h2[style*="Shippori"],.h2-title{ font-size:21px !important; }
   .sec-features .h2-title,#services .h2-title{ font-size:24px !important; } }
 
 /* --- ② 丸アイコンの後始末（CSSクラス側で丸くしているもの） --------------- */

@@ -202,13 +202,17 @@ h3[style*="Shippori"],h4[style*="Shippori"],.fz-h3,.hub-label{
 
 /* --- ⑥ 見出しの階層 --------------------------------------------------- */
 h1[style*="Shippori"],.h1-title{ font-size:30px !important; letter-spacing:.06em !important; }
-h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !important;
+/* 見出しのクラスは .h1-title / .h2-title / .sec-h2 の3系統＋素のh2が混在している。
+   クラス単位で拾うと必ず取りこぼし、h2(40px) が h1(30px) より大きい逆転が起きる
+   （2026-07-24 に first-visit で実際に発生）。h2 は要素セレクタで一括指定する。 */
+h2,.sec-h2,h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !important;
   letter-spacing:.1em !important; }
+h1.h2-title{ font-size:30px !important; }
 /* トップの主役2節だけ大きく残す */
 .sec-features .h2-title,#services .h2-title{ font-size:30px !important; }
 @media (max-width:480px){
-  h1[style*="Shippori"],.h1-title{ font-size:24px !important; }
-  h2[style*="Shippori"],.h2-title{ font-size:21px !important; }
+  h1[style*="Shippori"],.h1-title,h1.h2-title{ font-size:24px !important; }
+  h2,.sec-h2,h2[style*="Shippori"],.h2-title{ font-size:21px !important; }
   .sec-features .h2-title,#services .h2-title{ font-size:24px !important; } }
 
 /* --- ② 丸アイコンの後始末（CSSクラス側で丸くしているもの） --------------- */
@@ -359,7 +363,7 @@ h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !imp
 <!-- ============ 診療時間・受付時間 ============ -->
     <section style="background: #fff;">
       <div class="section-pad" style="max-width: 1120px; margin: 0 auto; padding: calc(72px * var(--k,1)) 28px;">
-        <div class="sec-head"><div class="sec-eyebrow">HOURS</div><h2 class="sec-h2">診療時間・受付時間</h2><div class="sec-bar"></div></div>
+        <div class="sec-head"><h2 class="sec-h2">診療時間・受付時間</h2><div class="sec-bar"></div></div>
         <dl style="margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 16px 20px;">
           <dt style="font-size: 14px; font-weight: 700; color: var(--acd); white-space: nowrap;">診療日</dt>
           <dd style="margin: 0; font-size: 16px; color: #4a534e; line-height: 1.8;">月・火・木・金<br><span style="font-size: 14px; color: #6b7686;">水曜・土曜・日曜・祝日は休診です</span></dd>
@@ -374,7 +378,7 @@ h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !imp
 <!-- ============ ご予約について（2026-07-18 セクション統合。旧「予約方法について」を上に移動・重複整理） ============ -->
     <section style="background: #fff;">
       <div class="section-pad" style="max-width: 1120px; margin: 0 auto; padding: calc(72px * var(--k,1)) 28px;">
-        <div class="sec-head"><div class="sec-eyebrow">RESERVATION</div><h2 class="sec-h2">ご予約について</h2><div class="sec-bar"></div></div>
+        <div class="sec-head"><h2 class="sec-h2">ご予約について</h2><div class="sec-bar"></div></div>
         <p style="font-size: 16px; line-height: 2.2; color: #5b645f; margin: 0 0 24px; letter-spacing: 0.03em;">現在は<strong style="color: #4a534e;">ご予約なしの受付順（整理券）</strong>で診療しています。受付時間内に直接ご来院ください。<strong style="color: #4a534e;">2026年8月2日（日）18時から</strong>は、予約システム「デジスマ」で時間帯のご予約もご利用いただけます。事前のWEB問診にお答えいただくと、当日のご案内がスムーズです。</p>
         <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
           <a href="reservation.html" class="pill btn-primary" style="font-size: 16px; padding: 13px 28px;">ご予約について詳しく →</a>
@@ -386,7 +390,7 @@ h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !imp
 <!-- ============ お持ちいただくもの ============ -->
     <section style="background: #fff;">
       <div class="section-pad" style="max-width: 1120px; margin: 0 auto; padding: calc(72px * var(--k,1)) 28px;">
-        <div class="sec-head"><div class="sec-eyebrow">WHAT TO BRING</div><h2 class="sec-h2">お持ちいただくもの</h2><div class="sec-bar"></div></div>
+        <div class="sec-head"><h2 class="sec-h2">お持ちいただくもの</h2><div class="sec-bar"></div></div>
         <ul style="margin: 0; padding: 0;">
           <li style="display:flex; align-items:flex-start; padding:16px 0; border-bottom:1px solid #eef0ec; list-style:none;"><span style="flex:none; width:46px; height:46px; border-radius:12px; background:var(--acs); color:var(--acd); display:flex; align-items:center; justify-content:center; margin-right:16px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><rect x="6" y="9" width="4" height="3.2" rx="0.6"/><path d="M13 10h5M13 13.5h5M6 15.5h6"/></svg></span><div style="flex:1; min-width:0;"><div style="font-size:15.5px; font-weight:700; color:#3a423e; margin-bottom:5px;">マイナ保険証（マイナンバーカード）または資格確認書</div><p style="margin:0; font-size:14px; line-height:1.9; color:#5b645f;">月はじめの受診時にご提示ください。就職・転職などで保険が変わったときや、住所・電話番号など登録内容に変更があったときも、受付までお知らせください。</p></div></li><li style="display:flex; align-items:flex-start; padding:16px 0; border-bottom:1px solid #eef0ec; list-style:none;"><span style="flex:none; width:46px; height:46px; border-radius:12px; background:var(--acs); color:var(--acd); display:flex; align-items:center; justify-content:center; margin-right:16px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M12 15.5s-3-1.9-3-4a1.8 1.8 0 0 1 3-1.3A1.8 1.8 0 0 1 15 11.5c0 2.1-3 4-3 4Z"/></svg></span><div style="flex:1; min-width:0;"><div style="font-size:15.5px; font-weight:700; color:#3a423e; margin-bottom:5px;">各種医療証</div><p style="margin:0; font-size:14px; line-height:1.9; color:#5b645f;">乳幼児医療証・ひとり親家庭等医療証など、公費負担のある方は保険証と一緒にご提示ください。</p></div></li><li style="display:flex; align-items:flex-start; padding:16px 0; border-bottom:1px solid #eef0ec; list-style:none;"><span style="flex:none; width:46px; height:46px; border-radius:12px; background:var(--acs); color:var(--acd); display:flex; align-items:center; justify-content:center; margin-right:16px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M12 8v6M9 11h6"/><path d="M8 3.5v17"/></svg></span><div style="flex:1; min-width:0;"><div style="font-size:15.5px; font-weight:700; color:#3a423e; margin-bottom:5px;">お薬手帳・服用中のお薬</div><p style="margin:0; font-size:14px; line-height:1.9; color:#5b645f;">他院で処方されているお薬がある方は、飲み合わせの確認に必要です。妊娠中・妊娠の可能性がある方は、お薬の処方に関わりますので受付でお申し出ください。</p></div></li><li style="display:flex; align-items:flex-start; padding:16px 0; border-bottom:1px solid #eef0ec; list-style:none;"><span style="flex:none; width:46px; height:46px; border-radius:12px; background:var(--acs); color:var(--acd); display:flex; align-items:center; justify-content:center; margin-right:16px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="2"/><path d="M4 9h16M7 12.5h5"/></svg></span><div style="flex:1; min-width:0;"><div style="font-size:15.5px; font-weight:700; color:#3a423e; margin-bottom:5px;">診察券（再診の方）</div><p style="margin:0; font-size:14px; line-height:1.9; color:#5b645f;">2回目以降の受診では、毎回お持ちください。</p></div></li><li style="display:flex; align-items:flex-start; padding:16px 0; border-bottom:1px solid #eef0ec; list-style:none;"><span style="flex:none; width:46px; height:46px; border-radius:12px; background:var(--acs); color:var(--acd); display:flex; align-items:center; justify-content:center; margin-right:16px;"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h9l4 4V20a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z"/><path d="M14 3.5V8h4.5M8.5 12.5h7M8.5 15.5h7"/></svg></span><div style="flex:1; min-width:0;"><div style="font-size:15.5px; font-weight:700; color:#3a423e; margin-bottom:5px;">紹介状（診療情報提供書）</div><p style="margin:0; font-size:14px; line-height:1.9; color:#5b645f;">他院からのご紹介がある方は、受付でお渡しください。</p></div></li>
         </ul>
@@ -396,7 +400,7 @@ h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !imp
 <!-- ============ ご来院の流れ（2026-07-18 machino-clinic visitor.html に忠実：四角番号バッジ＋下向き三角矢印・縦積み） ============ -->
     <section style="background: #fff;">
       <div class="section-pad" style="max-width: 1120px; margin: 0 auto; padding: calc(72px * var(--k,1)) 28px;">
-        <div class="sec-head"><div class="sec-eyebrow">FLOW</div><h2 class="sec-h2">ご来院から会計までの流れ</h2><div class="sec-bar"></div></div>
+        <div class="sec-head"><h2 class="sec-h2">ご来院から会計までの流れ</h2><div class="sec-bar"></div></div>
         <div>
           <div style="background:#f4f8fd; padding:24px 28px; border-radius:8px;">
             <div style="display:flex; align-items:center; gap:20px; margin-bottom:16px;"><span style="flex:none; width:50px; height:50px; border-radius:6px; background:var(--acd); color:#fff; font-size:24px; font-weight:700; display:flex; align-items:center; justify-content:center; letter-spacing:0.02em;">01</span><span style="font-size:22px; font-weight:700; color:#3a423e;">受付</span></div>

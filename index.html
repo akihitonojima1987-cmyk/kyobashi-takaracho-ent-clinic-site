@@ -411,13 +411,17 @@ h3[style*="Shippori"],h4[style*="Shippori"],.fz-h3,.hub-label{
 
 /* --- ⑥ 見出しの階層 --------------------------------------------------- */
 h1[style*="Shippori"],.h1-title{ font-size:30px !important; letter-spacing:.06em !important; }
-h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !important;
+/* 見出しのクラスは .h1-title / .h2-title / .sec-h2 の3系統＋素のh2が混在している。
+   クラス単位で拾うと必ず取りこぼし、h2(40px) が h1(30px) より大きい逆転が起きる
+   （2026-07-24 に first-visit で実際に発生）。h2 は要素セレクタで一括指定する。 */
+h2,.sec-h2,h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !important;
   letter-spacing:.1em !important; }
+h1.h2-title{ font-size:30px !important; }
 /* トップの主役2節だけ大きく残す */
 .sec-features .h2-title,#services .h2-title{ font-size:30px !important; }
 @media (max-width:480px){
-  h1[style*="Shippori"],.h1-title{ font-size:24px !important; }
-  h2[style*="Shippori"],.h2-title{ font-size:21px !important; }
+  h1[style*="Shippori"],.h1-title,h1.h2-title{ font-size:24px !important; }
+  h2,.sec-h2,h2[style*="Shippori"],.h2-title{ font-size:21px !important; }
   .sec-features .h2-title,#services .h2-title{ font-size:24px !important; } }
 
 /* --- ② 丸アイコンの後始末（CSSクラス側で丸くしているもの） --------------- */
@@ -724,7 +728,6 @@ h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !imp
       <div style="max-width: 1180px; margin: 0 auto; padding: 0 28px;">
         <div class="hero2col-news" style="background: #fff; border-radius: 20px; box-shadow: 0 20px 50px rgba(80,100,90,0.10); display: grid; grid-template-columns: 200px 1fr; overflow: hidden;">
           <div style="background: var(--acbg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 28px 20px; text-align: center;">
-            <span style="font-size: 12px; letter-spacing: 0.2em; color: var(--acd); font-weight: 700;">NEWS</span>
             <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 22px; color: #3a423e; margin: 0;">お知らせ</h2>
           </div>
           <!-- 各件は「日付＋タグ＋1行タイトル」だけを表示し、全文は展開して読む形にしている。
@@ -813,7 +816,6 @@ h2[style*="Shippori"],.h2-title{ font-size:23px !important; font-weight:600 !imp
     <!-- PCには下の「診療内容」カード6枚が同じ役割を果たすため、こちらはスマホの入口としてのみ表示する。 -->
     <section class="sec-symptom">
       <div class="symptom-head">
-        <div class="symptom-eyebrow">SYMPTOM</div>
         <h2>どの症状でお困りですか？</h2>
       </div>
       <div class="symptom-scroll">
