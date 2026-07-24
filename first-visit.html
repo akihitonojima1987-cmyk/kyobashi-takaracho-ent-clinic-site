@@ -425,6 +425,71 @@ h1.h2-title{ font-size:30px !important; }
       </div>
     </section>
 
+<!-- ============ お支払い方法（詳細版・2026-07-24 新設）============
+     トップページ(#cpay)は簡潔版。こちらは初診の方向けに、使える／使えない決済、
+     自費診療、分割の可否まで含めた詳細版として住み分ける。
+     ※ 2026-07-30 の運用開始後は .cpay2-start の1行を削除する。 -->
+    <section id="payment" style="background: var(--acbg);">
+      <div class="section-pad" style="max-width: 1120px; margin: 0 auto; padding: calc(72px * var(--k,1)) 28px;">
+        <div class="sec-head"><h2 class="sec-h2">お支払い方法</h2><div class="sec-bar"></div></div>
+        <style>
+          .cpay2-start{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--ac);
+            color:var(--acd);font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;margin-bottom:18px;}
+          .cpay2-lead{font-size:16px;line-height:2.1;color:#5b645f;margin:0 0 26px;}
+          .cpay2-block{background:#fff;border-radius:8px;padding:22px 24px;margin-bottom:14px;}
+          .cpay2-h{font-size:15px;font-weight:700;color:#3a423e;margin:0 0 14px;}
+          .cpay2-grid{display:flex;flex-wrap:wrap;gap:10px;}
+          .cpay2-tile{width:104px;height:64px;background:#fff;border:1px solid #e6edf4;border-radius:10px;
+            display:flex;align-items:center;justify-content:center;padding:10px;box-shadow:0 1px 3px rgba(40,80,120,.05);}
+          .cpay2-tile img{max-width:100%;max-height:40px;object-fit:contain;display:block;}
+          .cpay2-note{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:#6b746f;line-height:1.9;margin-top:12px;}
+          .cpay2-note img{height:22px;width:auto;display:block;}
+          .cpay2-list{margin:0;padding:0;list-style:none;}
+          .cpay2-list li{display:flex;gap:10px;padding:7px 0;font-size:15px;line-height:1.95;color:#5b645f;}
+          .cpay2-list li span{color:var(--acd);font-weight:800;flex:none;}
+          @media (max-width:600px){
+            .cpay2-tile{width:calc(33.333% - 7px);height:54px;}
+            .cpay2-lead{font-size:15px;}
+            .cpay2-list li{font-size:14px;}
+          }
+        </style>
+        <div class="cpay2-start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:block;"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>キャッシュレス決済は2026年7月30日（木）より、ご利用いただけます</div>
+        <p class="cpay2-lead">現金のほか、各種クレジットカード・電子マネー・交通系ICカードがご利用いただけます。</p>
+
+        <div class="cpay2-block">
+          <p class="cpay2-h">クレジットカード</p>
+          <div class="cpay2-grid">
+            <span class="cpay2-tile"><img src="pay-visa.png" alt="VISA"></span>
+            <span class="cpay2-tile"><img src="pay-mastercard.png" alt="Mastercard"></span>
+            <span class="cpay2-tile"><img src="pay-jcb.png" alt="JCB"></span>
+            <span class="cpay2-tile"><img src="pay-amex.png" alt="American Express"></span>
+            <span class="cpay2-tile"><img src="pay-diners.png" alt="Diners Club"></span>
+            <span class="cpay2-tile"><img src="pay-discover.png" alt="Discover"></span>
+          </div>
+          <span class="cpay2-note"><img src="pay-nfc.png" alt="タッチ決済（コンタクトレス）マーク">カードにこのマークがあれば、かざすだけのタッチ決済にも対応しています</span>
+        </div>
+
+        <div class="cpay2-block">
+          <p class="cpay2-h">電子マネー・交通系ICカード</p>
+          <div class="cpay2-grid">
+            <span class="cpay2-tile"><img src="pay-id.png" alt="iD"></span>
+            <span class="cpay2-tile"><img src="pay-quicpay.png" alt="QUICPay"></span>
+            <span class="cpay2-tile"><img src="pay-transit.png" alt="交通系ICカード（Suica・PASMO・ICOCA ほか）"></span>
+          </div>
+        </div>
+
+        <div class="cpay2-block">
+          <p class="cpay2-h">ご利用にあたって</p>
+          <ul class="cpay2-list">
+            <li><span>✓</span>現金でのお支払いも、これまでどおり可能です。</li>
+            <li><span>✓</span>QRコード決済（PayPay・LINE Pay など）は、ご利用いただけません。</li>
+            <li><span>✓</span>自費診療（自由診療）のお支払いにも、クレジットカードをご利用いただけます。</li>
+            <li><span>✓</span>お支払い回数は一括払いのみとなります（分割払い・リボ払いはご利用いただけません）。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
 <!-- ============ お子さま・院内・お支払い（要点のみ・2026-07-18 3カードを2カードに整理） ============ -->
     <section style="background: #fff;">
       <div class="section-pad" style="max-width: 1120px; margin: 0 auto; padding: calc(64px * var(--k,1)) 28px;">
