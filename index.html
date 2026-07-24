@@ -245,7 +245,14 @@
   .feat-zig-img { flex: 1.55 1 0; min-width: 0; }
   .feat-zig-img img { width: 100%; height: 440px; object-fit: cover; border-radius: 20px; box-shadow: 0 22px 52px rgba(80,100,90,0.14); display: block; }
   .feat-zig-text { flex: 1 1 0; min-width: 0; }
-  .fz-num { font-family: 'Shippori Mincho', serif; font-size: 46px; font-weight: 700; color: #d7e5f3; line-height: 1; margin-bottom: 8px; }
+  /* 2026-07-24：淡い数字だけでは弱く小さく見えたため、スマホヒーローの Feature バッジ（.mh-badge）と
+   同じ意匠（青の正円＋Feature＋番号）に統一する。 */
+.fz-num { width: 66px; height: 66px; border-radius: 50%; background: var(--ac); color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  line-height: 1; margin-bottom: 16px; }
+.fz-num-label { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; line-height: 1; margin-bottom: 3px; }
+.fz-num-n { font-family: 'Shippori Mincho', serif; font-size: 26px; font-weight: 700; line-height: 1; }
   .fz-h3 { font-family: 'Shippori Mincho', serif; font-size: 26px; color: #3a423e; margin: 0 0 16px; line-height: 1.55; }
   .fz-p { font-size: 16px; line-height: 2; color: #6b746f; margin: 0; }
 
@@ -402,8 +409,10 @@
 h3[style*="Shippori"],h4[style*="Shippori"],.fz-h3,.hub-label{
   font-family:'Zen Kaku Gothic New',sans-serif !important;
   font-weight:700 !important; letter-spacing:.01em !important; }
-/* 連番 01/02/03 の明朝46px も見出しと競合するのでゴシックの小ラベルへ */
-.fz-num,.hf-num,.mobile-hero .mh-badge-num{
+/* 連番 01/02/03 の明朝46px も見出しと競合するのでゴシックの小ラベルへ。
+   ※ .fz-num は 2026-07-24 にスマホと同じ Feature 円バッジへ変更したため、この統一指定の対象から外す
+     （色 var(--acd) が当たると白文字が背景の青と同色になり読めなくなる）。 */
+.hf-num,.mobile-hero .mh-badge-num{
   font-family:'Zen Kaku Gothic New',sans-serif !important; font-size:13px !important;
   font-weight:700 !important; letter-spacing:.14em !important;
   color:var(--acd) !important; margin-bottom:6px !important; text-shadow:none !important; }
@@ -551,7 +560,12 @@ h1.h2-title{ font-size:30px !important; }
       background: #e4eff6; border-radius: 100px; padding: 3px 11px; text-decoration: none; margin-left: 8px; white-space: nowrap; }
     .head-map-link svg { width: 12px; height: 12px; }
     /* 右：休診日/診療時間(上)＋電話(大)＋予約ボタン(下)。すべて右寄せ */
-    .head-right-col { margin-left: auto; flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+    /* 2026-07-24：縦3段（休診日／電話／ボタン）だとヘッダーが厚くなりヒーローを圧迫するため、
+       電話とボタンを同じ行に並べて2段に詰める。休診日の行だけ幅いっぱいで上に置く。 */
+    /* 2026-07-24：予約ボタンをナビ行へ移したため、右列は休診日＋電話の2段のみ。
+       ヘッダーが薄くなり、住所欄の横幅も確保できる。 */
+    .head-right-col { margin-left: auto; flex: none; display: flex; flex-direction: column;
+      align-items: flex-end; gap: 4px; }
     .head-week { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4a4a4a; white-space: nowrap; }
     .head-week .hw-jikan { display: inline-flex; align-items: center; font-size: 12.5px; color: var(--acd);
       background: #e4eff6; border-radius: 100px; padding: 3px 11px; text-decoration: none; }
@@ -595,13 +609,7 @@ h1.h2-title{ font-size:30px !important; }
           <span aria-hidden="true" style="color:#0a6f92; display:inline-flex; align-items:center; font-size:1.05em;"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:1em;height:1em;flex:none;"><path d="M4 5c0 8.5 6.5 15 15 15l3-4-6-2-2 2c-2.5-1-4.5-3-5.5-5.5l2-2-2-6-4 3Z"/></svg></span>
           <span class="head-tel-num">03-3567-8733</span>
         </a>
-        <div style="display:flex; align-items:center; gap:8px;">
-          <a href="reservation.html" style="display:flex;align-items:center;justify-content:center;background:var(--acd);color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">WEB予約</a>
-          <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#06C755;color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex:none;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
-            公式LINE
-          </a>
-        </div>
+        
       </div>
     </div>
     <nav style="padding: 16px 40px 22px; display: flex; align-items: center; justify-content: center; border-top: 1px solid #eceae4;">
@@ -613,6 +621,13 @@ h1.h2-title{ font-size:30px !important; }
         <a href="access.html"   class="nav-link">アクセス</a>
         <a href="symptoms.html" class="nav-link">このような時</a>
         <a href="faq.html" class="nav-link">よくある質問</a>
+        <div style="display:flex; align-items:center; gap:8px; margin-left:auto;">
+          <a href="reservation.html" style="display:flex;align-items:center;justify-content:center;background:var(--acd);color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">WEB予約</a>
+          <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:6px;background:#06C755;color:#fff;font-size:14px;font-weight:700;padding:8px 16px;border-radius:999px;white-space:nowrap;letter-spacing:0.02em;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;flex:none;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+            公式LINE
+          </a>
+        </div>
       </div>
     </nav>
   </header>
@@ -651,7 +666,8 @@ h1.h2-title{ font-size:30px !important; }
     <!-- ============ ファーストビュー（ヒーロー一面写真→下にお知らせ） ============ -->
     <style>
   /* PCヒーロー：2スライド自動切替（2026-07-24）。従来の一枚絵＋診療時間カードから変更。 */
-  .pv-hero{ position:relative; overflow:hidden; min-height:clamp(540px, calc(100vh - 194px), 760px); }
+  /* 高さ：ヘッダー実測（約185px）を差し引く。横長に見えないよう最低600pxを確保する。 */
+  .pv-hero{ position:relative; overflow:hidden; min-height:clamp(600px, calc(100vh - 188px), 800px); }
   .pv-slide{ position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; z-index:0; }
   .pv-slide.pv-on{ opacity:1; z-index:1; }
   .pv-bg{ position:absolute; inset:0; background-size:cover; }
@@ -831,7 +847,7 @@ h1.h2-title{ font-size:30px !important; }
           <div class="feat-zig">
             <div class="feat-zig-img"><img src="feature-doctor.jpg" alt="" style="object-position: 78% center;"></div>
             <div class="feat-zig-text">
-              <div class="fz-num">01</div>
+              <div class="fz-num"><span class="fz-num-label">Feature</span><span class="fz-num-n">01</span></div>
               <h3 class="fz-h3">耳鼻咽喉科専門医による診療</h3>
               <p class="fz-p">日本耳鼻咽喉科頭頸部外科学会 耳鼻咽喉科専門医の院長が、一人ひとりていねいに診療いたします。</p>
             </div>
@@ -839,7 +855,7 @@ h1.h2-title{ font-size:30px !important; }
           <div class="feat-zig reverse">
             <div class="feat-zig-img"><img src="feature-station.jpg" alt="都営浅草線 宝町駅" style="object-position: center 65%;"></div>
             <div class="feat-zig-text">
-              <div class="fz-num">02</div>
+              <div class="fz-num"><span class="fz-num-label">Feature</span><span class="fz-num-n">02</span></div>
               <h3 class="fz-h3">宝町駅A6・A7出口から徒歩1分</h3>
               <p class="fz-p">都営浅草線「宝町駅」A6・A7出口から徒歩1分、東京メトロ銀座線「京橋駅」からも徒歩2分。お仕事帰りにも通いやすい立地です。</p>
             </div>
@@ -847,7 +863,7 @@ h1.h2-title{ font-size:30px !important; }
           <div class="feat-zig">
             <div class="feat-zig-img"><img src="feature-bspot.jpg" alt="Bスポット療法に対応"></div>
             <div class="feat-zig-text">
-              <div class="fz-num">03</div>
+              <div class="fz-num"><span class="fz-num-label">Feature</span><span class="fz-num-n">03</span></div>
               <h3 class="fz-h3">Bスポット療法に対応</h3>
               <p class="fz-p">慢性上咽頭炎・後鼻漏・のどの違和感などに対するBスポット療法（EAT・上咽頭擦過療法）を行っています。<a href="b-spot.html" style="color: var(--acd); font-weight: 700;">くわしく見る →</a></p>
             </div>
@@ -855,7 +871,7 @@ h1.h2-title{ font-size:30px !important; }
           <div class="feat-zig reverse">
             <div class="feat-zig-img"><img src="feature-family.jpg" alt=""></div>
             <div class="feat-zig-text">
-              <div class="fz-num">04</div>
+              <div class="fz-num"><span class="fz-num-label">Feature</span><span class="fz-num-n">04</span></div>
               <h3 class="fz-h3">お子さまからご高齢の方まで</h3>
               <p class="fz-p">小児の耳鼻咽喉科にも対応。世代を問わず安心してご相談いただけます。</p>
             </div>
