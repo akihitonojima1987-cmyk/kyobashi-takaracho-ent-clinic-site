@@ -200,6 +200,11 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
 /* --- 空きシフト表 ------------------------------------------------------ */
 .sr-only{ position:absolute; width:1px; height:1px; margin:-1px; padding:0;
   overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+.rc-jobs{ list-style:none; padding:0; margin:0 0 18px; display:flex; flex-wrap:wrap;
+  gap:10px; justify-content:center; }
+.rc-jobs li{ background:var(--acs); color:#2f4b66; border-radius:var(--r); padding:11px 17px;
+  font-size:13.5px; font-weight:700; letter-spacing:.04em; }
+.rc-jobs li span{ margin-left:10px; color:#4d7ba6; font-weight:700; }
 .rc-shift-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 .rc-shift{ width:100%; min-width:600px; border-collapse:separate; border-spacing:0;
   background:#fff; border:1px solid var(--line); border-radius:var(--r); overflow:hidden; }
@@ -489,7 +494,12 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
     <section class="rc-sec alt">
       <div class="rc-wrap">
         <h2 class="rc-sec-title">募集している曜日・時間帯</h2>
-        <p class="rc-sec-sub">医療事務・受付／看護師／臨床検査技師の、2026年9月現在の状況です</p>
+        <p class="rc-sec-sub">下記3職種とも、募集している曜日・時間帯は同じです（2026年9月現在）</p>
+        <ul class="rc-jobs">
+          <li>医療事務・受付<span>時給 1,500円〜</span></li>
+          <li>看護師<span>時給 2,000円〜</span></li>
+          <li>臨床検査技師<span>時給 1,800円〜</span></li>
+        </ul>
         <div class="rc-shift-scroll">
           <table class="rc-shift">
             <thead>
@@ -501,17 +511,6 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
                 <th scope="col">日・祝</th></tr>
             </thead>
             <tbody>
-              <tr class="grp"><th colspan="8" scope="colgroup">医療事務・受付<span>時給 1,500円〜</span></th></tr>
-              <tr><th scope="row">午前<span>9:30〜13:30</span></th>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td class="off">休診</td></tr>
-              <tr><th scope="row">午後<span>14:45〜18:45</span></th>
-                <td><span class="s-hot">募集中</span></td><td></td><td></td><td><span class="s-hot">募集中</span></td><td><span class="s-hot">募集中</span></td><td></td><td class="off">休診</td></tr>
-              <tr class="grp"><th colspan="8" scope="colgroup">看護師<span>時給 2,000円〜</span></th></tr>
-              <tr><th scope="row">午前<span>9:30〜13:30</span></th>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td class="off">休診</td></tr>
-              <tr><th scope="row">午後<span>14:45〜18:45</span></th>
-                <td><span class="s-hot">募集中</span></td><td></td><td></td><td><span class="s-hot">募集中</span></td><td><span class="s-hot">募集中</span></td><td></td><td class="off">休診</td></tr>
-              <tr class="grp"><th colspan="8" scope="colgroup">臨床検査技師<span>時給 1,800円〜</span></th></tr>
               <tr><th scope="row">午前<span>9:30〜13:30</span></th>
                 <td></td><td></td><td></td><td></td><td></td><td></td><td class="off">休診</td></tr>
               <tr><th scope="row">午後<span>14:45〜18:45</span></th>
