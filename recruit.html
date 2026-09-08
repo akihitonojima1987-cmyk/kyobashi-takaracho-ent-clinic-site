@@ -265,6 +265,11 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
 .rc-point span{ font-size:13.5px; line-height:1.95; color:#5b645f; }
 
 /* --- 募集要項テーブル -------------------------------------------------- */
+.rc-req-title{ margin:52px 0 14px; font-size:17px; font-weight:700; color:var(--acd);
+  border-left:4px solid var(--ac); padding-left:12px; letter-spacing:.02em; }
+.rc-req-title.first{ margin-top:24px; }
+.rc-req-lead{ font-size:13px; color:#7f877f; margin:0 0 14px; padding-left:16px; line-height:1.8; }
+@media (max-width:720px){ .rc-req-title{ font-size:15.5px; margin:38px 0 12px; } }
 .rc-table{ border-top:1px solid var(--line); }
 .rc-row{ display:grid; grid-template-columns:180px 1fr; gap:0; border-bottom:1px solid var(--line); }
 .rc-row dt{ background:#f7fafd; padding:18px 20px; font-size:13.5px; font-weight:700; color:#4a534e;
@@ -574,7 +579,7 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
     <section class="rc-sec alt">
       <div class="rc-wrap">
         <h2 class="rc-sec-title">募集職種</h2>
-        <p class="rc-sec-sub">現在募集しているのは「医療事務・受付（アルバイト・パート）」の1職種です</p>
+        <p class="rc-sec-sub">現在募集しているのは、アルバイト・パートの3職種です</p>
         <div class="rc-jobs">
           <div class="rc-job open">
             <div class="rc-job-head">
@@ -582,7 +587,23 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
               <span class="rc-job-name">医療事務・受付（アルバイト・パート）</span>
             </div>
             <p><strong>受付・会計と、聴力検査など各種検査の補助、内視鏡をはじめとする器具の洗浄・滅菌</strong>をお任せします。受付だけのお仕事ではありません。あわせて電話対応、予約確認、電子カルテの入力（クラーク）、レセプト、院内の清掃もお願いしています。資格は必要ありません。未経験の方は受付・電話対応から少しずつ覚えていただきます。</p>
-            <a class="rc-job-link" href="#requirements">募集要項を見る →</a>
+            <a class="rc-job-link" href="#req-jimu">募集要項を見る →</a>
+          </div>
+          <div class="rc-job open">
+            <div class="rc-job-head">
+              <span class="rc-tag rc-tag-open">募集中</span>
+              <span class="rc-job-name">看護師（アルバイト・パート）</span>
+            </div>
+            <p>外来における看護業務全般をお任せします。診療補助、採血・注射、検査の準備・実施、問診・患者さまのご誘導、診察の介助、使用した器具の洗浄などです。外来のみで、入院や夜勤はありません。</p>
+            <a class="rc-job-link" href="#req-nurse">募集要項を見る →</a>
+          </div>
+          <div class="rc-job open">
+            <div class="rc-job-head">
+              <span class="rc-tag rc-tag-open">募集中</span>
+              <span class="rc-job-name">臨床検査技師（アルバイト・パート）</span>
+            </div>
+            <p><strong>聴力検査など各種検査</strong>と、<strong>内視鏡をはじめとする器具の洗浄・滅菌</strong>をお任せします。あわせて診察の介助、電子カルテの入力（クラーク）をお願いしています。外来のみで、入院や夜勤はありません。</p>
+            <a class="rc-job-link" href="#req-tech">募集要項を見る →</a>
           </div>
           <div class="rc-job">
             <div class="rc-job-head">
@@ -595,13 +616,6 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
             <div class="rc-job-head">
               <span class="rc-tag rc-tag-close">募集を停止中</span>
               <span class="rc-job-name">看護師（常勤）</span>
-            </div>
-            <p>現在は募集しておりません。募集を再開した際は、このページでお知らせします。</p>
-          </div>
-          <div class="rc-job">
-            <div class="rc-job-head">
-              <span class="rc-tag rc-tag-close">募集を停止中</span>
-              <span class="rc-job-name">看護師（アルバイト・パート）</span>
             </div>
             <p>現在は募集しておりません。募集を再開した際は、このページでお知らせします。</p>
           </div>
@@ -689,35 +703,71 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
     <section class="rc-sec alt" id="requirements">
       <div class="rc-wrap">
         <h2 class="rc-sec-title">募集要項</h2>
-        <p class="rc-sec-sub">医療事務・受付（アルバイト・パート）</p>
+        <p class="rc-sec-sub">職種ごとの条件と、3職種に共通の条件に分けて記載しています</p>
+
+        <h3 class="rc-req-title first" id="req-jimu">医療事務・受付（アルバイト・パート）</h3>
         <dl class="rc-table">
-          <div class="rc-row"><dt>雇用形態</dt><dd>アルバイト・パート</dd></div>
           <div class="rc-row"><dt>職種</dt><dd>医療事務・受付（医療秘書・クラーク業務を含む）</dd></div>
           <div class="rc-row"><dt>仕事内容</dt><dd><strong>受付・会計</strong>／<strong>聴力検査など各種検査の補助</strong>／<strong>内視鏡をはじめとする器具の洗浄・滅菌</strong>／電話対応・予約確認／電子カルテの入力（クラーク）／レセプト／院内の清掃
             <span class="sub"><strong>受付だけのお仕事ではありません。</strong>検査の補助と器具の洗浄は、当院でいちばん人手を必要としている業務です。とはいえ最初からすべてをお任せすることはなく、受付・電話対応など、できることから順に覚えていただきます。検査の補助は業務に慣れてきた段階からお願いし、器具の洗浄も手順を覚えてしまえば難しい作業ではありません。</span></dd></div>
           <div class="rc-row"><dt>給与</dt><dd>時給 1,500円 〜
-            <span class="sub">試用期間3か月（本採用と同じ条件）／例：週3日・1日4時間の場合＝時給1,500円×4時間×週3日＝月収 72,000円（月4週換算）</span></dd></div>
-          <div class="rc-row"><dt>勤務時間</dt><dd>シフト制　午前 9:30〜13:30 ／ 午後 14:45〜18:45
-            <span class="sub">午前・午後それぞれ4時間の単位で、週1日から相談可能です。<strong>とくに水曜・金曜の午後（14:45〜18:45）に入っていただける方を募集しています</strong>（午後は18:45までご勤務いただける方を希望しています）。勤務する曜日はご希望を伺って決めます。終日勤務の場合の休憩は13:30〜14:45。診療の状況により終業が延びる場合があり、超過分は残業代を支給します。<br>※<strong>今後、診療日は変更の可能性があります</strong>。それに伴って勤務時間・勤務曜日が変わる場合は、必ず事前にご相談します。</span></dd></div>
-          <div class="rc-row"><dt>休日・休暇</dt><dd>シフトによる（勤務日はご相談のうえ決定します）
-            <span class="sub">夏季休暇・年末年始休暇・有給休暇<br>※今後、診療日は変更の可能性があります。</span></dd></div>
-          <div class="rc-row"><dt>待遇・福利厚生</dt><dd>社会保険完備（健康保険・厚生年金・雇用保険・労災保険）／交通費支給（月2万円まで）／研修あり／社員登用あり
-            <span class="sub">敷地内全面禁煙。ノルマはありません。</span></dd></div>
+            <span class="sub">例：週3日・1日4時間の場合＝時給1,500円×4時間×週3日＝月収 72,000円（月4週換算）</span></dd></div>
           <div class="rc-row"><dt>応募資格</dt><dd><strong>資格不問・未経験OK</strong>・学歴不問
             <span class="sub">主婦・主夫の方、ブランクのある方も歓迎します。ネイル・ピアスは清潔感の範囲で可。</span></dd></div>
+        </dl>
+        <div class="rc-cta-row" style="justify-content:center; margin-top:22px;">
+          <a class="rc-btn rc-btn-primary" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/10930671/create/" target="_blank" rel="noopener">医療事務・受付に応募する ↗</a>
+          <a class="rc-btn rc-btn-ghost" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/10930671/" target="_blank" rel="noopener">Airワークの求人票を見る ↗</a>
+        </div>
+
+        <h3 class="rc-req-title" id="req-nurse">看護師（アルバイト・パート）</h3>
+        <dl class="rc-table">
+          <div class="rc-row"><dt>職種</dt><dd>看護師／准看護師（どちらの資格でも応募いただけます）</dd></div>
+          <div class="rc-row"><dt>仕事内容</dt><dd>外来における看護業務全般<br>診療補助／採血・注射／<strong>検査の準備・実施</strong>／問診・患者さまのご誘導／予約管理・電話対応／診察の介助／<strong>使用した器具の洗浄</strong>／院内清掃・掲示物の作成　など
+            <span class="sub">当院は<strong>外来のみで、入院・夜勤はありません</strong>。ブランクのある方も歓迎します。</span></dd></div>
+          <div class="rc-row"><dt>給与</dt><dd>時給 2,000円 〜
+            <span class="sub">例：週3日・1日4時間の場合＝時給2,000円×4時間×週3日＝月収 96,000円（月4週換算）</span></dd></div>
+          <div class="rc-row"><dt>応募資格</dt><dd>看護師または准看護師の資格をお持ちの方
+            <span class="sub">耳鼻咽喉科の経験は問いません。ブランクのある方の復職も歓迎します。</span></dd></div>
+        </dl>
+        <div class="rc-cta-row" style="justify-content:center; margin-top:22px;">
+          <a class="rc-btn rc-btn-primary" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/10986880/create/" target="_blank" rel="noopener">看護師に応募する ↗</a>
+          <a class="rc-btn rc-btn-ghost" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/10986880/" target="_blank" rel="noopener">Airワークの求人票を見る ↗</a>
+        </div>
+
+        <h3 class="rc-req-title" id="req-tech">臨床検査技師（アルバイト・パート）</h3>
+        <dl class="rc-table">
+          <div class="rc-row"><dt>職種</dt><dd>臨床検査技師</dd></div>
+          <div class="rc-row"><dt>仕事内容</dt><dd>耳鼻咽喉科外来における各種検査と、診療補助業務<br>
+            <strong>【主な検査】</strong>純音聴力検査（気導・骨導）／語音聴力検査／ティンパノメトリー（鼓膜運動検査）／平衡機能検査（重心動揺検査・フレンツェル眼鏡検査など）<br>
+            <strong>【診療補助】</strong>採血・検体採取／医師の指示のもとでの診療補助（器具の受け渡し・準備）／使用器具の洗浄・滅菌／問診・予約管理・電話対応<br>
+            <strong>【その他】</strong>検査機器の準備・日常点検／検査結果の電子カルテへの入力／試薬・消耗品の在庫管理／院内のご案内・環境整備
+            <span class="sub">耳鼻咽喉科特有の専門検査（聴力・平衡機能など）を身につけられる環境です。臨床検査技師の業務範囲内で、診療所の運営をチーム全体で支えていただきます。</span></dd></div>
+          <div class="rc-row"><dt>給与</dt><dd>時給 1,800円 〜（経験・スキルに応じて優遇）
+            <span class="sub">試用期間中も時給1,800円で変更はありません。例：週3日・1日4時間の場合＝時給1,800円×4時間×週3日＝月収 86,400円（月4週換算）</span></dd></div>
+          <div class="rc-row"><dt>応募資格</dt><dd>臨床検査技師免許をお持ちの方
+            <span class="sub">経験者・未経験者ともに歓迎します。耳鼻咽喉科領域の検査経験がある方はとくに歓迎します。ブランクのある方、子育て中の方、Wワーク希望の方も歓迎します。</span></dd></div>
+        </dl>
+        <div class="rc-cta-row" style="justify-content:center; margin-top:22px;">
+          <a class="rc-btn rc-btn-primary" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/11022345/create/" target="_blank" rel="noopener">臨床検査技師に応募する ↗</a>
+          <a class="rc-btn rc-btn-ghost" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/11022345/" target="_blank" rel="noopener">Airワークの求人票を見る ↗</a>
+        </div>
+
+        <h3 class="rc-req-title" id="req-common">3職種に共通の条件</h3>
+        <dl class="rc-table">
+          <div class="rc-row"><dt>雇用形態</dt><dd>アルバイト・パート（非常勤）
+            <span class="sub">試用期間3か月（本採用と同じ条件）／社員登用あり</span></dd></div>
+          <div class="rc-row"><dt>勤務時間</dt><dd>シフト制　午前 9:30〜13:30 ／ 午後 14:45〜18:45
+            <span class="sub">午前・午後それぞれ4時間の単位で、<strong>週1日・1コマから</strong>相談可能です。「午前だけ」「午後だけ」も可能です。<strong>とくに水曜・金曜の午後（14:45〜18:45）に入っていただける方を募集しています</strong>（午後は18:45までご勤務いただける方を希望しています）。終日勤務の場合の休憩は13:30〜14:45。残業の目安は月5時間程度で、超過分は残業代を支給します。勤務する曜日は、入職後もご希望や当院の状況に応じて調整できます。<br>※<strong>今後、診療日・診療時間は変更の可能性があります</strong>。それに伴って勤務時間・勤務曜日が変わる場合は、必ず事前にご相談します。</span></dd></div>
+          <div class="rc-row"><dt>休日・休暇</dt><dd>日曜・祝日と土曜の午後は休診／勤務日以外はすべて休日
+            <span class="sub">勤務日はシフトでご相談のうえ決定します。夏季休暇・年末年始休暇あり。有給休暇は法定どおり付与します。<br>※水曜の午前と土曜の午前は、これから診療の開始を予定している時間帯です。</span></dd></div>
+          <div class="rc-row"><dt>待遇・福利厚生</dt><dd>通勤手当（上限 20,000円／月・実費支給）／研修あり／社員登用あり
+            <span class="sub">社会保険（健康保険〈東京都医業健康保険組合〉・厚生年金・雇用保険）は、勤務時間に応じて法令の基準により加入します。労災保険は全員に適用されます。給与は10日締め・当月25日払い。ノルマはありません。敷地内全面禁煙。車通勤は不可です。</span></dd></div>
           <div class="rc-row"><dt>勤務地</dt><dd>岩佐耳鼻咽喉科（医療法人社団 参英会）<br>〒104-0031 東京都中央区京橋2-12-4 光和ビル2F
             <span class="sub">JR・地下鉄各線の駅から徒歩圏内です。<br>都営浅草線「宝町駅」A6・A7出口　徒歩1分<br>東京メトロ銀座線「京橋駅」4番出口　徒歩2分<br>東京メトロ有楽町線「銀座一丁目駅」7番出口　徒歩8分<br>東京メトロ日比谷線「八丁堀駅」A3出口　徒歩8分<br>JR「東京駅」八重洲南口　徒歩12分</span></dd></div>
           <div class="rc-row"><dt>選考の流れ</dt><dd>応募フォームまたはお問い合わせフォームからご連絡 → 日程調整のご連絡 → <strong>Web面接</strong> → 院内での面接・見学 → 採否のご連絡
             <span class="sub">はじめはWeb面接からご案内します。院内の様子は、その後お越しいただいたときにご覧いただけます。勤務開始の時期はご希望を伺って決めますので、シフトの条件が合えば早めにご勤務いただくこともできます。見学のみのご連絡も歓迎しています。</span></dd></div>
         </dl>
-        <div class="rc-cta-row" style="justify-content:center; margin-top:32px;">
-          <a class="rc-btn rc-btn-primary" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/10930671/create/" target="_blank" rel="noopener">医療事務・受付に応募する ↗</a>
-            <a class="rc-btn rc-btn-primary" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/10986880/create/" target="_blank" rel="noopener">看護師に応募する ↗</a>
-            <a class="rc-btn rc-btn-primary" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/11022345/create/" target="_blank" rel="noopener">臨床検査技師に応募する ↗</a>
-          <a class="rc-btn rc-btn-ghost" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/10930671/" target="_blank" rel="noopener">医療事務の求人票を見る ↗</a>
-          <a class="rc-btn rc-btn-ghost" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/10986880/" target="_blank" rel="noopener">看護師の求人票を見る ↗</a>
-          <a class="rc-btn rc-btn-ghost" href="https://arwrk.net/recruit/ldd4ozhm6al5w5s/11022345/" target="_blank" rel="noopener">臨床検査技師の求人票を見る ↗</a>
-        </div>
       </div>
     </section>
 
