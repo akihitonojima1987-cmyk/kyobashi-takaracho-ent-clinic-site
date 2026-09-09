@@ -46,13 +46,13 @@
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
       "opens": "10:00",
-      "closes": "13:00"
+      "closes": "13:30"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
       "opens": "15:00",
-      "closes": "18:00"
+      "closes": "18:30"
     }
   ],
   "availableService": [
@@ -746,11 +746,11 @@ h1.h2-title{ font-size:30px !important; }
           <tr><th>診療時間</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th></tr>
         </thead>
         <tbody>
-          <tr><td class="mh-t">10:00–13:00</td><td>●</td><td>●</td><td class="x">／</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
-          <tr><td class="mh-t">15:00–18:00</td><td>●</td><td>●</td><td class="x">／</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
+          <tr><td class="mh-t">10:00–13:30</td><td>●</td><td>●</td><td class="x">／</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
+          <tr><td class="mh-t">15:00–18:30</td><td>●</td><td>●</td><td class="x">／</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
         </tbody>
       </table>
-      <p class="mini-hours-note">受付　9:45–12:30／14:45–17:30　・　休診：水・土・日・祝</p>
+      <p class="mini-hours-note">受付　9:45–13:20／14:45–18:20　・　休診：水・土・日・祝</p>
     </div>
 
     <!-- ============ お知らせ（ヒーロー下・こころみ風：左タイトル帯＋右3件リスト） ============ -->
@@ -766,7 +766,30 @@ h1.h2-title{ font-size:30px !important; }
             <!-- 名称変更（2026-07-17 追加）。定款変更認可がまだのため、新名称は書かず日付と「予定」だけを告知する。
                  ※新名称をここに直接書くと、build_deploy_site.py の置換ルールで現名称に化ける（このコメント自体も置換対象）。
                     新名称を出す段階では、REPLACE の当該ルールより後段に専用ルールが必要。 -->
+            <!-- 診療時間の変更（2026-09-09 追加）。午前・午後とも終了を30分延長。
+                 受付終了はデジスマの予約枠の終了時刻（13:20／18:20）に合わせている。 -->
             <details class="news-item">
+              <summary class="news-summary">
+                <span class="news-date">2026.09.09</span>
+                <span class="news-tag">診療時間</span>
+                <span class="news-title">診療時間を変更しました</span>
+                <span class="news-arrow" aria-hidden="true">&#9662;</span>
+              </summary>
+              <p class="news-body">2026年9月9日より、診療時間を次のとおり変更いたしました。<br>午前 10:00〜13:30（受付 9:45〜13:20）／午後 15:00〜18:30（受付 14:45〜18:20）<br>午前・午後とも、終了時刻を30分延長しております。休診日はこれまでどおり水曜・土曜・日曜・祝日です。</p>
+            </details>
+            <!-- 水曜午後の診療開始（2026-09-09 追加）。開始は 2026-10-21。
+                 開始までは休診表記を「水・土・日・祝」のままにしてあるので、
+                 10/21 が近づいたら全ページの休診表記と診療時間表を切り替えること。 -->
+            <details class="news-item">
+              <summary class="news-summary">
+                <span class="news-date">2026.09.09</span>
+                <span class="news-tag">診療日</span>
+                <span class="news-title">10月21日より水曜午後の診療を開始します</span>
+                <span class="news-arrow" aria-hidden="true">&#9662;</span>
+              </summary>
+              <p class="news-body">2026年10月21日（水）より、水曜日の午後（15:00〜18:30・受付 14:45〜18:20）の診療を開始いたします。水曜日の午前は、引き続き休診とさせていただきます。Web予約（デジスマ）でのご予約も、開始日の分から承ります。</p>
+            </details>
+<details class="news-item">
               <summary class="news-summary">
                 <span class="news-date">2026.08.02</span>
                 <span class="news-tag">予約</span>
@@ -1025,11 +1048,11 @@ h1.h2-title{ font-size:30px !important; }
               </thead>
               <tbody style="color: #4a534e;">
                 <tr>
-                  <td style="padding: 13px 4px; white-space: nowrap; color: #6b746f; border-bottom: 1px solid #eeeeea;">10:00–13:00</td>
+                  <td style="padding: 13px 4px; white-space: nowrap; color: #6b746f; border-bottom: 1px solid #eeeeea;">10:00–13:30</td>
                   <td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td>
                 </tr>
                 <tr>
-                  <td style="padding: 13px 4px; white-space: nowrap; color: #6b746f; border-bottom: 1px solid #eeeeea;">15:00–18:00</td>
+                  <td style="padding: 13px 4px; white-space: nowrap; color: #6b746f; border-bottom: 1px solid #eeeeea;">15:00–18:30</td>
                   <td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td>
                 </tr>
               </tbody>
@@ -1037,7 +1060,7 @@ h1.h2-title{ font-size:30px !important; }
             <p style="font-size: 14px; color: #939a93; line-height: 1.8; margin: 0 0 18px;">休診：水曜・土曜・日曜・祝日</p>
             <div style="background: var(--acbg); border-radius: 12px; padding: 14px 18px; margin: 0 0 24px;">
               <div style="font-size: 14px; font-weight: 700; color: var(--acd); margin-bottom: 6px;">受付時間</div>
-              <div style="font-size: 16px; color: #4a534e; line-height: 1.8;">午前 9:45–12:30 ／ 午後 14:45–17:30<br><span style="font-size: 14px; color: #939a93;">受付は診療開始15分前から、診療終了30分前までです。受付時間内にご来院ください。</span></div>
+              <div style="font-size: 16px; color: #4a534e; line-height: 1.8;">午前 9:45–13:20 ／ 午後 14:45–18:20<br><span style="font-size: 14px; color: #939a93;">受付は診療開始15分前から、診療終了10分前までです。受付時間内にご来院ください。</span></div>
             </div>
             <p style="font-size: 17px; line-height: 1.9; color: #4a534e; margin: 0 0 6px;">〒104-0031 東京都中央区京橋2-12-4 光和ビル2F</p>
             <div class="acc-routes">
@@ -1302,7 +1325,7 @@ h1.h2-title{ font-size:30px !important; }
           <dt style="color: #fff; font-weight: 600;">所在地</dt><dd style="margin: 0; color: #aab2ac;">〒104-0031 東京都中央区京橋2-12-4 光和ビル2F</dd>
           <dt style="color: #fff; font-weight: 600;">アクセス</dt><dd style="margin: 0; color: #aab2ac;">都営浅草線「宝町駅」A6・A7出口 徒歩1分／東京メトロ銀座線「京橋駅」4番出口 徒歩2分</dd>
           <dt style="color: #fff; font-weight: 600;">TEL</dt><dd style="margin: 0; color: #aab2ac;">03-3567-8733</dd>
-          <dt style="color: #fff; font-weight: 600;">診療時間</dt><dd style="margin: 0; color: #aab2ac;">午前 10:00–13:00 ／ 午後 15:00–18:00</dd>
+          <dt style="color: #fff; font-weight: 600;">診療時間</dt><dd style="margin: 0; color: #aab2ac;">午前 10:00–13:30 ／ 午後 15:00–18:30</dd>
           <dt style="color: #fff; font-weight: 600;">休診日</dt><dd style="margin: 0; color: #aab2ac;">水曜・土曜・日曜・祝日</dd>
         </dl>
       </div>
