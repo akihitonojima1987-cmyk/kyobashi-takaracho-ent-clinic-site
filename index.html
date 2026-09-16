@@ -636,8 +636,20 @@ h1.h2-title{ font-size:30px !important; }
           <div class="mh-badge"><span class="mh-badge-label">Feature</span><span class="mh-badge-num">04</span></div>
           <div class="mh-copy"><p class="mh-title">お子さまからご高齢の方まで</p></div>
         </div>
+        <!-- 2026-09-16 追加（院長指示）。PCヒーローの白丸バッジを「電子内視鏡」→「予約優先制／当日予約OK」に
+             変えたが、その白丸はスマホでは非表示（PCヒーローごと display:none）で、患者さんの大半が見られない。
+             そのためスマホ側にも同じ訴求を Feature05 として足している。参考：sophia-lc.jp の
+             「当日予約もOK／完全予約制／土日祝診療」バッジ。
+             ※「完全予約制」ではなく「予約優先制」。サイト全体（/reservation・/faq・/first-visit）と同じ語。
+             ※文言を変えるときは PC側の .pv-circ（3つ目の金色）も一緒に直すこと。 -->
+        <div class="mh-slide2" style="background-image: url('feature-booking.jpg'); background-position: center;">
+          <div class="mh-scrim"></div>
+          <div class="mh-badge"><span class="mh-badge-label">Feature</span><span class="mh-badge-num">05</span></div>
+          <div class="mh-copy"><p class="mh-title">予約優先制・当日予約OK</p></div>
+        </div>
       </div>
-      <div class="mh-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span></div>
+      <!-- ドットはスライド数と同数にすること（カルーセルのJSは track.children.length で動くのでスライド追加自体は自動） -->
+      <div class="mh-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
     </div>
 
     <!-- ============ ファーストビュー（ヒーロー一面写真→下にお知らせ） ============ -->
@@ -692,7 +704,11 @@ h1.h2-title{ font-size:30px !important; }
           <div class="pv-circs">
             <span class="pv-circ" style="--c:#3d7fa0">都営浅草線<br>宝町駅<br>徒歩1分</span>
             <span class="pv-circ" style="--c:#4e9e78">Bスポット<br>療法</span>
-            <span class="pv-circ" style="--c:#b0912f">電子内視鏡</span>
+            <!-- 2026-09-16：「電子内視鏡」→「予約優先制／当日予約OK」に差し替え（院長指示。参考：sophia-lc.jp の
+                 「当日予約もOK／完全予約制／土日祝診療」バッジ）。設備の訴求より、来院のハードルを下げる情報を前に出す。
+                 ※当院は「完全予約制」ではなく「予約優先制」。サイト全体（/reservation・/faq・/first-visit）と同じ語で揃えること。
+                 ※電子内視鏡の訴求は /services の「検査のご案内」に残っている。 -->
+            <span class="pv-circ" style="--c:#b0912f">予約優先制<br>当日予約OK</span>
           </div>
         </div></div>
       </div>
