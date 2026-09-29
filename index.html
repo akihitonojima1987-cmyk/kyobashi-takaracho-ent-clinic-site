@@ -779,9 +779,10 @@ h1.h2-title{ font-size:30px !important; }
             <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 22px; color: #3a423e; margin: 0;">お知らせ</h2>
           </div>
           <!-- 各件は「日付＋タグ＋1行タイトル」だけを表示し、全文は展開して読む形にしている。
-               新しいお知らせを足すときは .news-item を1つ複製し、タイトルは1行に収まる短さにすること。 -->
+               新しいお知らせを足すときは .news-item を1つ複製し、タイトルは1行に収まる短さにすること。
+               表示は3件まで（2026-09-29 決定）。足したら古いものを外すこと。ただし先の予定の告知（例：水曜午後の診療開始）は、その日を過ぎるまで優先して残す。 -->
           <div class="news-list" style="padding: 8px 28px;">
-            <!-- 名称変更（2026-07-17 追加）。定款変更認可がまだのため、新名称は書かず日付と「予定」だけを告知する。
+            <!-- 名称変更（2026-07-17 追加 → 2026-09-29 お知らせを3件に絞るため撤去。本文は _バックアップ_2026-09-29_お知らせ3件化前 に保存）。定款変更認可がまだのため、新名称は書かず日付と「予定」だけを告知する。
                  ※新名称をここに直接書くと、build_deploy_site.py の置換ルールで現名称に化ける（このコメント自体も置換対象）。
                     新名称を出す段階では、REPLACE の当該ルールより後段に専用ルールが必要。 -->
 
@@ -828,27 +829,6 @@ h1.h2-title{ font-size:30px !important; }
               </summary>
               <p class="news-body">今季のインフルエンザ予防接種は、<strong>13歳以上の方</strong>を対象に、1回の接種で行います。ワクチンが入荷したため、<strong>2026年9月17日より接種を開始いたしました</strong>。<br>・費用：4,000円（税込・全額自費）。<strong style="color:#c5372b;">お住まいの区市町村の助成制度（高齢者の定期接種・小児の費用助成など）は、当院ではご利用いただけません。</strong><br>・ご予約は、<strong>インフルエンザ予防接種の専用枠</strong>（Web予約・デジスマ）からお取りいただけます。接種日の1週間前から承ります。<br>・ご予約がなくても、<strong>受診の際に接種をご希望の旨をお申し出いただければ接種いたします</strong>（当日ワクチンの在庫がある場合に限ります）。<br>・<strong>未成年の方は、保護者の方の同伴をお願いいたします。</strong><br>・接種後は、体調の変化がないか確認するため、<strong>院内で30分ほどお待ちいただきます</strong>。<br>・予診票は <a href="influenza-yoshinhyo.pdf" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700; text-decoration:underline; text-underline-offset:3px;">こちらからダウンロードできます（PDF・A4 1枚）→</a>。ご記入のうえお持ちいただくと、当日のお手続きがスムーズです。<strong>院内でもご用意しております</strong>ので、ご来院後にご記入いただいても構いません。<br>・ワクチンを確保する都合上、ご予約のキャンセル・変更の際は、お手数ですが事前にご連絡いただけますと幸いです。<br>・<strong>ワクチンの在庫がなくなり次第、接種終了</strong>となります。</p>
             </details>
-<!-- 受付時間の変更（2026-09-15 追加）。診療終了の10分前 → 15分前に統一。 -->
-  <details class="news-item">
-    <summary class="news-summary">
-      <span class="news-date">2026.09.15</span>
-      <span class="news-tag">受付</span>
-      <span class="news-title">受付時間を変更しました</span>
-      <span class="news-arrow" aria-hidden="true">&#9662;</span>
-    </summary>
-    <p class="news-body">受付の終了時刻を、各診療終了の15分前までに変更いたしました。<br>受付：午前 9:45〜13:15 ／ 午後 14:45〜18:15<br>ご予約の方を優先してご案内するため、ご予約のない方はお待ち時間が長くなる場合がございます。あらかじめご了承ください。</p>
-  </details>
-    <!-- 診療時間の変更（2026-09-09 追加）。午前・午後とも終了を30分延長。
-                 受付終了は当初デジスマの予約枠の終了時刻（13:20／18:20）に合わせていたが、2026-09-15の院長判断で「診療終了の15分前」に統一し 13:15／18:15 とした。予約枠の終了時刻とは5分ずれている。 -->
-            <details class="news-item">
-              <summary class="news-summary">
-                <span class="news-date">2026.09.09</span>
-                <span class="news-tag">診療時間</span>
-                <span class="news-title">診療時間を変更しました</span>
-                <span class="news-arrow" aria-hidden="true">&#9662;</span>
-              </summary>
-              <p class="news-body">2026年9月9日より、診療時間を次のとおり変更いたしました。<br>午前 10:00〜13:30 ／ 午後 15:00〜18:30<br>午前・午後とも、終了時刻を30分延長しております。休診日はこれまでどおり水曜・土曜・日曜・祝日です。</p>
-            </details>
             <!-- 水曜午後の診療開始（2026-09-09 追加）。開始は 2026-10-21。
                  開始までは休診表記を「水・土・日・祝」のままにしてあるので、
                  10/21 が近づいたら全ページの休診表記と診療時間表を切り替えること。 -->
@@ -860,15 +840,6 @@ h1.h2-title{ font-size:30px !important; }
                 <span class="news-arrow" aria-hidden="true">&#9662;</span>
               </summary>
               <p class="news-body">2026年10月21日（水）より、水曜日の午後（15:00〜18:30・受付 14:45〜18:15）の診療を開始いたします。水曜日の午前は、引き続き休診とさせていただきます。Web予約（デジスマ）でのご予約も、開始日の分から承ります。</p>
-            </details>
-            <details class="news-item">
-              <summary class="news-summary">
-                <span class="news-date">2026.07.17</span>
-                <span class="news-tag">名称</span>
-                <span class="news-title">名称変更のお知らせ</span>
-                <span class="news-arrow" aria-hidden="true">▾</span>
-              </summary>
-              <p class="news-body">2026年11月1日（予定）より、当院の名称を変更いたします。新しい名称および正式な切り替え日は、決まり次第あらためて当ホームページでお知らせいたします。</p>
             </details>
           </div>
         </div>
