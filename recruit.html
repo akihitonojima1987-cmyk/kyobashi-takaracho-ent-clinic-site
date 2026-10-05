@@ -177,6 +177,12 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
 .rc-badges li{ font-size:12.5px; font-weight:700; color:var(--acd); background:rgba(255,255,255,.9);
   border:1px solid var(--acs); border-radius:999px; padding:6px 14px; letter-spacing:.02em; }
 .rc-badges li.hot{ color:#fff; background:#ef6c52; border-color:#ef6c52; }
+/* 2026-10-05：写真が受付スタッフ1枚だけで「医療事務だけの募集」に見えるため、3職種の募集中の帯を重ねる（ユーザー指示） */
+.rc-hero-photo{ position:relative; }
+.rc-photo-band{ position:absolute; left:12px; right:12px; bottom:12px; margin:0; background:rgba(239,108,82,.95); color:#fff;
+  border-radius:12px; padding:9px 12px; text-align:center; font-weight:700; font-size:17px; line-height:1.45; letter-spacing:.02em;
+  box-shadow:0 6px 16px rgba(0,0,0,.15); }
+.rc-photo-band span{ display:inline-block; }
 .rc-hero-photo img{ width:100%; height:100%; max-height:400px; object-fit:cover;
   border-radius:var(--r); display:block; }
 .rc-cta-row{ display:flex; flex-wrap:wrap; gap:12px; }
@@ -309,6 +315,7 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
   .rc-hero-inner{ grid-template-columns:1fr; gap:26px; }
   .rc-hero-photo{ order:-1; }
   .rc-hero-photo img{ max-height:230px; }
+  .rc-photo-band{ font-size:15px; padding:8px 10px; left:10px; right:10px; bottom:10px; }
   h1.rc-h1{ font-size:27px !important; }
   .rc-tiles{ grid-template-columns:1fr 1fr; }
   .rc-jobs{ grid-template-columns:1fr; }
@@ -491,6 +498,7 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
         </div>
         <div class="rc-hero-photo">
           <img src="recruit-hero.jpg" alt="クリニックの受付で応対するスタッフ（イメージ）" loading="lazy">
+          <p class="rc-photo-band"><span>臨床検査技師・</span><span>看護師・</span><span>医療事務</span> <span>募集中</span></p>
         </div>
       </div>
     </section>
@@ -984,6 +992,7 @@ h1.rc-h1{ font-family:'Shippori Mincho',serif !important; font-weight:700 !impor
         <a href="/privacy-policy" class="foot-link">プライバシーポリシー</a><a href="/website-policy" class="foot-link">ホームページ運営について</a>
         <a href="/patient-harassment" class="foot-link">ペイシェントハラスメントへの対応</a>
         <a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="foot-link">公式LINE</a>
+            <a href="https://x.com/kyobashi_ent" target="_blank" rel="noopener" class="foot-link">公式X</a>
       </div>
       <div style="padding-top:18px; font-size:11.5px; color:#8a928c; letter-spacing:0.05em;">© 2026 岩佐耳鼻咽喉科 IWASA ENT CLINIC. All Rights Reserved.</div>
     </div>
