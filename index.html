@@ -166,6 +166,16 @@
   .news-arrow { flex: none; font-size: 11px; color: var(--acd); transition: transform .2s ease; }
   .news-item[open] .news-arrow { transform: rotate(180deg); }
   .news-body { margin: 0 2px 16px; font-size: 14px; color: #5b645f; line-height: 1.85; }
+  /* 公式Xへの導線：お知らせリスト末尾の1行（2026-10-06） */
+  .news-x { display: flex; align-items: center; gap: 10px; margin: 4px 0 16px; padding: 11px 16px;
+    border: 1px solid #e6e8e3; border-radius: 12px; background: #fafaf7; color: #4a534e;
+    font-size: 14px; text-decoration: none; transition: border-color .2s, background .2s; }
+  .news-x:hover { border-color: #111; background: #fff; }
+  .news-x-ic { flex: none; width: 26px; height: 26px; border-radius: 50%; background: #111; color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; }
+  .news-x-txt { flex: 1; min-width: 0; }
+  .news-x-txt strong { color: #111; }
+  .news-x-id { flex: none; font-size: 13px; color: #8a918b; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
   /* スマホ用：電話・診療時間・診療日の帯（PC幅ではヘッダー右上の head-bar が同内容を表示するため隠す） */
   .top-info-bar { display: none; }
@@ -378,6 +388,9 @@
     .news-tag { font-size: 10px !important; padding: 1px 6px !important; }
     .news-title { font-size: 12.5px !important; }
     .news-body { font-size: 12.5px !important; line-height: 1.75 !important; margin-bottom: 12px !important; }
+    .news-x { font-size: 12.5px; gap: 8px; padding: 10px 12px; margin-bottom: 12px; }
+    .news-x-id { font-size: 15px; }
+    .news-x-handle { display: none; }
     .grid-2, .grid-3, .access-grid, .hero2col-news { grid-template-columns: 1fr !important; }
     .section-pad { padding-left: 22px !important; padding-right: 22px !important; }
   }
@@ -843,9 +856,15 @@ h1.h2-title{ font-size:30px !important; }
               </summary>
               <p class="news-body">2026年10月21日（水）より、水曜日の午後（15:00〜18:30・受付 14:45〜18:15）の診療を開始いたします。水曜日の午前は、引き続き休診とさせていただきます。Web予約（デジスマ）でのご予約も、開始日の分から承ります。</p>
             </details>
+            <!-- 2026-10-05：公式Xへの導線（ユーザー指示「トップページの目立つところに」）。
+                 2026-10-06：黒ベタ帯がグリッドの左列（200px）に落ちてバランスが悪かったため、
+                 お知らせリストの末尾に「一覧へ」風の控えめな行として収め直した（他院のお知らせ欄の作法に合わせる）。 -->
+            <a class="news-x" href="https://x.com/kyobashi_ent" target="_blank" rel="noopener">
+              <span class="news-x-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></span>
+              <span class="news-x-txt">最新情報は<strong>公式X</strong>でも発信しています</span>
+              <span class="news-x-id"><span class="news-x-handle">@kyobashi_ent </span><span aria-hidden="true">&rsaquo;</span></span>
+            </a>
           </div>
-            <!-- 2026-10-05：公式Xへの導線（ユーザー指示「トップページの目立つところに」） -->
-            <a href="https://x.com/kyobashi_ent" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;margin:16px 18px 18px;padding:12px 16px;border-radius:12px;background:#111;color:#fff;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:0.02em;">最新情報は公式Xでも発信しています（@kyobashi_ent）→</a>
         </div>
       </div>
     </section>
