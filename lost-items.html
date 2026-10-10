@@ -245,6 +245,59 @@ h1.h2-title{ font-size:30px !important; }
       <div class="section-pad pp" style="max-width: 820px; margin: 0 auto; padding: calc(16px * var(--k,1)) 28px calc(64px * var(--k,1));">
         <p style="margin: 12px 0 0;">院内でのお忘れ物は、受付でお預かりしています。お心当たりのある方は、以下の方法でお問い合わせください。</p>
 
+        <!-- お預かり中のお忘れ物一覧（2026-10-11 追加）。takaracho.ent.clinic の Google スプレッドシート
+             「お忘れ物一覧（ホームページ掲載用）」の「公開用」タブ（ウェブに公開した CSV）を、ページを開くたびに読み込んで表示する。
+             受付は「入力」タブに書くだけ。公開用タブは「載せる」かつ未返却かつ保管期限内の行の 預かった日・保管期限・種類・色 だけを自動抽出。
+             院内メモ・返却状況は公開されない。CSV の URL は下の LOST_CSV_URL。 -->
+        <h2>お預かり中のお忘れ物</h2>
+        <div id="lost-list" class="lost-list"><p class="lost-msg">読み込み中です…</p></div>
+        <p style="font-size:13px; color:#7a827d; margin-top:6px;">※ お預かりした日・保管期限・種類・色のみを掲載しています。お名前の分かる物は掲載しておりません。掲載まで数日かかる場合があります。</p>
+        <style>
+          .lost-list table { width:100%; border-collapse:collapse; margin:8px 0 0; font-size:14.5px; }
+          .lost-list th, .lost-list td { border:1px solid #d9dedb; padding:8px 10px; text-align:left; color:#3a423e; }
+          .lost-list th { background:#eff6fc; font-weight:700; white-space:nowrap; }
+          .lost-msg { color:#545d58; }
+          .lost-upd { font-size:13px; color:#7a827d; margin:4px 0 0; text-align:right; }
+          @media (max-width: 560px) { .lost-list th, .lost-list td { padding:7px 6px; font-size:13.5px; } }
+        </style>
+        <script>
+        (function () {
+          var LOST_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSaxOKHOus-jbOINTyhewO5nYgJf28LzLXUYJZV7E2zS6VwXUnKpVt1COS77aUrR5t724CNHfxCNJQu/pub?gid=84415559&single=true&output=csv";  // 公開用タブの CSV（takaracho のスプレッドシート「お忘れ物一覧（ホームページ掲載用）」をウェブに公開・2026-10-11）
+          var box = document.getElementById("lost-list");
+          function msg(t) { box.innerHTML = ""; var p = document.createElement("p"); p.className = "lost-msg"; p.textContent = t; box.appendChild(p); }
+          function parseCSV(text) {
+            var rows = [], row = [], cur = "", q = false;
+            for (var i = 0; i < text.length; i++) {
+              var c = text[i];
+              if (q) { if (c === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else { q = false; } } else { cur += c; } }
+              else if (c === '"') { q = true; }
+              else if (c === ",") { row.push(cur); cur = ""; }
+              else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") { i++; } row.push(cur); rows.push(row); row = []; cur = ""; }
+              else { cur += c; }
+            }
+            if (cur !== "" || row.length) { row.push(cur); rows.push(row); }
+            return rows;
+          }
+          function toDate(s) { var m = /^(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/.exec((s || "").trim()); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
+          function showUpd(d) { if (!d) return; var p = document.createElement("p"); p.className = "lost-upd"; p.textContent = "最終更新：" + d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日 " + d.getHours() + ":" + ("0" + d.getMinutes()).slice(-2); box.appendChild(p); }
+          function fmt(d) { return (d.getMonth() + 1) + "月" + d.getDate() + "日"; }
+          if (!LOST_CSV_URL) { msg("現在、掲載中のお忘れ物はありません。"); return; }
+          fetch(LOST_CSV_URL, { cache: "no-store" }).then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (t) {
+            var now = new Date(); var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            var all = parseCSV(t), upd = new Date();  // 最終更新＝スプレッドシートを読み込んだ日時（ユーザー指定・2026-10-11）
+            var items = all.slice(1).map(function (r) {
+              return { got: toDate(r[0]), limit: toDate(r[1]), kind: (r[2] || "").trim(), color: (r[3] || "").trim() };
+            }).filter(function (x) { return x.got && x.limit && x.kind && x.limit >= today; });
+            items.sort(function (a, b) { return b.got - a.got; });
+            if (!items.length) { msg("現在、掲載中のお忘れ物はありません。"); showUpd(upd); return; }
+            var tb = document.createElement("table"), head = tb.insertRow();
+            ["お預かりした日", "保管期限", "種類", "色"].forEach(function (h) { var th = document.createElement("th"); th.textContent = h; head.appendChild(th); });
+            items.forEach(function (x) { var tr = tb.insertRow(); [fmt(x.got), fmt(x.limit) + "まで", x.kind, x.color].forEach(function (v) { tr.insertCell().textContent = v; }); });
+            box.innerHTML = ""; showUpd(upd); box.appendChild(tb);
+          }).catch(function () { msg("一覧を読み込めませんでした。お手数ですが、お電話でお問い合わせください。"); });
+        })();
+        </script>
+
         <h2>1. 保管期間</h2>
         <ul>
           <li>お忘れ物は、ご来院日から<strong>1週間</strong>、院内でお預かりします。</li>
@@ -275,7 +328,7 @@ h1.h2-title{ font-size:30px !important; }
         <p>マイナ保険証（マイナンバーカード）・資格確認書・お薬手帳・診察券など、お名前の分かるお忘れ物は、当院からご連絡する場合があります。</p>
 
         <h2>5. プライバシーへの配慮</h2>
-        <p>患者さまのプライバシーを守るため、お忘れ物の品名や日付などは、ホームページ等で公開しておりません。</p>
+        <p>患者さまのプライバシーを守るため、ホームページには、お預かりした日・保管期限・種類・色のみを掲載し、お名前の分かる物や個人を特定できる情報は掲載しておりません。</p>
 
         <p style="margin-top: 28px; font-size: 13px; color: #939a93;">制定日：2026年10月</p>
       </div>
