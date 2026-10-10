@@ -29,7 +29,7 @@
 
 ## 予約・受診
 
-- 予約優先制。WEB予約に対応（24時間受付）：[ご予約](https://kyobashi-ent.com/reservation)
+- 予約制。WEB予約に対応（24時間受付）：[ご予約](https://kyobashi-ent.com/reservation)
 - 初めての方の持ち物・流れ：[ご来院の方へ](https://kyobashi-ent.com/first-visit)
 - 費用の目安：[検査・処置費用](https://kyobashi-ent.com/cost)
 - よくある質問：[よくある質問](https://kyobashi-ent.com/faq)
