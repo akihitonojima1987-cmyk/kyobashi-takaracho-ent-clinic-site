@@ -67,7 +67,7 @@
     },
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "15:00",
       "closes": "18:30"
     }
@@ -642,7 +642,7 @@ h1.h2-title{ font-size:30px !important; }
       <!-- 右：休診日/診療時間(上)＋電話(大)＋WEB予約・公式LINE(下)。休診日/診療時間(.head-hours)はヒーローのカードが出る1180px以上でのみ隠す -->
       <div class="head-right-col">
         <p class="head-week head-hours" style="margin:0;">
-          <span>休診日：水・土・日・祝</span>
+          <span>休診日：水曜午前・土・日・祝</span>
           <a href="/access" class="hw-jikan">診療時間</a>
         </p>
         <div style="display:flex; align-items:center; gap:8px;">
@@ -837,10 +837,10 @@ h1.h2-title{ font-size:30px !important; }
         </thead>
         <tbody>
           <tr><td class="mh-t">10:00–13:30</td><td>●</td><td>●</td><td class="x">／</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
-          <tr><td class="mh-t">15:00–18:30</td><td>●</td><td>●</td><td class="x">／</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
+          <tr><td class="mh-t">15:00–18:30</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td class="x">／</td><td class="x">／</td></tr>
         </tbody>
       </table>
-      <p class="mini-hours-note">受付　9:45–13:15／14:45–18:15　・　休診：水・土・日・祝</p>
+      <p class="mini-hours-note">受付　9:45–13:15／14:45–18:15　・　休診：水曜午前・土・日・祝<br><span style="color:#a08a4a;">※水曜午後の診療は2026年10月21日（水）から開始します。</span></p>
     </div>
 
     <!-- ============ お知らせ（ヒーロー下・こころみ風：左タイトル帯＋右3件リスト） ============ -->
@@ -922,8 +922,9 @@ h1.h2-title{ font-size:30px !important; }
             </details>
             
             <!-- 水曜午後の診療開始（2026-09-09 追加）。開始は 2026-10-21。
-                 開始までは休診表記を「水・土・日・祝」のままにしてあるので、
-                 10/21 が近づいたら全ページの休診表記と診療時間表を切り替えること。 -->
+                 2026-10-13 に全ページの休診表記を「水曜午前・土・日・祝」へ、診療時間表の水曜午後を ● へ
+                 切り替え済み（開始前に出すため「※水曜午後は2026年10月21日から」の注釈つき）。
+                 10/21 を過ぎたら、その注釈（NOTE 文）を各ページから外すこと。 -->
             <details class="news-item">
               <summary class="news-summary">
                 <span class="news-date">2026.09.09</span>
@@ -1257,11 +1258,11 @@ h1.h2-title{ font-size:30px !important; }
                 </tr>
                 <tr>
                   <td style="padding: 13px 4px; white-space: nowrap; color: #6b746f; border-bottom: 1px solid #eeeeea;">15:00–18:30</td>
-                  <td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td>
+                  <td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: var(--acd); border-bottom: 1px solid #eeeeea;">●</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td><td style="text-align: center; color: #cdd0cb; border-bottom: 1px solid #eeeeea;">—</td>
                 </tr>
               </tbody>
             </table>
-            <p style="font-size: 14px; color: #939a93; line-height: 1.8; margin: 0 0 18px;">休診：水曜・土曜・日曜・祝日</p>
+            <p style="font-size: 14px; color: #939a93; line-height: 1.8; margin: 0 0 18px;">休診：水曜午前・土曜・日曜・祝日<br>※水曜午後の診療は2026年10月21日（水）から開始します。</p>
             <div style="background: var(--acbg); border-radius: 12px; padding: 14px 18px; margin: 0 0 24px;">
               <div style="font-size: 14px; font-weight: 700; color: var(--acd); margin-bottom: 6px;">受付時間</div>
               <div style="font-size: 16px; color: #4a534e; line-height: 1.8;">午前 9:45–13:15 ／ 午後 14:45–18:15<br><span style="font-size: 14px; color: #939a93;">受付は診療開始15分前から、診療終了15分前までです。受付時間内にご来院ください。</span></div>
@@ -1515,7 +1516,7 @@ h1.h2-title{ font-size:30px !important; }
           <dt style="color: #fff; font-weight: 600;">アクセス</dt><dd style="margin: 0; color: #aab2ac;">都営浅草線「宝町駅」A6・A7出口 徒歩1分／東京メトロ銀座線「京橋駅」4番出口 徒歩2分</dd>
           <dt style="color: #fff; font-weight: 600;">TEL</dt><dd style="margin: 0; color: #aab2ac;">03-3567-8733</dd>
           <dt style="color: #fff; font-weight: 600;">診療時間</dt><dd style="margin: 0; color: #aab2ac;">午前 10:00–13:30 ／ 午後 15:00–18:30</dd>
-          <dt style="color: #fff; font-weight: 600;">休診日</dt><dd style="margin: 0; color: #aab2ac;">水曜・土曜・日曜・祝日</dd>
+          <dt style="color: #fff; font-weight: 600;">休診日</dt><dd style="margin: 0; color: #aab2ac;">水曜午前・土曜・日曜・祝日</dd>
         </dl>
       </div>
       <div style="padding-top: 22px; font-size: 13px; color: #8a928c; text-align: center; letter-spacing: 0.05em;">© 2026 岩佐耳鼻咽喉科 IWASA ENT CLINIC. All Rights Reserved.</div>
