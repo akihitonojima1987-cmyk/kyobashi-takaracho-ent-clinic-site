@@ -1035,6 +1035,18 @@ h1.h2-title{ font-size:30px !important; }
          （9,310px vs 3,150px）同じ%だと9画面目＝実質読まれないので採らない（2026-08-18 実測）。
          スマホは上の order（.sec-harass:order 6）でPCと同じく「お知らせ」の直後に出る（実測 2.2 画面目）。
          ※「医師会と連携」とは書かない。当院は中央区医師会に入会していないため。 -->
+    <!-- 予約の空き状況（2026-10-21 新設・理事長指示）。デジスマ公式の「予約枠埋め込みHTML」（管理画面＞予約・問診時診療科＞「上のどれにも当てはまらない方」の予約HTML）をそのまま使う。
+         枠の○／－はデジスマ側が表示するので、こちらで空き数は計算しない。 -->
+    <section class="sec-slots" id="slots" style="background:#ffffff; padding: 48px 0 56px;">
+      <div style="max-width: 900px; margin: 0 auto; padding: 0 20px; text-align: center;">
+        <h2 style="font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 24px; color: #3a423e; margin: 0 0 10px; letter-spacing: 0.05em;">予約の空き状況</h2>
+        <p style="font-size: 15px; color: #5b645f; line-height: 1.9; margin: 0 0 20px;">○の時間がご予約いただける枠です。表からそのままご予約いただけます。<br>（一般の診察の枠です。インフルエンザ予防接種などは<a href="/reservation" style="color:var(--acd); font-weight:700; text-decoration:underline; text-underline-offset:3px;">ご予約ページ</a>から）</p>
+        <div style="display:flex; justify-content:center;">
+          <iframe src="https://embed.digikar-smart.jp/institutions/e6f0c701-e294-4511-8472-298e16a1e5a0/reserve?mid=c174f1ed-97f6-4e25-8627-940fa30f0095" title="予約の空き状況（デジスマ）" width="400" height="800" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%; max-width:420px; height:800px; border:1px solid #e3e7e4; border-radius:12px; background:#fff;"></iframe>
+        </div>
+      </div>
+    </section>
+
     <section class="sec-harass" style="background: #ffffff;">
       <style>
         .sec-harass-wrap{max-width:1180px;margin:0 auto;padding:40px 28px 40px;}
