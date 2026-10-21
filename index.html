@@ -1584,9 +1584,9 @@ h1.h2-title{ font-size:30px !important; }
     var amOn = st.t==='on';
     body=(amOn?AM:'')+PM;
     if (amOn && min<585) { label='受付開始前（9:45から）'; cls='tb-wait'; }
-    else if (amOn && min<795) { label='現在 受付中です'; cls='tb-open'; }
+    else if (amOn && min<795) { label='予約受付中です'; cls='tb-open'; }
     else if (min<885) { label='午後の受付は14:45から'; cls='tb-wait'; }
-    else if (min<1095) { label='現在 受付中です'; cls='tb-open'; }
+    else if (min<1095) { label='予約受付中です'; cls='tb-open'; }
     else { label='本日の受付は終了しました'; cls='tb-closed'; }
   }
   document.getElementById('tb-h').textContent='本日の診療（'+(day.getMonth()+1)+'/'+day.getDate()+' '+W[day.getDay()]+'）';
