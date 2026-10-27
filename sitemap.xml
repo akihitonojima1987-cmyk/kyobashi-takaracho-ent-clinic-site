@@ -162,8 +162,13 @@
   </url>
   <url>
     <loc>https://kyobashi-ent.com/b-spot</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyobashi-ent.com/b-spot-en</loc>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://kyobashi-ent.com/privacy-policy</loc>
