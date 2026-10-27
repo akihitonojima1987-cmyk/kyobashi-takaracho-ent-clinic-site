@@ -171,6 +171,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://kyobashi-ent.com/international</loc>
+    <lastmod>2026-10-27</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://kyobashi-ent.com/privacy-policy</loc>
     <lastmod>2026-10-18</lastmod>
     <priority>0.3</priority>
