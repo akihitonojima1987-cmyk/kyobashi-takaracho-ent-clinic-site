@@ -919,10 +919,103 @@ h1.h2-title{ font-size:30px !important; }
               <summary class="news-summary">
                 <span class="news-date">2026.10.28</span>
                 <span class="news-tag">接種</span>
-                <span class="news-title">インフルエンザ予防接種は会社の福利厚生（健保組合の補助）でも受けられます</span>
+                <span class="news-title">会社の健保の補助で、インフルエンザの注射が0円〜2,000円に</span>
                 <span class="news-arrow" aria-hidden="true">&#9662;</span>
               </summary>
-              <p class="news-body"><strong style="color:#c5372b;">当院は東振協（東京都総合組合保健施設振興協会）の契約医療機関です。</strong>お勤め先の健康保険組合が東振協と契約していれば、<strong>福利厚生の補助（東振協の利用券）を使って、注射・点鼻ワクチン「フルミスト」のどちらも接種できます。</strong>窓口でのお支払いは、接種料金からご加入の健康保険組合の補助額（最大4,000円）を差し引いた金額です。利用券の発行のしかたは <a href="/faq" style="color:var(--acd); font-weight:700; text-decoration:underline; text-underline-offset:3px;">「よくある質問」→</a> をご覧ください。当日は、印刷した利用券とマイナ保険証（または資格確認書）をお持ちください。<br>・<strong>注射のワクチン</strong>：<strong>13歳以上の方</strong>／4,000円（税込・全額自費）<br>・<strong>点鼻ワクチン「フルミスト」</strong>：<strong>2歳〜18歳の方</strong>／8,000円（税込・全額自費）。接種できるかどうかは医師が判断します。<br>・<strong>ご予約</strong>：Web予約（デジスマ）の「インフルエンザ予防接種」の枠から（フルミストは「フルミスト（2〜18歳限定）」）。接種日の1週間前から承ります。<br>・未成年の方は保護者の方の同伴を、接種後は院内で30分ほどお待ちください。注射の予診票は <a href="influenza-yoshinhyo.pdf" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700; text-decoration:underline; text-underline-offset:3px;">こちら（PDF・A4 1枚）→</a>（院内でもご用意しています）。<br>・<strong style="color:#c5372b;">区市町村の助成制度は、当院ではご利用いただけません。</strong><br>・ワクチンの在庫がなくなり次第、接種終了となります。</p>
+              <!-- 2026-10-28 理事長指示：お知らせを開いてすぐ「自分の会社の健保が使えるか・自分はいくらか」が分かるように、周辺の会社の健保と窓口負担の表・計算欄を追加（健保名の公開は理事長OK）。
+                   表の金額は東振協の名簿（令和8年10月1日現在）の本人補助額から「4,000円 − 補助額」で計算。名簿が変わったら表も直すこと。0〜2,000円は名簿の約6割（160組合中102）なので「多くの方」と書いている。
+                   最終確認は利用券（発行できれば使える・補助額は券に書いてある）。フルミストは補助を引いても4,000円以上なので表は注射だけ。 -->
+              <div class="news-body">
+                <p style="margin:0 0 10px;"><strong style="color:#c5372b;">当院は東振協（東京都総合組合保健施設振興協会）の契約医療機関です。</strong>お勤め先の健康保険組合が東振協と契約していれば、<strong>福利厚生の補助（東振協の利用券）で、注射は多くの方が0円〜2,000円で接種できます。</strong></p>
+                <!-- 2026-10-28 理事長指示：会社名・健保名を入れて ○／× で判定できる欄。データは東振協の名簿（令和8年10月1日現在）の 健保名・窓口負担（4,000円−本人補助、下限0）・院内接種の可否・業種キーワード。
+                     名簿には「会社→健保」の対応はないので、見つからないときは × と言い切らず「？」にして利用券発行ページへ案内する。× は名簿にあって院内接種ができない健保だけ。 -->
+                <div style="background:#f6f8f6; border:1px solid #e2e6e3; border-radius:6px; padding:12px; margin:0 0 14px;">
+                  <label for="toshinkyo-q" style="display:block; font-weight:700; margin:0 0 6px;">お勤め先の会社名で調べる（○・△で表示します）</label>
+                  <input id="toshinkyo-q" type="search" placeholder="例：パイロット、〇〇証券、〇〇出版" autocomplete="off" style="width:100%; max-width:420px; box-sizing:border-box; padding:6px 8px; font-size:16px; border:1px solid #cfd5d1; border-radius:4px;">
+                  <div id="toshinkyo-res" aria-live="polite" style="margin-top:8px;"></div>
+                  <div style="margin-top:6px; font-size:.92em; color:#7a827d;">健康保険組合の名前は、資格確認書や、マイナポータルの「健康保険証情報」で確かめられます。</div>
+                </div>
+                <script>
+                (function(){
+                  // 東振協の対象健保（名簿 令和8年10月1日現在・特例退職者向けは除く）：[健保名, 注射の窓口負担, 院内接種できる=1, 業種キーワード, 業界の健保=1]
+                  var K=[["アフラック",0,1,"",0],["印刷製本包装機械",1000,1,"印刷 製本",1],["エンターテイメント",4000,1,"",0],["大阪線材製品",2500,1,"",0],["大阪鉄商",0,1,"",0],["オオゼキ",0,1,"",0],["沖電気工業",3000,1,"",0],["海空運",3000,1,"海運 航空",1],["外国運輸金融",1000,1,"外資 外国",1],["玩具人形",2000,1,"",0],["管工業",2000,1,"",0],["観光産業",1000,1,"観光 旅行 ホテル",1],["関東ITソフトウェア",2000,1,"IT システム ソフトウェア",1],["関東信用組合連合",2000,1,"",0],["関東百貨店",3000,1,"百貨店",1],["関東めっき",2500,1,"",0],["機缶",4000,1,"",0],["協和キリン",2000,1,"",0],["近畿化粧品",2000,1,"",0],["近畿日本ツーリスト",2500,1,"旅行 KNT",0],["グラクソ・スミスクライン",0,1,"",0],["栗田",2500,1,"",0],["計機",1000,1,"",0],["小糸",0,1,"",0],["小糸 静岡支部",0,1,"",0],["神戸貿易",1000,1,"",0],["鷲宮",2500,1,"",0],["酒フーズ",4000,1,"",0],["サザビーリーグ",940,1,"アフタヌーンティー",0],["佐藤工業",1000,1,"",0],["産業機械",4000,1,"",0],["三陽商会",2000,1,"",0],["CNCグループ",0,1,"",0],["GWA",500,1,"",0],["JVCケンウッド",700,1,"",0],["自動車振興会",3000,1,"",0],["シミックグループ",2500,1,"",0],["ジャックス",2000,1,"",0],["出版",1940,1,"出版社 書籍 雑誌",1],["出版 大阪支部",1940,1,"",0],["スターバックスコーヒージャパン",2200,1,"",0],["住友不動産ステップ",0,1,"",0],["石油製品販売",2000,1,"",0],["ゼネラル",2000,1,"",0],["セメント商工",2000,1,"",0],["全国印刷工業",3000,1,"印刷",1],["全国硝子業",3000,0,"",0],["全国設計事務所",1000,1,"設計",1],["全国労働金庫",2000,1,"労金 労働金庫",1],["全日本理美容",4000,1,"",0],["船場",0,1,"",0],["倉庫業",4000,1,"倉庫 物流",1],["測量地質",2000,1,"測量",1],["大京",2000,1,"",0],["千葉県建設業",2000,1,"",0],["駐留軍要員",940,1,"",0],["駐留軍要員 沖縄支部",940,1,"",0],["通信機器産業",2000,1,"",0],["ツカモトグループ",2000,1,"",0],["デパート",3000,1,"百貨店",1],["デパート 西日本支部",3000,1,"",0],["デパート 東日本支部",3000,1,"",0],["テルモ",2000,1,"",0],["でんきテクノロジー",3000,1,"",0],["電子回路",2000,1,"",0],["電設工業",3000,1,"",0],["電線工業",2000,1,"",0],["東京アパレル",0,1,"アパレル 衣料 服",1],["東京屋外広告ディスプレイ",2000,1,"",0],["東京織物",2000,1,"繊維 織物 生地",1],["東京紙商",3000,1,"紙",1],["東京貨物運送",2000,1,"運送 物流",1],["東京機器",2500,1,"",0],["東京金属事業",2000,1,"",0],["東京化粧品",2500,1,"化粧品",1],["東京港",2000,1,"",0],["東京港運",2000,1,"港湾",1],["東京広告業",2000,1,"広告",1],["東京実業",3000,1,"",0],["東京実業 城西支部",3000,1,"",0],["東京実業 城南支部",3000,1,"",0],["東京実業 城北支部",3000,1,"",0],["東京自転車",2000,1,"",0],["東京自動車教習所",3000,0,"",0],["東京自動車サービス",2000,1,"",0],["東京証券業",2000,1,"証券",1],["東京中央卸売市場",3000,1,"市場 卸売",1],["東京電子機械工業",1040,1,"",0],["東京都家具",3000,1,"",0],["東京都金属プレス工業",2000,1,"",0],["東京都歯科",2000,1,"歯科 歯医者",1],["東京都自動車整備",2500,1,"",0],["東京都情報サービス産業",1700,1,"IT システム ソフトウェア 情報",1],["東京都信用金庫",2000,1,"信用金庫 信金",1],["東京都電機",3000,1,"電機",1],["東京都土木建築",2500,1,"建設 建築 土木",1],["東京都ニット",2000,1,"",0],["東京都皮革産業",3000,1,"",0],["東京都報道事業",1000,1,"",0],["東京都木材産業",2500,1,"木材",1],["東京都洋菓子",2500,1,"洋菓子 菓子",1],["東京トラック事業",3000,1,"運送 トラック 物流",1],["東京ニットファッション",2000,1,"",0],["東京不動産業",2000,1,"不動産",1],["東京文具工業",2500,1,"文具 文房具",1],["東京文具販売",3000,1,"文具 文房具",1],["東京薬業",2500,1,"薬 製薬 医薬品",1],["東部ゴム",2500,1,"",0],["DOWA",0,1,"",0],["トータルビューティー",0,1,"",0],["日本金型工業",3000,1,"",0],["日本高速道路",2000,1,"NEXCO 高速道路",0],["日本合板",4000,1,"",0],["日本コロムビア",0,1,"",0],["日本自動車部品工業",4000,1,"",0],["日本事務器",2000,1,"",0],["日本情報産業",4000,1,"",0],["日本製鋼所",0,1,"",0],["日本テキサスインスツルメンツ",1500,1,"",0],["日本旅行",2500,1,"旅行",0],["パイロット",2000,1,"",0],["パッケージ工業",2000,1,"",0],["パレット",3000,1,"",0],["BIJ",0,1,"",0],["東日本電線工業",2500,1,"",0],["東日本プラスチック",2000,1,"",0],["ファイザー",0,1,"",0],["フォーラムエンジニアリング",0,1,"",0],["不動テトラ",4000,1,"",0],["フューチャーグループ",0,1,"",0],["プラチナ萬年筆",0,1,"",0],["プルデンシャル",1000,1,"",0],["ベルシステム24",2000,1,"",0],["ポーラ・オルビスグループ",1500,1,"ポーラ オルビス",0],["ボッシュ",2000,1,"",0],["マツキヨココカラ＆カンパニー",3000,1,"マツモトキヨシ ココカラファイン ドラッグストア",0],["マルハン",500,1,"",0],["丸紅連合",0,1,"",0],["三菱地所",0,1,"",0],["ミドリ安全",1000,1,"",0],["民間放送 本部",2000,1,"放送 テレビ ラジオ",1],["民間放送 北海道東北支部",2000,1,"",0],["民間放送 中国四国支部",2000,1,"",0],["民間放送 九州支部",2000,1,"",0],["文部科学省共済組合 宇都宮大学支部",3000,1,"",0],["文部科学省共済組合 千葉大学支部",3110,1,"",0],["文部科学省共済組合 筑波大学支部",3110,1,"",0],["U-NEXT HOLDINGS",0,1,"ユーネクスト",0],["楽天",1700,1,"",0],["ルックグループ",1000,1,"",0],["ローソン",1500,1,"",0],["渡辺パイプ",2000,1,"",0]];
+                  var q=document.getElementById('toshinkyo-q'), res=document.getElementById('toshinkyo-res');
+                  if(!q||!res) return;
+                  // 全角英数→半角・カタカナの表記ゆれ・会社の種類や「健保」などの語を取り除いてそろえる
+                  function norm(s){
+                    return (s||'').replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);})
+                      .toLowerCase().replace(/[\s　・･\.\-ー－（）()「」]/g,'')
+                      .replace(/株式会社|（株）|\(株\)|㈱|有限会社|グループ|ホールディングス|holdings|健康保険組合|健康保険|健保組合|健保|コーポレーション|corporation/g,'');
+                  }
+                  var LINK='<a href="https://influenza.toshinkyo.or.jp/IN" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700; text-decoration:underline; text-underline-offset:3px;">東振協の利用券発行ページ →</a>';
+                  function yen(n){ return n.toLocaleString('ja-JP')+'円'; }
+                  function row(k){
+                    if(!k[2]) return '<div style="padding:4px 0;"><span style="display:inline-block; min-width:1.6em; font-weight:700; color:#7a827d;">×</span>'+k[0]+'：当院（院内）では使えません（出張接種のみの健保です）</div>';
+                    if(k[4]==='ind') return '<div style="padding:4px 0;"><span style="display:inline-block; min-width:1.6em; font-weight:700; color:#a08a4a;">△</span>可能性あり：業界の健保「'+k[0]+'」に加入している会社なら使えます（注射のお支払い <strong style="color:#c5372b;">'+yen(k[1])+'</strong>）。同じ業界でも、会社独自の健保の場合は対象外のことがあります。</div>';
+                    return '<div style="padding:4px 0;"><span style="display:inline-block; min-width:1.6em; font-weight:700; color:#2f7d4f;">○</span>'+k[0]+'：注射のお支払い <strong style="color:#c5372b;">'+yen(k[1])+'</strong>'+(k[1]>=4000?'（補助なし）':'')+'</div>';
+                  }
+                  function run(){
+                    var s=norm(q.value);
+                    if(s.length<2){ res.innerHTML=''; return; }
+                    // 会社名・健保名で当たったもの（○）を先に、業種の言葉で当たったもの（△）を後に並べる
+                    var own=[], ind=[];
+                    K.forEach(function(k){
+                      var n=norm(k[0]);
+                      // 業界の健保（k[4]=1）は、健保名そのものを入れたとき以外は △ にする（例：「〇〇出版」→ 出版健保は △）
+                      if(n.indexOf(s)>=0 || (n.length>=2 && s.indexOf(n)>=0)) { if(k[4] && s!==n) ind.push(k); else own.push(k); return; }
+                      // 業種の言葉なら △、会社の別名（例：マツモトキヨシ）なら ○
+                      if(k[3].split(' ').some(function(w){ w=norm(w); return w && (w.indexOf(s)>=0 || s.indexOf(w)>=0); })) (k[4]?ind:own).push(k);
+                    });
+                    var hit=own.map(function(k){ return k.slice(0,4); }).concat(ind.map(function(k){ return k.slice(0,4).concat(['ind']); }));
+                    if(!hit.length){
+                      res.innerHTML='<div style="padding:4px 0;"><span style="font-weight:700; color:#a08a4a;">？</span> 一覧に見つかりませんでした。業界の健康保険組合（例：東京証券業・出版・東京薬業）に加入している会社もあるため、保険証の「保険者名称」でもお試しください。最終的には '+LINK+' で利用券が発行できるかどうかで決まります。</div>';
+                      return;
+                    }
+                    res.innerHTML=hit.slice(0,8).map(row).join('')+(hit.length>8?'<div style="padding:4px 0; color:#7a827d;">ほか'+(hit.length-8)+'件。もう少し詳しく入れてください。</div>':'')
+                      +'<div style="padding:6px 0 0; font-size:.92em; color:#7a827d;">○・△でも、最終的には'+LINK+' で利用券が発行できるかどうかで決まります。お支払いは「4,000円 − 利用券の補助額」です。</div>';
+                  }
+                  q.addEventListener('input', run);
+                })();
+                </script>
+                <p style="margin:0 0 6px;"><strong>京橋・日本橋・八重洲周辺の会社が加入している主な健康保険組合</strong>（注射4,000円の場合の窓口のお支払い）</p>
+                <table style="width:100%; max-width:520px; border-collapse:collapse; margin:0 0 6px; font-size:inherit; line-height:1.5;">
+                  <tbody>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">三菱地所（丸の内・大手町）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong style="color:#c5372b;">0円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">丸紅連合（商社）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong style="color:#c5372b;">0円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">東京アパレル（衣料品）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong style="color:#c5372b;">0円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">東京都情報サービス産業（IT・システム）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>1,700円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">出版（出版社）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>1,940円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">東京証券業（証券会社）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>2,000円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">パイロット</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>2,000円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">東京織物（繊維）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>2,000円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">東京広告業・東京不動産業・東京都信用金庫</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>2,000円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">東京薬業（製薬・医薬品の卸）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>2,500円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">東京文具工業・東京文具販売・東京紙商（文具・紙）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>2,500〜3,000円</strong></td></tr>
+                    <tr style="border-bottom:1px solid #ecece6;"><td style="padding:5px 4px;">デパート・関東百貨店（百貨店）</td><td style="padding:5px 4px; text-align:right; white-space:nowrap;"><strong>3,000円</strong></td></tr>
+                  </tbody>
+                </table>
+                <p style="margin:0 0 12px; font-size:.92em; color:#7a827d;">ほかにも約160の健康保険組合が対象です。表は令和8年10月1日現在の目安で、（ ）は加入の多い業種・地域です。</p>
+                <p style="margin:0 0 6px;"><strong>ご自分の金額を確かめる方法</strong></p>
+                <p style="margin:0 0 10px;">①東振協の <a href="https://influenza.toshinkyo.or.jp/IN" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700; text-decoration:underline; text-underline-offset:3px;">利用券発行ページ →</a> で、マイナ保険証（または資格確認書）の保険者番号・記号・番号を入力します。<strong style="color:#c5372b;">利用券が発行できれば、ご利用いただけます。</strong><br>②利用券に書かれた「補助額」を、下に入れてください。窓口でのお支払いは「4,000円 − 補助額」です（補助額が4,000円以上なら0円）。</p>
+                <div style="display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; background:#f6f8f6; border:1px solid #e2e6e3; border-radius:6px; padding:10px 12px; margin:0 0 12px;">
+                  <label for="toshinkyo-hojo" style="white-space:nowrap;">利用券の補助額</label>
+                  <span style="white-space:nowrap;"><input id="toshinkyo-hojo" type="number" inputmode="numeric" min="0" step="10" placeholder="例：3000" style="width:7em; padding:4px 6px; font-size:16px; border:1px solid #cfd5d1; border-radius:4px;"> 円</span>
+                  <span id="toshinkyo-pay" aria-live="polite" style="white-space:nowrap;">→ 注射のお支払い：<strong style="color:#c5372b;">—</strong></span>
+                </div>
+                <script>
+                (function(){
+                  // 補助額を入れると注射の窓口負担（4,000円 − 補助額、下限0円）を表示する
+                  var inp=document.getElementById('toshinkyo-hojo'), out=document.getElementById('toshinkyo-pay');
+                  if(!inp||!out) return;
+                  inp.addEventListener('input', function(){
+                    var v=parseInt(inp.value,10), b=out.querySelector('strong');
+                    if(isNaN(v)||v<0){ b.textContent='—'; return; }
+                    b.textContent=Math.max(0,4000-v).toLocaleString('ja-JP')+'円';
+                  });
+                })();
+                </script>
+                <p style="margin:0;">当日は、印刷した利用券とマイナ保険証（または資格確認書）をお持ちください。利用券の発行のしかたは <a href="/faq" style="color:var(--acd); font-weight:700; text-decoration:underline; text-underline-offset:3px;">「よくある質問」→</a> にもあります。<br>・<strong>注射のワクチン</strong>：<strong>13歳以上の方</strong>／4,000円（税込・全額自費）<br>・<strong>点鼻ワクチン「フルミスト」</strong>：<strong>2歳〜18歳の方</strong>／8,000円（税込・全額自費）。東振協の利用券も使えます（補助額は4,000円まで差し引き）。接種できるかどうかは医師が判断します。<br>・<strong>ご予約</strong>：Web予約（デジスマ）の「インフルエンザ予防接種」の枠から（フルミストは「フルミスト（2〜18歳限定）」）。接種日の1週間前から承ります。<br>・未成年の方は保護者の方の同伴を、接種後は院内で30分ほどお待ちください。注射の予診票は <a href="influenza-yoshinhyo.pdf" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700; text-decoration:underline; text-underline-offset:3px;">こちら（PDF・A4 1枚）→</a>（院内でもご用意しています）。<br>・<strong style="color:#c5372b;">区市町村の助成制度は、当院ではご利用いただけません。</strong><br>・ワクチンの在庫がなくなり次第、接種終了となります。</p>
+              </div>
             </details>
             <!-- 年末年始休診（2026-09-29 追加）。休診は 2026-12-29（火）〜2027-01-03（日）、診療再開は 2027-01-04（月）。
                  期間が過ぎたら（2027-01-04 以降）このブロックを撤去すること（2026-08-31 の夏季休診告知の撤去と同じ扱い）。
