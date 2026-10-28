@@ -930,8 +930,14 @@ h1.h2-title{ font-size:30px !important; }
                 <!-- 2026-10-28 理事長指示：会社名・健保名を入れて ○／× で判定できる欄。データは東振協の名簿（令和8年10月1日現在）の 健保名・窓口負担（4,000円−本人補助、下限0）・院内接種の可否・業種キーワード。
                      名簿には「会社→健保」の対応はないので、見つからないときは × と言い切らず「？」にして利用券発行ページへ案内する。× は名簿にあって院内接種ができない健保だけ。 -->
                 <div style="background:#f6f8f6; border:1px solid #e2e6e3; border-radius:6px; padding:12px; margin:0 0 14px;">
-                  <label for="toshinkyo-q" style="display:block; font-weight:700; margin:0 0 6px;">お勤め先の会社名で調べる（○・△で表示します）</label>
-                  <input id="toshinkyo-q" type="search" placeholder="例：パイロット、〇〇証券、〇〇出版" autocomplete="off" style="width:100%; max-width:420px; box-sizing:border-box; padding:6px 8px; font-size:16px; border:1px solid #cfd5d1; border-radius:4px;">
+                  <!-- 2026-10-28 理事長指摘「どこに会社名を入れるか分かりにくい・入力例を薄く」：入力欄を白地＋緑の枠で目立たせ、入力例（placeholder）を薄い灰色にした -->
+                  <style>
+                    #toshinkyo-q{background:#fff; border:2px solid var(--acd); border-radius:6px;}
+                    #toshinkyo-q:focus{outline:none; box-shadow:0 0 0 3px rgba(0,0,0,.08);}
+                    #toshinkyo-q::placeholder{color:#c3c9c5; opacity:1;}
+                  </style>
+                  <label for="toshinkyo-q" style="display:block; font-weight:700; margin:0 0 6px;">🔍 お勤め先の会社名を、下の枠に入れてください（○・△で表示します）</label>
+                  <input id="toshinkyo-q" type="search" placeholder="例：パイロット、〇〇証券、〇〇出版" autocomplete="off" style="width:100%; max-width:420px; box-sizing:border-box; padding:8px 10px; font-size:16px;">
                   <div id="toshinkyo-res" aria-live="polite" style="margin-top:8px;"></div>
                   <div style="margin-top:6px; font-size:.92em; color:#7a827d;">健康保険組合の名前は、資格確認書や、マイナポータルの「健康保険証情報」で確かめられます。</div>
                 </div>
