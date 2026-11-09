@@ -45,6 +45,13 @@
   /* 和文。英文の訳であることが見て分かるよう、左に細い罫線を入れて一段下げる */
   .pp .ip-ja { font-size: 13.5px; line-height: 1.95; color: #6b746f; margin: 7px 0 0;
     padding-left: 12px; border-left: 2px solid var(--acs); }
+  .pp .ip-steps { list-style: none; margin: 0; padding: 0; }
+  .pp .ip-step { border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; margin: 0 0 16px; }
+  .pp .ip-step-h { font-weight: 700; font-size: 15.5px; color: #3a423e; margin: 0 0 6px; }
+  .pp .ip-step-h .ip-step-n { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center;
+    border-radius: 50%; background: #d63434; color: #fff; font-size: 14px; margin-right: 8px; }
+  .pp .ip-step img { display: block; width: 100%; max-width: 560px; height: auto; margin: 12px 0 0;
+    border: 1px solid var(--line); border-radius: 6px; }
   .pp .ip-item { margin: 0 0 20px; }
   .pp .ip-item:last-child { margin-bottom: 0; }
   /* 最重要の注意（通訳同伴）。赤一色にせず、左罫線と淡い地色で重さを出す */
@@ -261,6 +268,7 @@ h1.h2-title{ font-size:30px !important; }
         <a href="/symptoms" class="nav-link">このような時</a>
         <a href="/faq" class="nav-link">よくある質問</a>
         <a href="/recruit" class="nav-link">採用情報</a>
+        <a href="/international" class="nav-link" lang="en">English</a>
       </div>
     </nav>
   </header>
@@ -317,15 +325,55 @@ h1.h2-title{ font-size:30px !important; }
         </div>
         <h2>Appointments ／ ご予約について</h2>
         <div class="ip-item">
-          <p class="ip-en"><strong>Appointments are required.</strong> Please book before your visit. We cannot see patients beyond the available appointment slots.</p>
-          <p class="ip-ja"><strong>当院は予約制です。</strong>ご予約のうえご来院ください。予約枠を超えての受診はお受けできません。</p>
+          <p class="ip-en"><strong>Appointments are required.</strong> Please book online before your visit.</p>
+          <p class="ip-ja"><strong>当院は予約制です。</strong>ご来院の前に、ネットでご予約ください。</p>
         </div>
-        <div class="ip-item">
-          <p class="ip-en"><strong>Our online booking system and our telephone line are in Japanese only.</strong> We recommend asking your interpreter, a family member, or a friend to make the booking for you.</p>
-          <p class="ip-ja"><strong>Web予約（デジスマ）・お電話は、いずれも日本語のみの対応です。</strong>通訳の方やご家族・ご友人にご予約をお願いされることをおすすめします。</p>
+        <div class="ip-block">
+          <p class="ip-block-h">Appointment times for international patients　<span class="ip-block-ja">外国の方の予約の時間</span></p>
+          <p class="ip-en">Weekdays (Monday to Friday): <strong>15:30, 15:50 and 16:10</strong></p>
+          <p class="ip-ja">平日（月曜〜金曜）の 15時30分・15時50分・16時10分</p>
         </div>
+
+        <h2>How to Book Online ／ ネット予約のしかた</h2>
         <div class="ip-item">
-          <p class="ip-en"><a href="https://qr.digikar-smart.jp/e6f0c701-e294-4511-8472-298e16a1e5a0/reserve" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700; text-decoration:underline;">Book online (Japanese) →</a></p>
+          <p class="ip-en">The booking screens are in Japanese, but the menu for international patients is also shown in English. Follow the red boxes in the pictures below.</p>
+          <p class="ip-ja">予約の画面は日本語ですが、外国の方向けのメニューは英語でも表示されます。下の写真の赤い枠のところを押してください。</p>
+          <p class="ip-en" style="margin-top:12px;"><a href="https://qr.digikar-smart.jp/e6f0c701-e294-4511-8472-298e16a1e5a0/reserve" target="_blank" rel="noopener" style="color:var(--acd); font-weight:700; text-decoration:underline;">Open the booking page →</a></p>
+        </div>
+        <ol class="ip-steps">
+          <li class="ip-step">
+            <p class="ip-step-h"><span class="ip-step-n">1</span>Choose your menu</p>
+            <p class="ip-en">Scroll down to <strong>"海外からの旅行者の方 / Foreign visitors"</strong> and choose <strong>"Foreign visitors (first visit)"</strong>. If you have visited us before, choose <strong>"Foreign visitors (return visit)"</strong>.</p>
+            <p class="ip-ja">下のほうの「海外からの旅行者の方 / Foreign visitors」から「旅行者の方（はじめて・自費）」を選びます。2回目以降の方は「旅行者の方（2回目以降・自費）」を選びます。</p>
+            <img src="book-en-step1.jpg" alt="Booking screen: choose Foreign visitors (first visit)" loading="lazy" width="800" height="600">
+          </li>
+          <li class="ip-step">
+            <p class="ip-step-h"><span class="ip-step-n">2</span>Read the notes and press 「次へ」 (Next)</p>
+            <p class="ip-en">The notes are shown in English and Japanese. Press the blue button <strong>「次へ」</strong> (Next).</p>
+            <p class="ip-ja">英語と日本語の注意書きを読み、青い「次へ」のボタンを押します。</p>
+            <img src="book-en-step2.jpg" alt="Booking screen: press the Next button" loading="lazy" width="800" height="600">
+          </li>
+          <li class="ip-step">
+            <p class="ip-step-h"><span class="ip-step-n">3</span>Choose a date and time</p>
+            <p class="ip-en">Times with <strong>○</strong> are available. Times with <strong>×</strong> are full, and <strong>-</strong> means we are closed. Press a <strong>○</strong>.</p>
+            <p class="ip-ja">「○」が予約できる時間、「×」は満員、「-」は休診です。「○」を押します。</p>
+            <img src="book-en-step3.jpg" alt="Booking screen: choose a time marked with a circle" loading="lazy" width="800" height="600">
+          </li>
+          <li class="ip-step">
+            <p class="ip-step-h"><span class="ip-step-n">4</span>Enter your mobile phone number</p>
+            <p class="ip-en"><strong>(4)</strong> Enter your mobile phone number without hyphens. <strong>(5)</strong> Tick the box to agree to the terms. <strong>(6)</strong> Press 「認証コードを送信」 (Send code). A code will be sent to your phone by SMS. Enter the code, then fill in your name, date of birth and e-mail address to finish the booking.</p>
+            <p class="ip-ja">④ 携帯電話番号をハイフンなしで入れます。⑤ 利用規約に同意するチェックを入れます。⑥「認証コードを送信」を押します。SMSで届く認証コードを入れ、名前・生年月日・メールアドレスを入れて、予約を完了します。</p>
+            <img src="book-en-step4.jpg" alt="Booking screen: enter your mobile phone number" loading="lazy" width="800" height="600">
+          </li>
+        </ol>
+
+        <div class="ip-notice">
+          <p class="ip-en">If you cannot book online, please come to our reception desk between <strong>15:15 and 16:00 on a weekday</strong> (Monday to Friday). We will see you in a time slot for international patients.</p>
+          <p class="ip-ja">ネットで予約ができない方は、平日（月曜〜金曜）の15時15分〜16時00分の間に受付へお越しください。外国の方の予約の時間でご案内します。</p>
+        </div>
+        <div class="ip-item" style="margin-top:20px;">
+          <p class="ip-en"><strong>Urgent visit without an appointment: +22,000 yen.</strong> If you come at other times without an appointment, we may not be able to see you. If we see you as an urgent case, this fee is added.</p>
+          <p class="ip-ja"><strong>予約外の受診（緊急の受診）：＋22,000円。</strong>上記以外の時間に予約なしで来院された場合、診察できないことがあります。緊急として診察する場合は、この料金がかかります。</p>
         </div>
         <h2>What to Bring ／ お持ちいただくもの</h2>
         <div class="ip-block">
@@ -346,6 +394,7 @@ h1.h2-title{ font-size:30px !important; }
             <li>Detailed tests (hearing test, blood test, etc.): <strong>+22,000 yen</strong><span class="ip-li-ja">精密検査（聴力検査・血液検査など）を行った場合：＋22,000円</span></li>
             <li>Minor surgery (e.g. myringotomy): <strong>+44,000 yen</strong><span class="ip-li-ja">手術（鼓膜切開など）を行った場合：＋44,000円</span></li>
             <li>Follow-up visit (within 7 days, same symptoms): <strong>22,000 yen</strong><span class="ip-li-ja">再診（7日以内・同じ症状）：22,000円</span></li>
+            <li>Urgent visit without an appointment: <strong>+22,000 yen</strong><span class="ip-li-ja">予約外の受診（緊急の受診）：＋22,000円</span></li>
             <li>Continuing B-spot therapy (2nd visit or later, treatment only, within 1 month of the previous one): <strong>7,700 yen</strong> — <a href="/b-spot-en" style="color:var(--acd); font-weight:700;">About B-spot therapy</a><span class="ip-li-ja">Bスポット治療の継続（2回目以降で処置のみの日・前回から1か月以内）：7,700円</span></li>
             <li>English medical certificate for travel insurance: <strong>+22,000 yen</strong><span class="ip-li-ja">旅行保険用の英文診断書：＋22,000円</span></li>
           </ul>
@@ -416,5 +465,5 @@ h1.h2-title{ font-size:30px !important; }
     </div>
   </footer>
 </div>
-<button class="hamburger" aria-label="メニュー" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o);"><span></span><span></span><span></span></button><script>(function(){var h=document.querySelector('.hamburger');if(h)h.setAttribute('aria-expanded',document.body.classList.contains('menu-open')?'true':'false');})();</script><nav class="mobile-menu" onclick="if(event.target.closest('a')){document.body.classList.remove('menu-open');var h=document.querySelector('.hamburger');if(h)h.setAttribute('aria-expanded','false');}"><a href="/">HOME</a><a href="/first-visit">ご来院の方へ</a><a href="/clinic">クリニック紹介</a><a href="/services">診療内容</a><a href="/sublingual-immunotherapy">舌下免疫療法</a><a href="/b-spot">Bスポット療法</a><a href="/access">アクセス・診療時間</a><a href="/symptoms">このような時</a><a href="/faq">よくある質問</a><a href="/cost">検査・処置費用</a><a href="/recruit">採用情報</a><a href="/reservation" class="mm-accent">ご予約について</a><a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="mm-line">公式LINE</a><a href="https://x.com/kyobashi_ent" target="_blank" rel="noopener" class="mm-x">公式X</a><a href="https://note.com/kyobashi_ent" target="_blank" rel="noopener" class="mm-note">公式note</a></nav><div class="mobile-cta"><a class="mc-line" href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>LINE</a><a class="mc-web" href="https://qr.digikar-smart.jp/e6f0c701-e294-4511-8472-298e16a1e5a0/reserve" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 13.5l2 2 4-4"/></svg>予約</a><a class="mc-recruit" href="/recruit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>採用</a></div><div class="float-cta"><a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="fc-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>LINE予約</a><a href="https://qr.digikar-smart.jp/e6f0c701-e294-4511-8472-298e16a1e5a0/reserve" target="_blank" rel="noopener" class="fc-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 13.5l2 2 4-4"/></svg>Web予約</a></div></body>
+<button class="hamburger" aria-label="メニュー" aria-expanded="false" onclick="var o=document.body.classList.toggle('menu-open');this.setAttribute('aria-expanded',o);"><span></span><span></span><span></span></button><script>(function(){var h=document.querySelector('.hamburger');if(h)h.setAttribute('aria-expanded',document.body.classList.contains('menu-open')?'true':'false');})();</script><nav class="mobile-menu" onclick="if(event.target.closest('a')){document.body.classList.remove('menu-open');var h=document.querySelector('.hamburger');if(h)h.setAttribute('aria-expanded','false');}"><a href="/">HOME</a><a href="/first-visit">ご来院の方へ</a><a href="/clinic">クリニック紹介</a><a href="/services">診療内容</a><a href="/sublingual-immunotherapy">舌下免疫療法</a><a href="/b-spot">Bスポット療法</a><a href="/access">アクセス・診療時間</a><a href="/symptoms">このような時</a><a href="/faq">よくある質問</a><a href="/cost">検査・処置費用</a><a href="/recruit">採用情報</a><a href="/international" lang="en">English / For International Patients</a><a href="/reservation" class="mm-accent">ご予約について</a><a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="mm-line">公式LINE</a><a href="https://x.com/kyobashi_ent" target="_blank" rel="noopener" class="mm-x">公式X</a><a href="https://note.com/kyobashi_ent" target="_blank" rel="noopener" class="mm-note">公式note</a></nav><div class="mobile-cta"><a class="mc-line" href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>LINE</a><a class="mc-web" href="https://qr.digikar-smart.jp/e6f0c701-e294-4511-8472-298e16a1e5a0/reserve" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 13.5l2 2 4-4"/></svg>予約</a><a class="mc-recruit" href="/recruit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>採用</a></div><div class="float-cta"><a href="https://lin.ee/XtmFDb7" target="_blank" rel="noopener" class="fc-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>LINE予約</a><a href="https://qr.digikar-smart.jp/e6f0c701-e294-4511-8472-298e16a1e5a0/reserve" target="_blank" rel="noopener" class="fc-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 13.5l2 2 4-4"/></svg>Web予約</a></div></body>
 </html>
