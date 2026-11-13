@@ -34,6 +34,17 @@
 - 費用の目安：[検査・処置費用](https://kyobashi-ent.com/cost)
 - よくある質問：[よくある質問](https://kyobashi-ent.com/faq)
 
+## International patients (English)
+
+- English pages: [Top (English)](https://kyobashi-ent.com/en) / [For International Patients — fees, how to book, what to bring](https://kyobashi-ent.com/international) / [FAQ (English)](https://kyobashi-ent.com/faq-en)
+- Consultations are in Japanese. Patients who find Japanese difficult should come with an interpreter (a family member or friend is fine), or choose a consultation using a translation app.
+- Appointments are required. Online booking uses "Digisma" (menu "Foreign visitors" for people without Japanese health insurance). The booking system is in Japanese and needs a Japanese mobile number for SMS. Appointment times for international patients: weekdays 16:00 and 16:30.
+- Without Japanese health insurance (e.g. travelers), all fees are self-pay (tax included): first visit 33,000 yen; each test +11,000 yen; minor surgery +44,000 yen; follow-up within 7 days 22,000 yen; English medical certificate for travel insurance +22,000 yen. The translation-app fee is included.
+- With Japanese health insurance, a consultation using a translation app costs an extra 3,300 yen (not covered by insurance).
+- Travel insurance: pay at the clinic and claim later. The clinic gives a receipt and itemized statement (in Japanese); an English medical certificate is available.
+- Payment: cash, credit cards, e-money, transportation IC cards. QR code payments (PayPay etc.) are not accepted.
+- Medicine is given at the pharmacy on the 1st floor of the same building (paid separately).
+
 ## 主な診療内容
 
 - [花粉症](https://kyobashi-ent.com/pollinosis)／[アレルギー性鼻炎](https://kyobashi-ent.com/allergic-rhinitis)／[舌下免疫療法](https://kyobashi-ent.com/sublingual-immunotherapy)
