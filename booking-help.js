@@ -20,8 +20,9 @@
   };
   const bookUrl = m => `https://patient.digikar-smart.jp/institutions/${INST}/reserve?treatmentMenuId=${MENUS[m].id}&firstVisit=true`;
   const SUBMIT_URL = "https://script.google.com/macros/s/AKfycbwycg_NBq1pDQV2jyHMfdtZRSmiK13qZXu2-W4SZT9da-i6iTwJZx2m0KRCKBa-d3xq/exec";   // 申し込みの受け箱（クリニックのスプレッドシート。2026-11-13 公開。空にすると試作：どこにも送らない）
-  // 外国の方の枠は 16:00・16:30 だけ（保険なし・保険ありとも。デジスマの「外国の方・通訳アプリ」の枠。2026-11-14 理事長）
-  const FOREIGN_TIMES = ["16:00", "16:30"];
+  // 外国の方の時間：平日の 15:00〜16:30 の10分ごと（2026-11-14 理事長「15時から16時30分で、10分枠で取れるところ」。前は 16:00・16:30 だけ）
+  //   ※ ふだんは受け箱の「空き」（受付左のパソコンが写す）だけを見せる。この一覧は空きの写しが無いときの予備
+  const FOREIGN_TIMES = ["15:00", "15:10", "15:20", "15:30", "15:40", "15:50", "16:00", "16:10", "16:20", "16:30"];
   // 祝日（claude-answer.js と同じ。2027年まで）
   const HOLIDAYS = ["2026-11-03","2026-11-23","2027-01-01","2027-01-11","2027-02-11","2027-02-23","2027-03-21","2027-03-22",
     "2027-04-29","2027-05-03","2027-05-04","2027-05-05","2027-07-19","2027-08-11","2027-09-20","2027-09-23","2027-10-11",
@@ -101,9 +102,9 @@
     noOpen:   { en: "There are no open times we can offer online right now. Please send a request below, and our staff will reply by email.",
                 zh: "目前没有可以在线预约的空闲时间。请在下面发送申请，工作人员会通过邮件回复您。",
                 ko: "지금은 온라인으로 안내할 수 있는 빈 시간이 없습니다. 아래에서 신청을 보내 주시면 직원이 이메일로 답장드립니다." },
-    noOpenStop:{ en: "Sorry, there are no times you can book online right now. Please try again later (open times are updated every morning). Appointments for international patients are at 16:00 or 16:30 on weekdays.",
-                zh: "很抱歉，目前没有可以在线预约的时间。请稍后再试（每天早上更新空闲时间）。外国患者的预约时间为工作日的16:00或16:30。",
-                ko: "죄송합니다. 지금은 온라인으로 예약할 수 있는 시간이 없습니다. 나중에 다시 시도해 주세요 (빈 시간은 매일 아침 업데이트됩니다). 외국인 환자의 예약 시간은 평일 16:00 또는 16:30입니다." },
+    noOpenStop:{ en: "Sorry, there are no times you can book online right now. Please try again later (open times are updated every morning). Appointments for international patients are on weekdays between 15:00 and 16:30.",
+                zh: "很抱歉，目前没有可以在线预约的时间。请稍后再试（每天早上更新空闲时间）。外国患者的预约时间为工作日的15:00至16:30之间。",
+                ko: "죄송합니다. 지금은 온라인으로 예약할 수 있는 시간이 없습니다. 나중에 다시 시도해 주세요 (빈 시간은 매일 아침 업데이트됩니다). 외국인 환자의 예약 시간은 평일 15:00~16:30 사이입니다." },
     book:     { en: "Book this time", zh: "预约", ko: "예약하기" },
     // 2026-11-14 理事長「通訳なしの診察は不確かな情報での診察になる。あくまで緊急の処置としての受診」の注意と同意
     langWarn: { en: "Important: consultations are in Japanese. If you are seen without an interpreter, the doctor may not fully understand your symptoms or history, and you may not fully understand the explanation. The diagnosis and treatment may then be based on uncertain information, and this could affect your care. Without an interpreter, please think of this visit as urgent care only, and see a doctor in your own language when you can.",
