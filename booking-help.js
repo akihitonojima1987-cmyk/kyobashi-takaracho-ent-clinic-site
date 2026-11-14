@@ -150,6 +150,10 @@
     lkNotFound:{ en: "We could not find this booking.", zh: "找不到这个预约。", ko: "이 예약을 찾을 수 없습니다." },
     lkFail:   { en: "Sorry, something went wrong. Please open the link in the email again in a few minutes.", zh: "抱歉，出了点问题。请过几分钟再打开邮件中的链接。", ko: "죄송합니다. 문제가 생겼습니다. 몇 분 후 메일 속 링크를 다시 열어 주세요." },
     come:     { en: "Please come to the reception 10 minutes before this time.", zh: "请在预约时间前10分钟到前台。", ko: "예약 시간 10분 전까지 접수처로 와 주세요." },
+    // 2026-11-14 理事長「予約時間はあくまで来ていただく時間。その時間に診察が始まるわけではない」（日本の予約でも出している）
+    apptNote: { en: "Please note: the appointment time is the time to arrive at the clinic. Your consultation may not start at that time.",
+                zh: "请注意：预约时间是您到达诊所的时间，并不是开始诊察的时间。",
+                ko: "참고: 예약 시간은 병원에 도착하시는 시간이며, 그 시간에 진료가 시작되는 것은 아닙니다." },
     bYear:    { en: "Year", zh: "年", ko: "년" },    // 2026-11-14 生年月日のプルダウン
     bMonth:   { en: "Month", zh: "月", ko: "월" },
     bDay:     { en: "Day", zh: "日", ko: "일" },
@@ -470,6 +474,7 @@
         ${f.note ? `<div>${esc(t("fNote"))}: ${esc(f.note)}</div>` : ""}
         </div>
         <div class="msg small" style="background:#fdecea">${esc(t("langWarn"))}</div>
+        <div class="msg small">${esc(t("apptNote"))}</div>
         <label class="chk"><span><input type="checkbox" id="agreeLang"${st.agreeLang ? " checked" : ""}> ${esc(t("langAgree"))}</span></label>
         ${st.cardOn && f.slot ? `<div class="msg small" style="background:#fff8e1">${esc(t("cardRule"))}</div>
         <label class="chk"><span><input type="checkbox" id="agreeCard"${st.agreeCard ? " checked" : ""}> ${esc(t("cardAgree"))}</span></label>` : ""}
@@ -481,7 +486,7 @@
       const say = { loading: "lkLoading", confirmed: "lkOk", already: "lkAlready", expired: "lkExpired", ask: "lkAsk", cancelled: "lkCancelled", notfound: "lkNotFound", card: "cardBack", fail: L.action === "card" ? "cardFail" : "lkFail" }[L.state] || "lkFail";
       const good = L.state === "confirmed" || L.state === "already";
       bd.innerHTML = `<div class="msg"${good ? ' style="background:#e8f5e9"' : ""}><b>${good ? "✅ " : ""}${esc(t(say))}</b></div>${whenBox}
-        ${good ? `<div class="msg">${esc(t("come"))}</div><div class="msg small">${esc(t("bring"))}</div>` : ""}
+        ${good ? `<div class="msg">${esc(t("come"))}</div><div class="msg small">${esc(t("apptNote"))}</div><div class="msg small">${esc(t("bring"))}</div>` : ""}
         ${L.state === "ask" ? `<div class="row"><button class="btn" style="border-color:#c62828;color:#c62828" data-a="doCancel">${esc(t("lkCancel"))}</button></div>` : ""}
         ${L.state === "card" && L.cardUrl ? `<div class="row"><a class="btn main" style="text-align:center;text-decoration:none" href="${esc(L.cardUrl)}">${esc(t("cardBtn"))}</a></div>` : ""}
         ${L.state === "fail" && L.action === "card" ? `<div class="row"><button class="btn main" data-a="restart">${esc(t("restart"))}</button></div>` : ""}
@@ -491,6 +496,7 @@
       // 時間を押さえて、確認のメールを送ったとき（メールの「Confirm」を押すと確定。2026-11-13 理事長：いたずら対策）
       bd.innerHTML = `<div class="msg" style="background:#fff8e1"><b>📧 ${esc(t("booked"))}</b><br><span style="font-size:1.25em;font-weight:bold">${esc(slotLabel(st.booked))}</span><br>${esc(MENUS[st.menu].name)}</div>
         <div class="msg">${esc(t("bookedHow").replace("{email}", st.form.email || ""))}</div>
+        <div class="msg small">${esc(t("apptNote"))}</div>
         <div class="msg small">${esc(t("bring"))}</div>
         <div class="row"><button class="btn ghost" data-a="restart">${esc(t("restart"))}</button></div>${info()}`;
     } else if (s === "sent") {
