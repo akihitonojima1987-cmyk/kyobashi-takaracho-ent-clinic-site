@@ -81,7 +81,7 @@
     edit:     { en: "Edit", zh: "修改", ko: "수정" },
     back:     { en: "Back", zh: "返回", ko: "뒤로" },
     restart:  { en: "Start over", zh: "重新开始", ko: "처음부터" },
-    sent:     { en: "Thank you. We received your request. We will reply by email during clinic hours. Your booking is not confirmed until you receive our reply.",
+    sent:     { en: "Thank you. We received your request. We will reply by email. Your booking is not confirmed until you receive our reply.",
                 zh: "谢谢。我们已收到您的申请，会在诊疗时间内用邮件回复您。收到回复前，预约尚未确定。",
                 ko: "감사합니다. 신청을 받았습니다. 진료 시간 중에 이메일로 답장드리겠습니다. 답장을 받으시기 전까지는 예약이 확정되지 않습니다." },
     testNote: { en: "(Test version: nothing was sent.)", zh: "（测试版：未实际发送。）", ko: "(시험판: 실제로 보내지지 않았습니다.)" },
@@ -89,7 +89,7 @@
     sendFail: { en: "Sorry, we could not send your request. Please check your connection and press Send again in a few minutes.",
                 zh: "抱歉，申请未能发送。请检查网络，几分钟后再按“发送”。",
                 ko: "죄송합니다. 신청을 보내지 못했습니다. 인터넷 연결을 확인하고 몇 분 후 다시 보내기를 눌러 주세요." },
-    reqBtn:   { en: "Request an appointment in English", zh: "用中文申请预约", ko: "한국어로 예약 신청" },
+    reqBtn:   { en: "📅 Choose a time and book", zh: "📅 选择时间预约", ko: "📅 시간을 골라 예약" },   // 2026-11-14 予約のボタンを分かりやすく
     howWorks: { en: "Choose an open time and fill in the form. We will send you an email — press the button in it to confirm your appointment.",
                 zh: "请选择空闲的时间并填写表格。我们会给您发邮件，按下邮件中的按钮即可确定预约。",
                 ko: "비어 있는 시간을 고르고 양식을 작성해 주세요. 이메일을 보내 드리며, 메일 속 버튼을 누르면 예약이 확정됩니다." },
@@ -170,10 +170,10 @@
       a: { en: "We accept cash, credit cards, e-money and transportation IC cards (including contactless payment). QR code payments such as PayPay cannot be used.",
            zh: "可以使用现金、信用卡、电子钱包、交通IC卡（包括感应支付）。不能使用PayPay等二维码支付。",
            ko: "현금, 신용카드, 전자머니, 교통 IC카드(터치 결제 포함)를 이용하실 수 있습니다. PayPay 등 QR코드 결제는 이용하실 수 없습니다." } },
-    { id: "hours", q: { en: "🕘 Hours / access", zh: "🕘 诊疗时间・交通", ko: "🕘 진료 시간・오시는 길" },
-      a: { en: "Mon, Tue, Thu, Fri 10:00–13:30 / Mon–Fri 15:00–18:30. Closed Wednesday morning, Saturday, Sunday and holidays. 2F Kowa Bldg, 2-12-4 Kyobashi, Chuo-ku, Tokyo — 1 min from Takaracho Station (Toei Asakusa Line), exit A6/A7.",
-           zh: "周一、二、四、五 10:00–13:30／周一至周五 15:00–18:30。周三上午、周六、周日及节假日休诊。东京都中央区京桥2-12-4 光和大厦2楼，都营浅草线宝町站A6・A7出口步行1分钟。",
-           ko: "월·화·목·금 10:00–13:30 / 월~금 15:00–18:30. 수요일 오전, 토·일요일, 공휴일 휴진. 도쿄도 주오구 교바시 2-12-4 고와빌딩 2층, 도에이 아사쿠사선 다카라초역 A6・A7 출구에서 도보 1분." } },
+    { id: "hours", q: { en: "📍 Access", zh: "📍 交通", ko: "📍 오시는 길" },   // 2026-11-14 診療時間は書かない（場所だけ）
+      a: { en: "Please come at the time of your appointment. 2F Kowa Bldg, 2-12-4 Kyobashi, Chuo-ku, Tokyo — 1 min from Takaracho Station (Toei Asakusa Line), exit A6/A7.",
+           zh: "请在预约的时间来院。东京都中央区京桥2-12-4 光和大厦2楼，都营浅草线宝町站A6・A7出口步行1分钟。",
+           ko: "예약하신 시간에 와 주세요. 도쿄도 주오구 교바시 2-12-4 고와빌딩 2층, 도에이 아사쿠사선 다카라초역 A6・A7 출구에서 도보 1분." } },
   ];
 
   // ---- 言語（ブラウザの言葉から。選び直せる） ----
@@ -334,7 +334,19 @@
   let lastSaid = "", flapT = null;
   function pickVoice(l) {
     const vs = (window.speechSynthesis ? speechSynthesis.getVoices() : []).filter(v => (v.lang || "").toLowerCase().replace("_", "-").startsWith(l));
-    return vs.find(v => /Natural|Online/.test(v.name)) || vs.find(v => /Google/.test(v.name)) || vs[0] || null;
+    // 2026-11-14 理事長「声が男性になっている。画面のコンシェルジュは女性なので、女性の声に」
+    //   女性の声の名前（Windows・Chrome・iPhone・Android）を先に選び、男性の声の名前は使わない
+    const FEMALE = /Aria|Jenny|Michelle|Ana|Emma|Ava|Sonia|Libby|Natasha|Clara|Samantha|Karen|Moira|Tessa|Victoria|Allison|Susan|Zira|Hazel|Xiaoxiao|Xiaoyi|Xiaohan|Xiaomo|Xiaoxuan|HsiaoChen|HsiaoYu|HiuMaan|HiuGaai|Huihui|Yaoyao|Tingting|Ting-Ting|Meijia|Sin-ji|SunHi|SeoHyeon|JiMin|Yuna|Heami|female|Female|Google\sUS English|Google\sUK English Female|Google\s普通话|Google\s國語|Google\s粤語|Google\s한국의/;   // Chrome の声の名前の空白は NBSP のことがあるので \s
+    const MALE = /Guy|Andrew|Brian|Christopher|Eric|Roger|Steffan|Davis|Tony|Jason|Ryan|Thomas|William|Liam|Aaron|Fred|Daniel|Alex|Rishi|Arthur|Gordon|Mark|David|George|James|Yunxi|Yunjian|Yunyang|Yunxia|Yunhao|Kangkang|YunJhe|WanLung|InJoon|Hyunsu|BongJin|GookMin|Male|male|UK English Male/;
+    const fem = vs.filter(v => FEMALE.test(v.name) && !MALE.test(v.name));
+    const notMale = vs.filter(v => !MALE.test(v.name));
+    // 同じ言葉の中では、地域が合う声（en-US・zh-CN・ko-KR）を先に
+    const loc = (VLANG[l] || "").toLowerCase();
+    const best = list => {
+      const L = list.filter(v => (v.lang || "").toLowerCase().replace("_", "-") === loc).concat(list);
+      return L.find(v => /Natural|Online/.test(v.name)) || L.find(v => /Google/.test(v.name)) || L[0];
+    };
+    return best(fem) || best(notMale) || null;   // 女性の声が見つからないときは、男性と分かる声は使わない（既定の声）
   }
   function talking(on) {
     const s = $("#stage"); clearTimeout(flapT); s.classList.remove("talking");
@@ -379,7 +391,8 @@
     else if (q) bub.textContent = q.textContent;
     sayIt(sayText());
   }
-  const info = () => `<div class="info">${esc(t("hours"))}<br>${esc(t("access"))}</div>`;
+  // 2026-11-14 理事長「診療時間・受付時間は書かない（その時間に来ればよいと思われるため。予約した時間に来てもらう）」→ 場所だけ
+  const info = () => `<div class="info">${esc(t("access"))}</div>`;
 
   function render() {
     chrome_();
@@ -400,10 +413,11 @@
       bd.innerHTML = `<div class="q">${esc(f.q[lang] || f.q.en)}</div><div class="msg">${esc(f.a[lang] || f.a.en)}</div>
         <div class="row"><button class="btn ghost" data-a="faqs">${esc(t("back"))}</button></div>${info()}`;
     } else if (s === "phone") {
-      bd.innerHTML = `<div class="msg"><b>${esc(MENUS[st.menu].name)}</b><br>${esc(t(st.menu === "foreign" ? "feeNo" : "feeYes"))}</div>
-        <div class="msg small">${esc(t("bring"))}</div>
-        <div class="small">${esc(t("howWorks"))}</div>
+      // 2026-11-14 理事長「下にスクロールしないと予約が出てこない」→ 予約のボタンをいちばん上に。料金・持ち物はその下
+      bd.innerHTML = `<div class="msg">${esc(t("howWorks"))}</div>
         <div class="row"><button class="btn main" data-a="phoneNo">${esc(t("reqBtn"))}</button></div>
+        <div class="small"><b>${esc(MENUS[st.menu].name)}</b> — ${esc(t(st.menu === "foreign" ? "feeNo" : "feeYes"))}</div>
+        <div class="small">${esc(t("bring"))}</div>
         <div class="row"><button class="btn ghost" data-a="restart">${esc(t("back"))}</button></div>`;
     } else if (s === "self") {
       const steps = T.selfSteps[lang].map(x => `<li>${esc(x.replace("{menu}", MENUS[st.menu].name))}</li>`).join("");
@@ -547,6 +561,7 @@
       Object.keys(byDay).map(day => `<optgroup label="${esc(slotLabel(day + " 00:00").slice(0, -7))}">` +
         byDay[day].map(s => `<option value="${esc(s)}"${f.slot === s ? " selected" : ""}>${esc(slotLabel(s))}</option>`).join("") + `</optgroup>`).join("") + `</select>`;
     bd.innerHTML = `<div class="msg">${esc(t(slotMode ? "weBookNow" : "weBook"))}</div>${slotMode ? "" : `<div class="msg small">${esc(t("noOpen"))}</div>`}
+      ${slotMode ? slotSel : ""}
       <div class="small"><b>${esc(MENUS[st.menu].name)}</b> — ${esc(t(st.menu === "foreign" ? "feeNo" : "feeYes"))}</div>
       <label>${esc(t("fName"))} *</label><input type="text" id="fName" autocomplete="name" autocapitalize="characters" autocorrect="off" spellcheck="false" value="${esc(f.name || "")}" placeholder="SMITH JOHN">
       <label>${esc(t("fNameLocal"))}</label><input type="text" id="fNameLocal" maxlength="40" value="${esc(f.nameLocal || "")}" placeholder="陳大文">
@@ -555,7 +570,7 @@
       <label>${esc(t("fEmail"))} *</label><input type="email" id="fEmail" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(f.email || "")}">
       <label>${esc(t("fPhone"))} *</label><input type="tel" id="fPhone" autocomplete="tel" inputmode="tel" value="${esc(f.phone || "")}" placeholder="+1 555 123 4567">
       <label>${esc(t("fStay"))}</label><input type="text" id="fStay" value="${esc(f.stay || "")}">
-      ${slotMode ? slotSel : `<label>${esc(t("fWhen1"))} *</label><div class="inl"><input type="date" id="d1" min="${today}" max="${max}" value="${esc(f.d1 || "")}"><select id="t1"></select></div>
+      ${slotMode ? "" : `<label>${esc(t("fWhen1"))} *</label><div class="inl"><input type="date" id="d1" min="${today}" max="${max}" value="${esc(f.d1 || "")}"><select id="t1"></select></div>
       <label>${esc(t("fWhen2"))}</label><div class="inl"><input type="date" id="d2" min="${today}" max="${max}" value="${esc(f.d2 || "")}"><select id="t2"></select></div>
       <div class="small">${esc(t("sameDay"))}</div>`}
       <label>${esc(t("fWhat"))}</label><div class="chk">${symBoxes}</div>
