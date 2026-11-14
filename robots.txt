@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /ipad/
 
 Sitemap: https://kyobashi-ent.com/sitemap.xml

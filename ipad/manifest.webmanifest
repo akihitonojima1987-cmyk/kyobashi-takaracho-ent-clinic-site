@@ -1,0 +1,9 @@
+{
+  "name": "Kyobashi Takaracho ENT Clinic – Patient guide",
+  "short_name": "Patient guide",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7fafd",
+  "theme_color": "#5a97d1",
+  "icons": [{"src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}]
+}
