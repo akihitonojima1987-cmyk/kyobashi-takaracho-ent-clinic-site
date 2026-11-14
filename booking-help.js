@@ -101,6 +101,9 @@
     noOpen:   { en: "There are no open times we can offer online right now. Please send a request below, and our staff will reply by email.",
                 zh: "目前没有可以在线预约的空闲时间。请在下面发送申请，工作人员会通过邮件回复您。",
                 ko: "지금은 온라인으로 안내할 수 있는 빈 시간이 없습니다. 아래에서 신청을 보내 주시면 직원이 이메일로 답장드립니다." },
+    noOpenStop:{ en: "Sorry, there are no times you can book online right now. Please try again later (open times are updated every morning). Appointments for international patients are at 16:00 or 16:30 on weekdays.",
+                zh: "很抱歉，目前没有可以在线预约的时间。请稍后再试（每天早上更新空闲时间）。外国患者的预约时间为工作日的16:00或16:30。",
+                ko: "죄송합니다. 지금은 온라인으로 예약할 수 있는 시간이 없습니다. 나중에 다시 시도해 주세요 (빈 시간은 매일 아침 업데이트됩니다). 외국인 환자의 예약 시간은 평일 16:00 또는 16:30입니다." },
     book:     { en: "Book this time", zh: "预约", ko: "예약하기" },
     taken:    { en: "Sorry, that time has just been taken. Please choose another time.", zh: "抱歉，这个时间刚刚被预约了。请选择其他时间。", ko: "죄송합니다. 방금 그 시간이 마감되었습니다. 다른 시간을 골라 주세요." },
     booked:   { en: "Almost done! Please check your email.", zh: "还差一步！请查看您的邮件。", ko: "거의 다 되었습니다! 이메일을 확인해 주세요." },
@@ -225,6 +228,7 @@
     .info { font-size: 12px; color: #445; border-top: 1px solid #e3e8ee; margin-top: 12px; padding-top: 8px; }
     /* よくある質問のボタン（2026-11-13） */
     .faqq { margin-top: 16px; }
+    .faqone { margin-top: 18px; justify-content: center; }
     .faqs { display: flex; flex-wrap: wrap; gap: 6px; }
     .faqb { border: 1px solid #b8c6d6; background: #f6f9fc; color: #1f3a5f; border-radius: 999px; padding: 6px 12px; font-size: 13px;
       cursor: pointer; text-decoration: none; font-family: inherit; }
@@ -383,14 +387,18 @@
     if (s === "start") {
       bd.innerHTML = `<div class="msg">${esc(t("hello"))}</div><div class="q">${esc(t("askIns"))}</div>
         <div class="row"><button class="btn" data-a="insYes">${esc(t("insYes"))}</button><button class="btn" data-a="insNo">${esc(t("insNo"))}</button></div>
-        <div class="q faqq">${esc(t("faqTitle"))}</div>
+        <div class="faqs faqone"><button class="faqb" data-a="faqs">❓ ${esc(t("faqTitle"))}</button></div>${info()}`;
+      // 2026-11-14 理事長「よくある質問より先に予約を出す」：よくある質問は1つのボタンにまとめ、押すと一覧の画面へ
+    } else if (s === "faqs") {
+      bd.innerHTML = `<div class="q faqq">${esc(t("faqTitle"))}</div>
         <div class="faqs">${FAQ.map(f => `<button class="faqb" data-faq="${f.id}">${esc(f.q[lang] || f.q.en)}</button>`).join("")}
-          <a class="faqb" href="/faq-en" target="_blank" rel="noopener">❓ ${esc(t("faqMore"))} ↗</a></div>${info()}`;
+          <a class="faqb" href="/faq-en" target="_blank" rel="noopener">❓ ${esc(t("faqMore"))} ↗</a></div>
+        <div class="row"><button class="btn ghost" data-a="restart">${esc(t("back"))}</button></div>${info()}`;
     } else if (s === "faq") {
       // よくある質問の答え（決まった文）
       const f = FAQ.find(x => x.id === st.faq) || FAQ[0];
       bd.innerHTML = `<div class="q">${esc(f.q[lang] || f.q.en)}</div><div class="msg">${esc(f.a[lang] || f.a.en)}</div>
-        <div class="row"><button class="btn ghost" data-a="restart">${esc(t("back"))}</button></div>${info()}`;
+        <div class="row"><button class="btn ghost" data-a="faqs">${esc(t("back"))}</button></div>${info()}`;
     } else if (s === "phone") {
       bd.innerHTML = `<div class="msg"><b>${esc(MENUS[st.menu].name)}</b><br>${esc(t(st.menu === "foreign" ? "feeNo" : "feeYes"))}</div>
         <div class="msg small">${esc(t("bring"))}</div>
@@ -523,6 +531,12 @@
       return;
     }
     const slotMode = st.slotsState === "ok";
+    // 2026-11-14 理事長決定：空き時間が出ていないときは、申し込みを受けない（スタッフは外国の方に連絡しない決まりのため、返事をする人がいない）
+    if (!slotMode) {
+      bd.innerHTML = `<div class="msg">${esc(t("noOpenStop"))}</div>
+        <div class="row"><button class="btn ghost" data-a="restart">${esc(t("back"))}</button></div>${info()}`;
+      return;
+    }
     const today = ymd(tokyoNow());
     const max = ymd(new Date(tokyoNow().getTime() + 60 * 86400000));
     const symBoxes = T.sym[lang].map((x, i) => `<label><input type="checkbox" name="sym" value="${i}"${(f.sym || []).includes(i) ? " checked" : ""}>${esc(x)}</label>`).join("");
@@ -644,6 +658,7 @@
     // メニューが決まったら、案内できる時間を先に読み始める（欄の画面で待たせないように）
     if (a === "insYes") { st.menu = "translation"; st.step = "phone"; loadSlots(); }
     else if (a === "insNo") { st.menu = "foreign"; st.step = "phone"; loadSlots(); }
+    else if (a === "faqs") st.step = "faqs";
     else if (a === "phoneYes") st.step = "self";
     else if (a === "phoneNo") st.step = "form";
     else if (a === "toPhone") { if (st.step === "form") readForm(); st.step = "phone"; }
