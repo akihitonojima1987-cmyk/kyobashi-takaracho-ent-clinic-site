@@ -144,7 +144,10 @@
     access:   { en: "2F Kowa Bldg, 2-12-4 Kyobashi, Chuo-ku, Tokyo. 1 min from Takaracho Station (Toei Asakusa Line), exit A6/A7.",
                 zh: "东京都中央区京桥2-12-4 光和大厦2楼。都营浅草线宝町站A6・A7出口步行1分钟。",
                 ko: "도쿄도 주오구 교바시 2-12-4 고와빌딩 2층. 도에이 아사쿠사선 다카라초역 A6・A7 출구에서 도보 1분." },
-    bring:    { en: "Please bring: passport, your medicines or a list of them, and any test results.", zh: "请携带：护照、正在服用的药或药名清单、检查结果（如有）。", ko: "지참물: 여권, 복용 중인 약 또는 약 목록, 검사 결과(있으면)." },
+    // 2026-11-14 理事長「旅行保険を使う人が多い。書類に要ることを問診で書いてもらう」→ 受付機の問診で聞くので、保険の情報を持ってきてもらう
+    bring:    { en: "Please bring: passport, your medicines or a list of them, and any test results. If you will use travel insurance, please also bring your insurance details (company name and policy number) — you will enter them in the questionnaire at reception.",
+                zh: "请携带：护照、正在服用的药或药名清单、检查结果（如有）。如果要使用旅行保险，请带上保险信息（保险公司名称和保单号），在前台填写问诊时需要填写。",
+                ko: "지참물: 여권, 복용 중인 약 또는 약 목록, 검사 결과(있으면). 여행자 보험을 이용하실 경우 보험 정보(보험사 이름과 증권 번호)도 준비해 주세요. 접수처의 문진에서 입력합니다." },
     noSlot:   { en: "No times available on this day for this menu.", zh: "这一天没有可选的时间。", ko: "이 날은 선택할 수 있는 시간이 없습니다." },
   };
 
