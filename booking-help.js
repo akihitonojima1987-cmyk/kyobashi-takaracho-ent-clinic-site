@@ -105,6 +105,24 @@
                 zh: "很抱歉，目前没有可以在线预约的时间。请稍后再试（每天早上更新空闲时间）。外国患者的预约时间为工作日的16:00或16:30。",
                 ko: "죄송합니다. 지금은 온라인으로 예약할 수 있는 시간이 없습니다. 나중에 다시 시도해 주세요 (빈 시간은 매일 아침 업데이트됩니다). 외국인 환자의 예약 시간은 평일 16:00 또는 16:30입니다." },
     book:     { en: "Book this time", zh: "预约", ko: "예약하기" },
+    // 2026-11-14 理事長「通訳なしの診察は不確かな情報での診察になる。あくまで緊急の処置としての受診」の注意と同意
+    langWarn: { en: "Important: consultations are in Japanese. If you are seen without an interpreter, the doctor may not fully understand your symptoms or history, and you may not fully understand the explanation. The diagnosis and treatment may then be based on uncertain information, and this could affect your care. Without an interpreter, please think of this visit as urgent care only, and see a doctor in your own language when you can.",
+                zh: "重要：诊察使用日语。如果没有翻译陪同，医生可能无法完全理解您的症状和病史，您也可能无法完全理解医生的说明。诊断和治疗可能会基于不确定的信息，并可能影响您的病情处理。没有翻译时，请把这次就诊当作紧急处理，之后请尽可能到能用您的语言沟通的医疗机构就诊。",
+                ko: "중요: 진료는 일본어로 합니다. 통역 없이 진료를 받으시면 의사가 증상이나 병력을 충분히 이해하지 못하거나, 설명을 충분히 이해하지 못하실 수 있습니다. 그 경우 진단과 치료가 불확실한 정보에 근거하게 되어 진료에 지장이 생길 수 있습니다. 통역이 없을 때는 이번 진료를 응급 처치로 생각해 주시고, 가능하면 모국어로 진료받을 수 있는 의료기관에서 진료를 받아 주세요." },
+    langAgree:{ en: "I understand this.", zh: "我已了解。", ko: "이해했습니다." },
+    langNeed: { en: "Please tick the box to confirm you understand the note about language.", zh: "请勾选确认您已了解关于语言的说明。", ko: "언어에 관한 안내를 확인하셨다면 칸을 체크해 주세요." },
+    // 2026-11-14 理事長：無断キャンセル対策のカード登録（受け箱に Stripe のキーが入ったときだけ出る）
+    cardRule: { en: "Card guarantee: to book, please register a credit card on the next screen (Stripe). You will not be charged now — please pay for your visit at the clinic on the day. You can cancel free of charge until your appointment time with the button in our email. If you do not come and do not cancel, a no-show fee of 22,000 yen will be charged to this card. Your card details are kept by Stripe, not by the clinic. Your card company may show a small temporary check on your statement.",
+                zh: "信用卡担保：预约时，请在下一个画面（Stripe）登记信用卡。现在不会扣款，诊察费请于当天在诊所支付。在预约时间之前，可用邮件中的按钮免费取消。如果未取消也未来院，将从这张卡收取爽约费 22,000日元。卡的信息由 Stripe 保管，诊所不保存。发卡公司可能会在账单上暂时显示一笔小额验证。",
+                ko: "카드 보증: 예약하시려면 다음 화면(Stripe)에서 신용카드를 등록해 주세요. 지금은 결제되지 않으며, 진료비는 당일 병원에서 결제해 주세요. 예약 시간 전까지 이메일의 버튼으로 무료 취소할 수 있습니다. 취소하지 않고 오지 않으시면 이 카드로 노쇼 요금 22,000엔이 청구됩니다. 카드 정보는 병원이 아니라 Stripe가 보관합니다. 카드사에서 확인을 위해 소액이 일시적으로 표시될 수 있습니다." },
+    cardAgree:{ en: "I agree to the card guarantee and the no-show fee (22,000 yen).", zh: "我同意信用卡担保和爽约费（22,000日元）。", ko: "카드 보증과 노쇼 요금(22,000엔)에 동의합니다." },
+    cardNeed: { en: "Please tick the box to agree to the card guarantee.", zh: "请勾选同意信用卡担保。", ko: "카드 보증에 동의하는 칸을 체크해 주세요." },
+    cardBtn:  { en: "💳 Register card and book", zh: "💳 登记信用卡并预约", ko: "💳 카드 등록하고 예약" },
+    cardGo:   { en: "Opening the card page…", zh: "正在打开信用卡画面…", ko: "카드 화면을 여는 중…" },
+    cardBack: { en: "Your card was not registered, so your booking is not complete yet. We are holding this time for 30 minutes. Please register your card to finish.",
+                zh: "信用卡还没有登记，预约尚未完成。这个时间会为您保留30分钟，请登记信用卡完成预约。",
+                ko: "카드가 등록되지 않아 아직 예약이 완료되지 않았습니다. 이 시간은 30분간 보류됩니다. 카드를 등록해 예약을 완료해 주세요." },
+    cardFail: { en: "Sorry, we could not confirm your card. Please try again, or book again from the start.", zh: "抱歉，无法确认您的信用卡。请再试一次，或从头重新预约。", ko: "죄송합니다. 카드를 확인할 수 없었습니다. 다시 시도하시거나 처음부터 다시 예약해 주세요." },
     taken:    { en: "Sorry, that time has just been taken. Please choose another time.", zh: "抱歉，这个时间刚刚被预约了。请选择其他时间。", ko: "죄송합니다. 방금 그 시간이 마감되었습니다. 다른 시간을 골라 주세요." },
     booked:   { en: "Almost done! Please check your email.", zh: "还差一步！请查看您的邮件。", ko: "거의 다 되었습니다! 이메일을 확인해 주세요." },
     bookedHow:{ en: "We sent an email to {email}. Press “Confirm my appointment” in the email within 30 minutes. Your appointment is not confirmed until you press it. (If you cannot find the email, please check your spam folder.)",
@@ -450,16 +468,22 @@
         ${symTxt ? `<div>${esc(t("fWhat"))}: ${esc(symTxt)}</div>` : ""}
         ${f.note ? `<div>${esc(t("fNote"))}: ${esc(f.note)}</div>` : ""}
         </div>
-        <div class="row"><button class="btn ghost" data-a="toForm">${esc(t("edit"))}</button><button class="btn main" data-a="send">${esc(t(f.slot ? "book" : "send"))}</button></div>
+        <div class="msg small" style="background:#fdecea">${esc(t("langWarn"))}</div>
+        <label class="chk"><span><input type="checkbox" id="agreeLang"${st.agreeLang ? " checked" : ""}> ${esc(t("langAgree"))}</span></label>
+        ${st.cardOn && f.slot ? `<div class="msg small" style="background:#fff8e1">${esc(t("cardRule"))}</div>
+        <label class="chk"><span><input type="checkbox" id="agreeCard"${st.agreeCard ? " checked" : ""}> ${esc(t("cardAgree"))}</span></label>` : ""}
+        <div class="row"><button class="btn ghost" data-a="toForm">${esc(t("edit"))}</button><button class="btn main" data-a="send">${esc(t(f.slot ? (st.cardOn ? "cardBtn" : "book") : "send"))}</button></div>
         ${st.err ? `<div class="err">${esc(st.err)}</div>` : ""}`;
     } else if (s === "link") {
       // メールのボタン（Confirm・Cancel）から来たとき
       const L = st.link, whenBox = L.when ? `<div class="msg"><span style="font-size:1.2em;font-weight:bold">${esc(slotLabel(L.when))}</span><br>${esc(L.menuName || "")}</div>` : "";
-      const say = { loading: "lkLoading", confirmed: "lkOk", already: "lkAlready", expired: "lkExpired", ask: "lkAsk", cancelled: "lkCancelled", notfound: "lkNotFound", fail: "lkFail" }[L.state] || "lkFail";
+      const say = { loading: "lkLoading", confirmed: "lkOk", already: "lkAlready", expired: "lkExpired", ask: "lkAsk", cancelled: "lkCancelled", notfound: "lkNotFound", card: "cardBack", fail: L.action === "card" ? "cardFail" : "lkFail" }[L.state] || "lkFail";
       const good = L.state === "confirmed" || L.state === "already";
       bd.innerHTML = `<div class="msg"${good ? ' style="background:#e8f5e9"' : ""}><b>${good ? "✅ " : ""}${esc(t(say))}</b></div>${whenBox}
         ${good ? `<div class="msg">${esc(t("come"))}</div><div class="msg small">${esc(t("bring"))}</div>` : ""}
         ${L.state === "ask" ? `<div class="row"><button class="btn" style="border-color:#c62828;color:#c62828" data-a="doCancel">${esc(t("lkCancel"))}</button></div>` : ""}
+        ${L.state === "card" && L.cardUrl ? `<div class="row"><a class="btn main" style="text-align:center;text-decoration:none" href="${esc(L.cardUrl)}">${esc(t("cardBtn"))}</a></div>` : ""}
+        ${L.state === "fail" && L.action === "card" ? `<div class="row"><button class="btn main" data-a="restart">${esc(t("restart"))}</button></div>` : ""}
         ${L.state === "expired" || L.state === "cancelled" ? `<div class="row"><button class="btn main" data-a="restart">${esc(t("restart"))}</button></div>` : ""}
         ${info()}`;
     } else if (s === "sent" && st.booked) {
@@ -518,6 +542,7 @@
       const j = await r.json();
       const list = (j.ok && j.fresh && j.slots && j.slots[st.menu]) || [];
       st.slots = list; st.slotsState = list.length ? "ok" : "none";
+      st.cardOn = !!j.card;   // 2026-11-14：受け箱に Stripe のキーが入っていれば、カードを登録してもらう
     } catch (e) { st.slots = []; st.slotsState = "none"; }
     if (st.step === "form") { readFormSoft(); render(); }
   }
@@ -621,6 +646,15 @@
   async function send() {
     if (sending) return;
     const f = st.form;
+    // 2026-11-14：通訳なしの診察についての注意に同意してもらう
+    st.agreeLang = !!(root.querySelector("#agreeLang") || {}).checked;
+    if (!st.agreeLang) { st.err = t("langNeed"); render(); return; }
+    // 2026-11-14：カード登録があるときは、カードの決まりに同意してもらう
+    const cardMode = st.cardOn && !!f.slot;
+    if (cardMode) {
+      st.agreeCard = !!(root.querySelector("#agreeCard") || {}).checked;
+      if (!st.agreeCard) { st.err = t("cardNeed"); render(); return; }
+    }
     const payload = {
       kind: "foreign-booking-request", at: new Date().toISOString(), lang,
       menu: st.menu, menuName: MENUS[st.menu].name, insurance: st.menu === "translation",
@@ -628,6 +662,8 @@
       slot: f.slot || "",
       first: f.slot || `${f.d1} ${f.t1}`, second: f.slot ? "" : (f.d2 ? `${f.d2} ${f.t2}` : ""),
       symptoms: f.sym.map(i => T.sym.en[i]), note: f.note,
+      agreeCard: cardMode ? true : undefined,
+      agreeLang: true,
     };
     if (SUBMIT_URL) {
       sending = true;
@@ -641,6 +677,14 @@
         ok = !!j.ok;
       } catch (e) { ok = false; }
       sending = false;
+      if (ok && j.cardUrl) {
+        // 時間を30分押さえた → Stripe のカードの画面へ（登録が済むと HP の ?booking=card に戻ってくる）
+        const b2 = root.querySelector('[data-a="send"]');
+        if (b2) { b2.disabled = true; b2.textContent = t("cardGo"); }
+        location.href = j.cardUrl;
+        return;
+      }
+      if (!ok && j.error === "card") { st.err = t("cardFail"); render(); return; }
       if (!ok && j.error === "taken") {
         // 送るまでのあいだに、ほかの人がその時間を取った → 時間を選び直してもらう
         st.form.slot = ""; st.err = t("taken"); st.step = "form"; st.slotsState = ""; render(); return;
@@ -725,21 +769,25 @@
     const L = st.link;
     L.state = "loading"; render();
     try {
-      const u = SUBMIT_URL + "?action=" + L.action + "&id=" + encodeURIComponent(L.id) + (yes ? "&yes=1" : "") + "&t=" + Date.now();
+      // cardback（Stripe の画面をやめて戻った）は、受け箱に新しいカードの画面を作ってもらう（cardurl）
+      const act = L.action === "cardback" ? "cardurl" : L.action;
+      const u = SUBMIT_URL + "?action=" + act + "&id=" + encodeURIComponent(L.id) + (L.sid ? "&sid=" + encodeURIComponent(L.sid) : "") + (yes ? "&yes=1" : "") + "&t=" + Date.now();
       const j = await (await fetch(u)).json();
       if (!j.ok) throw new Error("ng");
-      L.state = j.state; L.when = j.when || L.when; L.menuName = j.menuName || L.menuName;
+      L.state = j.state; L.when = j.when || L.when; L.menuName = j.menuName || L.menuName; L.cardUrl = j.cardUrl || "";
       if (j.lang && T.hello[j.lang]) lang = j.lang;   // 予約したときの言葉で見せる
     } catch (e) { L.state = "fail"; }
     render();
   }
   (function fromEmail() {
     const q = new URLSearchParams(location.search);
-    const action = q.get("booking"), id = q.get("id") || "";
-    if ((action !== "confirm" && action !== "cancel") || !/^[0-9a-f-]{36}$/i.test(id) || !SUBMIT_URL) return;
+    const action = q.get("booking"), id = q.get("id") || "", sid = q.get("sid") || "";
+    // card＝Stripe でカードを登録して戻った／cardback＝カードの画面をやめて戻った（2026-11-14）
+    if (["confirm", "cancel", "card", "cardback"].indexOf(action) < 0 || !/^[0-9a-f-]{36}$/i.test(id) || !SUBMIT_URL) return;
+    if (action === "card" && !/^cs_[A-Za-z0-9_]+$/.test(sid)) return;
     // 同じ画面を開き直したときに二度頼まないよう、アドレスから外しておく
     try { history.replaceState(null, "", location.origin + location.pathname + location.hash); } catch (e) {}
-    st.link = { action, id, state: "loading" };
+    st.link = { action, id, sid: action === "card" ? sid : "", state: "loading" };
     st.step = "link";
     const go = () => { openHelp(); linkCall(false); };
     if (document.body) go(); else document.addEventListener("DOMContentLoaded", go);
