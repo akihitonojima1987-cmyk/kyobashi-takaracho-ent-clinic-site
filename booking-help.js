@@ -35,9 +35,9 @@
     askIns:   { en: "Do you have Japanese public health insurance?", zh: "您有日本的公共医疗保险吗？", ko: "일본 공적 건강보험이 있으신가요?" },
     insYes:   { en: "Yes, I have it", zh: "有", ko: "네, 있습니다" },
     insNo:    { en: "No (visitor / traveler)", zh: "没有（游客・旅行者）", ko: "아니요 (여행자)" },
-    feeNo:    { en: "Without Japanese insurance, all fees are self-pay: first visit 33,000 yen, plus 11,000 yen for each test. We will tell you before any test.",
-                zh: "没有日本保险的话，费用全部自费：初诊 33,000日元，每做一项检查另加 11,000日元。做检查之前会先告诉您。",
-                ko: "일본 보험이 없으시면 전액 자비입니다. 초진 33,000엔, 검사 1가지당 11,000엔이 추가됩니다. 검사 전에 미리 알려 드립니다." },
+    feeNo:    { en: "All fees are self-pay: first visit 33,000 yen, plus 11,000 yen for each test. We will tell you before any test.",
+                zh: "费用全部自费：初诊 33,000日元，每做一项检查另加 11,000日元。做检查之前会先告诉您。",
+                ko: "전액 자비입니다. 초진 33,000엔, 검사 1가지당 11,000엔이 추가됩니다. 검사 전에 미리 알려 드립니다." },
     feeYes:   { en: "With Japanese insurance, you pay your normal share. If we use a translation app during the consultation, a translation fee of 3,300 yen is added. Please bring your My Number card (health insurance) or eligibility certificate.",
                 zh: "有日本保险的话，按保险比例付费。诊察时如果使用翻译软件，另收翻译费 3,300日元。请带上My Number卡（保险证）或资格确认书。",
                 ko: "일본 보험이 있으시면 본인 부담금만 내시면 됩니다. 진료 중 통역 앱을 사용하면 통역료 3,300엔이 추가됩니다. 마이넘버 카드(보험증) 또는 자격확인서를 가져와 주세요." },
@@ -150,18 +150,18 @@
 
   // ---- よくある質問（決まった答え。AI 受付の旅行者向けのボタン・HP の /faq-en と同じ内容。HP を直したら、ここも直す）----
   const FAQ = [
-    { id: "fees", q: { en: "💴 Fees without Japanese insurance", zh: "💴 没有日本保险的费用", ko: "💴 일본 보험이 없을 때의 비용" },
-      a: { en: "Without Japanese health insurance, you pay the full cost yourself. First visit: 33,000 yen. Each test: +11,000 yen. Minor surgery: +44,000 yen. Follow-up within 7 days for the same symptoms: 22,000 yen. Medicine from the pharmacy is also charged in full, separately. Fees are paid in Japanese yen.",
-           zh: "没有日本健康保险的话，费用全部自费。初诊33,000日元，每项检查加11,000日元，小手术加44,000日元，7天内因同一症状复诊22,000日元。药局的药费也另外全额自费。用日元支付。",
-           ko: "일본 건강보험이 없으시면 전액 자비입니다. 초진 33,000엔, 검사 1가지당 +11,000엔, 간단한 수술 +44,000엔, 7일 이내 같은 증상의 재진 22,000엔입니다. 약국의 약값도 별도로 전액 자비입니다. 결제는 일본 엔으로 합니다." } },
+    { id: "fees", q: { en: "💴 Fees", zh: "💴 费用", ko: "💴 비용" },
+      a: { en: "You pay the full cost yourself (Japanese health insurance is not used). First visit: 33,000 yen. Each test: +11,000 yen. Minor surgery: +44,000 yen. Follow-up within 7 days for the same symptoms: 22,000 yen. Medicine from the pharmacy is also charged in full, separately. Fees are paid in Japanese yen.",
+           zh: "费用全部自费（不使用日本健康保险）。初诊33,000日元，每项检查加11,000日元，小手术加44,000日元，7天内因同一症状复诊22,000日元。药局的药费也另外全额自费。用日元支付。",
+           ko: "전액 자비입니다(일본 건강보험은 사용하지 않습니다). 초진 33,000엔, 검사 1가지당 +11,000엔, 간단한 수술 +44,000엔, 7일 이내 같은 증상의 재진 22,000엔입니다. 약국의 약값도 별도로 전액 자비입니다. 결제는 일본 엔으로 합니다." } },
     { id: "insurance", q: { en: "🧾 Using travel insurance", zh: "🧾 使用旅行保险", ko: "🧾 여행자 보험 이용" },
       a: { en: "Please pay at the clinic and claim the cost from your insurance company later. You usually need: (1) the receipt and itemized statement — we give them to you when you pay (in Japanese); (2) an English medical certificate — 22,000 yen; please check with your insurance company whether you need it; (3) the receipt from the pharmacy. Please tell the reception staff that you will use travel insurance.",
            zh: "请先在诊所付款，之后再向保险公司申请理赔。一般需要：①收据和明细单（付款时给您，日语）；②英文诊断书（22,000日元，是否需要请向保险公司确认）；③药局的收据。请告诉前台您要使用旅行保险。",
            ko: "병원에서 결제하신 후 나중에 보험사에 청구해 주세요. 보통 필요한 것은 ① 영수증과 명세서(결제 시 드림, 일본어), ② 영문 진단서(22,000엔, 필요 여부는 보험사에 확인), ③ 약국 영수증입니다. 접수처에 여행자 보험을 이용한다고 말씀해 주세요." } },
     { id: "lang", q: { en: "🗣 Language / interpreter", zh: "🗣 语言・翻译", ko: "🗣 언어・통역" },
-      a: { en: "Consultations are in Japanese. If speaking Japanese is difficult for you, please come with an interpreter (a family member or friend is fine). You can also choose a consultation using a translation app. Without Japanese insurance, the translation fee is included in the fees.",
-           zh: "诊察使用日语。日语交流有困难的话，请和翻译一起来（家人或朋友也可以）。也可以使用翻译软件诊察。没有日本保险的话，翻译费已包含在费用中。",
-           ko: "진료는 일본어로 합니다. 일본어가 어려우시면 통역해 줄 분과 함께 와 주세요(가족이나 친구도 괜찮습니다). 통역 앱을 사용한 진료도 가능합니다. 일본 보험이 없으시면 통역료는 비용에 포함되어 있습니다." } },
+      a: { en: "Consultations are in Japanese. If speaking Japanese is difficult for you, please come with an interpreter (a family member or friend is fine). You can also choose a consultation using a translation app. The translation fee is included in the fees.",
+           zh: "诊察使用日语。日语交流有困难的话，请和翻译一起来（家人或朋友也可以）。也可以使用翻译软件诊察。翻译费已包含在费用中。",
+           ko: "진료는 일본어로 합니다. 일본어가 어려우시면 통역해 줄 분과 함께 와 주세요(가족이나 친구도 괜찮습니다). 통역 앱을 사용한 진료도 가능합니다. 통역료는 비용에 포함되어 있습니다." } },
     { id: "medicine", q: { en: "💊 Medicine / pharmacy", zh: "💊 药・药局", ko: "💊 약・약국" },
       a: { en: "We do not give out medicine at the clinic. We give you a prescription, and you get your medicine at a pharmacy — there is one on the 1st floor of our building. Please pay for the medicine at the pharmacy. A prescription is valid for 4 days, including the day it is issued.",
            zh: "本院不直接发药。我们开处方，请到药局取药——本大楼1楼就有药局。药费请在药局支付。处方有效期包括开具当天共4天。",
@@ -398,8 +398,10 @@
     chrome_();
     const s = st.step;
     if (s === "start") {
-      bd.innerHTML = `<div class="msg">${esc(t("hello"))}</div><div class="q">${esc(t("askIns"))}</div>
-        <div class="row"><button class="btn" data-a="insYes">${esc(t("insYes"))}</button><button class="btn" data-a="insNo">${esc(t("insNo"))}</button></div>
+      // 2026-11-14 理事長「日本の健康保険を持っていない人のためのページ。完全に旅行者向け」→ 保険の質問をやめ、予約のボタン1つ
+      bd.innerHTML = `<div class="msg">${esc(t("hello"))}</div>
+        <div class="row"><button class="btn main" data-a="insNo">${esc(t("reqBtn"))}</button></div>
+        <div class="small">${esc(t("feeNo"))}</div>
         <div class="faqs faqone"><button class="faqb" data-a="faqs">❓ ${esc(t("faqTitle"))}</button></div>${info()}`;
       // 2026-11-14 理事長「よくある質問より先に予約を出す」：よくある質問は1つのボタンにまとめ、押すと一覧の画面へ
     } else if (s === "faqs") {
@@ -672,11 +674,11 @@
     const a = b.dataset.a;
     // メニューが決まったら、案内できる時間を先に読み始める（欄の画面で待たせないように）
     if (a === "insYes") { st.menu = "translation"; st.step = "phone"; loadSlots(); }
-    else if (a === "insNo") { st.menu = "foreign"; st.step = "phone"; loadSlots(); }
+    else if (a === "insNo") { st.menu = "foreign"; st.step = "form"; st.slotsState = ""; }
     else if (a === "faqs") st.step = "faqs";
     else if (a === "phoneYes") st.step = "self";
     else if (a === "phoneNo") st.step = "form";
-    else if (a === "toPhone") { if (st.step === "form") readForm(); st.step = "phone"; }
+    else if (a === "toPhone") { if (st.step === "form") readForm(); st.step = "start"; }   // 2026-11-14 保険の画面をなくしたので、戻るは最初の画面へ
     else if (a === "restart") { st.menu = ""; st.form = {}; st.step = "start"; st.booked = ""; st.slotsState = ""; st.link = null; }
     else if (a === "check") { const err = readForm(); if (err) { $("#err").textContent = err; return; } st.step = "confirm"; }
     else if (a === "toForm") st.step = "form";
