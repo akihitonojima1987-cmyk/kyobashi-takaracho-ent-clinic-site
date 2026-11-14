@@ -128,6 +128,9 @@
     lkNotFound:{ en: "We could not find this booking.", zh: "找不到这个预约。", ko: "이 예약을 찾을 수 없습니다." },
     lkFail:   { en: "Sorry, something went wrong. Please open the link in the email again in a few minutes.", zh: "抱歉，出了点问题。请过几分钟再打开邮件中的链接。", ko: "죄송합니다. 문제가 생겼습니다. 몇 분 후 메일 속 링크를 다시 열어 주세요." },
     come:     { en: "Please come to the reception 10 minutes before this time.", zh: "请在预约时间前10分钟到前台。", ko: "예약 시간 10분 전까지 접수처로 와 주세요." },
+    bYear:    { en: "Year", zh: "年", ko: "년" },    // 2026-11-14 生年月日のプルダウン
+    bMonth:   { en: "Month", zh: "月", ko: "월" },
+    bDay:     { en: "Day", zh: "日", ko: "일" },
     sndOn:    { en: "Voice on", zh: "声音开", ko: "음성 켜짐" },    // 2026-11-14 AI コンシェルジュの声のボタン
     sndOff:   { en: "Voice off", zh: "声音关", ko: "음성 꺼짐" },
     need:     { en: "Please fill in the required items.", zh: "请填写必填项。", ko: "필수 항목을 입력해 주세요." },
@@ -263,10 +266,33 @@
     .stage.blink #eyes-closed { display: inline; } .stage.blink #eyes { display: none; }
     .hd button.snd { font-size: 14px; font-weight: bold; border: 2px solid #fff; border-radius: 999px; padding: 5px 12px; white-space: nowrap; }
     .panel:not(.full) .hd button.snd { display: none; }
+    .bday select { min-width: 0; }
+    /* ---- スマホ（2026-11-14 理事長「みんなスマホから取るので、スムーズに」）----
+       ・上の帯：顔は出さず（下に大きな事務員がいる）、ボタンは印だけ（🔇・×）。題は1〜2行に
+       ・入力欄の字は 16px（iPhone は 16px より小さいと、欄を押すたびに画面が拡大されるため）
+       ・画面全体をまとめて動かす（事務員の場所も一緒に上へ流れ、入力欄を広く使える）
+       ・押すところは指で押しやすい高さ（44px 以上） */
     @media (max-width: 767px) {
-      .stage .big { width: 84px; height: 105px; }
-      .bubble { font-size: 15px; padding: 10px 12px; }
-      .hd button.snd { font-size: 12px; padding: 4px 8px; }
+      .panel.full { overflow-y: auto; -webkit-overflow-scrolling: touch; display: none; }
+      .panel.full.open { display: block; }
+      .panel.full .hd { position: sticky; top: 0; z-index: 2; padding: 8px 10px; gap: 8px; }
+      .panel.full .hd .face { display: none; }
+      .panel.full .hd .ttl { font-size: 15px; }
+      .panel.full .hd button { min-width: 44px; min-height: 40px; padding: 4px 10px; font-size: 18px; }
+      .panel.full .hd .tx { display: none; }
+      .panel.full .langs { padding: 8px; }
+      .panel.full .langs button { font-size: 15px; padding: 6px 14px; }
+      .panel.full .stage { padding: 10px 12px 0; gap: 10px; }
+      .stage .big { width: 72px; height: 90px; }
+      .bubble { font-size: 15px; padding: 10px 12px; margin-bottom: 10px; }
+      .panel.full .bd { padding: 12px 14px calc(40px + env(safe-area-inset-bottom)); overflow: visible; }
+      .panel.full input[type=text], .panel.full input[type=email], .panel.full input[type=tel], .panel.full input[type=date],
+      .panel.full select, .panel.full textarea { font-size: 16px; min-height: 44px; padding: 8px 10px; }
+      .panel.full textarea { min-height: 80px; }
+      .panel.full .btn { min-height: 48px; font-size: 16px; }
+      .panel.full .faqb { min-height: 40px; }
+      .panel.full .chk label { min-height: 36px; font-size: 15px; }
+      .panel.full input[type=checkbox] { width: 20px; height: 20px; }
     }
   </style>
   <button class="fab" id="fab"><span class="face"><svg viewBox="20 60 360 360" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg"> <g id="body-group"> <g id="legs"> <rect x="137" y="780" width="30" height="92" rx="10" fill="#ecd0bd"/> <rect x="233" y="780" width="30" height="92" rx="10" fill="#ecd0bd"/> <ellipse cx="150" cy="876" rx="26" ry="11" fill="#22252b"/> <ellipse cx="250" cy="876" rx="26" ry="11" fill="#22252b"/> <path d="M100 630 L300 630 L320 795 L80 795 Z" fill="#18304f"/> </g> <g class="head-part head-back"> <path d="M95 210 Q90 90 200 75 Q310 90 305 210 L315 340 Q300 360 280 330 L120 330 Q100 360 85 340 Z" fill="#3b2a24"/> </g> <g id="torso"> <rect x="178" y="330" width="44" height="80" rx="18" fill="#f6d7c3"/> <path d="M128 402 L272 402 Q302 410 306 452 L302 655 L98 655 L94 452 Q98 410 128 402 Z" fill="var(--navy)"/> <path d="M165 402 L200 470 L235 402 Z" fill="#fff"/> <path d="M200 470 L196 655 L204 655 Z" fill="#e9eef5"/> <circle cx="200" cy="530" r="4" fill="#e9eef5"/> <circle cx="200" cy="590" r="4" fill="#e9eef5"/> <path d="M182 407 Q200 432 218 407 L212 442 Q200 434 188 442 Z" fill="var(--accent)"/> <rect x="212" y="478" width="52" height="24" rx="4" fill="#fff"/> <text x="238" y="495" font-size="12" text-anchor="middle" fill="var(--navy)" font-weight="bold">Reception</text> <g id="arm-rest"> <rect x="94" y="418" width="32" height="182" rx="16" fill="#1a3352"/> <rect x="96" y="592" width="28" height="14" rx="5" fill="#fff"/> <ellipse cx="110" cy="628" rx="14" ry="22" fill="#fbe3d3"/> </g> <g id="arm-guide"> <rect x="274" y="418" width="32" height="182" rx="16" fill="#1a3352"/> <rect x="276" y="592" width="28" height="14" rx="5" fill="#fff"/> <ellipse cx="290" cy="630" rx="15" ry="24" fill="#fbe3d3"/> <ellipse cx="279" cy="618" rx="5" ry="11" fill="#f6d7c3" transform="rotate(-20 279 618)"/> </g> </g> <g class="head-part head-front"> <ellipse cx="200" cy="235" rx="95" ry="110" fill="#fbe3d3"/> <path d="M105 215 Q110 110 200 105 Q295 110 296 215 Q270 150 215 145 Q230 175 180 190 Q150 195 105 215 Z" fill="#3b2a24"/> <path d="M140 190 Q160 182 178 190" stroke="#3b2a24" stroke-width="4" fill="none" stroke-linecap="round"/> <path d="M222 190 Q240 182 260 190" stroke="#3b2a24" stroke-width="4" fill="none" stroke-linecap="round"/> <g id="eyes"> <ellipse cx="160" cy="215" rx="13" ry="16" fill="#2b2b3a"/> <ellipse cx="240" cy="215" rx="13" ry="16" fill="#2b2b3a"/> <circle cx="165" cy="209" r="4.5" fill="#fff"/> <circle cx="245" cy="209" r="4.5" fill="#fff"/> </g> <g id="eyes-closed"> <path d="M146 218 Q160 228 174 218" stroke="#2b2b3a" stroke-width="4" fill="none" stroke-linecap="round"/> <path d="M226 218 Q240 228 254 218" stroke="#2b2b3a" stroke-width="4" fill="none" stroke-linecap="round"/> </g> <ellipse cx="140" cy="262" rx="16" ry="9" fill="#f4b5a6" opacity=".6"/> <ellipse cx="260" cy="262" rx="16" ry="9" fill="#f4b5a6" opacity=".6"/> <path id="mouth-closed" d="M182 285 Q200 298 218 285" stroke="#c0605a" stroke-width="4" fill="none" stroke-linecap="round"/> <ellipse id="mouth-open" cx="200" cy="290" rx="14" ry="11" fill="#c0605a"/> <path d="M100 230 Q95 300 160 305" stroke="#555" stroke-width="4" fill="none"/> <circle cx="163" cy="305" r="6" fill="#555"/> <rect x="88" y="205" width="18" height="40" rx="8" fill="#555"/> </g> </g> </svg></span><span id="fabTxt"></span></button>
@@ -288,9 +314,11 @@
     $("#fabTxt").textContent = t("fab");
     $("#ttl").textContent = t("title");
     // 画面いっぱいのときは「× 閉じる」と文字でも出す（元のページに戻るボタン）
-    $("#x").textContent = $("#panel").classList.contains("full") ? "× " + t("closeFull") : "×";
+    // スマホでは文字（.tx）を隠して印だけにする（帯からはみ出さないように。2026-11-14）
+    $("#x").innerHTML = $("#panel").classList.contains("full") ? `<span class="ic">×</span><span class="tx"> ${esc(t("closeFull"))}</span>` : "×";
+    $("#x").setAttribute("aria-label", t("closeFull"));
     root.querySelectorAll("#langs button").forEach(b => b.classList.toggle("on", b.dataset.l === lang));
-    $("#snd").textContent = sound ? "🔊 " + t("sndOn") : "🔇 " + t("sndOff");
+    $("#snd").innerHTML = `<span class="ic">${sound ? "🔊" : "🔇"}</span><span class="tx"> ${esc(t(sound ? "sndOn" : "sndOff"))}</span>`;
     $("#snd").setAttribute("aria-label", t(sound ? "sndOn" : "sndOff"));
   }
 
@@ -419,6 +447,7 @@
         <div class="row"><button class="btn ghost" data-a="restart">${esc(t("restart"))}</button></div>${info()}`;
     }
     bd.scrollTop = 0;
+    $("#panel").scrollTop = 0;   // スマホは画面全体が動くので、そちらも上に戻す
     concierge();
   }
 
@@ -466,6 +495,26 @@
     if (st.step === "form") { readFormSoft(); render(); }
   }
   function readFormSoft() { if ($("#fName")) readForm(); }
+  // 生年月日：年・月・日の3つのプルダウン（2026-11-14 理事長「スマホからスムーズに」。
+  //   スマホの日付の欄は今日のカレンダーから始まり、何十年もさかのぼるのが手間なため）
+  function birthSel(birth) {
+    const [by, bm, bdd] = String(birth || "").split("-").map(Number);
+    const yNow = tokyoNow().getFullYear();
+    const opt = (v, lab, sel) => `<option value="${v}"${sel ? " selected" : ""}>${lab}</option>`;
+    let ys = opt("", t("bYear")), ms = opt("", t("bMonth")), ds = opt("", t("bDay"));
+    for (let y = yNow; y >= 1920; y--) ys += opt(y, y, y === by);
+    for (let m = 1; m <= 12; m++) ms += opt(m, m, m === bm);
+    for (let d = 1; d <= 31; d++) ds += opt(d, d, d === bdd);
+    return `<div class="inl bday"><select id="bY" autocomplete="bday-year">${ys}</select><select id="bM" autocomplete="bday-month">${ms}</select><select id="bD" autocomplete="bday-day">${ds}</select></div>`;
+  }
+  // 3つのプルダウンから YYYY-MM-DD を作る（ない日付・未来の日は空にする）
+  function birthVal() {
+    const y = +($("#bY") || {}).value, m = +($("#bM") || {}).value, d = +($("#bD") || {}).value;
+    if (!y || !m || !d) return "";
+    const dt = new Date(y, m - 1, d);
+    if (dt.getMonth() !== m - 1 || dt > tokyoNow()) return "";
+    return `${y}-${pad(m)}-${pad(d)}`;
+  }
   function renderForm() {
     const f = st.form;
     if (st.slotsState === "loading" || st.slotsState === "") {
@@ -485,12 +534,12 @@
         byDay[day].map(s => `<option value="${esc(s)}"${f.slot === s ? " selected" : ""}>${esc(slotLabel(s))}</option>`).join("") + `</optgroup>`).join("") + `</select>`;
     bd.innerHTML = `<div class="msg">${esc(t(slotMode ? "weBookNow" : "weBook"))}</div>${slotMode ? "" : `<div class="msg small">${esc(t("noOpen"))}</div>`}
       <div class="small"><b>${esc(MENUS[st.menu].name)}</b> — ${esc(t(st.menu === "foreign" ? "feeNo" : "feeYes"))}</div>
-      <label>${esc(t("fName"))} *</label><input type="text" id="fName" autocomplete="name" value="${esc(f.name || "")}" placeholder="SMITH JOHN">
+      <label>${esc(t("fName"))} *</label><input type="text" id="fName" autocomplete="name" autocapitalize="characters" autocorrect="off" spellcheck="false" value="${esc(f.name || "")}" placeholder="SMITH JOHN">
       <label>${esc(t("fNameLocal"))}</label><input type="text" id="fNameLocal" maxlength="40" value="${esc(f.nameLocal || "")}" placeholder="陳大文">
-      <div class="inl"><div><label>${esc(t("fBirth"))} *</label><input type="date" id="fBirth" max="${today}" value="${esc(f.birth || "")}"></div>
-        <div><label>${esc(t("fSex"))} *</label><select id="fSex"><option value=""></option><option value="male"${f.sex === "male" ? " selected" : ""}>${esc(t("male"))}</option><option value="female"${f.sex === "female" ? " selected" : ""}>${esc(t("female"))}</option></select></div></div>
-      <label>${esc(t("fEmail"))} *</label><input type="email" id="fEmail" autocomplete="email" value="${esc(f.email || "")}">
-      <label>${esc(t("fPhone"))} *</label><input type="tel" id="fPhone" autocomplete="tel" value="${esc(f.phone || "")}" placeholder="+1 555 123 4567">
+      <label>${esc(t("fBirth"))} *</label>${birthSel(f.birth)}
+      <label>${esc(t("fSex"))} *</label><select id="fSex"><option value=""></option><option value="male"${f.sex === "male" ? " selected" : ""}>${esc(t("male"))}</option><option value="female"${f.sex === "female" ? " selected" : ""}>${esc(t("female"))}</option></select>
+      <label>${esc(t("fEmail"))} *</label><input type="email" id="fEmail" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(f.email || "")}">
+      <label>${esc(t("fPhone"))} *</label><input type="tel" id="fPhone" autocomplete="tel" inputmode="tel" value="${esc(f.phone || "")}" placeholder="+1 555 123 4567">
       <label>${esc(t("fStay"))}</label><input type="text" id="fStay" value="${esc(f.stay || "")}">
       ${slotMode ? slotSel : `<label>${esc(t("fWhen1"))} *</label><div class="inl"><input type="date" id="d1" min="${today}" max="${max}" value="${esc(f.d1 || "")}"><select id="t1"></select></div>
       <label>${esc(t("fWhen2"))}</label><div class="inl"><input type="date" id="d2" min="${today}" max="${max}" value="${esc(f.d2 || "")}"><select id="t2"></select></div>
@@ -516,7 +565,7 @@
   function readForm() {
     const v = id => ($("#" + id) ? $("#" + id).value || "" : "").trim();
     st.form = {
-      name: v("fName").toUpperCase().replace(/\s+/g, " "), nameLocal: v("fNameLocal").replace(/\s+/g, " "), birth: v("fBirth"), sex: v("fSex"), email: v("fEmail"), phone: v("fPhone"), stay: v("fStay"),
+      name: v("fName").toUpperCase().replace(/\s+/g, " "), nameLocal: v("fNameLocal").replace(/\s+/g, " "), birth: birthVal(), sex: v("fSex"), email: v("fEmail"), phone: v("fPhone"), stay: v("fStay"),
       d1: v("d1"), t1: v("t1"), d2: v("d2"), t2: v("t2"), slot: v("fSlot"),
       sym: [...root.querySelectorAll('input[name=sym]:checked')].map(x => +x.value), note: v("fNote"), agree: $("#agree").checked,
     };
