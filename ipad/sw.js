@@ -1,10 +1,10 @@
 // 外国人用 iPad：オフライン用（make_pack.py が作る。直接は直さない）
-const CACHE = "ipad-20261114a";
+const CACHE = "ipad-20261115a";
 const FILES = [
   "./",
   "index.html",
-  "phrases.js?v=20261114a",
-  "settings.js?v=20261114a",
+  "phrases.js?v=20261115a",
+  "settings.js?v=20261115a",
   "manifest.webmanifest",
   "media/01.jpg",
   "media/02.jpg",

@@ -107,6 +107,29 @@
   #reqdone { text-align:center; padding-top:40px; }
   .done-ic { width:110px; height:110px; border-radius:50%; background:#3aa76d; color:#fff; font-size:64px; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; }
 
+  /* 受付 */
+  .ci { max-width:760px; margin:0 auto; }
+  .bigbtn { display:block; width:100%; margin-top:18px; background:var(--blue); color:#fff; border:none; border-radius:22px; padding:26px 20px; font-size:32px; font-weight:800; }
+  .bigbtn small { display:block; font-size:17px; font-weight:400; opacity:.92; margin-top:4px; }
+  .bigbtn.sub { background:#fff; color:var(--dark); border:1.5px solid var(--line); font-size:22px; padding:18px; }
+  .bigbtn.sub small { color:var(--grey); }
+  .flabel { display:block; font-size:19px; font-weight:700; margin:22px 0 8px; }
+  .dob { display:flex; gap:10px; }
+  .dob select, .last4 { font:inherit; font-size:24px; padding:12px 14px; border:1.5px solid var(--line); border-radius:12px; background:#fff; color:var(--dark); }
+  .dob select { flex:1; }
+  .last4 { width:200px; letter-spacing:6px; text-align:center; -webkit-user-select:text; user-select:text; }
+  .appt { background:#fff; border:2px solid var(--blue); border-radius:18px; padding:26px; text-align:center; margin:18px 0; }
+  .appt .nm { font-size:34px; font-weight:800; }
+  .appt .tm { font-size:24px; color:var(--grey); margin-top:8px; }
+  .appt .tm b { color:var(--dark); font-size:30px; }
+  .row2 { display:flex; gap:16px; justify-content:center; }
+  .row2 .sendbtn { margin:18px 0 0; }
+  .sendbtn.ghost { background:#fff; color:var(--bluetext); border:2px solid var(--blue); }
+  .agree { display:flex; gap:12px; align-items:flex-start; font-size:20px; line-height:1.45; margin-top:20px; background:#fff; border:1.5px solid var(--line); border-radius:14px; padding:16px; }
+  .agree input { width:28px; height:28px; flex:none; margin-top:2px; }
+  .done-ic.wait { background:#e0a43a; }
+  .resetbtn { display:block; width:100%; margin-top:30px; background:#fff3f0; border:1.5px solid #e6a597; color:#a2412c; border-radius:14px; padding:14px; font-size:18px; font-weight:700; }
+
   /* 大きく出す画面（スタッフに見せる・スタッフの一言） */
   #overlay { position:fixed; inset:0; background:#fff; z-index:10; display:none; flex-direction:column; align-items:center; justify-content:center; padding:40px; text-align:center; }
   #overlay.on { display:flex; }
@@ -138,8 +161,55 @@
 </header>
 
 <main>
-  <!-- 最初の画面 -->
-  <section class="screen on" id="s-home">
+  <!-- 受付（2026-11-15 理事長：最初の画面は受付。生年月日＋電話の下4桁で予約を探し、本人が確かめ、料金に了承する） -->
+  <section class="screen on" id="s-checkin">
+    <div class="ci" id="ci-start">
+      <h1>Welcome. Please check in here.</h1>
+      <p class="lead">It takes about one minute. 受付はこちらです。</p>
+      <button class="bigbtn" onclick="ciStep('find')">✓ Check in<small>I have an appointment today</small></button>
+      <button class="bigbtn sub" onclick="ciNoAppt()">I don't have an appointment<small>Our staff will come to help you</small></button>
+      <button class="stafflink" onclick="ciSkip()">Already checked in at the desk → Patient guide</button>
+    </div>
+    <div class="ci" id="ci-find" style="display:none">
+      <h1>Find your appointment</h1>
+      <p class="lead">Please enter the information you used when you booked online.</p>
+      <label class="flabel">Date of birth</label>
+      <div class="dob"><select id="dobY"></select><select id="dobM"></select><select id="dobD"></select></div>
+      <label class="flabel">Last 4 digits of your phone number</label>
+      <input id="last4" class="last4" type="tel" inputmode="numeric" maxlength="4" placeholder="1234" autocomplete="off">
+      <button class="sendbtn" id="findbtn" onclick="ciLookup()">Find</button>
+      <p class="reqerr" id="finderr"></p>
+    </div>
+    <div class="ci" id="ci-confirm" style="display:none">
+      <h1>Is this you?</h1>
+      <div class="appt"><div class="nm" id="apName"></div><div class="tm">Today <b id="apTime"></b></div></div>
+      <div class="row2"><button class="sendbtn" onclick="ciStep('fees')">Yes, this is me</button>
+        <button class="sendbtn ghost" onclick="ciNotMe()">No</button></div>
+    </div>
+    <div class="ci" id="ci-fees" style="display:none">
+      <h1>Fees</h1>
+      <p class="lead">Without Japanese health insurance, all fees are self-paid. Please read the fee guide.</p>
+      <img class="card-img" id="cifeeimg" alt="Fee guide">
+      <label class="agree"><input type="checkbox" id="feeok" onchange="$('agreebtn').disabled=!this.checked"> I have read the fee guide and I agree to pay all fees myself.</label>
+      <button class="sendbtn" id="agreebtn" disabled onclick="ciArrive()">I agree – Check in</button>
+      <p class="reqerr" id="arriveerr"></p>
+    </div>
+    <div class="ci" id="ci-done" style="display:none">
+      <div class="done-ic">✓</div>
+      <h1>You are checked in</h1>
+      <p class="lead">Please have a seat in the waiting room. We will call you.<br>Keep this tablet with you. It will help you during your visit.</p>
+      <button class="sendbtn" onclick="ciFinish()">Continue →</button>
+    </div>
+    <div class="ci" id="ci-help" style="display:none">
+      <div class="done-ic wait">!</div>
+      <h1 id="ciHelpTitle">A staff member will come to help you</h1>
+      <p class="lead">Please wait here for a moment. We have told our reception.</p>
+      <button class="sendbtn ghost" onclick="ciStep('start')">Back</button>
+    </div>
+  </section>
+
+  <!-- 最初の画面（受付のあと） -->
+  <section class="screen" id="s-home">
     <h1>Welcome</h1>
     <p class="lead">This tablet will help you during your visit today. Tap a button below.<br>
       <b>Please return this tablet to the reception when you pay.</b></p>
@@ -235,6 +305,7 @@
   <!-- スタッフ用 -->
   <section class="screen" id="s-staff">
     <h1>スタッフ用：英語の一言</h1>
+    <button class="resetbtn" onclick="resetForNext()">↺ 次の患者さんに渡すので、最初（受付の画面）に戻す</button>
     <p class="lead">押すと英語が大きく出て、英語で読み上げます。患者さんに画面を見せてください。</p>
     <button class="tile trans" style="width:100%;min-height:80px" onclick="openTranslate()"><div class="ic">🗣️</div><div><b>同時通訳を開く</b><span>話すと訳します（相手の言葉は自動で見分けます）</span></div></button>
     <h2>いつでも使う一言</h2>
@@ -253,8 +324,8 @@
 </div>
 
 <!-- 一言・よくある質問・読み上げの音は、外国人対応画面と同じものを使う（make_phrases.py で作ったもの） -->
-<script src="phrases.js?v=20261114a"></script>
-<script src="settings.js?v=20261114a"></script>
+<script src="phrases.js?v=20261115a"></script>
+<script src="settings.js?v=20261115a"></script>
 <script>
 // ---- 置き場所（このフォルダから見た位置） ----
 const VDIR = "../英語の検査案内/動画/";
@@ -337,8 +408,8 @@ function go(name, push = true) {
   document.querySelectorAll(".screen").forEach(s => s.classList.toggle("on", s.id === "s-" + name));
   if (name !== "video") $("player").pause();
   audio.pause(); speechSynthesis.cancel();
-  $("back").classList.toggle("hide", name === "home");
-  $("home").classList.toggle("hide", name === "home");
+  $("back").classList.toggle("hide", name === "home" || name === "checkin");
+  $("home").classList.toggle("hide", name === "home" || name === "checkin");
   $("s-" + name).scrollTop = 0;
 }
 function goBack() { if (hist.length > 1) hist.pop(); go(hist[hist.length - 1], false); }
@@ -443,6 +514,83 @@ async function sendRequest() {
     $("reqerr").textContent = "Could not send. Please show this screen to a staff member.";
   }
 }
+
+// ---- 受付 ----
+// 受け箱（REQUEST_URL）に「探す（lookup）」「着いた（arrive）」を送る。返事を読むので no-cors にはしない。
+// 生年月日・電話の番号は URL に入れず、送る中身（body）にだけ入れる。
+const today = () => new Date().toLocaleDateString("sv-SE");
+let ticket = "";
+async function post(msg) {
+  const url = (typeof REQUEST_URL === "string") ? REQUEST_URL : "";
+  if (!url) throw new Error("no url");
+  const r = await fetch(url, { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify({ ...msg, ipad: IPAD_NO }) });
+  return r.json();
+}
+function ciStep(s) {
+  document.querySelectorAll(".ci").forEach(d => d.style.display = d.id === "ci-" + s ? "" : "none");
+  $("s-checkin").scrollTop = 0;
+  if (s === "find") { $("finderr").textContent = ""; $("findbtn").disabled = false; }
+  if (s === "fees") { $("cifeeimg").src = document.querySelector("#s-fees img").src; $("feeok").checked = false; $("agreebtn").disabled = true; $("arriveerr").textContent = ""; }
+}
+// 生年月日の選ぶ欄
+(function () {
+  const y = new Date().getFullYear();
+  const M = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  $("dobY").innerHTML = `<option value="">Year</option>` + Array.from({ length: y - 1899 }, (_, i) => `<option>${y - i}</option>`).join("");
+  $("dobM").innerHTML = `<option value="">Month</option>` + M.map((m, i) => `<option value="${i + 1}">${m}</option>`).join("");
+  $("dobD").innerHTML = `<option value="">Day</option>` + Array.from({ length: 31 }, (_, i) => `<option>${i + 1}</option>`).join("");
+})();
+async function ciLookup() {
+  const y = $("dobY").value, m = $("dobM").value, d = $("dobD").value, last4 = $("last4").value.replace(/\D/g, "");
+  if (!y || !m || !d || last4.length !== 4) { $("finderr").textContent = "Please choose your date of birth and enter 4 digits."; return; }
+  $("findbtn").disabled = true; $("finderr").textContent = "Searching…";
+  try {
+    const res = await post({ action: "lookup", birth: `${y}-${m}-${d}`, last4 });
+    $("findbtn").disabled = false;
+    if (res.ok && res.found) {
+      ticket = res.ticket;
+      $("apName").textContent = res.name; $("apTime").textContent = res.time;
+      ciStep("confirm");
+    } else if (res.error === "busy") {
+      $("finderr").textContent = "Please wait a moment and try again.";
+    } else {
+      ciHelp("We could not find your appointment", "【受付】予約が見つかりませんでした（生年月日と電話の下4桁で探しました）。受付で確かめてください。");
+    }
+  } catch (e) {
+    $("findbtn").disabled = false;
+    $("finderr").textContent = "Could not connect. Please show this screen to a staff member.";
+  }
+}
+function ciNotMe() { ciHelp("A staff member will come to help you", "【受付】予約は見つかりましたが、本人が「自分ではない」と答えました。受付で確かめてください。"); }
+function ciNoAppt() { ciHelp("A staff member will come to help you", "【受付】予約なしの外国の方が来ました。受付で対応してください。"); }
+// スタッフを呼ぶ：受付の画面に知らせて、待ってもらう
+function ciHelp(title, ja) {
+  $("ciHelpTitle").textContent = title;
+  ciStep("help");
+  post({ kind: "checkin", text: title, ja }).catch(() => {});
+}
+async function ciArrive() {
+  $("agreebtn").disabled = true; $("arriveerr").textContent = "";
+  try {
+    const res = await post({ action: "arrive", ticket });
+    if (!res.ok) throw new Error(res.error);
+    localStorage.setItem("checkedIn", today());
+    ciStep("done");
+  } catch (e) {
+    $("agreebtn").disabled = false;
+    $("arriveerr").textContent = "Could not check in. Please show this screen to a staff member.";
+  }
+}
+function ciFinish() { hist = ["home"]; go("home", false); }
+function ciSkip() { localStorage.setItem("checkedIn", today()); ciFinish(); }
+// スタッフ用：次の患者さんに渡す前に、受付の画面に戻す（前の人の入力を消す）
+function resetForNext() {
+  localStorage.removeItem("checkedIn"); ticket = "";
+  $("dobY").value = $("dobM").value = $("dobD").value = ""; $("last4").value = "";
+  hist = ["checkin"]; go("checkin", false); ciStep("start");
+}
+// 開いたとき：今日もう受付が済んでいれば案内の画面から、まだなら受付から
+if (localStorage.getItem("checkedIn") === today()) { hist = ["home"]; go("home", false); } else { hist = ["checkin"]; go("checkin", false); }
 
 // iPad の声の一覧は、あとから読み込まれることがある
 speechSynthesis.onvoiceschanged = () => {};
