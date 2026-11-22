@@ -39,9 +39,9 @@
     feeNo:    { en: "All fees are self-pay: first visit 33,000 yen, plus 11,000 yen for each test. We will tell you before any test.",
                 zh: "费用全部自费：初诊 33,000日元，每做一项检查另加 11,000日元。做检查之前会先告诉您。",
                 ko: "전액 자비입니다. 초진 33,000엔, 검사 1가지당 11,000엔이 추가됩니다. 검사 전에 미리 알려 드립니다." },
-    feeYes:   { en: "With Japanese insurance, you pay your normal share. If we use a translation app during the consultation, a translation fee of 3,300 yen is added. Please bring your My Number card (health insurance) or eligibility certificate.",
-                zh: "有日本保险的话，按保险比例付费。诊察时如果使用翻译软件，另收翻译费 3,300日元。请带上My Number卡（保险证）或资格确认书。",
-                ko: "일본 보험이 있으시면 본인 부담금만 내시면 됩니다. 진료 중 통역 앱을 사용하면 통역료 3,300엔이 추가됩니다. 마이넘버 카드(보험증) 또는 자격확인서를 가져와 주세요." },
+    feeYes:   { en: "With Japanese insurance, you pay your normal share. If we use a translation app during the consultation, a translation fee is added (3,300 yen until Nov 24, 2026; 5,500 yen from Nov 25, 2026). Please bring your My Number card (health insurance) or eligibility certificate.",
+                zh: "有日本保险的话，按保险比例付费。诊察时如果使用翻译软件，另收翻译费（2026年11月24日前3,300日元，11月25日起5,500日元）。请带上My Number卡（保险证）或资格确认书。",
+                ko: "일본 보험이 있으시면 본인 부담금만 내시면 됩니다. 진료 중 통역 앱을 사용하면 통역료가 추가됩니다(2026년 11월 24일까지 3,300엔, 11월 25일부터 5,500엔). 마이넘버 카드(보험증) 또는 자격확인서를 가져와 주세요." },
     askPhone: { en: "Do you have a Japanese mobile phone number (starting with 070, 080 or 090)?", zh: "您有日本的手机号码吗？（以070、080、090开头）", ko: "일본 휴대폰 번호(070, 080, 090으로 시작)가 있으신가요?" },
     phoneWhy: { en: "Our online booking page sends a code by SMS to a Japanese mobile number.", zh: "网上预约需要通过短信向日本手机号码发送验证码。", ko: "온라인 예약은 일본 휴대폰 번호로 문자 인증번호를 보냅니다." },
     yes:      { en: "Yes", zh: "有", ko: "네" },
@@ -94,6 +94,10 @@
     selfOnly: { en: "This booking is only for self-pay patients (without Japanese health insurance). If you have Japanese health insurance, please book from the Japanese booking page.",
                 zh: "此预约仅限自费患者（没有日本健康保险的人）。持有日本健康保险的人，请从日语预约页面预约。",
                 ko: "이 예약은 자비 진료(일본 건강보험이 없는 분) 전용입니다. 일본 건강보험이 있으신 분은 일본어 예약 페이지에서 예약해 주세요." },
+    // 2026-11-22 理事長：日本の保険がある方で翻訳機が要る場合の翻訳料（11/24 まで 3,300円、11/25 から 5,500円）。11/25 を過ぎたら 3,300円の文を消す
+    insTrans: { en: "With Japanese health insurance: if a translation device (translation app) is needed, a translation fee is charged in addition to your insurance co-payment — 3,300 yen until November 24, 2026, and 5,500 yen from November 25, 2026.",
+                zh: "有日本健康保险的人：如果需要使用翻译机（翻译软件），除保险自付部分外，另收翻译费——2026年11月24日之前为3,300日元，2026年11月25日起为5,500日元。",
+                ko: "일본 건강보험이 있으신 분: 통역기(번역 앱)가 필요한 경우, 보험 본인 부담금과 별도로 통역료가 부과됩니다 — 2026년 11월 24일까지 3,300엔, 2026년 11월 25일부터 5,500엔." },
     jaBook:   { en: "Japanese booking page (日本語の予約ページ)", zh: "日语预约页面（日本語の予約ページ）", ko: "일본어 예약 페이지 (日本語の予約ページ)" },
     reqBtn:   { en: "📅 Choose a time and book", zh: "📅 选择时间预约", ko: "📅 시간을 골라 예약" },   // 2026-11-14 予約のボタンを分かりやすく
     howWorks: { en: "Choose an open time and fill in the form. We will send you an email — press the button in it to confirm your appointment.",
@@ -254,6 +258,7 @@
     .chk label { font-weight: normal; margin: 0; display: flex; align-items: center; gap: 4px; }
     .small { font-size: 12px; color: #556; }
     .selfonly { background: #fff6e0; border: 1px solid #f0c36b; border-radius: 12px; padding: 9px 12px; margin: 8px 0; font-size: 13px; font-weight: 700; color: #5a4210; line-height: 1.55; }
+    .selfonly .instrans { margin-top: 6px; padding-top: 6px; border-top: 1px dashed #e6c88a; font-weight: 500; font-size: 12.5px; }
     .selfonly a { display: inline-block; margin-top: 4px; color: #2b6cb0; text-decoration: underline; font-weight: 700; }
     .err { color: #c62828; font-weight: bold; margin-top: 8px; }
     .sum { background: #f6f8fb; border: 1px solid #dde4ec; border-radius: 10px; padding: 8px 10px; font-size: 13px; }
@@ -433,7 +438,7 @@
     if (s === "start") {
       // 2026-11-14 理事長「日本の健康保険を持っていない人のためのページ。完全に旅行者向け」→ 保険の質問をやめ、予約のボタン1つ
       bd.innerHTML = `<div class="msg">${esc(t("hello"))}</div>
-        <div class="selfonly">${esc(t("selfOnly"))}<br><a href="/reservation" lang="ja" target="_blank" rel="noopener">${esc(t("jaBook"))} ↗</a></div>
+        <div class="selfonly">${esc(t("selfOnly"))}<br><a href="/reservation" lang="ja" target="_blank" rel="noopener">${esc(t("jaBook"))} ↗</a><div class="instrans">${esc(t("insTrans"))}</div></div>
         <div class="row"><button class="btn main" data-a="insNo">${esc(t("reqBtn"))}</button></div>
         <div class="small">${esc(t("feeNo"))}</div>
         <div class="faqs faqone"><button class="faqb" data-a="faqs">❓ ${esc(t("faqTitle"))}</button></div>${info()}`;
