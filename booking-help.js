@@ -90,6 +90,11 @@
     sendFail: { en: "Sorry, we could not send your request. Please check your connection and press Send again in a few minutes.",
                 zh: "抱歉，申请未能发送。请检查网络，几分钟后再按“发送”。",
                 ko: "죄송합니다. 신청을 보내지 못했습니다. 인터넷 연결을 확인하고 몇 분 후 다시 보내기를 눌러 주세요." },
+    // 2026-11-22 理事長「これは実費専用のメニュー。日本の健康保険をお持ちの方は日本語のメニューから予約してもらう」
+    selfOnly: { en: "This booking is only for self-pay patients (without Japanese health insurance). If you have Japanese health insurance, please book from the Japanese booking page.",
+                zh: "此预约仅限自费患者（没有日本健康保险的人）。持有日本健康保险的人，请从日语预约页面预约。",
+                ko: "이 예약은 자비 진료(일본 건강보험이 없는 분) 전용입니다. 일본 건강보험이 있으신 분은 일본어 예약 페이지에서 예약해 주세요." },
+    jaBook:   { en: "Japanese booking page (日本語の予約ページ)", zh: "日语预约页面（日本語の予約ページ）", ko: "일본어 예약 페이지 (日本語の予約ページ)" },
     reqBtn:   { en: "📅 Choose a time and book", zh: "📅 选择时间预约", ko: "📅 시간을 골라 예약" },   // 2026-11-14 予約のボタンを分かりやすく
     howWorks: { en: "Choose an open time and fill in the form. We will send you an email — press the button in it to confirm your appointment.",
                 zh: "请选择空闲的时间并填写表格。我们会给您发邮件，按下邮件中的按钮即可确定预约。",
@@ -248,6 +253,8 @@
     .chk { display: flex; flex-wrap: wrap; gap: 4px 12px; font-weight: normal; }
     .chk label { font-weight: normal; margin: 0; display: flex; align-items: center; gap: 4px; }
     .small { font-size: 12px; color: #556; }
+    .selfonly { background: #fff6e0; border: 1px solid #f0c36b; border-radius: 12px; padding: 9px 12px; margin: 8px 0; font-size: 13px; font-weight: 700; color: #5a4210; line-height: 1.55; }
+    .selfonly a { display: inline-block; margin-top: 4px; color: #2b6cb0; text-decoration: underline; font-weight: 700; }
     .err { color: #c62828; font-weight: bold; margin-top: 8px; }
     .sum { background: #f6f8fb; border: 1px solid #dde4ec; border-radius: 10px; padding: 8px 10px; font-size: 13px; }
     .sum div { margin: 2px 0; }
@@ -426,6 +433,7 @@
     if (s === "start") {
       // 2026-11-14 理事長「日本の健康保険を持っていない人のためのページ。完全に旅行者向け」→ 保険の質問をやめ、予約のボタン1つ
       bd.innerHTML = `<div class="msg">${esc(t("hello"))}</div>
+        <div class="selfonly">${esc(t("selfOnly"))}<br><a href="/reservation" lang="ja" target="_blank" rel="noopener">${esc(t("jaBook"))} ↗</a></div>
         <div class="row"><button class="btn main" data-a="insNo">${esc(t("reqBtn"))}</button></div>
         <div class="small">${esc(t("feeNo"))}</div>
         <div class="faqs faqone"><button class="faqb" data-a="faqs">❓ ${esc(t("faqTitle"))}</button></div>${info()}`;
